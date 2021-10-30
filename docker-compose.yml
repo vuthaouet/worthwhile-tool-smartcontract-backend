@@ -1,0 +1,14 @@
+version: "3.4"
+
+services:
+  app:
+    image: web:latest
+    privileged: true
+    volumes:
+      - .:/app
+#      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "${PUBLIC_PORT}:${PORT}"
+    restart: unless-stopped
+    environment:
+      PORT: ${PORT}

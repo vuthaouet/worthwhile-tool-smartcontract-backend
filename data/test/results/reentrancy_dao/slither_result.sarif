@@ -1,0 +1,264 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in ReentrancyDAO.withdrawAll (/data/test/source_code/reentrancy_dao.sol#13-22):\n\tExternal calls:\n\t- callResult = msg.sender.call.value(oCredit)() (/data/test/source_code/reentrancy_dao.sol#18)\n\tState variables written after the call(s):\n\t- credit (/data/test/source_code/reentrancy_dao.sol#20)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "Ignore_11",
+              "fullDescription": {
+                "text": "ReentrancyDAO.withdrawAll (/data/test/source_code/reentrancy_dao.sol#13-22) should be declared external\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "external-function"
+              }
+            },
+            {
+              "id": "Ignore_17",
+              "fullDescription": {
+                "text": "Detected issues with version pragma in /data/test/source_code/reentrancy_dao.sol:\n\t- pragma solidity^0.4.19 (/data/test/source_code/reentrancy_dao.sol#7): it allows old versions\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "solc-version"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in ReentrancyDAO.withdrawAll (/data/test/source_code/reentrancy_dao.sol#13-22):\n\t-callResult = msg.sender.call.value(oCredit)() /data/test/source_code/reentrancy_dao.sol#18\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/test/source_code/reentrancy_dao.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawAll"
+                },
+                {
+                  "kind": "contract",
+                  "name": "ReentrancyDAO"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrancy_dao.sol"
+                },
+                "region": {
+                  "endLine": 22,
+                  "startLine": 13
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrancy_dao.sol"
+                },
+                "region": {
+                  "endLine": 18,
+                  "snippet": {
+                    "text": "callResult = msg.sender.call.value(oCredit)()"
+                  },
+                  "startLine": 18
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "credit"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrancy_dao.sol"
+                },
+                "region": {
+                  "endLine": 20,
+                  "snippet": {
+                    "text": "credit[msg.sender] = 0"
+                  },
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawAll"
+                },
+                {
+                  "kind": "contract",
+                  "name": "ReentrancyDAO"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrancy_dao.sol"
+                },
+                "region": {
+                  "endLine": 22,
+                  "startLine": 13
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "deposit"
+                },
+                {
+                  "kind": "contract",
+                  "name": "ReentrancyDAO"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrancy_dao.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "solc-version"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrancy_dao.sol"
+                },
+                "region": {
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "^0.4.19"
+                  },
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_17"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawAll"
+                },
+                {
+                  "kind": "contract",
+                  "name": "ReentrancyDAO"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrancy_dao.sol"
+                },
+                "region": {
+                  "endLine": 22,
+                  "startLine": 13
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrancy_dao.sol"
+                },
+                "region": {
+                  "endLine": 18,
+                  "snippet": {
+                    "text": "callResult = msg.sender.call.value(oCredit)()"
+                  },
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

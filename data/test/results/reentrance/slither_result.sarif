@@ -1,0 +1,412 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in Reentrance.withdraw (/data/test/source_code/reentrance.sol#21-29):\n\tExternal calls:\n\t- msg.sender.call.value(_amount)() (/data/test/source_code/reentrance.sol#24-26)\n\tState variables written after the call(s):\n\t- balances (/data/test/source_code/reentrance.sol#27)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "Ignore_11",
+              "fullDescription": {
+                "text": "Reentrance.donate (/data/test/source_code/reentrance.sol#13-15) should be declared external\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "external-function"
+              }
+            },
+            {
+              "id": "Ignore_17",
+              "fullDescription": {
+                "text": "Detected issues with version pragma in /data/test/source_code/reentrance.sol:\n\t- pragma solidity^0.4.18 (/data/test/source_code/reentrance.sol#7): it allows old versions\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "solc-version"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in Reentrance.withdraw (/data/test/source_code/reentrance.sol#21-29):\n\t-msg.sender.call.value(_amount)() /data/test/source_code/reentrance.sol#24-26\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            },
+            {
+              "id": "Ignore_12",
+              "fullDescription": {
+                "text": "Parameter '_to' of Reentrance.donate (/data/test/source_code/reentrance.sol#13) is not in mixedCase\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "naming-convention"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/test/source_code/reentrance.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                },
+                {
+                  "kind": "contract",
+                  "name": "Reentrance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 29,
+                  "startLine": 21
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 26,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_amount)()"
+                  },
+                  "startLine": 24
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "balances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "snippet": {
+                    "text": "balances[msg.sender] -= _amount"
+                  },
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "donate"
+                },
+                {
+                  "kind": "contract",
+                  "name": "Reentrance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 15,
+                  "startLine": 13
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "balanceOf"
+                },
+                {
+                  "kind": "contract",
+                  "name": "Reentrance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 19,
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                },
+                {
+                  "kind": "contract",
+                  "name": "Reentrance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 29,
+                  "startLine": 21
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                },
+                {
+                  "kind": "contract",
+                  "name": "Reentrance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 31,
+                  "startLine": 31
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "solc-version"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "^0.4.18"
+                  },
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_17"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                },
+                {
+                  "kind": "contract",
+                  "name": "Reentrance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 29,
+                  "startLine": 21
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 26,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_amount)()"
+                  },
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "naming-convention"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "parameter",
+                  "name": "_to"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 13,
+                  "startLine": 13
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_12"
+        },
+        {
+          "message": {
+            "text": "naming-convention"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "parameter",
+                  "name": "_who"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 17,
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_12"
+        },
+        {
+          "message": {
+            "text": "naming-convention"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "parameter",
+                  "name": "_amount"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/test/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 21,
+                  "startLine": 21
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_12"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}
