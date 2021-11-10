@@ -168,7 +168,7 @@ def parse_results(output, tool, file_name, container, cfg, logs, results_folder,
         with open(os.path.join(output_folder, file_name_sarif_output), 'w') as sarifFile:
             json.dump(sarif_outputs[file_name].printToolRun(tool=tool), sarifFile, indent=2)
 
-
+    combine_results(tool, file_name, results_folder)
 
 """
 analyse solidity files
@@ -182,6 +182,7 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
             except yaml.YAMLError as exc:
                 print(exc)
                 logs.write(exc)
+
 
         # create result folder with time
         results_folder = 'data/'+ project_name + '/results/'
@@ -227,7 +228,16 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
         else:
             cmd += ' /' + file
         container = None
+        print("cmd")
+        print(cmd)
         try:
+            container = client.containers.run(image,
+                                              cmd,
+                                              detach=True,
+                                              # cpu_quota=150000,
+                                              volumes=volume_bindings)
+            print("container")
+            print(container)
             container = client.containers.run(image,
                                               cmd,
                                               detach=True,
@@ -247,10 +257,28 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
 
             parse_results(output, tool, file_name, container, cfg, logs, results_folder, start, end, sarif_outputs,
                           file_path_in_repo, output_version)
+
         finally:
+            print("thaovt in logs")
+            print(logs)
             stop_container(container, logs)
             remove_container(container, logs)
 
     except (docker.errors.APIError) as err:
         print(err)
         logs.write(err + '\n')
+
+def combine_results(tool,file_name,results_folder):
+    # create file combine_results
+    combine_results_path = results_folder + file_name + '/combine_results.json'
+    if os.path.exists(combine_results_path):
+        with open(combine_results_path, 'r') as combine_results_file:
+            combine_result = json.load(combine_results_file)
+    else:
+        combine_result = {}
+    output_folder = os.path.join(results_folder, file_name)
+    file_name_sarif_output = tool + '_result.sarif'
+    with open(os.path.join(output_folder, file_name_sarif_output), 'r') as sarifFile:
+        sarif_data = json.load(sarifFile)
+    print("sarif_data")
+    print(sarif_data)

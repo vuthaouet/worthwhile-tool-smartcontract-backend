@@ -143,3 +143,15 @@
 #
 #
 #     return logs
+import glob
+import os
+
+# from app import app
+
+
+def result_statistics_tool(list_tool,list_file,project_name):
+    # folder_results = os.path.join(app.config['UPLOAD_FOLDER'], project_name, 'results')
+    for file in list_file:
+        if True:
+            return False
+    return True

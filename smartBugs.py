@@ -10,12 +10,12 @@ import yaml
 
 from datetime import timedelta
 from multiprocessing import Manager, Pool
+
 from src.docker_api.docker_api import analyse_files
-from src.interface.cli import create_parser, getRemoteDataset, isRemoteDataset, DATASET_CHOICES, TOOLS_CHOICES
+from src.interface.cli import TOOLS_CHOICES
 from src.output_parser.SarifHolder import SarifHolder
 from time import time, localtime, strftime
 
-# from worthwhite import worthwhite
 
 cfg_dataset_path = os.path.abspath('config/dataset/dataset.yaml')
 with open(cfg_dataset_path, 'r') as ymlfile:
@@ -31,10 +31,17 @@ pathlib.Path('results/logs/').mkdir(parents=True, exist_ok=True)
 logs = open('results/logs/SmartBugs_' + output_folder + '.log', 'w')
 
 
+
 def analyse(args):
     global logs, output_folder
-
-    (tool, file,project_name,info_wortwhile, sarif_outputs, import_path, output_version, nb_task, nb_task_done, total_execution, start_time) = args
+    (tool, file,project_name, sarif_outputs, import_path, output_version, nb_task, nb_task_done, total_execution, start_time) = args
+    info_wortwhile_path = 'data/'+ project_name + '/info_wortwhile.json'
+    if os.path.exists(info_wortwhile_path):
+        with open(info_wortwhile_path, 'r') as info_wortwhile:
+            data_info_wortwhile = json.load(info_wortwhile)
+    else:
+        data_info_wortwhile ={}
+        data_info_wortwhile['list_file_wortwhile']={}
 
     try:
         start = time()
@@ -54,17 +61,19 @@ def analyse(args):
         task_sec = nb_task_done.value / (time() - start_time)
         remaining_time = str(timedelta(seconds=round((nb_task - nb_task_done.value) / task_sec)))
 
-        print(info_wortwhile)
+        print(data_info_wortwhile)
         print("thaovt in info_wortwhile")
-        if not info_wortwhile["list_file_wortwhile"].get(file):
+        if not data_info_wortwhile["list_file_wortwhile"].get(file):
             print("true in info_wortwhile")
-            info_wortwhile["list_file_wortwhile"][file] =[]
-            info_wortwhile["list_file_wortwhile"][file].append(tool)
-        else:
+            data_info_wortwhile["list_file_wortwhile"][file] =[]
+            data_info_wortwhile["list_file_wortwhile"][file].append(tool)
+        elif tool not in data_info_wortwhile["list_file_wortwhile"][file]:
             print("flase in info_wortwhile")
             # info_wortwhile["list_file_wortwhile"].append(file)
-            info_wortwhile["list_file_wortwhile"][file].append(tool)
-        print(info_wortwhile)
+            data_info_wortwhile["list_file_wortwhile"][file].append(tool)
+        print(data_info_wortwhile)
+        with open(info_wortwhile_path, "w") as info_wortwhile_file:
+            json.dump(data_info_wortwhile, info_wortwhile_file)
         sys.stdout.write(
             '\x1b[1;37m' + 'Done [%d/%d, %s]: ' % (nb_task_done.value, nb_task, remaining_time) + '\x1b[0m')
         sys.stdout.write('\x1b[1;34m' + file + '\x1b[0m')
@@ -76,7 +85,7 @@ def analyse(args):
 
 
 
-def worthwhite(list_tool, list_file,project_name,info_wortwhile, import_path= 'FILE',  output_version='all', skip_existing=False, processes=1,aggregate_sarif=False,unique_sarif_output=False ):
+def worthwhite(list_tool, list_file,project_name, import_path= 'FILE',  output_version='all', skip_existing=False, processes=1,aggregate_sarif=False,unique_sarif_output=False ):
     global logs, output_folder
     logs.write('Arguments passed: ' + str(sys.argv) + '\n')
     files_to_analyze = []
@@ -113,6 +122,8 @@ def worthwhite(list_tool, list_file,project_name,info_wortwhile, import_path= 'F
     nb_task = len(files_to_analyze) * len(list_tool)
 
     sarif_outputs = manager.dict()
+    print("sarif_outputs")
+    print(sarif_outputs)
     tasks = []
     file_names = []
     for file in files_to_analyze:
@@ -128,7 +139,7 @@ def worthwhite(list_tool, list_file,project_name,info_wortwhile, import_path= 'F
                 if os.path.exists(folder):
                     continue
 
-            tasks.append((tool, file,project_name,info_wortwhile, sarif_outputs, import_path, output_version, nb_task, nb_task_done,
+            tasks.append((tool, file,project_name, sarif_outputs, import_path, output_version, nb_task, nb_task_done,
                           total_execution, start_time))
         file_names.append(os.path.splitext(os.path.basename(file))[0])
 
@@ -154,7 +165,6 @@ def worthwhite(list_tool, list_file,project_name,info_wortwhile, import_path= 'F
         with open(sarif_file_path, 'w') as sarif_file:
             json.dump(sarif_holder.print(), sarif_file, indent=2)
     print("trong ddos")
-    print(info_wortwhile)
     return logs
 if __name__ == '__main__':
     start_time = time()

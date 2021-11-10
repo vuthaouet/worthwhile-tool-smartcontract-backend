@@ -28,9 +28,9 @@ class Slither:
                         location.logical_locations.append(LogicalLocation(name=element["name"], kind=element["target"]))
                 if "expression" in element.keys():
                     location.physical_location.region.snippet = ArtifactContent(text=element["expression"])
-                if "contract" in element.keys():
-                    location.logical_locations.append(
-                        LogicalLocation(name=element["contract"]["name"], kind=element["contract"]["type"]))
+                # if "contract" in element.keys():
+                #     location.logical_locations.append(
+                #         LogicalLocation(name=element["contract"]["name"], kind=element["contract"]["type"]))
                 locations.append(location)
 
             result = parseResult(tool="slither", vulnerability=analysis["check"], level=level)
@@ -52,5 +52,10 @@ class Slither:
                                              text="Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses.")))
 
         run = Run(tool=tool, artifacts=[artifact], results=resultsList)
-
+        # print("thaovt ket qua run")
+        # print(run)
+        # print("thaovt ket qua resultsList")
+        # print(resultsList)
+        # print("thaovt ket qua artifact")
+        # print(artifact)
         return run
