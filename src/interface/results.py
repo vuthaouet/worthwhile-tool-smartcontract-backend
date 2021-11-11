@@ -14,5 +14,5 @@ def combine_results(tool,project_name,file_name,results_folder):
     file_name_sarif_output = tool + '_result.sarif'
     with open(os.path.join(output_folder, file_name_sarif_output), 'w') as sarifFile:
         sarif_data = json.load(sarifFile)
-    print("sarif_data")
-    print(sarif_data)
+    # print("sarif_data")
+    # print(sarif_data)

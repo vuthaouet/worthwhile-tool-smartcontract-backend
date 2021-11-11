@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import argparse
-import git
 import json
 import os
 import pathlib
@@ -61,17 +59,11 @@ def analyse(args):
         task_sec = nb_task_done.value / (time() - start_time)
         remaining_time = str(timedelta(seconds=round((nb_task - nb_task_done.value) / task_sec)))
 
-        print(data_info_wortwhile)
-        print("thaovt in info_wortwhile")
         if not data_info_wortwhile["list_file_wortwhile"].get(file):
-            print("true in info_wortwhile")
             data_info_wortwhile["list_file_wortwhile"][file] =[]
             data_info_wortwhile["list_file_wortwhile"][file].append(tool)
         elif tool not in data_info_wortwhile["list_file_wortwhile"][file]:
-            print("flase in info_wortwhile")
-            # info_wortwhile["list_file_wortwhile"].append(file)
             data_info_wortwhile["list_file_wortwhile"][file].append(tool)
-        print(data_info_wortwhile)
         with open(info_wortwhile_path, "w") as info_wortwhile_file:
             json.dump(data_info_wortwhile, info_wortwhile_file)
         sys.stdout.write(
@@ -91,10 +83,8 @@ def worthwhite(list_tool, list_file,project_name, import_path= 'FILE',  output_v
     files_to_analyze = []
 
     for file in list_file:
-        # analyse files
         if os.path.basename(file).endswith('.sol'):
             files_to_analyze.append(file)
-        # analyse dirs recursively
         elif os.path.isdir(file):
             if import_path == "FILE":
                 import_path = file
@@ -122,8 +112,6 @@ def worthwhite(list_tool, list_file,project_name, import_path= 'FILE',  output_v
     nb_task = len(files_to_analyze) * len(list_tool)
 
     sarif_outputs = manager.dict()
-    print("sarif_outputs")
-    print(sarif_outputs)
     tasks = []
     file_names = []
     for file in files_to_analyze:
