@@ -3,24 +3,17 @@
 import docker
 import json
 import os
-import re
 import sys
 import tarfile
 import yaml
 
 from solidity_parser import parser
 
-from src.output_parser.Conkas import Conkas
+from src.interface.results import combine_results
 from src.output_parser.HoneyBadger import HoneyBadger
-from src.output_parser.Maian import Maian
-from src.output_parser.Manticore import Manticore
 from src.output_parser.Mythril import Mythril
-from src.output_parser.Osiris import Osiris
 from src.output_parser.Oyente import Oyente
-from src.output_parser.Securify import Securify
 from src.output_parser.Slither import Slither
-from src.output_parser.Smartcheck import Smartcheck
-from src.output_parser.Solhint import Solhint
 
 from time import time
 
@@ -168,7 +161,7 @@ def parse_results(output, tool, file_name, container, cfg, logs, results_folder,
         with open(os.path.join(output_folder, file_name_sarif_output), 'w') as sarifFile:
             json.dump(sarif_outputs[file_name].printToolRun(tool=tool), sarifFile, indent=2)
 
-    combine_results(tool, file_name, results_folder)
+    # combine_results(tool, file_name, results_folder)
 
 """
 analyse solidity files
@@ -228,16 +221,14 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
         else:
             cmd += ' /' + file
         container = None
-        print("cmd")
-        print(cmd)
+        # print("cmd")
+        # print(cmd)
         try:
             container = client.containers.run(image,
                                               cmd,
                                               detach=True,
                                               # cpu_quota=150000,
                                               volumes=volume_bindings)
-            # print("container")
-            # print(container)
             container = client.containers.run(image,
                                               cmd,
                                               detach=True,
@@ -257,141 +248,12 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
 
             parse_results(output, tool, file_name, container, cfg, logs, results_folder, start, end, sarif_outputs,
                           file_path_in_repo, output_version)
+            combine_results(tool, file_name, results_folder)
 
         finally:
-            # print("thaovt in logs")
-            # print(logs)
             stop_container(container, logs)
             remove_container(container, logs)
 
     except (docker.errors.APIError) as err:
         print(err)
         logs.write(err + '\n')
-
-def combine_results(tool,file_name,results_folder):
-    # create file combine_results
-    combine_results_path = results_folder + file_name + '/combine_results.json'
-
-    output_folder = os.path.join(results_folder, file_name)
-    file_name_sarif_output = tool + '_result.sarif'
-    with open(os.path.join(output_folder, file_name_sarif_output), 'r') as sarifFile:
-        sarif_data = json.load(sarifFile)
-    print(sarif_data['runs'])
-    if (sarif_data['runs']):
-        if os.path.exists(combine_results_path):
-            print("đã có file")
-            with open(combine_results_path, 'r') as combine_results_file:
-                data_combine_result = json.load(combine_results_file)
-            rules = sarif_data["runs"][0]["tool"]["driver"]["rules"]
-            for rule in rules:
-                if rule not in data_combine_result["rules"]:
-                    data_combine_result["rules"].append(rule)
-            results = sarif_data["runs"][0]["results"]
-            list_line_erro = data_combine_result["listLine"]
-            print(list_line_erro)
-            print("đây là lần đầu")
-            for result in results:
-                message = result["message"]["text"]
-                ruleId = result["ruleId"]
-                level = result["level"]
-                # print("thaovt for result")
-
-                for location in result["locations"]:
-                    # print("thaovt for location")
-                    line_erro = str(location["physicalLocation"]["region"]["startLine"])
-                    snippet = location["physicalLocation"]["region"].get("snippet")
-                    list_erro_in_line = data_combine_result["analysis"].get(line_erro)
-                    if list_erro_in_line is None:
-                        data_combine_result["analysis"][line_erro] = []
-                        erro_in_line = {}
-                        erro_in_line["level"]=level
-                        erro_in_line["tool"] = [tool]
-                        if snippet is not None:
-                            erro_in_line["snippet"] = snippet
-                        for rule in rules:
-                            if rule["id"] == ruleId:
-                                erro_in_line["fullDescription"] = rule["fullDescription"]["text"]
-                                erro_in_line["name"] = rule["name"]
-                        data_combine_result["analysis"][line_erro].append(erro_in_line)
-                        data_combine_result["listLine"].append(int(line_erro))
-
-                    else :
-                        name_erro = ''
-                        for rule in rules:
-                            if rule["id"] == ruleId:
-                                name_erro = rule["name"]
-                        count = 0
-                        for erro_line in list_erro_in_line:
-                            if name_erro == erro_line["name"]:
-                                print("dong nay da co loi nay")
-                                count = count +1
-                                if tool not in erro_line["tool"]:
-                                    erro_line["tool"].append(tool)
-                        if count == 0:
-                            erro_in_line = {}
-                            erro_in_line["level"] = level
-                            erro_in_line["tool"] = [tool]
-                            for rule in rules:
-                                if rule["shortDescription"]["text"] == message:
-                                    erro_in_line["fullDescription"] = rule["fullDescription"]["text"]
-                                    erro_in_line["name"] = rule["name"]
-                            data_combine_result["analysis"][line_erro].append(erro_in_line)
-        else:
-            data_combine_result = {}
-            rules = sarif_data["runs"][0]["tool"]["driver"]["rules"]
-            data_combine_result["contract"] = file_name
-            data_combine_result["sourceLanguage"] = sarif_data["runs"][0]["artifacts"][0]["sourceLanguage"]
-            results = sarif_data["runs"][0]["results"]
-            data_combine_result["analysis"] = {}
-            data_combine_result["listLine"] = []
-            data_combine_result["rules"]=rules
-            list_line_erro = []
-            for result in results:
-                message = result["message"]["text"]
-                level = result["level"]
-                for location in result["locations"]:
-                    snippet = location["physicalLocation"]["region"].get("snippet")
-                    line_erro = location["physicalLocation"]["region"]["startLine"]
-                    list_erro_in_line = data_combine_result["analysis"].get(line_erro)
-                    print(type(data_combine_result["analysis"]))
-                    print(type(line_erro))
-                    if list_erro_in_line is None:
-                        list_line_erro.append(line_erro)
-                        data_combine_result["analysis"][line_erro] = []
-                        erro_in_line = {}
-                        erro_in_line["level"]=level
-                        erro_in_line["tool"] = [tool]
-                        if snippet is not None:
-                            erro_in_line["snippet"] = snippet
-                        for rule in rules:
-                            if rule["shortDescription"]["text"] == message:
-                                erro_in_line["fullDescription"] = rule["fullDescription"]["text"]
-                                erro_in_line["name"] = rule["name"]
-                        data_combine_result["analysis"][line_erro].append(erro_in_line)
-                        data_combine_result["listLine"].append(line_erro)
-                    else :
-                        name_erro = ''
-                        for rule in rules:
-                            if rule["shortDescription"]["text"] == message:
-                                name_erro = rule["name"]
-                        count = 0
-                        for erro_line in list_erro_in_line:
-                            if name_erro == erro_line["name"]:
-                                count = count +1
-                                if tool not in erro_line["tool"]:
-                                    erro_line["tool"].append(tool)
-                        if count == 0:
-                            print("chưa có lỗi nãy")
-                            erro_in_line = {}
-                            erro_in_line["level"] = level
-                            erro_in_line["tool"] = [tool]
-                            for rule in rules:
-                                if rule["shortDescription"]["text"] == message:
-                                    erro_in_line["fullDescription"] = rule["fullDescription"]["text"]
-                                    erro_in_line["name"] = rule["name"]
-                            data_combine_result["analysis"][line_erro].append(erro_in_line)
-                            print('tạo lần sauu')
-                            print(data_combine_result["analysis"])
-        print(data_combine_result)
-        with open(combine_results_path, 'w') as f:
-            json.dump(data_combine_result, f)
