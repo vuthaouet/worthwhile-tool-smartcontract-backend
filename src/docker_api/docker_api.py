@@ -199,7 +199,8 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
 
         # bind directory path instead of file path to allow imports in the same directory
         volume_bindings = mount_volumes(os.path.dirname(import_path), logs)
-
+        print(import_path)
+        print(volume_bindings)
         file_name = os.path.basename(file)
         file_name = os.path.splitext(file_name)[0]
         start = time()
@@ -221,19 +222,19 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
         else:
             cmd += ' /' + file
         container = None
-        # print("cmd")
-        # print(cmd)
+        print(cmd)
+        print(image)
         try:
             container = client.containers.run(image,
                                               cmd,
                                               detach=True,
                                               # cpu_quota=150000,
                                               volumes=volume_bindings)
-            container = client.containers.run(image,
-                                              cmd,
-                                              detach=True,
-                                              # cpu_quota=150000,
-                                              volumes=volume_bindings)
+            # container = client.containers.run(image,
+            #                                   cmd,
+            #                                   detach=True,
+            #                                   # cpu_quota=150000,
+            #                                   volumes=volume_bindings)
             try:
                 container.wait(timeout=(30 * 60))
             except Exception as e:
@@ -248,7 +249,7 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
 
             parse_results(output, tool, file_name, container, cfg, logs, results_folder, start, end, sarif_outputs,
                           file_path_in_repo, output_version)
-            combine_results(tool, file_name, results_folder)
+
 
         finally:
             stop_container(container, logs)

@@ -83,10 +83,6 @@
                 {
                   "kind": "function",
                   "name": "withdraw"
-                },
-                {
-                  "kind": "contract",
-                  "name": "Reentrance"
                 }
               ],
               "physicalLocation": {
@@ -148,10 +144,6 @@
                 {
                   "kind": "function",
                   "name": "donate"
-                },
-                {
-                  "kind": "contract",
-                  "name": "Reentrance"
                 }
               ],
               "physicalLocation": {
@@ -178,10 +170,6 @@
                 {
                   "kind": "function",
                   "name": "balanceOf"
-                },
-                {
-                  "kind": "contract",
-                  "name": "Reentrance"
                 }
               ],
               "physicalLocation": {
@@ -208,10 +196,6 @@
                 {
                   "kind": "function",
                   "name": "withdraw"
-                },
-                {
-                  "kind": "contract",
-                  "name": "Reentrance"
                 }
               ],
               "physicalLocation": {
@@ -238,10 +222,6 @@
                 {
                   "kind": "function",
                   "name": "fallback"
-                },
-                {
-                  "kind": "contract",
-                  "name": "Reentrance"
                 }
               ],
               "physicalLocation": {
@@ -292,10 +272,6 @@
                 {
                   "kind": "function",
                   "name": "withdraw"
-                },
-                {
-                  "kind": "contract",
-                  "name": "Reentrance"
                 }
               ],
               "physicalLocation": {

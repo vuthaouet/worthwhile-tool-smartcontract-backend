@@ -58,12 +58,21 @@ def analyse(args):
 
         task_sec = nb_task_done.value / (time() - start_time)
         remaining_time = str(timedelta(seconds=round((nb_task - nb_task_done.value) / task_sec)))
-
-        if not data_info_wortwhile["list_file_wortwhile"].get(file):
-            data_info_wortwhile["list_file_wortwhile"][file] =[]
-            data_info_wortwhile["list_file_wortwhile"][file].append(tool)
-        elif tool not in data_info_wortwhile["list_file_wortwhile"][file]:
-            data_info_wortwhile["list_file_wortwhile"][file].append(tool)
+        # if file not in data_info_wortwhile["list_file_wortwhile"]["list_tool"]:
+        #     t = 1
+        basename_file = os.path.basename(file)
+        if not data_info_wortwhile["list_file_wortwhile"].get("list_file"):
+            data_info_wortwhile["list_file_wortwhile"]["list_file"] = []
+            data_info_wortwhile["list_file_wortwhile"]["data"] ={}
+            data_info_wortwhile["list_file_wortwhile"]["data"][basename_file] =[]
+            data_info_wortwhile["list_file_wortwhile"]["list_file"].append(basename_file)
+            data_info_wortwhile["list_file_wortwhile"]["data"][basename_file].append(tool)
+        elif basename_file not in data_info_wortwhile["list_file_wortwhile"]["list_file"]:
+            data_info_wortwhile["list_file_wortwhile"]["data"][basename_file] = []
+            data_info_wortwhile["list_file_wortwhile"]["list_file"].append(basename_file)
+            data_info_wortwhile["list_file_wortwhile"]["data"][basename_file].append(tool)
+        elif tool not in data_info_wortwhile["list_file_wortwhile"]["data"][basename_file]:
+            data_info_wortwhile["list_file_wortwhile"]["data"][basename_file].append(tool)
         with open(info_wortwhile_path, "w") as info_wortwhile_file:
             json.dump(data_info_wortwhile, info_wortwhile_file)
         sys.stdout.write(

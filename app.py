@@ -1,6 +1,7 @@
 import glob
 import json
 import shutil
+import time
 
 import git
 import requests
@@ -10,12 +11,15 @@ from werkzeug.utils import secure_filename
 import os
 
 from smartBugs import worthwhite
+from src.interface.results import combine_results, final_results, add_two_leve_list
 from worthwhite import result_statistics_tool
-
+from flask_cors import CORS, cross_origin
+Default_Count_Leve_Vulnerabilities ={ "warning" : 0,"error":0,"note":0,"none":0}
 UPLOAD_FOLDER = 'data/'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','sol'}
 
 app = Flask(__name__)
+CORS(app, support_credentials=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'super secret key'
@@ -25,21 +29,26 @@ sess = Session()
 def hello():
     return render_template('index.html', title='Docker Python', name='Thaovt1111')
 
-@app.route("/wortwhile",methods=['Get'])
+@app.route('/time')
+@cross_origin(supports_credentials=True)
+def get_current_time():
+    return {'time': time.time()}
+@app.route("/wortwhile",methods=['POST'])
+@cross_origin(supports_credentials=True)
 def wortwhile_smart_contract():
+    print("thaovt")
+    print(request)
+    print(request.data)
     data_req = request.get_data()
-    data = json.loads(data_req.decode("utf-8"))
-    list_tool =data["list_tool"]
+    print(data_req)
+    data = json.loads(data_req.decode("utf-8"))["data"]
+    print(data_req)
+    list_tool = data["list_tool"]
     list_file_info = data["file_info"]
     list_file = list_file_info["list_path"]
     project_name = list_file_info["project_name"]
-    # print(list_tool)
-    # print(list_file)
     worthwhite(list_tool, list_file,project_name)
-    return "logs"
-
-
-
+    return data
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -59,13 +68,25 @@ def parse_result_file_info(file_info,filename,filepath):
     file_info["list_name"].append(filename)
     file_info["list_path"].append(filepath)
 @app.route('/wortwhile/uploadfile', methods=['GET', 'POST'])
+@cross_origin(supports_credentials=True)
 def upload_file():
+    output = {}
     file_info = {}
     file_info["list_path"] = []
     file_info["list_name"] = []
+    output["list_tool"] = []
+    list_tool = request.form['list_tool'].split(",")
+    for tool in list_tool:
+        output["list_tool"].append(tool)
+    # output["list_tool"] = request.form['list_tool']
     count = 0
-    data_req = request.get_data()
-    print(data_req)
+    # data_req = request.get_data()
+    print("thaovt data")
+    # print(data_req)
+    print("thaovt form")
+    print(request.form)
+    # print(request.json)
+    # data = request.json
     if request.method == 'POST':
         if(request.form['type'].lower() == 'file'):
             print("thaovt file")
@@ -120,18 +141,59 @@ def upload_file():
                 # shutil.copy(file,folder)
             print(folder)
         file_info["count"] = count
-    return file_info
+    output["file_info"]= file_info
+    return output
 
 @app.route('/statistics', methods=['GET', 'POST'])
+@cross_origin(supports_credentials=True)
 def result_statistics():
     data_req = request.get_data()
     data = json.loads(data_req.decode("utf-8"))
-    list_tool = data["list_tool"]
-    list_file_info = data["file_info"]
-    list_file = list_file_info["list_path"]
-    project_name = list_file_info["project_name"]
-    result_statistics_tool(list_tool,list_file,project_name)
+    project_name = data["project_name"]
+    folder_data = os.path.join(app.config['UPLOAD_FOLDER'], project_name)
+    result_statistics_tool(project_name,folder_data)
     return True
+@app.route('/combine_results', methods=['POST'])
+@cross_origin(supports_credentials=True)
+def combine_results_api():
+    data_req = request.get_data()
+    project_name = json.loads(data_req.decode("utf-8"))["data"]
+    folder_results = os.path.join(app.config['UPLOAD_FOLDER'], project_name)
+    info_wortwhile_path = os.path.join(folder_results, "info_wortwhile.json")
+    with open(info_wortwhile_path, 'r') as file:
+        info_wortwhile_data = json.load(file)
+    info_wortwhile = info_wortwhile_data.get("list_file_wortwhile")
+    print(info_wortwhile)
+    data_static = {}
+    data_static["count_risk_of_false_positives"] = 0
+    data_static["count_leve_vulnerabilities"]= Default_Count_Leve_Vulnerabilities
+    data_static["list_vulnerabilities"] = []
+    data_static["count_vulnerabilities"] = {}
+    if info_wortwhile is not None:
+        list_file = info_wortwhile["list_file"]
+        data_file_tool = info_wortwhile["data"]
+        for file in list_file:
+            results_folder = os.path.join(app.config['UPLOAD_FOLDER'], project_name,"results/")
+            tool_of_file = data_file_tool[file]
+            file_name = os.path.splitext(file)[0]
+            for tool in tool_of_file:
+                combine_results(tool, file_name, results_folder)
+            data_final_results = final_results(file_name, results_folder)
+            print(data_final_results)
+            print("thaovt")
+            print(data_static)
+            data_static["count_risk_of_false_positives"] = data_static["count_risk_of_false_positives"] + data_final_results["count_risk_of_false_positives"]
+            print(data_static["count_leve_vulnerabilities"])
+            print(data_final_results["count_leve_vulnerabilities"])
+            data_static["count_leve_vulnerabilities"] = add_two_leve_list(data_static["count_leve_vulnerabilities"], data_final_results["count_leve_vulnerabilities"] )
+            for vulnerabilities in data_final_results["list_vulnerabilities"]:
+                if vulnerabilities in data_static["list_vulnerabilities"]:
+                    data_static["count_vulnerabilities"][vulnerabilities] = data_static["count_vulnerabilities"][vulnerabilities] + data_final_results["count_vulnerabilities"][vulnerabilities]
+                else :
+                    data_static["list_vulnerabilities"].append(vulnerabilities)
+                    data_static["count_vulnerabilities"][vulnerabilities] = data_final_results["count_vulnerabilities"][vulnerabilities]
+            data_static["sourceLanguage"] = data_final_results["sourceLanguage"]
+    return data_static
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=os.environ['8888'], debug=True)

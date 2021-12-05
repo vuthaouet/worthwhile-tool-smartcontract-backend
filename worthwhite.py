@@ -144,14 +144,31 @@
 #
 #     return logs
 import glob
+import json
 import os
 
 # from app import app
 
 
-def result_statistics_tool(list_tool,list_file,project_name):
-    # folder_results = os.path.join(app.config['UPLOAD_FOLDER'], project_name, 'results')
-    for file in list_file:
-        if True:
-            return False
-    return True
+def result_statistics_tool(project_name,folder_data):
+    info_wortwhile_path = os.path.join(folder_data,"info_wortwhile.json")
+    with open(info_wortwhile_path, 'r') as file:
+        info_wortwhile_data = json.load(file)
+    info_wortwhile = info_wortwhile_data.get("list_file_wortwhile")
+    print(info_wortwhile)
+    list_tool =[]
+    list_file = []
+    if info_wortwhile is not None:
+        list_file = info_wortwhile.get("list_file")
+        list_tool = []
+        for file in list_file:
+            list_tool = info_wortwhile["data"].get(file)
+            file_name = str(file).split(".")[0]
+            combine_results_path = os.path.join(folder_data,"results/",file_name,"/combine_results.json")
+            with open(combine_results_path, 'r') as combine_results_file:
+                combine_results_data = json.load(combine_results_file)
+
+    # for file in list_file:
+    #     if True:
+    #         return False
+    # return True

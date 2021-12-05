@@ -1,9 +1,9 @@
 {
   "contract": "reentrance",
   "tool": "mythril",
-  "start": 1635619351.193182,
-  "end": 1635619359.4946394,
-  "duration": 8.301457405090332,
+  "start": 1636604119.3253806,
+  "end": 1636604128.9177961,
+  "duration": 9.592415571212769,
   "analysis": {
     "error": null,
     "issues": [

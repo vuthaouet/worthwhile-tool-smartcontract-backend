@@ -4,5 +4,6 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/M-Pro" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/data/pancake-swap-core/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/fileupload-react-flask" vcs="Git" />
   </component>
 </project>

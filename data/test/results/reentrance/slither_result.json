@@ -1,9 +1,9 @@
 {
   "contract": "reentrance",
   "tool": "slither",
-  "start": 1635619359.5957136,
-  "end": 1635619361.397598,
-  "duration": 1.801884412765503,
+  "start": 1636604115.918445,
+  "end": 1636604118.8128352,
+  "duration": 2.894390106201172,
   "analysis": [
     {
       "check": "reentrancy-eth",

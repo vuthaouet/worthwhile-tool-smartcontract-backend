@@ -1,9 +1,9 @@
 {
   "contract": "reentrance",
   "tool": "honeybadger",
-  "start": 1635619361.7449582,
-  "end": 1635619364.7384953,
-  "duration": 2.993537187576294,
+  "start": 1636604128.9988265,
+  "end": 1636604134.8727176,
+  "duration": 5.873891115188599,
   "analysis": [
     {
       "errors": [],
