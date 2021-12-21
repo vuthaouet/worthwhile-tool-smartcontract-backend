@@ -6,17 +6,16 @@ Hight_Confidence_Vulnerabilities_Of_Mythril = [
 Hight_Confidence_Vulnerabilities_Of_Slither = [
     "UncheckedLowCallsVulnerability",
     "DenialServiceVulnerability",
-    "AccessControlVulnerability"
+    "AccessControlVulnerability",
+    "IgnoreVulnerability"
 ]
 Hight_Confidence_Vulnerabilities_Of_Oyente = [
-    "ReentrancyVulnerability",
-    "ArithmeticVulnerability",
-    "AccessControlVulnerability"
+    "TimeManipulationVulnerability",
+    "ReentrancyVulnerability"
 ]
 Hight_Confidence_Vulnerabilities_Of_Honeybadger = [
     "ReentrancyVulnerability",
-    "ArithmeticVulnerability",
-    "AccessControlVulnerability"
+    "ArithmeticVulnerability"
 ]
 List_Hight_Confidence_Vulnerabilities = {
     "mythril" : Hight_Confidence_Vulnerabilities_Of_Mythril,

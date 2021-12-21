@@ -5,18 +5,18 @@ import time
 
 import git
 import requests
-from flask import Flask, render_template, flash, request, redirect, url_for, jsonify
+from flask import Flask, render_template, flash, request, redirect, url_for, jsonify, Response, send_file
 from requests import Session
 from werkzeug.utils import secure_filename
 import os
 
-from smartBugs import worthwhite
+from analyse import worthwhite
 from src.interface.results import combine_results, final_results, add_two_leve_list
 from worthwhite import result_statistics_tool
 from flask_cors import CORS, cross_origin
 Default_Count_Leve_Vulnerabilities ={ "warning" : 0,"error":0,"note":0,"none":0}
 UPLOAD_FOLDER = 'data/'
-ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif','sol'}
+ALLOWED_EXTENSIONS = {'sol'}
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
@@ -166,9 +166,11 @@ def combine_results_api():
     print(info_wortwhile)
     data_static = {}
     data_static["count_risk_of_false_positives"] = 0
-    data_static["count_leve_vulnerabilities"]= Default_Count_Leve_Vulnerabilities
+    data_static["count_leve_vulnerabilities"]= { "warning" : 0,"error":0,"note":0,"none":0}
     data_static["list_vulnerabilities"] = []
     data_static["count_vulnerabilities"] = {}
+    data_static["list_contract"] =[]
+    data_static["project_name"] = project_name
     if info_wortwhile is not None:
         list_file = info_wortwhile["list_file"]
         data_file_tool = info_wortwhile["data"]
@@ -178,7 +180,7 @@ def combine_results_api():
             file_name = os.path.splitext(file)[0]
             for tool in tool_of_file:
                 combine_results(tool, file_name, results_folder)
-            data_final_results = final_results(file_name, results_folder)
+            data_final_results = final_results(file_name, results_folder,project_name)
             print(data_final_results)
             print("thaovt")
             print(data_static)
@@ -193,7 +195,27 @@ def combine_results_api():
                     data_static["list_vulnerabilities"].append(vulnerabilities)
                     data_static["count_vulnerabilities"][vulnerabilities] = data_final_results["count_vulnerabilities"][vulnerabilities]
             data_static["sourceLanguage"] = data_final_results["sourceLanguage"]
+            data_static["list_contract"].append(file)
+
     return data_static
+@app.route('/dowloadFile', methods=['POST','GET'])
+@cross_origin(supports_credentials=True)
+def sendFile():
+    # data_req = request.get_data()
+    # project_name = json.loads(data_req.decode("utf-8"))["data"]
+    project_name = "thaovttest1"
+    folder_results = os.path.join(app.config['UPLOAD_FOLDER'], project_name)
+    final_results_path = folder_results + '/synthesis_results.json'
+    # with open(final_results_path, 'r') as final_results_file:
+    #     final_results_result = json.load(final_results_file)
+    # print(final_results_result)
+    # return Response(final_results_result,
+    #         mimetype='application/json',
+    #         headers={'Content-disposition': 'attachment; filename=synthesis_results.json'})
+    return send_file(final_results_path,
+                     mimetype='text/json',
+                     attachment_filename='synthesis_results.json',
+                     as_attachment=True)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=os.environ['8888'], debug=True)

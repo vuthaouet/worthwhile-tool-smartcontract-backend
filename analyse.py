@@ -10,23 +10,22 @@ from datetime import timedelta
 from multiprocessing import Manager, Pool
 
 from src.docker_api.docker_api import analyse_files
-from src.interface.cli import TOOLS_CHOICES
 from src.output_parser.SarifHolder import SarifHolder
 from time import time, localtime, strftime
 
 
 cfg_dataset_path = os.path.abspath('config/dataset/dataset.yaml')
-with open(cfg_dataset_path, 'r') as ymlfile:
-    try:
-        cfg_dataset = yaml.safe_load(ymlfile)
-        # print('cfg_dataset')
-        # print(cfg_dataset)
-    except yaml.YAMLError as exc:
-        print(exc)
+# with open(cfg_dataset_path, 'r') as ymlfile:
+#     try:
+#         cfg_dataset = yaml.safe_load(ymlfile)
+#         # print('cfg_dataset')
+#         # print(cfg_dataset)
+#     except yaml.YAMLError as exc:
+#         print(exc)
 
 output_folder = strftime("%Y%d%m", localtime())
 pathlib.Path('results/logs/').mkdir(parents=True, exist_ok=True)
-logs = open('results/logs/SmartBugs_' + output_folder + '.log', 'w')
+logs = open('results/logs/Analyse_' + output_folder + '.log', 'w')
 
 
 
@@ -108,9 +107,6 @@ def worthwhite(list_tool, list_file,project_name, import_path= 'FILE',  output_v
         else:
             print('%s is not a directory or a solidity file' % file)
 
-    if list_tool== ['all']:
-        TOOLS_CHOICES.remove('all')
-        list_tool = TOOLS_CHOICES
 
     # Setting up analysis variables
     start_time = time()

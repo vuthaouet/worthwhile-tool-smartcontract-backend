@@ -1,4 +1,4 @@
-# Manticore Docker Image for the SmartBugs project
+# Manticore Docker Image 
 
 This Docker file is based on Trail of Bit's image: https://hub.docker.com/r/trailofbits/manticore
 

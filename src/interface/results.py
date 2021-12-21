@@ -39,7 +39,8 @@ def combine_results(tool,file_name,results_folder):
                             erro_in_line["snippet"] = snippet
                         for rule in rules:
                             if rule["id"] == ruleId:
-                                erro_in_line["fullDescription"] = rule["fullDescription"]["text"]
+                                if rule.get("fullDescription") is not None:
+                                    erro_in_line["fullDescription"] = rule["fullDescription"]["text"]
                                 print(rule)
                                 erro_in_line["name"] = rule["name"]
                         data_combine_result["analysis"][line_erro].append(erro_in_line)
@@ -64,7 +65,8 @@ def combine_results(tool,file_name,results_folder):
                             for rule in rules:
                                 if rule["id"] == ruleId:
                                     print(rule)
-                                    erro_in_line["fullDescription"] = rule["fullDescription"]["text"]
+                                    if rule.get("fullDescription") is not None:
+                                        erro_in_line["fullDescription"] = rule["fullDescription"]["text"]
                                     erro_in_line["name"] = rule["name"]
                             data_combine_result["analysis"][line_erro].append(erro_in_line)
         else:
@@ -125,7 +127,7 @@ def combine_results(tool,file_name,results_folder):
         with open(combine_results_path, 'w') as f:
             json.dump(data_combine_result, f)
 
-def final_results(file_name,results_folder):
+def final_results(file_name,results_folder,project_name):
     combine_results_path = results_folder + file_name + '/combine_results.json'
     final_results_path = results_folder + file_name + '/final_results.json'
     with open(combine_results_path, 'r') as combine_results_file:
@@ -135,7 +137,7 @@ def final_results(file_name,results_folder):
     data_final_results["sourceLanguage"] = data_combine_result["sourceLanguage"]
     list_vulnerabilities = []
     count_vulnerabilities = {}
-    count_leve_vulnerabilities = Default_Count_Leve_Vulnerabilities
+    count_leve_vulnerabilities = { "warning" : 0,"error":0,"note":0,"none":0}
     num_risk = 0
     list_line = data_combine_result["listLine"]
     for line in list_line:
@@ -184,8 +186,16 @@ def final_results(file_name,results_folder):
     data_final_results["count_leve_vulnerabilities"] = count_leve_vulnerabilities
     with open(final_results_path, 'w') as f:
         json.dump(data_final_results, f)
-
-    print(Default_Count_Leve_Vulnerabilities)
+    synthesis_results_path = 'data/' + project_name + '/synthesis_results.json'
+    if os.path.exists(synthesis_results_path):
+        with open(synthesis_results_path, 'r') as synthesis_results_file:
+            data_synthesis_results = json.load(synthesis_results_file)
+    else:
+        data_synthesis_results = {}
+    data_synthesis_results[file_name] = data_final_results
+    with open(synthesis_results_path, 'w') as f:
+        json.dump(data_synthesis_results, f)
+    # print(Default_Count_Leve_Vulnerabilities)
     return data_final_results
 
 def add_two_leve_list(list1, list2):

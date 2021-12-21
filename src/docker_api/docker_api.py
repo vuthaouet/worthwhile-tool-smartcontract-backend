@@ -228,13 +228,7 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
             container = client.containers.run(image,
                                               cmd,
                                               detach=True,
-                                              # cpu_quota=150000,
                                               volumes=volume_bindings)
-            # container = client.containers.run(image,
-            #                                   cmd,
-            #                                   detach=True,
-            #                                   # cpu_quota=150000,
-            #                                   volumes=volume_bindings)
             try:
                 container.wait(timeout=(30 * 60))
             except Exception as e:
