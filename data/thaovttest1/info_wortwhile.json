@@ -1,0 +1,1 @@
+{"list_file_wortwhile": {"list_file": ["integer_overflow_mul.sol", "integer_overflow_minimal.sol"], "data": {"integer_overflow_mul.sol": ["mythril", "honeybadger", "slither"], "integer_overflow_minimal.sol": ["mythril", "honeybadger", "slither"]}}}
