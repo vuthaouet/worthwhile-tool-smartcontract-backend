@@ -1,9 +1,9 @@
 {
   "contract": "integer_overflow_minimal",
   "tool": "slither",
-  "start": 1638846008.4676929,
-  "end": 1638846011.067918,
-  "duration": 2.6002252101898193,
+  "start": 1640193504.4876237,
+  "end": 1640193506.0534449,
+  "duration": 1.5658211708068848,
   "analysis": [
     {
       "check": "external-function",

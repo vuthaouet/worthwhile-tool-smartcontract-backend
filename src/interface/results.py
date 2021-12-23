@@ -139,6 +139,7 @@ def final_results(file_name,results_folder,project_name):
     count_vulnerabilities = {}
     count_leve_vulnerabilities = { "warning" : 0,"error":0,"note":0,"none":0}
     num_risk = 0
+    num_fp= 0
     list_line = data_combine_result["listLine"]
     for line in list_line:
         line = str(line)
@@ -146,8 +147,11 @@ def final_results(file_name,results_folder,project_name):
         count_vulnerabilities_in_line = len(list_vulnerabilities_in_line)
         for vulnerabilitie_in_line in list_vulnerabilities_in_line:
             if "honeybadger" in vulnerabilitie_in_line["tool"]:
+                num_fp = num_fp +1
+                print(line)
+                print(file_name)
                 if count_vulnerabilities_in_line == 1:
-                    list_line.remove(line)
+                    list_line.remove(int(line))
                 list_vulnerabilities_in_line.remove(vulnerabilitie_in_line)
             elif len(vulnerabilitie_in_line["tool"]) > 1:
                 count_leve_vulnerabilities[vulnerabilitie_in_line["level"]] = count_leve_vulnerabilities[
@@ -184,6 +188,7 @@ def final_results(file_name,results_folder,project_name):
     data_final_results["analysis"] = data_combine_result["analysis"]
     data_final_results["count_vulnerabilities"] = count_vulnerabilities
     data_final_results["count_leve_vulnerabilities"] = count_leve_vulnerabilities
+    data_final_results["false_positives"] = num_fp
     with open(final_results_path, 'w') as f:
         json.dump(data_final_results, f)
     synthesis_results_path = 'data/' + project_name + '/synthesis_results.json'

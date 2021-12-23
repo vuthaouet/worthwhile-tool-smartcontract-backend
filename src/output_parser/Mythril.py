@@ -1,7 +1,7 @@
 from sarif_om import *
 
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseLogicalLocation, parseRule, \
-    parseResult, parseArtifact, isNotDuplicateLogicalLocation
+    parseResult, parseArtifact, isNotDuplicateLogicalLocation, findVulnerabilityOnTable
 
 
 class Mythril:
@@ -12,21 +12,23 @@ class Mythril:
         rulesList = []
 
         for issue in mythril_output_results["analysis"]["issues"]:
-            rule = parseRule(tool="mythril", vulnerability=issue["title"], full_description=issue["description"])
-            result = parseResult(tool="mythril", vulnerability=issue["title"], level=issue["type"],
-                                 uri=file_path_in_repo,
-                                 line=issue["lineno"], snippet=issue["code"] if "code" in issue.keys() else None,
-                                 logicalLocation=parseLogicalLocation(issue["function"],
-                                                                      kind="function"))
+            if findVulnerabilityOnTable(tool="mythril", vulnerability_found = issue["title"]) is not None:
+                rule = parseRule(tool="mythril", vulnerability=issue["title"], full_description=issue["description"])
+                result = parseResult(tool="mythril", vulnerability=issue["title"], level=issue["type"],
+                                     uri=file_path_in_repo,
+                                     line=issue["lineno"], snippet=issue["code"] if "code" in issue.keys() else None,
+                                     logicalLocation=parseLogicalLocation(issue["function"],
+                                                                          kind="function"))
 
-            logicalLocation = parseLogicalLocation(name=issue["function"], kind="function")
+                logicalLocation = parseLogicalLocation(name=issue["function"], kind="function")
 
-            if isNotDuplicateLogicalLocation(logicalLocation, logicalLocationsList):
-                logicalLocationsList.append(logicalLocation)
-            resultsList.append(result)
+                if isNotDuplicateLogicalLocation(logicalLocation, logicalLocationsList):
+                    logicalLocationsList.append(logicalLocation)
+                resultsList.append(result)
 
-            if isNotDuplicateRule(rule, rulesList):
-                rulesList.append(rule)
+                if isNotDuplicateRule(rule, rulesList):
+                    rulesList.append(rule)
+
 
         artifact = parseArtifact(uri=file_path_in_repo)
 

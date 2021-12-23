@@ -2,7 +2,7 @@ from sarif_om import *
 
 from src.output_parser.Parser import Parser
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseRule, parseResult, \
-    parseArtifact, parseLogicalLocation, isNotDuplicateLogicalLocation
+    parseArtifact, parseLogicalLocation, isNotDuplicateLogicalLocation, findVulnerabilityOnTable
 
 
 class Oyente(Parser):
@@ -56,17 +56,20 @@ class Oyente(Parser):
         resultsList = []
         logicalLocationsList = []
         rulesList = []
+        print("thaovt output oyente")
+        print(oyente_output_results["analysis"])
 
         for analysis in oyente_output_results["analysis"]:
             for result in analysis["errors"]:
-                rule = parseRule(tool="oyente", vulnerability=result["message"])
-                result = parseResult(tool="oyente", vulnerability=result["message"], level=result["level"],
-                                     uri=file_path_in_repo, line=result["line"], column=result["column"])
+                if findVulnerabilityOnTable("oyente", result["message"]) is not None:
+                    rule = parseRule(tool="oyente", vulnerability=result["message"])
+                    result = parseResult(tool="oyente", vulnerability=result["message"], level=result["level"],
+                                         uri=file_path_in_repo, line=result["line"], column=result["column"])
 
-                resultsList.append(result)
+                    resultsList.append(result)
 
-                if isNotDuplicateRule(rule, rulesList):
-                    rulesList.append(rule)
+                    if isNotDuplicateRule(rule, rulesList):
+                        rulesList.append(rule)
 
             logicalLocation = parseLogicalLocation(name=analysis["name"])
 

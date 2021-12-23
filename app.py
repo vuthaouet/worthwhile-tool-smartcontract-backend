@@ -158,12 +158,7 @@ def result_statistics():
 def combine_results_api():
     data_req = request.get_data()
     project_name = json.loads(data_req.decode("utf-8"))["data"]
-    folder_results = os.path.join(app.config['UPLOAD_FOLDER'], project_name)
-    info_wortwhile_path = os.path.join(folder_results, "info_wortwhile.json")
-    with open(info_wortwhile_path, 'r') as file:
-        info_wortwhile_data = json.load(file)
-    info_wortwhile = info_wortwhile_data.get("list_file_wortwhile")
-    print(info_wortwhile)
+    # print(info_wortwhile)
     data_static = {}
     data_static["count_risk_of_false_positives"] = 0
     data_static["count_leve_vulnerabilities"]= { "warning" : 0,"error":0,"note":0,"none":0}
@@ -171,6 +166,11 @@ def combine_results_api():
     data_static["count_vulnerabilities"] = {}
     data_static["list_contract"] =[]
     data_static["project_name"] = project_name
+    folder_results = os.path.join(app.config['UPLOAD_FOLDER'], project_name)
+    info_wortwhile_path = os.path.join(folder_results, "info_wortwhile.json")
+    with open(info_wortwhile_path, 'r') as file:
+        info_wortwhile_data = json.load(file)
+    info_wortwhile = info_wortwhile_data.get("list_file_wortwhile")
     if info_wortwhile is not None:
         list_file = info_wortwhile["list_file"]
         data_file_tool = info_wortwhile["data"]

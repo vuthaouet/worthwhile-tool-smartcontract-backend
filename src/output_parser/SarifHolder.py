@@ -85,6 +85,7 @@ class SarifHolder:
 
 
 def parseRule(tool, vulnerability, full_description=None):
+    print("vào parseRule")
     vuln_info = findVulnerabilityOnTable(tool, vulnerability)
 
     if full_description is None:
@@ -102,6 +103,7 @@ def parseRule(tool, vulnerability, full_description=None):
 
 def parseResult(tool, vulnerability, level="warning", uri=None, line=None, end_line=None, column=None, snippet=None,
                 logicalLocation=None):
+    print("vào parseResult")
     vuln_info = findVulnerabilityOnTable(tool, vulnerability)
 
     level = parseLevel(level)
@@ -134,7 +136,9 @@ def parseLogicalLocation(name, kind="contract"):
 # returns the row from the table for a given vulnerability and tool
 def findVulnerabilityOnTable(tool, vulnerability_found):
     table = pandas.read_csv("src/output_parser/sarif_vulnerability_mapping.csv")
-
+    print("findVulnerabilityOnTable")
+    print(tool)
+    print(vulnerability_found)
     tool_table = table.loc[table["Tool"] == tool]
 
     # Due to messages that have extra information (for example the line where the vulnerability was found) this loop
@@ -142,7 +146,7 @@ def findVulnerabilityOnTable(tool, vulnerability_found):
     for index, row in tool_table.iterrows():
         if row["Vulnerability"] in vulnerability_found or vulnerability_found in row["Vulnerability"]:
             return row
-    raise VulnerabilityNotFoundException(tool=tool, vulnerability=vulnerability_found)
+    # raise VulnerabilityNotFoundException(tool=tool, vulnerability=vulnerability_found)
 
 
 # given a level produced by a tool, returns the level in SARIF format

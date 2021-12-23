@@ -136,6 +136,8 @@ def worthwhite(list_tool, list_file,project_name, import_path= 'FILE',  output_v
                           total_execution, start_time))
         file_names.append(os.path.splitext(os.path.basename(file))[0])
 
+    print("thaovt file_names")
+    print(file_names)
     # initialize all sarif outputs
     for file_name in file_names:
         sarif_outputs[file_name] = SarifHolder()
@@ -145,7 +147,7 @@ def worthwhite(list_tool, list_file,project_name, import_path= 'FILE',  output_v
 
     if aggregate_sarif:
         for file_name in file_names:
-            sarif_file_path = '/'+ project_name + '/results/' + '/' + file_name + '.sarif'
+            sarif_file_path = 'data/'+ project_name + '/results/'  + file_name + '.sarif'
             with open(sarif_file_path, 'w') as sarif_file:
                 json.dump(sarif_outputs[file_name].print(), sarif_file, indent=2)
 

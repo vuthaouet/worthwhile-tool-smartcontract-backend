@@ -2,7 +2,7 @@ from sarif_om import *
 
 from src.output_parser.Parser import Parser
 from src.output_parser.SarifHolder import isNotDuplicateRule, parseRule, parseResult, \
-    parseArtifact, parseLogicalLocation, isNotDuplicateLogicalLocation
+    parseArtifact, parseLogicalLocation, isNotDuplicateLogicalLocation, findVulnerabilityOnTable
 
 
 class HoneyBadger(Parser):
@@ -58,14 +58,15 @@ class HoneyBadger(Parser):
 
         for analysis in honeybadger_output_results["analysis"]:
             for result in analysis["errors"]:
-                rule = parseRule(tool="honeybadger", vulnerability=result["message"])
-                result = parseResult(tool="honeybadger", vulnerability=result["message"], level="warning",
-                                     uri=file_path_in_repo, line=result["line"], column=result["column"])
+                if findVulnerabilityOnTable("honeybadger", result["message"]) is not None:
+                    rule = parseRule(tool="honeybadger", vulnerability=result["message"])
+                    result = parseResult(tool="honeybadger", vulnerability=result["message"], level="warning",
+                                         uri=file_path_in_repo, line=result["line"], column=result["column"])
 
-                resultsList.append(result)
+                    resultsList.append(result)
 
-                if isNotDuplicateRule(rule, rulesList):
-                    rulesList.append(rule)
+                    if isNotDuplicateRule(rule, rulesList):
+                        rulesList.append(rule)
 
             logicalLocation = parseLogicalLocation(analysis["name"])
 

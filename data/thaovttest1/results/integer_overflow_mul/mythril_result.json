@@ -1,9 +1,9 @@
 {
   "contract": "integer_overflow_mul",
   "tool": "mythril",
-  "start": 1638845979.0269492,
-  "end": 1638845993.5208547,
-  "duration": 14.493905544281006,
+  "start": 1640191049.2931385,
+  "end": 1640191061.3142853,
+  "duration": 12.021146774291992,
   "analysis": {
     "error": null,
     "issues": [

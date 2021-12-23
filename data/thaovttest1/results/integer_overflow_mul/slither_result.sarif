@@ -8,28 +8,7 @@
             "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
           },
           "informationUri": "https://github.com/crytic/slither",
-          "rules": [
-            {
-              "id": "Ignore_11",
-              "fullDescription": {
-                "text": "IntegerOverflowMul.run (/data/thaovttest1/source_code/integer_overflow_mul.sol#15-18) should be declared external\n"
-              },
-              "name": "IgnoreVulnerability",
-              "shortDescription": {
-                "text": "external-function"
-              }
-            },
-            {
-              "id": "Ignore_17",
-              "fullDescription": {
-                "text": "Detected issues with version pragma in /data/thaovttest1/source_code/integer_overflow_mul.sol:\n\t- pragma solidity^0.4.19 (/data/thaovttest1/source_code/integer_overflow_mul.sol#10): it allows old versions\n"
-              },
-              "name": "IgnoreVulnerability",
-              "shortDescription": {
-                "text": "solc-version"
-              }
-            }
-          ],
+          "rules": [],
           "version": "0.7.0"
         }
       },
@@ -41,58 +20,7 @@
           "sourceLanguage": "Solidity"
         }
       ],
-      "results": [
-        {
-          "message": {
-            "text": "external-function"
-          },
-          "level": "note",
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "kind": "function",
-                  "name": "run"
-                }
-              ],
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "data/thaovttest1/source_code/integer_overflow_mul.sol"
-                },
-                "region": {
-                  "endLine": 18,
-                  "startLine": 15
-                }
-              }
-            }
-          ],
-          "ruleId": "Ignore_11"
-        },
-        {
-          "message": {
-            "text": "solc-version"
-          },
-          "level": "note",
-          "locations": [
-            {
-              "logicalLocations": [],
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "data/thaovttest1/source_code/integer_overflow_mul.sol"
-                },
-                "region": {
-                  "endLine": 10,
-                  "snippet": {
-                    "text": "^0.4.19"
-                  },
-                  "startLine": 10
-                }
-              }
-            }
-          ],
-          "ruleId": "Ignore_17"
-        }
-      ]
+      "results": []
     }
   ],
   "version": "2.1.0",

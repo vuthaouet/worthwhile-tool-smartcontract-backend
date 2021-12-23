@@ -95,7 +95,8 @@ write output
 def parse_results(output, tool, file_name, container, cfg, logs, results_folder, start, end, sarif_outputs,
                   file_path_in_repo, output_version):
     output_folder = os.path.join(results_folder, file_name)
-
+    print("parse_results")
+    print(sarif_outputs)
     results = {
         'contract': file_name,
         'tool': tool,
@@ -109,6 +110,7 @@ def parse_results(output, tool, file_name, container, cfg, logs, results_folder,
     file_name_json_output = tool + '_result.log'
     with open(os.path.join(output_folder, file_name_json_output), 'w', encoding='utf-8') as f:
         f.write(output)
+    print("cfg")
     print(cfg)
     if 'output_in_files' in cfg:
         try:
@@ -134,6 +136,7 @@ def parse_results(output, tool, file_name, container, cfg, logs, results_folder,
             results['analysis'] = HoneyBadger().parse(output)
             sarif_holder.addRun(HoneyBadger().parseSarif(results, file_path_in_repo))
         elif tool == 'mythril':
+            print(output)
             results['analysis'] = json.loads(output)
             sarif_holder.addRun(Mythril().parseSarif(results, file_path_in_repo))
         elif tool == 'slither':
@@ -240,7 +243,8 @@ def analyse_files(tool, file, logs, project_name, sarif_outputs, output_version,
                 logs.write('ERROR: Solc experienced a fatal error. Check the results file for more info\n')
 
             end = time()
-
+            print("file_path_in_repo")
+            print(file_path_in_repo)
             parse_results(output, tool, file_name, container, cfg, logs, results_folder, start, end, sarif_outputs,
                           file_path_in_repo, output_version)
 

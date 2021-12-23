@@ -1,6 +1,7 @@
 from sarif_om import *
 
-from src.output_parser.SarifHolder import isNotDuplicateRule, parseRule, parseArtifact, parseResult
+from src.output_parser.SarifHolder import isNotDuplicateRule, parseRule, parseArtifact, parseResult, \
+    findVulnerabilityOnTable
 
 
 class Slither:
@@ -10,39 +11,42 @@ class Slither:
         resultsList = []
 
         for analysis in slither_output_results["analysis"]:
+            if findVulnerabilityOnTable("slither", analysis["check"]) is not None:
+                level = analysis["impact"]
+                message = analysis["description"]
+                locations = []
+                print(file_path_in_repo)
+                print(analysis["check"])
+                print(findVulnerabilityOnTable("slither", analysis["check"]))
+                for element in analysis["elements"]:
+                    print(element["source_mapping"]["lines"])
+                    location = Location(physical_location=PhysicalLocation(
+                        artifact_location=ArtifactLocation(uri=file_path_in_repo),
+                        region=Region(start_line=element["source_mapping"]["lines"][0],
+                                      end_line=element["source_mapping"]["lines"][-1])), logical_locations=[])
 
-            level = analysis["impact"]
-            message = analysis["description"]
-            locations = []
+                    if "name" in element.keys():
+                        if "type" in element.keys():
+                            location.logical_locations.append(LogicalLocation(name=element["name"], kind=element["type"]))
+                        if "target" in element.keys():
+                            location.logical_locations.append(LogicalLocation(name=element["name"], kind=element["target"]))
+                    if "expression" in element.keys():
+                        location.physical_location.region.snippet = ArtifactContent(text=element["expression"])
+                    # if "contract" in element.keys():
+                    #     location.logical_locations.append(
+                    #         LogicalLocation(name=element["contract"]["name"], kind=element["contract"]["type"]))
+                    locations.append(location)
 
-            for element in analysis["elements"]:
-                location = Location(physical_location=PhysicalLocation(
-                    artifact_location=ArtifactLocation(uri=file_path_in_repo),
-                    region=Region(start_line=element["source_mapping"]["lines"][0],
-                                  end_line=element["source_mapping"]["lines"][-1])), logical_locations=[])
+                result = parseResult(tool="slither", vulnerability=analysis["check"], level=level)
 
-                if "name" in element.keys():
-                    if "type" in element.keys():
-                        location.logical_locations.append(LogicalLocation(name=element["name"], kind=element["type"]))
-                    if "target" in element.keys():
-                        location.logical_locations.append(LogicalLocation(name=element["name"], kind=element["target"]))
-                if "expression" in element.keys():
-                    location.physical_location.region.snippet = ArtifactContent(text=element["expression"])
-                # if "contract" in element.keys():
-                #     location.logical_locations.append(
-                #         LogicalLocation(name=element["contract"]["name"], kind=element["contract"]["type"]))
-                locations.append(location)
+                result.locations = locations
 
-            result = parseResult(tool="slither", vulnerability=analysis["check"], level=level)
+                rule = parseRule(tool="slither", vulnerability=analysis["check"], full_description=message)
 
-            result.locations = locations
+                if isNotDuplicateRule(rule, rulesList):
+                    rulesList.append(rule)
 
-            rule = parseRule(tool="slither", vulnerability=analysis["check"], full_description=message)
-
-            if isNotDuplicateRule(rule, rulesList):
-                rulesList.append(rule)
-
-            resultsList.append(result)
+                resultsList.append(result)
 
         artifact = parseArtifact(uri=file_path_in_repo)
 
