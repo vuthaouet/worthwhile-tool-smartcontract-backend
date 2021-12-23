@@ -1,0 +1,65 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol:
+/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol:28:24: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(intitalized)throw;
+                       ^---^
+/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol:35:24: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(intitalized)throw;
+                       ^---^
+/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol:49:9: Warning: Use of the "var" keyword is deprecated.
+        var acc = Acc[msg.sender];
+        ^-----^
+/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol:59:9: Warning: Use of the "var" keyword is deprecated.
+        var acc = Acc[msg.sender];
+        ^-----^
+
+INFO:Detectors:[91m
+Reentrancy in PENNY_BY_PENNY.Collect (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#58-76):
+	External calls:
+	- msg.sender.call.value(_am)() (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#65-74)
+	State variables written after the call(s):
+	- Acc (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#66-67)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities[0m
+INFO:Detectors:[92m
+Deprecated standard detected @ /data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#29-30:
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#36-37:
+	- Usage of "throw" should be replaced with "revert()"
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#deprecated-standards[0m
+INFO:Detectors:[92m
+PENNY_BY_PENNY.SetMinSum (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#25-32) should be declared external
+PENNY_BY_PENNY.SetLogFile (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#32-40) should be declared external
+PENNY_BY_PENNY.Initialized (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#41-46) should be declared external
+PENNY_BY_PENNY.Collect (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#58-76) should be declared external
+PENNY_BY_PENNY.fallback (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#78-85) should be declared external
+LogFile.AddMessage (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#98-104) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Detected issues with version pragma in /data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol:
+	- pragma solidity^0.4.19 (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#7-9): it allows old versions
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-version-of-solidity[0m
+INFO:Detectors:[92m
+Low level call in PENNY_BY_PENNY.Collect (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#58-76):
+	-msg.sender.call.value(_am)() /data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#65-74
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Contract 'PENNY_BY_PENNY' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#9-86) is not in CapWords
+Function 'PENNY_BY_PENNY.SetMinSum' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#25-32) is not in mixedCase
+Parameter '_val' of PENNY_BY_PENNY.SetMinSum (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#27-28) is not in mixedCase
+Function 'PENNY_BY_PENNY.SetLogFile' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#32-40) is not in mixedCase
+Parameter '_log' of PENNY_BY_PENNY.SetLogFile (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#35) is not in mixedCase
+Function 'PENNY_BY_PENNY.Initialized' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#41-46) is not in mixedCase
+Function 'PENNY_BY_PENNY.Put' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#47-57) is not in mixedCase
+Parameter '_lockTime' of PENNY_BY_PENNY.Put (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#48-49) is not in mixedCase
+Function 'PENNY_BY_PENNY.Collect' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#58-76) is not in mixedCase
+Parameter '_am' of PENNY_BY_PENNY.Collect (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#59) is not in mixedCase
+Variable 'PENNY_BY_PENNY.Acc' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#17-19) is not in mixedCase
+Variable 'PENNY_BY_PENNY.MinSum' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#19-21) is not in mixedCase
+Variable 'PENNY_BY_PENNY.Log' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#23) is not in mixedCase
+Function 'LogFile.AddMessage' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#98-104) is not in mixedCase
+Parameter '_adr' of LogFile.AddMessage (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#99) is not in mixedCase
+Parameter '_val' of LogFile.AddMessage (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#99-100) is not in mixedCase
+Parameter '_data' of LogFile.AddMessage (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#100) is not in mixedCase
+Variable 'LogFile.History' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#95) is not in mixedCase
+Variable 'LogFile.LastMsg' (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#96-98) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol analyzed (2 contracts), 30 result(s) found

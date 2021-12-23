@@ -1,0 +1,14 @@
+{
+  "contract": "0xa1fceeff3acc57d257b917e30c4df661401d6431",
+  "tool": "honeybadger",
+  "start": 1640180365.3718257,
+  "end": 1640180374.1870337,
+  "duration": 8.815207958221436,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0xa1fceeff3acc57d257b917e30c4df661401d6431.sol",
+      "name": "AirDropContract"
+    }
+  ]
+}

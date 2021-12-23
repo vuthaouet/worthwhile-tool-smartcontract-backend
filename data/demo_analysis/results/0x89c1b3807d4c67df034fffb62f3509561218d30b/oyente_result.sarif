@@ -1,0 +1,274 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Oyente",
+          "fullDescription": {
+            "text": "Oyente runs on symbolic execution, determines which inputs cause which program branches to execute, to find potential security vulnerabilities. Oyente works directly with EVM bytecode without access high level representation and does not provide soundness nor completeness."
+          },
+          "informationUri": "https://oyente.tech/",
+          "rules": [
+            {
+              "id": "Arithmetic_12",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Underflow."
+              }
+            },
+            {
+              "id": "Arithmetic_11",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow."
+              }
+            },
+            {
+              "id": "DenialService_2",
+              "name": "DenialServiceVulnerability",
+              "shortDescription": {
+                "text": "Callstack Depth Attack Vulnerability."
+              }
+            },
+            {
+              "id": "Reentrancy_6",
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Re-Entrancy Vulnerability."
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "contract",
+          "name": "TownCrier"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 29,
+                  "startLine": 184
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 169
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 26,
+                  "startLine": 65
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 164
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 27,
+                  "startLine": 186
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 100
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 162
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 180
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 192
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Re-Entrancy Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 18,
+                  "startLine": 94
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_6"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

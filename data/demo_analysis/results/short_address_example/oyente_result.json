@@ -1,0 +1,29 @@
+{
+  "contract": "short_address_example",
+  "tool": "oyente",
+  "start": 1640177188.3168087,
+  "end": 1640177192.4865537,
+  "duration": 4.169744968414307,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 21,
+          "column": 10,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/short_address_example.sol",
+      "name": "MyToken",
+      "evm_code_coverage": "99.7%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

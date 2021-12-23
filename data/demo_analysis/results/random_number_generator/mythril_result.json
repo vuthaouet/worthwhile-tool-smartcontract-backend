@@ -1,0 +1,12 @@
+{
+  "contract": "random_number_generator",
+  "tool": "mythril",
+  "start": 1640185695.5625293,
+  "end": 1640185701.6011379,
+  "duration": 6.038608551025391,
+  "analysis": {
+    "error": null,
+    "issues": [],
+    "success": true
+  }
+}

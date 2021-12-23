@@ -1,0 +1,8 @@
+{
+  "contract": "parity_wallet_bug_1",
+  "tool": "honeybadger",
+  "start": 1640180282.1881673,
+  "end": 1640180286.3698828,
+  "duration": 4.181715488433838,
+  "analysis": []
+}

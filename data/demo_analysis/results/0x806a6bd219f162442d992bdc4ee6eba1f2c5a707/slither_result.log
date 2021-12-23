@@ -1,0 +1,39 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol:
+/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol:25:1456: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+ ... this.balance ... 
+     ^----------^
+/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol:26:33: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+            msg.sender.transfer(this.balance);
+                                ^----------^
+/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol:35:24: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+        Owner.transfer(this.balance);
+                       ^----------^
+/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol:44:9: Warning: Return value of low-level calls not used.
+        adr.call.value(msg.value)(data);
+        ^-----------------------------^
+
+INFO:Detectors:[91m
+Pie.GetPie (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#21-30) sends eth to arbitrary user
+	Dangerous calls:
+	- msg.sender.transfer(this.balance) (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#26-27)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#functions-that-send-ether-to-arbitrary-destinations[0m
+INFO:Detectors:[92m
+Pie.fallback (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#14-20) should be declared external
+Pie.GetPie (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#21-30) should be declared external
+Pie.withdraw (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#31-38) should be declared external
+Pie.Command (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#38-46) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Detected issues with version pragma in /data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol:
+	- pragma solidity^0.4.19 (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#7-9): it allows old versions
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-version-of-solidity[0m
+INFO:Detectors:[92m
+Low level call in Pie.Command (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#38-46):
+	-adr.call.value(msg.value)(data) /data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Function 'Pie.GetPie' (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#21-30) is not in mixedCase
+Function 'Pie.Command' (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#38-46) is not in mixedCase
+Variable 'Pie.Owner' (/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol#11-13) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol analyzed (1 contracts), 10 result(s) found

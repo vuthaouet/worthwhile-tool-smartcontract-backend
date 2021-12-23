@@ -1,0 +1,14 @@
+{
+  "contract": "overflow_simple_add",
+  "tool": "honeybadger",
+  "start": 1640189391.2845483,
+  "end": 1640189394.381286,
+  "duration": 3.0967376232147217,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/overflow_simple_add.sol",
+      "name": "Overflow_Add"
+    }
+  ]
+}

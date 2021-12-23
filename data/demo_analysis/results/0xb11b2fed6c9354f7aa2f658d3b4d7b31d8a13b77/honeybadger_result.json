@@ -1,0 +1,19 @@
+{
+  "contract": "0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77",
+  "tool": "honeybadger",
+  "start": 1640186502.0049055,
+  "end": 1640186610.0226936,
+  "duration": 108.01778817176819,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
+      "name": "DepositProxy"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol",
+      "name": "Proxy"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "contract": "incorrect_constructor_name1",
+  "tool": "oyente",
+  "start": 1640185841.2845826,
+  "end": 1640185843.9361649,
+  "duration": 2.6515822410583496,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/incorrect_constructor_name1.sol",
+      "name": "Missing",
+      "evm_code_coverage": "95.2%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

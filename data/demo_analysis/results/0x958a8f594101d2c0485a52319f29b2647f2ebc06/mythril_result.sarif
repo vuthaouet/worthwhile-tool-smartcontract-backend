@@ -1,0 +1,150 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `execute(address,uint256,bytes)`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            },
+            {
+              "id": "Reentrancy_3",
+              "fullDescription": {
+                "text": "This contract executes a message call to an address provided as a function argument. Generally, it is not recommended to call user-supplied addresses using Solidity's call() construct. Note that attackers might leverage reentrancy attacks to exploit race conditions or manipulate this contract's state."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Message call to external contract"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "execute(address,uint256,bytes)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "execute(address,uint256,bytes)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ata) onlyOwner {\n         // <yes> <report> UNCHECKED_LL_CALLS\n        _dst.call.value(_value)(_data);\n    }\n}\n\n\ncontract Marriage is Owned\n{\n    // Marriage data "
+                  },
+                  "startLine": 53
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "execute(address,uint256,bytes)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "riage is Owned\n{\n    // Marria"
+                  },
+                  "startLine": 60
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "execute(address,uint256,bytes)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "riage is Owned\n{\n    // Marria"
+                  },
+                  "startLine": 60
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

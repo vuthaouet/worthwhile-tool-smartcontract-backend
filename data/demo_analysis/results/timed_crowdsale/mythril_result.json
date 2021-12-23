@@ -1,0 +1,12 @@
+{
+  "contract": "timed_crowdsale",
+  "tool": "mythril",
+  "start": 1640176834.711154,
+  "end": 1640176837.424137,
+  "duration": 2.7129831314086914,
+  "analysis": {
+    "error": null,
+    "issues": [],
+    "success": true
+  }
+}

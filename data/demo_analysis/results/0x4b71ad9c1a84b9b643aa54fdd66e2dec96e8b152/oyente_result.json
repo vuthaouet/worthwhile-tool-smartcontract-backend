@@ -1,0 +1,35 @@
+{
+  "contract": "0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152",
+  "tool": "oyente",
+  "start": 1640169448.381285,
+  "end": 1640169450.4846895,
+  "duration": 2.1034045219421387,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 12,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 17,
+          "column": 13,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+      "name": "airPort",
+      "evm_code_coverage": "26.6%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

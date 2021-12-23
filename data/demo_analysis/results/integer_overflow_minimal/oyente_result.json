@@ -1,0 +1,29 @@
+{
+  "contract": "integer_overflow_minimal",
+  "tool": "oyente",
+  "start": 1640195119.54894,
+  "end": 1640195122.477536,
+  "duration": 2.928596019744873,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 17,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        }
+      ],
+      "file": "/data/thaovttest1/source_code/integer_overflow_minimal.sol",
+      "name": "IntegerOverflowMinimal",
+      "evm_code_coverage": "99.2%",
+      "integer_underflow": true,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

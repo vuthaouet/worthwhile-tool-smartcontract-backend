@@ -1,0 +1,14 @@
+{
+  "contract": "dos_simple",
+  "tool": "honeybadger",
+  "start": 1640178589.528346,
+  "end": 1640178602.9538202,
+  "duration": 13.425474166870117,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/dos_simple.sol",
+      "name": "DosOneFunc"
+    }
+  ]
+}

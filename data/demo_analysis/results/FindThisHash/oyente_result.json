@@ -1,0 +1,29 @@
+{
+  "contract": "FindThisHash",
+  "tool": "oyente",
+  "start": 1640181982.2514975,
+  "end": 1640181985.1056101,
+  "duration": 2.8541126251220703,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 14,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/FindThisHash.sol",
+      "name": "FindThisHash",
+      "evm_code_coverage": "38.3%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

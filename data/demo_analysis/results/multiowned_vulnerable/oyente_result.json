@@ -1,0 +1,35 @@
+{
+  "contract": "multiowned_vulnerable",
+  "tool": "oyente",
+  "start": 1640177156.1074061,
+  "end": 1640177165.8992078,
+  "duration": 9.791801691055298,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/multiowned_vulnerable.sol",
+      "name": "MultiOwnable",
+      "evm_code_coverage": "99.8%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/multiowned_vulnerable.sol",
+      "name": "TestContract",
+      "evm_code_coverage": "98.8%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

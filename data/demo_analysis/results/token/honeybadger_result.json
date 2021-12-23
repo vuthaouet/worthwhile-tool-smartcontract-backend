@@ -1,0 +1,14 @@
+{
+  "contract": "token",
+  "tool": "honeybadger",
+  "start": 1640174514.8117986,
+  "end": 1640174517.347314,
+  "duration": 2.535515308380127,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/token.sol",
+      "name": "Token"
+    }
+  ]
+}

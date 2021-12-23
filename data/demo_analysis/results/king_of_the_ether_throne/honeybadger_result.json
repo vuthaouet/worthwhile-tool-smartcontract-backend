@@ -1,0 +1,14 @@
+{
+  "contract": "king_of_the_ether_throne",
+  "tool": "honeybadger",
+  "start": 1640174182.868247,
+  "end": 1640174449.5033965,
+  "duration": 266.63514947891235,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/king_of_the_ether_throne.sol",
+      "name": "KingOfTheEtherThrone"
+    }
+  ]
+}

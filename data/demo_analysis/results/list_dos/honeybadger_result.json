@@ -1,0 +1,14 @@
+{
+  "contract": "list_dos",
+  "tool": "honeybadger",
+  "start": 1640181007.492309,
+  "end": 1640181192.5531864,
+  "duration": 185.06087732315063,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/list_dos.sol",
+      "name": "Government"
+    }
+  ]
+}

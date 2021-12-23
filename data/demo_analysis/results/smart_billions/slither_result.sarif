@@ -1,0 +1,1235 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Other_11",
+              "fullDescription": {
+                "text": "SmartBillions.addHashes (/data/demo_analysis/source_code/smart_billions.sol#672-689) uses a dangerous strict equality:\n\t- require(bool)(hashFirst == 0 && _sadd > 0 && _sadd <= hashesSize)\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "incorrect-equality"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/smart_billions.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "addHashes"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 689,
+                  "startLine": 672
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 673,
+                  "snippet": {
+                    "text": "require(bool)(hashFirst == 0 && _sadd > 0 && _sadd <= hashesSize)"
+                  },
+                  "startLine": 673
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "betOf"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 535,
+                  "startLine": 513
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 520,
+                  "snippet": {
+                    "text": "(player.value == 0) || (player.blockNum <= 1) || (block.number < player.blockNum) || (block.number >= player.blockNum + (10 * hashesSize))"
+                  },
+                  "startLine": 515
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 532,
+                  "snippet": {
+                    "text": "hash == 0x1000000"
+                  },
+                  "startLine": 527
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "betPrize"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 508,
+                  "startLine": 482
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF0000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 491,
+                  "snippet": {
+                    "text": "(hit & 0xF00000) == 0"
+                  },
+                  "startLine": 485
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "putHash"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 756,
+                  "startLine": 735
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 739,
+                  "snippet": {
+                    "text": "lastb == 0 || block.number <= lastb + 10"
+                  },
+                  "startLine": 737
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "won"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 591,
+                  "startLine": 540
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 545,
+                  "snippet": {
+                    "text": "player.blockNum == 0"
+                  },
+                  "startLine": 542
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 549,
+                  "snippet": {
+                    "text": "(player.value == 0) || (player.blockNum == 1)"
+                  },
+                  "startLine": 546
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 549,
+                  "snippet": {
+                    "text": "(player.value == 0) || (player.blockNum == 1)"
+                  },
+                  "startLine": 546
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/smart_billions.sol"
+                },
+                "region": {
+                  "endLine": 571,
+                  "snippet": {
+                    "text": "hash == 0x1000000"
+                  },
+                  "startLine": 566
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

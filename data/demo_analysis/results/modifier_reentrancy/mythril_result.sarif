@@ -1,0 +1,106 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Reentrancy_3",
+              "fullDescription": {
+                "text": "This contract executes a message call to the address of the transaction sender. Generally, it is not recommended to call user-supplied addresses using Solidity's call() construct. Note that attackers might leverage reentrancy attacks to exploit race conditions or manipulate this contract's state."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Message call to external contract"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/modifier_reentrancy.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "supportsToken()"
+        },
+        {
+          "kind": "function",
+          "name": "call(address)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "supportsToken()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/modifier_reentrancy.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ModifierEntrancy(msg.sender).airDrop()"
+                  },
+                  "startLine": 42
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "call(address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/modifier_reentrancy.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ModifierEntrancy(token).airDrop()"
+                  },
+                  "startLine": 47
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

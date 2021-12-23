@@ -1,0 +1,8 @@
+{
+  "contract": "parity_wallet_bug_1",
+  "tool": "oyente",
+  "start": 1640180279.2541945,
+  "end": 1640180282.1301425,
+  "duration": 2.875947952270508,
+  "analysis": []
+}

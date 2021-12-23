@@ -1,0 +1,166 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Oyente",
+          "fullDescription": {
+            "text": "Oyente runs on symbolic execution, determines which inputs cause which program branches to execute, to find potential security vulnerabilities. Oyente works directly with EVM bytecode without access high level representation and does not provide soundness nor completeness."
+          },
+          "informationUri": "https://oyente.tech/",
+          "rules": [
+            {
+              "id": "Reentrancy_6",
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Re-Entrancy Vulnerability."
+              }
+            },
+            {
+              "id": "Arithmetic_12",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Underflow."
+              }
+            },
+            {
+              "id": "Arithmetic_11",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow."
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "contract",
+          "name": "ACCURAL_DEPOSIT"
+        },
+        {
+          "kind": "contract",
+          "name": "LogFile"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Re-Entrancy Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 17,
+                  "startLine": 58
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_6"
+        },
+        {
+          "message": {
+            "text": "Re-Entrancy Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 55
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_6"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 84
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 84
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 88
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

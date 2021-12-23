@@ -1,0 +1,22 @@
+{
+  "contract": "dos_simple",
+  "tool": "oyente",
+  "start": 1640178587.0923114,
+  "end": 1640178589.5012624,
+  "duration": 2.4089510440826416,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/dos_simple.sol",
+      "name": "DosOneFunc",
+      "evm_code_coverage": "42.0%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

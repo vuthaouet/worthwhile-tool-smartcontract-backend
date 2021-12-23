@@ -1,0 +1,14 @@
+{
+  "contract": "mapping_write",
+  "tool": "honeybadger",
+  "start": 1640172363.7850537,
+  "end": 1640172460.7604861,
+  "duration": 96.97543239593506,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/mapping_write.sol",
+      "name": "Map"
+    }
+  ]
+}

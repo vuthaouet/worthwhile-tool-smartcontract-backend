@@ -1,0 +1,246 @@
+{
+  "contract": "0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152",
+  "tool": "slither",
+  "start": 1640169446.448131,
+  "end": 1640169448.1692135,
+  "duration": 1.7210824489593506,
+  "analysis": [
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "confidence": "Medium",
+      "description": "airPort.transfer has external calls inside a loop:\n\t- caddress.call(id,from,_tos[i],v) (/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol#17-19)\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "transfer",
+          "source_mapping": {
+            "start": 141,
+            "length": 385,
+            "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+            "lines": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "airPort",
+            "source_mapping": {
+              "start": 112,
+              "length": 417,
+              "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+              "lines": [
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "caddress.call(id,from,_tos[i],v)",
+          "source_mapping": {
+            "start": 453,
+            "length": 32,
+            "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+            "lines": [
+              17,
+              18,
+              19
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "airPort.transfer (/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol#12-21) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "transfer",
+          "source_mapping": {
+            "start": 141,
+            "length": 385,
+            "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+            "lines": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "airPort",
+            "source_mapping": {
+              "start": 112,
+              "length": 417,
+              "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+              "lines": [
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Low level call in airPort.transfer (/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol#12-21):\n\t-caddress.call(id,from,_tos[i],v) /data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol#17-19\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "transfer",
+          "source_mapping": {
+            "start": 141,
+            "length": 385,
+            "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+            "lines": [
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "airPort",
+            "source_mapping": {
+              "start": 112,
+              "length": 417,
+              "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+              "lines": [
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "caddress.call(id,from,_tos[i],v)",
+          "source_mapping": {
+            "start": 453,
+            "length": 32,
+            "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+            "lines": [
+              17,
+              18,
+              19
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Contract 'airPort' (/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol#10-21) is not in CapWords\n",
+      "elements": [
+        {
+          "target": "contract",
+          "convention": "CapWords",
+          "name": "airPort",
+          "source_mapping": {
+            "start": 112,
+            "length": 417,
+            "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+            "lines": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Parameter '_tos' of airPort.transfer (/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol#12) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "parameter",
+          "convention": "mixedCase",
+          "name": "_tos",
+          "source_mapping": {
+            "start": 189,
+            "length": 14,
+            "filename": "/data/demo_analysis/source_code/0x4b71ad9c1a84b9b643aa54fdd66e2dec96e8b152.sol",
+            "lines": [
+              12
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

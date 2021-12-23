@@ -1,0 +1,14 @@
+{
+  "contract": "roulette",
+  "tool": "honeybadger",
+  "start": 1640174582.3800726,
+  "end": 1640174611.048047,
+  "duration": 28.6679744720459,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/roulette.sol",
+      "name": "Roulette"
+    }
+  ]
+}

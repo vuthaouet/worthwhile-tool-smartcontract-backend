@@ -1,0 +1,25 @@
+{
+  "contract": "0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b",
+  "tool": "honeybadger",
+  "start": 1640176880.9831455,
+  "end": 1640177146.1138558,
+  "duration": 265.13071036338806,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol",
+      "name": "LogFile"
+    },
+    {
+      "errors": [
+        {
+          "line": 66,
+          "column": 17,
+          "message": "straw_man_contract"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol",
+      "name": "PENNY_BY_PENNY"
+    }
+  ]
+}

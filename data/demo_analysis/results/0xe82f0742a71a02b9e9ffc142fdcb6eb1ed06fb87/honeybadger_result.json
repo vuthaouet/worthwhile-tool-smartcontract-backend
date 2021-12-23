@@ -1,0 +1,20 @@
+{
+  "contract": "0xe82f0742a71a02b9e9ffc142fdcb6eb1ed06fb87",
+  "tool": "honeybadger",
+  "start": 1640172013.6788871,
+  "end": 1640172063.3445978,
+  "duration": 49.66571068763733,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 20,
+          "column": 809,
+          "message": "hidden_transfer"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0xe82f0742a71a02b9e9ffc142fdcb6eb1ed06fb87.sol",
+      "name": "Freebie"
+    }
+  ]
+}

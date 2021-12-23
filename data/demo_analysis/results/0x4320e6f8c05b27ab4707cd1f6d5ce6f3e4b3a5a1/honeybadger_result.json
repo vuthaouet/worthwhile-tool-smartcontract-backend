@@ -1,0 +1,25 @@
+{
+  "contract": "0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1",
+  "tool": "honeybadger",
+  "start": 1640175515.5257428,
+  "end": 1640175776.5835009,
+  "duration": 261.05775809288025,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 58,
+          "column": 17,
+          "message": "straw_man_contract"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol",
+      "name": "ACCURAL_DEPOSIT"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol",
+      "name": "LogFile"
+    }
+  ]
+}

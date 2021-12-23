@@ -1,0 +1,22 @@
+{
+  "contract": "0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9",
+  "tool": "oyente",
+  "start": 1640171671.0997562,
+  "end": 1640171672.9741378,
+  "duration": 1.8743815422058105,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+      "name": "Caller",
+      "evm_code_coverage": "98.8%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

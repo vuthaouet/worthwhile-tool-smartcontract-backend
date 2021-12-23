@@ -1,0 +1,2328 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in PandaAuction.bidOnSiringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2228-2251):\n\tExternal calls:\n\t- require(bool)(_canBreedWithViaAuction(_matronId,_sireId)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2237-2238)\n\t- currentPrice = siringAuction.getCurrentPrice(_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2240-2241)\n\t- siringAuction.bid.value(msg.value - autoBirthFee)(_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247)\n\t- _breedWith(uint32(_matronId),uint32(_sireId),msg.sender) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247-2250)\n\tExternal calls sending eth:\n\t- siringAuction.bid.value(msg.value - autoBirthFee)(_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247)\n\tState variables written after the call(s):\n\t- pandas (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247-2250)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "Other_11",
+              "fullDescription": {
+                "text": "SaleClockAuction.bid (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1840-1849) uses a dangerous strict equality:\n\t- isGen0 == 1\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "incorrect-equality"
+              }
+            },
+            {
+              "id": "Reentrancy_11",
+              "fullDescription": {
+                "text": "Reentrancy in PandaBreeding._breedWith (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1025-1046):\n\tExternal calls:\n\t- (_matronId,_sireId) = _exchangeMatronSireId(_matronId,_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1028-1029)\n\tState variables written after the call(s):\n\t- pandas (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1031)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-no-eth"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_6",
+              "fullDescription": {
+                "text": "SaleClockAuctionERC20.withdrawERC20Balance (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2003-2007) does not use the value returned by external calls:\n\t-ERC20(_erc20Address).transfer(_to,balances[_erc20Address]) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2007)\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "unused-return"
+              }
+            },
+            {
+              "id": "Reentrancy_9",
+              "fullDescription": {
+                "text": "Reentrancy in ClockAuction.ClockAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1507-1518):\n\tExternal calls:\n\t- require(bool)(candidateContract.supportsInterface(InterfaceSignature_ERC721)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1516-1517)\n\tState variables written after the call(s):\n\t- nonFungibleContract (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1517-1518)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-benign"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "bidOnSiringAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2251,
+                  "startLine": 2228
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2238,
+                  "snippet": {
+                    "text": "require(bool)(_canBreedWithViaAuction(_matronId,_sireId))"
+                  },
+                  "startLine": 2237
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2241,
+                  "snippet": {
+                    "text": "currentPrice = siringAuction.getCurrentPrice(_sireId)"
+                  },
+                  "startLine": 2240
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2247,
+                  "snippet": {
+                    "text": "siringAuction.bid.value(msg.value - autoBirthFee)(_sireId)"
+                  },
+                  "startLine": 2247
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2250,
+                  "snippet": {
+                    "text": "_breedWith(uint32(_matronId),uint32(_sireId),msg.sender)"
+                  },
+                  "startLine": 2247
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2247,
+                  "snippet": {
+                    "text": "siringAuction.bid.value(msg.value - autoBirthFee)(_sireId)"
+                  },
+                  "startLine": 2247
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pandas"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2250,
+                  "snippet": {
+                    "text": "_breedWith(uint32(_matronId),uint32(_sireId),msg.sender)"
+                  },
+                  "startLine": 2247
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "giveBirth"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1197,
+                  "startLine": 1117
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1147,
+                  "snippet": {
+                    "text": "probability = (geneScience.getPureFromGene(matron.genes) + geneScience.getPureFromGene(sire.genes)) / 2 + _factors[0]"
+                  },
+                  "startLine": 1143
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1170,
+                  "snippet": {
+                    "text": "kittenId = _createPanda(_matronId,matron.siringWithId,parentGen + 1,childGenes,owner)"
+                  },
+                  "startLine": 1167
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1194,
+                  "snippet": {
+                    "text": "msg.sender.send(autoBirthFee)"
+                  },
+                  "startLine": 1194
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "childOwner"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1195,
+                  "snippet": {
+                    "text": "delete childOwner[_matronId]"
+                  },
+                  "startLine": 1195
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "bid"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1849,
+                  "startLine": 1840
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1849,
+                  "snippet": {
+                    "text": "isGen0 == 1"
+                  },
+                  "startLine": 1845
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-no-eth"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_breedWith"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1046,
+                  "startLine": 1025
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1029,
+                  "snippet": {
+                    "text": "(_matronId,_sireId) = _exchangeMatronSireId(_matronId,_sireId)"
+                  },
+                  "startLine": 1028
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pandas"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1031,
+                  "snippet": {
+                    "text": "matron.siringWithId = uint32(_sireId)"
+                  },
+                  "startLine": 1031
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-no-eth"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_createPanda"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 515,
+                  "startLine": 428
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 453,
+                  "snippet": {
+                    "text": "pureDegree = uint16(geneScience.getPureFromGene(_genes))"
+                  },
+                  "startLine": 450
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 467,
+                  "snippet": {
+                    "text": "_tp = geneScience.getWizzType(_genes)"
+                  },
+                  "startLine": 465
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 469,
+                  "snippet": {
+                    "text": "_genes = geneScience.clearWizzType(_genes)"
+                  },
+                  "startLine": 469
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "wizzPandaCount"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 480,
+                  "snippet": {
+                    "text": "wizzPandaCount[_tp] = wizzPandaCount[_tp] + 1"
+                  },
+                  "startLine": 479
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pandas"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 500,
+                  "snippet": {
+                    "text": "newKittenId = pandas.push(_panda) - 1"
+                  },
+                  "startLine": 499
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-no-eth"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "bidERC20"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1995,
+                  "startLine": 1983
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1992,
+                  "snippet": {
+                    "text": "price = _bidERC20(_erc20address,msg.sender,_tokenId,_amount)"
+                  },
+                  "startLine": 1991
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1995,
+                  "snippet": {
+                    "text": "_transfer(msg.sender,_tokenId)"
+                  },
+                  "startLine": 1993
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "tokenIdToErc20Address"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1995,
+                  "snippet": {
+                    "text": "delete tokenIdToErc20Address[_tokenId]"
+                  },
+                  "startLine": 1995
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-no-eth"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "breedWithAuto"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1103,
+                  "startLine": 1054
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1100,
+                  "snippet": {
+                    "text": "require(bool)(_isValidMatingPair(matron,_matronId,sire,_sireId))"
+                  },
+                  "startLine": 1096
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1103,
+                  "snippet": {
+                    "text": "_breedWith(_matronId,_sireId,msg.sender)"
+                  },
+                  "startLine": 1102
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "sireAllowedToAddress"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1103,
+                  "snippet": {
+                    "text": "_breedWith(_matronId,_sireId,msg.sender)"
+                  },
+                  "startLine": 1102
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pandas"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1103,
+                  "snippet": {
+                    "text": "_breedWith(_matronId,_sireId,msg.sender)"
+                  },
+                  "startLine": 1102
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-no-eth"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "giveBirth"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1197,
+                  "startLine": 1117
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1147,
+                  "snippet": {
+                    "text": "probability = (geneScience.getPureFromGene(matron.genes) + geneScience.getPureFromGene(sire.genes)) / 2 + _factors[0]"
+                  },
+                  "startLine": 1143
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1170,
+                  "snippet": {
+                    "text": "kittenId = _createPanda(_matronId,matron.siringWithId,parentGen + 1,childGenes,owner)"
+                  },
+                  "startLine": 1167
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pandas"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1170,
+                  "snippet": {
+                    "text": "kittenId = _createPanda(_matronId,matron.siringWithId,parentGen + 1,childGenes,owner)"
+                  },
+                  "startLine": 1167
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_11"
+        },
+        {
+          "message": {
+            "text": "unused-return"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawERC20Balance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2007,
+                  "startLine": 2003
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2007,
+                  "snippet": {
+                    "text": "ERC20(_erc20Address).transfer(_to,balances[_erc20Address])"
+                  },
+                  "startLine": 2007
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_6"
+        },
+        {
+          "message": {
+            "text": "unused-return"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawERC20Balance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2264,
+                  "startLine": 2260
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2264,
+                  "snippet": {
+                    "text": "saleAuctionERC20.withdrawERC20Balance(_erc20Address,_to)"
+                  },
+                  "startLine": 2263
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_6"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "ClockAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1518,
+                  "startLine": 1507
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1517,
+                  "snippet": {
+                    "text": "require(bool)(candidateContract.supportsInterface(InterfaceSignature_ERC721))"
+                  },
+                  "startLine": 1516
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "nonFungibleContract"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1518,
+                  "snippet": {
+                    "text": "nonFungibleContract = candidateContract"
+                  },
+                  "startLine": 1517
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_bidERC20"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2057,
+                  "startLine": 2012
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2052,
+                  "snippet": {
+                    "text": "require(bool)(ERC20(_erc20Address).transferFrom(_buyerAddress,seller,sellerProceeds))"
+                  },
+                  "startLine": 2049
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2055,
+                  "snippet": {
+                    "text": "require(bool)(ERC20(_erc20Address).transferFrom(_buyerAddress,address(this),auctioneerCut))"
+                  },
+                  "startLine": 2054
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "balances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2055,
+                  "snippet": {
+                    "text": "balances[_erc20Address] += auctioneerCut"
+                  },
+                  "startLine": 2055
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_breedWith"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1046,
+                  "startLine": 1025
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1029,
+                  "snippet": {
+                    "text": "(_matronId,_sireId) = _exchangeMatronSireId(_matronId,_sireId)"
+                  },
+                  "startLine": 1028
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1032,
+                  "snippet": {
+                    "text": "_triggerCooldown(sire)"
+                  },
+                  "startLine": 1032
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1033,
+                  "snippet": {
+                    "text": "_triggerCooldown(matron)"
+                  },
+                  "startLine": 1032
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "sireAllowedToAddress"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1041,
+                  "snippet": {
+                    "text": "delete sireAllowedToAddress[_sireId]"
+                  },
+                  "startLine": 1040
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "sireAllowedToAddress"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1040,
+                  "snippet": {
+                    "text": "delete sireAllowedToAddress[_matronId]"
+                  },
+                  "startLine": 1038
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pregnantPandas"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1043,
+                  "snippet": {
+                    "text": "pregnantPandas ++"
+                  },
+                  "startLine": 1043
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "childOwner"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1044,
+                  "snippet": {
+                    "text": "childOwner[_matronId] = _owner"
+                  },
+                  "startLine": 1044
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_createPanda"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 515,
+                  "startLine": 428
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 453,
+                  "snippet": {
+                    "text": "pureDegree = uint16(geneScience.getPureFromGene(_genes))"
+                  },
+                  "startLine": 450
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 467,
+                  "snippet": {
+                    "text": "_tp = geneScience.getWizzType(_genes)"
+                  },
+                  "startLine": 465
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 469,
+                  "snippet": {
+                    "text": "_genes = geneScience.clearWizzType(_genes)"
+                  },
+                  "startLine": 469
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pandaIndexToApproved"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 515,
+                  "snippet": {
+                    "text": "_transfer(0,_owner,newKittenId)"
+                  },
+                  "startLine": 515
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "sireAllowedToAddress"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 515,
+                  "snippet": {
+                    "text": "_transfer(0,_owner,newKittenId)"
+                  },
+                  "startLine": 515
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "ownershipTokenCount"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 515,
+                  "snippet": {
+                    "text": "_transfer(0,_owner,newKittenId)"
+                  },
+                  "startLine": 515
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "gen0CreatedCount"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 486,
+                  "snippet": {
+                    "text": "gen0CreatedCount ++"
+                  },
+                  "startLine": 486
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pandaIndexToOwner"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 515,
+                  "snippet": {
+                    "text": "_transfer(0,_owner,newKittenId)"
+                  },
+                  "startLine": 515
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "bid"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1849,
+                  "startLine": 1840
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1845,
+                  "snippet": {
+                    "text": "_transfer(msg.sender,_tokenId)"
+                  },
+                  "startLine": 1845
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1845,
+                  "snippet": {
+                    "text": "price = _bid(_tokenId,msg.value)"
+                  },
+                  "startLine": 1842
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "gen0SaleCount"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1849,
+                  "snippet": {
+                    "text": "gen0SaleCount ++"
+                  },
+                  "startLine": 1848
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "lastGen0SalePrices"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1848,
+                  "snippet": {
+                    "text": "lastGen0SalePrices[gen0SaleCount % 5] = price"
+                  },
+                  "startLine": 1847
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "bidOnSiringAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2251,
+                  "startLine": 2228
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2238,
+                  "snippet": {
+                    "text": "require(bool)(_canBreedWithViaAuction(_matronId,_sireId))"
+                  },
+                  "startLine": 2237
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2241,
+                  "snippet": {
+                    "text": "currentPrice = siringAuction.getCurrentPrice(_sireId)"
+                  },
+                  "startLine": 2240
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2247,
+                  "snippet": {
+                    "text": "siringAuction.bid.value(msg.value - autoBirthFee)(_sireId)"
+                  },
+                  "startLine": 2247
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2250,
+                  "snippet": {
+                    "text": "_breedWith(uint32(_matronId),uint32(_sireId),msg.sender)"
+                  },
+                  "startLine": 2247
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2247,
+                  "snippet": {
+                    "text": "siringAuction.bid.value(msg.value - autoBirthFee)(_sireId)"
+                  },
+                  "startLine": 2247
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "childOwner"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2250,
+                  "snippet": {
+                    "text": "_breedWith(uint32(_matronId),uint32(_sireId),msg.sender)"
+                  },
+                  "startLine": 2247
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "breedWithAuto"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1103,
+                  "startLine": 1054
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1100,
+                  "snippet": {
+                    "text": "require(bool)(_isValidMatingPair(matron,_matronId,sire,_sireId))"
+                  },
+                  "startLine": 1096
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1103,
+                  "snippet": {
+                    "text": "_breedWith(_matronId,_sireId,msg.sender)"
+                  },
+                  "startLine": 1102
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "childOwner"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1103,
+                  "snippet": {
+                    "text": "_breedWith(_matronId,_sireId,msg.sender)"
+                  },
+                  "startLine": 1102
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "cancelAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2003,
+                  "startLine": 1996
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2001,
+                  "snippet": {
+                    "text": "_cancelAuction(_tokenId,seller)"
+                  },
+                  "startLine": 2001
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "tokenIdToErc20Address"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2003,
+                  "snippet": {
+                    "text": "delete tokenIdToErc20Address[_tokenId]"
+                  },
+                  "startLine": 2001
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1577,
+                  "startLine": 1551
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1566,
+                  "snippet": {
+                    "text": "require(bool)(_owns(msg.sender,_tokenId))"
+                  },
+                  "startLine": 1566
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1567,
+                  "snippet": {
+                    "text": "_escrow(msg.sender,_tokenId)"
+                  },
+                  "startLine": 1566
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "tokenIdToAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1577,
+                  "snippet": {
+                    "text": "_addAuction(_tokenId,auction)"
+                  },
+                  "startLine": 1574
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1714,
+                  "startLine": 1688
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1706,
+                  "snippet": {
+                    "text": "_escrow(_seller,_tokenId)"
+                  },
+                  "startLine": 1706
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "tokenIdToAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1713,
+                  "snippet": {
+                    "text": "_addAuction(_tokenId,auction)"
+                  },
+                  "startLine": 1713
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1801,
+                  "startLine": 1771
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1790,
+                  "snippet": {
+                    "text": "_escrow(_seller,_tokenId)"
+                  },
+                  "startLine": 1789
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "tokenIdToAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1800,
+                  "snippet": {
+                    "text": "_addAuction(_tokenId,auction)"
+                  },
+                  "startLine": 1800
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1958,
+                  "startLine": 1929
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1950,
+                  "snippet": {
+                    "text": "_escrow(_seller,_tokenId)"
+                  },
+                  "startLine": 1949
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "tokenIdToAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1958,
+                  "snippet": {
+                    "text": "_addAuctionERC20(_tokenId,auction,_erc20Address)"
+                  },
+                  "startLine": 1955
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "tokenIdToErc20Address"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1958,
+                  "snippet": {
+                    "text": "tokenIdToErc20Address[_tokenId] = _erc20Address"
+                  },
+                  "startLine": 1958
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createGen0Auction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1829,
+                  "startLine": 1801
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1823,
+                  "snippet": {
+                    "text": "_escrow(_seller,_tokenId)"
+                  },
+                  "startLine": 1823
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "tokenIdToAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1829,
+                  "snippet": {
+                    "text": "_addAuction(_tokenId,auction)"
+                  },
+                  "startLine": 1828
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "giveBirth"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1197,
+                  "startLine": 1117
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1147,
+                  "snippet": {
+                    "text": "probability = (geneScience.getPureFromGene(matron.genes) + geneScience.getPureFromGene(sire.genes)) / 2 + _factors[0]"
+                  },
+                  "startLine": 1143
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1170,
+                  "snippet": {
+                    "text": "kittenId = _createPanda(_matronId,matron.siringWithId,parentGen + 1,childGenes,owner)"
+                  },
+                  "startLine": 1167
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pregnantPandas"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1190,
+                  "snippet": {
+                    "text": "pregnantPandas --"
+                  },
+                  "startLine": 1190
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "pandaIndexToOwner"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 1170,
+                  "snippet": {
+                    "text": "kittenId = _createPanda(_matronId,matron.siringWithId,parentGen + 1,childGenes,owner)"
+                  },
+                  "startLine": 1167
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "setGeneScienceAddress"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 838,
+                  "startLine": 829
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 836,
+                  "snippet": {
+                    "text": "require(bool)(candidateContract.isGeneScience())"
+                  },
+                  "startLine": 836
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "geneScience"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 837,
+                  "snippet": {
+                    "text": "geneScience = candidateContract"
+                  },
+                  "startLine": 837
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "setSaleAuctionAddress"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2086,
+                  "startLine": 2077
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2084,
+                  "snippet": {
+                    "text": "require(bool)(candidateContract.isSaleClockAuction())"
+                  },
+                  "startLine": 2084
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "saleAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2086,
+                  "snippet": {
+                    "text": "saleAuction = candidateContract"
+                  },
+                  "startLine": 2085
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "setSaleAuctionERC20Address"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2107,
+                  "startLine": 2086
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2101,
+                  "snippet": {
+                    "text": "require(bool)(candidateContract.isSaleClockAuctionERC20())"
+                  },
+                  "startLine": 2100
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "saleAuctionERC20"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2107,
+                  "snippet": {
+                    "text": "saleAuctionERC20 = candidateContract"
+                  },
+                  "startLine": 2104
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "setSiringAuctionAddress"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2117,
+                  "startLine": 2109
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2116,
+                  "snippet": {
+                    "text": "require(bool)(candidateContract.isSiringClockAuction())"
+                  },
+                  "startLine": 2115
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "siringAuction"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "endLine": 2117,
+                  "snippet": {
+                    "text": "siringAuction = candidateContract"
+                  },
+                  "startLine": 2117
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

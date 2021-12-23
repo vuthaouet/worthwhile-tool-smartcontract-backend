@@ -1,0 +1,22 @@
+{
+  "contract": "simple_suicide",
+  "tool": "oyente",
+  "start": 1640180296.080012,
+  "end": 1640180298.1303291,
+  "duration": 2.0503170490264893,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/simple_suicide.sol",
+      "name": "SimpleSuicide",
+      "evm_code_coverage": "95.7%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

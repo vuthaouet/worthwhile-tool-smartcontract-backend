@@ -1,0 +1,14 @@
+{
+  "contract": "unchecked_return_value",
+  "tool": "honeybadger",
+  "start": 1640178492.4173355,
+  "end": 1640178494.640315,
+  "duration": 2.2229795455932617,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+      "name": "ReturnValue"
+    }
+  ]
+}

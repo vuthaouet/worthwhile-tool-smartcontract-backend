@@ -1,0 +1,20 @@
+{
+  "contract": "0x7a4349a749e59a5736efb7826ee3496a2dfd5489",
+  "tool": "honeybadger",
+  "start": 1640182141.5703895,
+  "end": 1640182208.0529957,
+  "duration": 66.48260617256165,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 25,
+          "column": 3470,
+          "message": "hidden_transfer"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x7a4349a749e59a5736efb7826ee3496a2dfd5489.sol",
+      "name": "WhaleGiveaway1"
+    }
+  ]
+}

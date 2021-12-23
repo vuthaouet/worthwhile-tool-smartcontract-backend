@@ -1,0 +1,19 @@
+{
+  "contract": "0x958a8f594101d2c0485a52319f29b2647f2ebc06",
+  "tool": "honeybadger",
+  "start": 1640176398.8598819,
+  "end": 1640176670.9233074,
+  "duration": 272.0634255409241,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
+      "name": "Marriage"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
+      "name": "Owned"
+    }
+  ]
+}

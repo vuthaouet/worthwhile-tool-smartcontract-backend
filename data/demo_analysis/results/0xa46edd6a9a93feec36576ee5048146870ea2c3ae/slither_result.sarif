@@ -1,0 +1,132 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "DenialService_3",
+              "fullDescription": {
+                "text": "EBU.transfer has external calls inside a loop:\n\t- caddress.call(id,from,_tos[i],v[i]) (/data/demo_analysis/source_code/0xa46edd6a9a93feec36576ee5048146870ea2c3ae.sol#16-18)\n"
+              },
+              "name": "DenialServiceVulnerability",
+              "shortDescription": {
+                "text": "calls-loop"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in EBU.transfer (/data/demo_analysis/source_code/0xa46edd6a9a93feec36576ee5048146870ea2c3ae.sol#11-20):\n\t-caddress.call(id,from,_tos[i],v[i]) /data/demo_analysis/source_code/0xa46edd6a9a93feec36576ee5048146870ea2c3ae.sol#16-18\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xa46edd6a9a93feec36576ee5048146870ea2c3ae.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "calls-loop"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "transfer"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xa46edd6a9a93feec36576ee5048146870ea2c3ae.sol"
+                },
+                "region": {
+                  "endLine": 20,
+                  "startLine": 11
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xa46edd6a9a93feec36576ee5048146870ea2c3ae.sol"
+                },
+                "region": {
+                  "endLine": 18,
+                  "snippet": {
+                    "text": "caddress.call(id,from,_tos[i],v[i])"
+                  },
+                  "startLine": 16
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_3"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "transfer"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xa46edd6a9a93feec36576ee5048146870ea2c3ae.sol"
+                },
+                "region": {
+                  "endLine": 20,
+                  "startLine": 11
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xa46edd6a9a93feec36576ee5048146870ea2c3ae.sol"
+                },
+                "region": {
+                  "endLine": 18,
+                  "snippet": {
+                    "text": "caddress.call(id,from,_tos[i],v[i])"
+                  },
+                  "startLine": 16
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

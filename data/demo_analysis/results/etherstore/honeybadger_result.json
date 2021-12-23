@@ -1,0 +1,14 @@
+{
+  "contract": "etherstore",
+  "tool": "honeybadger",
+  "start": 1640185659.8093317,
+  "end": 1640185666.0111885,
+  "duration": 6.201856851577759,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/etherstore.sol",
+      "name": "EtherStore"
+    }
+  ]
+}

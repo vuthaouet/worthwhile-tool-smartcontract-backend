@@ -1,0 +1,96 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "OddsAndEvens.andTheWinnerIs (/data/demo_analysis/source_code/odds_and_evens.sol#34-46) sends eth to arbitrary user\n\tDangerous calls:\n\t- res = players[0].addr.send(1800000000000000000) (/data/demo_analysis/source_code/odds_and_evens.sol#38)\n\t- res = players[1].addr.send(1800000000000000000) (/data/demo_analysis/source_code/odds_and_evens.sol#41)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/odds_and_evens.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "andTheWinnerIs"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/odds_and_evens.sol"
+                },
+                "region": {
+                  "endLine": 46,
+                  "startLine": 34
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/odds_and_evens.sol"
+                },
+                "region": {
+                  "endLine": 38,
+                  "snippet": {
+                    "text": "res = players[0].addr.send(1800000000000000000)"
+                  },
+                  "startLine": 38
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/odds_and_evens.sol"
+                },
+                "region": {
+                  "endLine": 41,
+                  "snippet": {
+                    "text": "res = players[1].addr.send(1800000000000000000)"
+                  },
+                  "startLine": 41
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

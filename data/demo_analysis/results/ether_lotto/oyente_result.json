@@ -1,0 +1,22 @@
+{
+  "contract": "ether_lotto",
+  "tool": "oyente",
+  "start": 1640184042.5906918,
+  "end": 1640184045.542783,
+  "duration": 2.9520912170410156,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/ether_lotto.sol",
+      "name": "EtherLotto",
+      "evm_code_coverage": "48.3%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

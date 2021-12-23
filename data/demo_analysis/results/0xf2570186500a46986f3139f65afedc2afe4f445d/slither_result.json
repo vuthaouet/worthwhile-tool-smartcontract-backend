@@ -1,0 +1,256 @@
+{
+  "contract": "0xf2570186500a46986f3139f65afedc2afe4f445d",
+  "tool": "slither",
+  "start": 1640183910.2088666,
+  "end": 1640183912.8219361,
+  "duration": 2.613069534301758,
+  "analysis": [
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "confidence": "Medium",
+      "description": "RealOldFuckMaker.makeOldFucks has external calls inside a loop:\n\t- fuck.call(bytes4(sha3()(giveBlockReward()))) (/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#18-20)\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "makeOldFucks",
+          "source_mapping": {
+            "start": 283,
+            "length": 224,
+            "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+            "lines": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "RealOldFuckMaker",
+            "source_mapping": {
+              "start": 110,
+              "length": 400,
+              "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "fuck.call(bytes4(sha3()(giveBlockReward())))",
+          "source_mapping": {
+            "start": 444,
+            "length": 44,
+            "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+            "lines": [
+              18,
+              19,
+              20
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "constable-states",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "RealOldFuckMaker.fuck should be constant (/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#10-12)\n",
+      "elements": [
+        {
+          "type": "variable",
+          "name": "fuck",
+          "source_mapping": {
+            "start": 143,
+            "length": 57,
+            "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+            "lines": [
+              10,
+              11,
+              12
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Deprecated standard detected @ /data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#18-20:\n\t- Usage of \"sha3()\" should be replaced with \"keccak256()\"\n",
+      "elements": [
+        {
+          "type": "expression",
+          "expression": "fuck.call(bytes4(sha3()(giveBlockReward())))",
+          "source_mapping": {
+            "start": 444,
+            "length": 44,
+            "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+            "lines": [
+              18,
+              19,
+              20
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "RealOldFuckMaker.makeOldFucks (/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#14-21) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "makeOldFucks",
+          "source_mapping": {
+            "start": 283,
+            "length": 224,
+            "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+            "lines": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "RealOldFuckMaker",
+            "source_mapping": {
+              "start": 110,
+              "length": 400,
+              "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Detected issues with version pragma in /data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol:\n\t- pragma solidity^0.4.16 (/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#7-9): it allows old versions\n",
+      "elements": [
+        {
+          "type": "expression",
+          "expression": "^0.4.16",
+          "source_mapping": {
+            "start": 82,
+            "length": 24,
+            "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+            "lines": [
+              7,
+              8,
+              9
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Low level call in RealOldFuckMaker.makeOldFucks (/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#14-21):\n\t-fuck.call(bytes4(sha3()(giveBlockReward()))) /data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#18-20\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "makeOldFucks",
+          "source_mapping": {
+            "start": 283,
+            "length": 224,
+            "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+            "lines": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "RealOldFuckMaker",
+            "source_mapping": {
+              "start": 110,
+              "length": 400,
+              "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "fuck.call(bytes4(sha3()(giveBlockReward())))",
+          "source_mapping": {
+            "start": 444,
+            "length": 44,
+            "filename": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+            "lines": [
+              18,
+              19,
+              20
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

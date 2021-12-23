@@ -1,0 +1,79 @@
+{
+  "contract": "0x663e4229142a27f00bafb5d087e1e730648314c3",
+  "tool": "honeybadger",
+  "start": 1640169830.7335646,
+  "end": 1640171633.3391318,
+  "duration": 1802.6055672168732,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "ClockAuction"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "ClockAuctionBase"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "ERC721Metadata"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "Ownable"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "PandaAccessControl"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "PandaAuction"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "PandaBase"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "PandaBreeding"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "PandaCore"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "PandaMinting"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "PandaOwnership"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "Pausable"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "SaleClockAuction"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+      "name": "SaleClockAuctionERC20"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "contract": "send_loop",
+  "tool": "slither",
+  "start": 1640177174.8976364,
+  "end": 1640177176.5714865,
+  "duration": 1.6738500595092773,
+  "analysis": []
+}

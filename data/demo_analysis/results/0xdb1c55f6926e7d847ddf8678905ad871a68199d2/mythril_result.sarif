@@ -1,0 +1,300 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `Command(address,bytes)`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            },
+            {
+              "id": "FrontRunning_1",
+              "fullDescription": {
+                "text": "A possible transaction order independence vulnerability exists in function withdraw(). The value or direction of the call statement is determined from a tainted storage location"
+              },
+              "name": "FrontRunningVulnerability",
+              "shortDescription": {
+                "text": "Transaction order dependence"
+              }
+            },
+            {
+              "id": "Other_10",
+              "fullDescription": {
+                "text": "Multiple sends exist in one transaction, try to isolate each external call into its own transaction. As external calls can fail accidentally or deliberately.\nConsecutive calls: \nCall at address: 922\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Multiple Calls"
+              }
+            },
+            {
+              "id": "AccessControl_13",
+              "fullDescription": {
+                "text": "In the function `GetFreebie()` a non-zero amount of Ether is sent to msg.sender.\nIt seems that this function can be called without restrictions."
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "Ether send"
+              }
+            },
+            {
+              "id": "Reentrancy_3",
+              "fullDescription": {
+                "text": "This contract executes a message call to an address provided as a function argument. Generally, it is not recommended to call user-supplied addresses using Solidity's call() construct. Note that attackers might leverage reentrancy attacks to exploit race conditions or manipulate this contract's state."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Message call to external contract"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "Command(address,bytes)"
+        },
+        {
+          "kind": "function",
+          "name": "withdraw()"
+        },
+        {
+          "kind": "function",
+          "name": "GetFreebie()"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "Command(address,bytes)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "es data)\n    payable\n    public\n    {\n        require(msg.sender == Owner);\n        // <yes> <report> UNCHECKED_LL_CALLS\n        adr.call.value(msg.value)(data);\n    }\n}"
+                  },
+                  "startLine": 33
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Transaction order dependence"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "\n    }\n    \n    function Com"
+                  },
+                  "startLine": 30
+                }
+              }
+            }
+          ],
+          "ruleId": "FrontRunning_1"
+        },
+        {
+          "message": {
+            "text": "Multiple Calls"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "GetFreebie()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": ".balance);\n            msg.s"
+                  },
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_10"
+        },
+        {
+          "message": {
+            "text": "Transaction order dependence"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "GetFreebie()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": ".balance);\n            msg.s"
+                  },
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "ruleId": "FrontRunning_1"
+        },
+        {
+          "message": {
+            "text": "Ether send"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "GetFreebie()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "this.balance);\n        }         "
+                  },
+                  "startLine": 21
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_13"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "Command(address,bytes)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "\n}"
+                  },
+                  "startLine": 40
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "Command(address,bytes)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "\n}"
+                  },
+                  "startLine": 40
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

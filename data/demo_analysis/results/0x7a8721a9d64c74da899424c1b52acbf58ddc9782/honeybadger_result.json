@@ -1,0 +1,25 @@
+{
+  "contract": "0x7a8721a9d64c74da899424c1b52acbf58ddc9782",
+  "tool": "honeybadger",
+  "start": 1640177294.1777122,
+  "end": 1640177554.5588982,
+  "duration": 260.38118600845337,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+      "name": "Log"
+    },
+    {
+      "errors": [
+        {
+          "line": 55,
+          "column": 17,
+          "message": "straw_man_contract"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+      "name": "PrivateDeposit"
+    }
+  ]
+}

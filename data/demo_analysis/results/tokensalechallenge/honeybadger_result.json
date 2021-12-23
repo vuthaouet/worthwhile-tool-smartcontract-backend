@@ -1,0 +1,14 @@
+{
+  "contract": "tokensalechallenge",
+  "tool": "honeybadger",
+  "start": 1640169488.62392,
+  "end": 1640169495.185938,
+  "duration": 6.562017917633057,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/tokensalechallenge.sol",
+      "name": "TokenSaleChallenge"
+    }
+  ]
+}

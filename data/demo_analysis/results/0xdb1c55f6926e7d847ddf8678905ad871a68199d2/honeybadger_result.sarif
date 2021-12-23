@@ -1,0 +1,64 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "HoneyBadger",
+          "fullDescription": {
+            "text": "An analysis tool to detect honeypots in Ethereum smart contracts"
+          },
+          "informationUri": "https://honeybadger.uni.lu/",
+          "rules": [
+            {
+              "id": "Other_21",
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "hidden_transfer"
+              }
+            }
+          ],
+          "version": "1.8.16"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "contract",
+          "name": "FreeEth"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "hidden_transfer"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 809,
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_21"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

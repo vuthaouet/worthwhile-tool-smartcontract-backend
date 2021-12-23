@@ -1,0 +1,14 @@
+{
+  "contract": "overflow_single_tx",
+  "tool": "honeybadger",
+  "start": 1640174476.926444,
+  "end": 1640174481.8776448,
+  "duration": 4.951200723648071,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/overflow_single_tx.sol",
+      "name": "IntegerOverflowSingleTransaction"
+    }
+  ]
+}

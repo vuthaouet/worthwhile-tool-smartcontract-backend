@@ -1,0 +1,14 @@
+{
+  "contract": "integer_overflow_minimal",
+  "tool": "honeybadger",
+  "start": 1640195122.5475,
+  "end": 1640195125.4429653,
+  "duration": 2.89546537399292,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/thaovttest1/source_code/integer_overflow_minimal.sol",
+      "name": "IntegerOverflowMinimal"
+    }
+  ]
+}

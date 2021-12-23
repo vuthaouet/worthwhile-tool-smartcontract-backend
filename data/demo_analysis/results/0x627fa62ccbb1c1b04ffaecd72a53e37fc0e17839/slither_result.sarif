@@ -1,0 +1,193 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in TokenBank.WithdrawToHolder (/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol#90-100):\n\tExternal calls:\n\t- _addr.call.value(_wei)() (/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol#97-100)\n\tState variables written after the call(s):\n\t- Holders (/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in Token.WithdrawToken (/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol#39-50):\n\t-token.call(bytes4(sha3()(transfer(address,uint256))),to,amount) /data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol#44-50\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "WithdrawToHolder"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "endLine": 100,
+                  "startLine": 90
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "endLine": 100,
+                  "snippet": {
+                    "text": "_addr.call.value(_wei)()"
+                  },
+                  "startLine": 97
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Holders"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "endLine": 96,
+                  "snippet": {
+                    "text": "Holders[_addr] -= _wei"
+                  },
+                  "startLine": 96
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "WithdrawToken"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "endLine": 50,
+                  "startLine": 39
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "endLine": 50,
+                  "snippet": {
+                    "text": "token.call(bytes4(sha3()(transfer(address,uint256))),to,amount)"
+                  },
+                  "startLine": 44
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "WithdrawToHolder"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "endLine": 100,
+                  "startLine": 90
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "endLine": 100,
+                  "snippet": {
+                    "text": "_addr.call.value(_wei)()"
+                  },
+                  "startLine": 97
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

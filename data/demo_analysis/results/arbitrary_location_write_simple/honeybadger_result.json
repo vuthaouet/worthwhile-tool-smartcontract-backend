@@ -1,0 +1,14 @@
+{
+  "contract": "arbitrary_location_write_simple",
+  "tool": "honeybadger",
+  "start": 1640180262.489964,
+  "end": 1640180270.594601,
+  "duration": 8.104636907577515,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/arbitrary_location_write_simple.sol",
+      "name": "Wallet"
+    }
+  ]
+}

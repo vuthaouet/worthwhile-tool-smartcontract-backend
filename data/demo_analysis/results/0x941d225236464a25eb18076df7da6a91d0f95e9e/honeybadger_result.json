@@ -1,0 +1,25 @@
+{
+  "contract": "0x941d225236464a25eb18076df7da6a91d0f95e9e",
+  "tool": "honeybadger",
+  "start": 1640185303.3064244,
+  "end": 1640185566.553596,
+  "duration": 263.2471716403961,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 47,
+          "column": 17,
+          "message": "straw_man_contract"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol",
+      "name": "ETH_FUND"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol",
+      "name": "Log"
+    }
+  ]
+}

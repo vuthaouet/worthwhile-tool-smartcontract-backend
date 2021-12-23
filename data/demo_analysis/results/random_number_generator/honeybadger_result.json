@@ -1,0 +1,14 @@
+{
+  "contract": "random_number_generator",
+  "tool": "honeybadger",
+  "start": 1640185706.3461256,
+  "end": 1640185708.2274225,
+  "duration": 1.8812968730926514,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/random_number_generator.sol",
+      "name": "RandomNumberGenerator"
+    }
+  ]
+}

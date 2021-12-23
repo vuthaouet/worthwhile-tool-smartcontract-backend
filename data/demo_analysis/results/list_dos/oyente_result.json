@@ -1,0 +1,71 @@
+{
+  "contract": "list_dos",
+  "tool": "oyente",
+  "start": 1640181002.0761666,
+  "end": 1640181007.3509085,
+  "duration": 5.274741888046265,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 17,
+          "column": 6,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 39,
+          "column": 14,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 37,
+          "column": 14,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 40,
+          "column": 14,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 70,
+          "column": 22,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 82,
+          "column": 18,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 62,
+          "column": 18,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 75,
+          "column": 22,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/list_dos.sol",
+      "name": "Government",
+      "evm_code_coverage": "35.9%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

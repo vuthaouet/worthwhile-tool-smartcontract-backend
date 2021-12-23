@@ -1,0 +1,68 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "HoneyBadger",
+          "fullDescription": {
+            "text": "An analysis tool to detect honeypots in Ethereum smart contracts"
+          },
+          "informationUri": "https://honeybadger.uni.lu/",
+          "rules": [
+            {
+              "id": "Reentrancy_13",
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "straw_man_contract"
+              }
+            }
+          ],
+          "version": "1.8.16"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x01f8c4e3fa3edeb29e514cba738d87ce8c091d3f.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "contract",
+          "name": "LogFile"
+        },
+        {
+          "kind": "contract",
+          "name": "PERSONAL_BANK"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "straw_man_contract"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x01f8c4e3fa3edeb29e514cba738d87ce8c091d3f.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 17,
+                  "startLine": 57
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_13"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

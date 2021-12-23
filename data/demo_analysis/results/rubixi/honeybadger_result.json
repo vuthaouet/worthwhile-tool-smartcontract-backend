@@ -1,0 +1,14 @@
+{
+  "contract": "rubixi",
+  "tool": "honeybadger",
+  "start": 1640171853.287814,
+  "end": 1640171980.6623824,
+  "duration": 127.37456846237183,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/rubixi.sol",
+      "name": "Rubixi"
+    }
+  ]
+}

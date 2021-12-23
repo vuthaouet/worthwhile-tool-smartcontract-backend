@@ -1,0 +1,67 @@
+{
+  "contract": "0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1",
+  "tool": "oyente",
+  "start": 1640175507.6433232,
+  "end": 1640175515.4099612,
+  "duration": 7.7666380405426025,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 58,
+          "column": 17,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        },
+        {
+          "line": 55,
+          "column": 16,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol",
+      "name": "ACCURAL_DEPOSIT",
+      "evm_code_coverage": "98.0%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    },
+    {
+      "errors": [
+        {
+          "line": 84,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 84,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 88,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol",
+      "name": "LogFile",
+      "evm_code_coverage": "21.3%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

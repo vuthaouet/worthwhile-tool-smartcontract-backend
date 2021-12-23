@@ -1,0 +1,14 @@
+{
+  "contract": "0x9d06cbafa865037a01d322d3f4222fa3e04e5488",
+  "tool": "honeybadger",
+  "start": 1640189566.621372,
+  "end": 1640189676.5646904,
+  "duration": 109.9433183670044,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x9d06cbafa865037a01d322d3f4222fa3e04e5488.sol",
+      "name": "Delta"
+    }
+  ]
+}

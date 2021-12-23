@@ -1,0 +1,25 @@
+{
+  "contract": "0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8",
+  "tool": "honeybadger",
+  "start": 1640183342.8868866,
+  "end": 1640183606.6025593,
+  "duration": 263.71567273139954,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 57,
+          "column": 17,
+          "message": "straw_man_contract"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8.sol",
+      "name": "DEP_BANK"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8.sol",
+      "name": "LogFile"
+    }
+  ]
+}

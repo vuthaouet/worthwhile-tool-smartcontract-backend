@@ -1,0 +1,308 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in EtherBank.withdrawBalance (/data/access_control/source_code/etherbank.sol#18-23):\n\tExternal calls:\n\t- ! (msg.sender.call.value(amountToWithdraw)()) (/data/access_control/source_code/etherbank.sol#21)\n\tState variables written after the call(s):\n\t- userBalances (/data/access_control/source_code/etherbank.sol#22)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "Ignore_8",
+              "fullDescription": {
+                "text": "Deprecated standard detected @ /data/access_control/source_code/etherbank.sol#21:\n\t- Usage of \"throw\" should be replaced with \"revert()\"\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "deprecated-standards"
+              }
+            },
+            {
+              "id": "Ignore_11",
+              "fullDescription": {
+                "text": "EtherBank.getBalance (/data/access_control/source_code/etherbank.sol#10-12) should be declared external\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "external-function"
+              }
+            },
+            {
+              "id": "Ignore_17",
+              "fullDescription": {
+                "text": "Detected issues with version pragma in /data/access_control/source_code/etherbank.sol:\n\t- pragma solidity^0.4.0 (/data/access_control/source_code/etherbank.sol#7): it allows old versions\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "solc-version"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in EtherBank.withdrawBalance (/data/access_control/source_code/etherbank.sol#18-23):\n\t-! (msg.sender.call.value(amountToWithdraw)()) /data/access_control/source_code/etherbank.sol#21\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/access_control/source_code/etherbank.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 23,
+                  "startLine": 18
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 21,
+                  "snippet": {
+                    "text": "! (msg.sender.call.value(amountToWithdraw)())"
+                  },
+                  "startLine": 21
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "userBalances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 22,
+                  "snippet": {
+                    "text": "userBalances[msg.sender] = 0"
+                  },
+                  "startLine": 22
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "deprecated-standards"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 21,
+                  "snippet": {
+                    "text": "None"
+                  },
+                  "startLine": 21
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_8"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getBalance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 12,
+                  "startLine": 10
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "addToBalance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 16,
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 23,
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "solc-version"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "^0.4.0"
+                  },
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_17"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 23,
+                  "startLine": 18
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 21,
+                  "snippet": {
+                    "text": "! (msg.sender.call.value(amountToWithdraw)())"
+                  },
+                  "startLine": 21
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

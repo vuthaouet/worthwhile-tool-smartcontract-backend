@@ -1,0 +1,177 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "Lotto.withdrawLeftOver (/data/demo_analysis/source_code/lotto.sol#24-28) sends eth to arbitrary user\n\tDangerous calls:\n\t- msg.sender.send(this.balance) (/data/demo_analysis/source_code/lotto.sol#27)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            },
+            {
+              "id": "Other_14",
+              "fullDescription": {
+                "text": "Lotto.winner (/data/demo_analysis/source_code/lotto.sol#12) is never initialized. It is used in:\n\t- sendToWinner (/data/demo_analysis/source_code/lotto.sol#17-22)\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "uninitialized-state"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/lotto.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawLeftOver"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/lotto.sol"
+                },
+                "region": {
+                  "endLine": 28,
+                  "startLine": 24
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/lotto.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "snippet": {
+                    "text": "msg.sender.send(this.balance)"
+                  },
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        },
+        {
+          "message": {
+            "text": "uninitialized-state"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variable",
+                  "name": "winner"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/lotto.sol"
+                },
+                "region": {
+                  "endLine": 12,
+                  "startLine": 12
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "sendToWinner"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/lotto.sol"
+                },
+                "region": {
+                  "endLine": 22,
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_14"
+        },
+        {
+          "message": {
+            "text": "uninitialized-state"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variable",
+                  "name": "winAmount"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/lotto.sol"
+                },
+                "region": {
+                  "endLine": 13,
+                  "startLine": 13
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "sendToWinner"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/lotto.sol"
+                },
+                "region": {
+                  "endLine": 22,
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_14"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

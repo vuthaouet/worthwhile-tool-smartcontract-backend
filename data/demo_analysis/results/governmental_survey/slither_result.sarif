@@ -1,0 +1,132 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "Governmental.resetInvestment (/data/demo_analysis/source_code/governmental_survey.sol#30-40) sends eth to arbitrary user\n\tDangerous calls:\n\t- owner.send(this.balance - 1000000000000000000) (/data/demo_analysis/source_code/governmental_survey.sol#35)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            },
+            {
+              "id": "TimeManipulation_4",
+              "fullDescription": {
+                "text": "Governmental.resetInvestment (/data/demo_analysis/source_code/governmental_survey.sol#30-40) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- block.timestamp < lastInvestmentTimestamp + ONE_MINUTE (/data/demo_analysis/source_code/governmental_survey.sol#31-32)\n"
+              },
+              "name": "TimeManipulationVulnerability",
+              "shortDescription": {
+                "text": "timestamp"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "resetInvestment"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "endLine": 40,
+                  "startLine": 30
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "endLine": 35,
+                  "snippet": {
+                    "text": "owner.send(this.balance - 1000000000000000000)"
+                  },
+                  "startLine": 35
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        },
+        {
+          "message": {
+            "text": "timestamp"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "resetInvestment"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "endLine": 40,
+                  "startLine": 30
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "endLine": 32,
+                  "snippet": {
+                    "text": "block.timestamp < lastInvestmentTimestamp + ONE_MINUTE"
+                  },
+                  "startLine": 31
+                }
+              }
+            }
+          ],
+          "ruleId": "TimeManipulation_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

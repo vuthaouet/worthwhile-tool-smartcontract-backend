@@ -1,0 +1,220 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Other_9",
+              "fullDescription": {
+                "text": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. "
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Exception state"
+              }
+            },
+            {
+              "id": "Reentrancy_3",
+              "fullDescription": {
+                "text": "This contract executes a message call to to another contract. Make sure that the called contract is trusted and does not execute user-supplied code."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Message call to external contract"
+              }
+            },
+            {
+              "id": "Other_10",
+              "fullDescription": {
+                "text": "Multiple sends exist in one transaction, try to isolate each external call into its own transaction. As external calls can fail accidentally or deliberately.\nConsecutive calls: \nCall at address: 1339\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Multiple Calls"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x9d06cbafa865037a01d322d3f4222fa3e04e5488.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "fallback"
+        },
+        {
+          "kind": "function",
+          "name": "withdraw(uint256)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x9d06cbafa865037a01d322d3f4222fa3e04e5488.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ire(tokens_buy > 0);\n\n      "
+                  },
+                  "startLine": 46
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x9d06cbafa865037a01d322d3f4222fa3e04e5488.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "s,uint256)\")),owner, msg.sender,tokens_buy)){\n        \treturn false;\n        }\n\n        ui"
+                  },
+                  "startLine": 48
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Multiple Calls"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x9d06cbafa865037a01d322d3f4222fa3e04e5488.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "s,uint256)\")),owner, msg.sender,tokens_buy)){\n        \treturn false;\n        }\n\n        ui"
+                  },
+                  "startLine": 48
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_10"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x9d06cbafa865037a01d322d3f4222fa3e04e5488.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "\n\n      //Withdra"
+                  },
+                  "startLine": 57
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw(uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x9d06cbafa865037a01d322d3f4222fa3e04e5488.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "nge token\n      fun"
+                  },
+                  "startLine": 69
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

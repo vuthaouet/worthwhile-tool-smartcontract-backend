@@ -1,0 +1,24 @@
+{
+  "contract": "modifier_reentrancy",
+  "tool": "honeybadger",
+  "start": 1640186142.1297817,
+  "end": 1640186158.202183,
+  "duration": 16.07240128517151,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/modifier_reentrancy.sol",
+      "name": "Bank"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/modifier_reentrancy.sol",
+      "name": "ModifierEntrancy"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/modifier_reentrancy.sol",
+      "name": "attack"
+    }
+  ]
+}

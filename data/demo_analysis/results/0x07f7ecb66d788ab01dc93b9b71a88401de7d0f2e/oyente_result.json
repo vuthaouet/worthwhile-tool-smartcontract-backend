@@ -1,0 +1,47 @@
+{
+  "contract": "0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e",
+  "tool": "oyente",
+  "start": 1640176780.0370674,
+  "end": 1640176788.070175,
+  "duration": 8.03310751914978,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 153,
+          "column": 45,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 202,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 201,
+          "column": 9,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 213,
+          "column": 9,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol",
+      "name": "PoCGame",
+      "evm_code_coverage": "81.8%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

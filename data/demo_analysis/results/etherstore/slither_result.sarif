@@ -1,0 +1,172 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in EtherStore.withdrawFunds (/data/demo_analysis/source_code/etherstore.sol#20-30):\n\tExternal calls:\n\t- require(bool)(msg.sender.call.value(_weiToWithdraw)()) (/data/demo_analysis/source_code/etherstore.sol#27)\n\tState variables written after the call(s):\n\t- balances (/data/demo_analysis/source_code/etherstore.sol#28)\n\t- lastWithdrawTime (/data/demo_analysis/source_code/etherstore.sol#29)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in EtherStore.withdrawFunds (/data/demo_analysis/source_code/etherstore.sol#20-30):\n\t-require(bool)(msg.sender.call.value(_weiToWithdraw)()) /data/demo_analysis/source_code/etherstore.sol#27\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/etherstore.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawFunds"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 30,
+                  "startLine": 20
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "snippet": {
+                    "text": "require(bool)(msg.sender.call.value(_weiToWithdraw)())"
+                  },
+                  "startLine": 27
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "balances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 28,
+                  "snippet": {
+                    "text": "balances[msg.sender] -= _weiToWithdraw"
+                  },
+                  "startLine": 28
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "lastWithdrawTime"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 29,
+                  "snippet": {
+                    "text": "lastWithdrawTime[msg.sender] = now"
+                  },
+                  "startLine": 29
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawFunds"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 30,
+                  "startLine": 20
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "snippet": {
+                    "text": "require(bool)(msg.sender.call.value(_weiToWithdraw)())"
+                  },
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

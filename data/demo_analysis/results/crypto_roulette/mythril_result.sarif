@@ -1,0 +1,148 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Other_9",
+              "fullDescription": {
+                "text": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. "
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Exception state"
+              }
+            },
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `kill()`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/crypto_roulette.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "_function_0x382cf0a6"
+        },
+        {
+          "kind": "function",
+          "name": "kill()"
+        },
+        {
+          "kind": "function",
+          "name": "play(uint256)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0x382cf0a6"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/crypto_roulette.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "Game[] public gamesPlayed"
+                  },
+                  "startLine": 25
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "kill()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/crypto_roulette.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "lastPlayed + 1 days"
+                  },
+                  "startLine": 55
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play(uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/crypto_roulette.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "github.com/thec00n"
+                  },
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

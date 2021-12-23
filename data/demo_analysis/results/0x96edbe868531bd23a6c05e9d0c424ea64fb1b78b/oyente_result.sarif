@@ -1,0 +1,215 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Oyente",
+          "fullDescription": {
+            "text": "Oyente runs on symbolic execution, determines which inputs cause which program branches to execute, to find potential security vulnerabilities. Oyente works directly with EVM bytecode without access high level representation and does not provide soundness nor completeness."
+          },
+          "informationUri": "https://oyente.tech/",
+          "rules": [
+            {
+              "id": "Arithmetic_12",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Underflow."
+              }
+            },
+            {
+              "id": "Arithmetic_11",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow."
+              }
+            },
+            {
+              "id": "TimeManipulation_3",
+              "name": "TimeManipulationVulnerability",
+              "shortDescription": {
+                "text": "Timestamp Dependency."
+              }
+            },
+            {
+              "id": "Reentrancy_6",
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Re-Entrancy Vulnerability."
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "contract",
+          "name": "LogFile"
+        },
+        {
+          "kind": "contract",
+          "name": "PENNY_BY_PENNY"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 91
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 95
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 91
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Timestamp Dependency."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 60
+                }
+              }
+            }
+          ],
+          "ruleId": "TimeManipulation_3"
+        },
+        {
+          "message": {
+            "text": "Re-Entrancy Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 17,
+                  "startLine": 66
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_6"
+        },
+        {
+          "message": {
+            "text": "Re-Entrancy Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 63
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_6"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

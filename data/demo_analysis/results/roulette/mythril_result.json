@@ -1,0 +1,12 @@
+{
+  "contract": "roulette",
+  "tool": "mythril",
+  "start": 1640174533.580103,
+  "end": 1640174578.0135446,
+  "duration": 44.43344163894653,
+  "analysis": {
+    "error": null,
+    "issues": [],
+    "success": true
+  }
+}

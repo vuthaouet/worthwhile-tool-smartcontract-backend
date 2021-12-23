@@ -1,0 +1,75 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol:
+/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol:87:5: Warning: This declaration shadows an existing declaration.
+    uint256 secret = uint256(hash);
+    ^------------^
+/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol:26:1: The shadowed declaration is here:
+uint256 public secret;
+^-------------------^
+
+/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol:86:20: Warning: This function only accepts a single "bytes" argument. Please use "abi.encodePacked(...)" or a similar function to encode the data.
+    bytes32 hash = keccak256(blockhash(block.number-1));
+                   ^----------------------------------^
+/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol:86:20: Warning: The provided argument of type bytes32 is not implicitly convertible to expected type bytes memory.
+    bytes32 hash = keccak256(blockhash(block.number-1));
+                   ^----------------------------------^
+/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol:100:2: Warning: Return value of low-level calls not used.
+	firstTarget.call.value(msg.value)();
+	^---------------------------------^
+/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol:106:2: Warning: Return value of low-level calls not used.
+	secondTarget.call.value(msg.value)();
+	^----------------------------------^
+/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol:133:2: Warning: Return value of low-level calls not used.
+	owner.call.value(1 wei)();
+	^-----------------------^
+
+INFO:Detectors:[93m
+DrainMe.unlockSecret (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#86-98) uses a dangerous strict equality:
+	- secret % 5 == 0
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#dangerous-strict-equalities[0m
+INFO:Detectors:[92m
+DrainMe.unlockSecret.secret (local variable @ /data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#89-91) shadows:
+	- DrainMe.secret (state variable @ /data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#27)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#local-variable-shadowing[0m
+INFO:Detectors:[92m
+DrainMe.firstTarget should be constant (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#20-21)
+DrainMe.secondTarget should be constant (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#21-22)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#state-variables-that-could-be-declared-constant[0m
+INFO:Detectors:[92m
+DrainMe.DranMe (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#32-38) should be declared external
+DrainMe.getLength (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#55-59) should be declared external
+DrainMe.setSecret (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#59-63) should be declared external
+DrainMe.getPlayerCount (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#64-68) should be declared external
+DrainMe.getPrize (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#68-72) should be declared external
+DrainMe.becomePlayer (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#72-78) should be declared external
+DrainMe.manipulateSecret (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#78-86) should be declared external
+DrainMe.callFirstTarget (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#99-105) should be declared external
+DrainMe.callSecondTarget (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#105-111) should be declared external
+DrainMe.setSeed (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#113-117) should be declared external
+DrainMe.addSeed (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#117-118) should be declared external
+DrainMe.guessSeed (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#118-126) should be declared external
+DrainMe.checkSecret (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#126-136) should be declared external
+DrainMe.winPrize (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#136-142) should be declared external
+DrainMe.claimPrize (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#142-144) should be declared external
+DrainMe.fallback (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Detected issues with version pragma in /data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol:
+	- pragma solidity^0.4.23 (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#12-14): it allows old versions
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-version-of-solidity[0m
+INFO:Detectors:[92m
+Low level call in DrainMe.callFirstTarget (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#99-105):
+	-firstTarget.call.value(msg.value)() /data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#104
+Low level call in DrainMe.callSecondTarget (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#105-111):
+	-secondTarget.call.value(msg.value)() /data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#109-110
+Low level call in DrainMe.winPrize (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#136-142):
+	-owner.call.value(1)() /data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#140-142
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Function 'DrainMe.DranMe' (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#32-38) is not in mixedCase
+Parameter '_secret' of DrainMe.setSecret (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#60-63) is not in mixedCase
+Parameter '_index' of DrainMe.setSeed (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#113) is not in mixedCase
+Parameter '_value' of DrainMe.setSeed (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#113) is not in mixedCase
+Parameter '_add' of DrainMe.addSeed (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#117) is not in mixedCase
+Parameter '_seed' of DrainMe.guessSeed (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#119) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol analyzed (1 contracts), 29 result(s) found

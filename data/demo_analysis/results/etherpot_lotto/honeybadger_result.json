@@ -1,0 +1,14 @@
+{
+  "contract": "etherpot_lotto",
+  "tool": "honeybadger",
+  "start": 1640172672.3961802,
+  "end": 1640172935.8602612,
+  "duration": 263.46408104896545,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/etherpot_lotto.sol",
+      "name": "Lotto"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "contract": "open_address_lottery",
+  "tool": "honeybadger",
+  "start": 1640187142.829625,
+  "end": 1640187168.556034,
+  "duration": 25.726409196853638,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 92,
+          "column": 9,
+          "message": "uninitialised_struct"
+        },
+        {
+          "line": 95,
+          "column": 9,
+          "message": "uninitialised_struct"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/open_address_lottery.sol",
+      "name": "OpenAddressLottery"
+    }
+  ]
+}

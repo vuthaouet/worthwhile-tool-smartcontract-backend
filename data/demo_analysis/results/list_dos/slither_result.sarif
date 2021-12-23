@@ -1,0 +1,81 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "TimeManipulation_4",
+              "fullDescription": {
+                "text": "Government.lendGovernmentMoney (/data/demo_analysis/source_code/list_dos.sol#31-86) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- lastTimeOfNewCredit + TWELVE_HOURS < block.timestamp (/data/demo_analysis/source_code/list_dos.sol#35-85)\n"
+              },
+              "name": "TimeManipulationVulnerability",
+              "shortDescription": {
+                "text": "timestamp"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/list_dos.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "timestamp"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "lendGovernmentMoney"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "endLine": 86,
+                  "startLine": 31
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "endLine": 85,
+                  "snippet": {
+                    "text": "lastTimeOfNewCredit + TWELVE_HOURS < block.timestamp"
+                  },
+                  "startLine": 35
+                }
+              }
+            }
+          ],
+          "ruleId": "TimeManipulation_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

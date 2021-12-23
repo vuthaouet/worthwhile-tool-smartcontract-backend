@@ -1,0 +1,65 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol:
+/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol:28:24: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(intitalized)throw;
+                       ^---^
+/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol:35:24: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+        if(intitalized)throw;
+                       ^---^
+/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol:49:9: Warning: Use of the "var" keyword is deprecated.
+        var acc = Acc[msg.sender];
+        ^-----^
+/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol:59:9: Warning: Use of the "var" keyword is deprecated.
+        var acc = Acc[msg.sender];
+        ^-----^
+
+INFO:Detectors:[91m
+Reentrancy in MONEY_BOX.Collect (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#58-76):
+	External calls:
+	- msg.sender.call.value(_am)() (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#65-74)
+	State variables written after the call(s):
+	- Acc (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#66-67)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities[0m
+INFO:Detectors:[92m
+Deprecated standard detected @ /data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#29-30:
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#36-37:
+	- Usage of "throw" should be replaced with "revert()"
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#deprecated-standards[0m
+INFO:Detectors:[92m
+MONEY_BOX.SetMinSum (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#25-32) should be declared external
+MONEY_BOX.SetLogFile (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#32-40) should be declared external
+MONEY_BOX.Initialized (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#41-46) should be declared external
+MONEY_BOX.Collect (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#58-76) should be declared external
+MONEY_BOX.fallback (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#78-86) should be declared external
+Log.AddMessage (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#98-104) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Detected issues with version pragma in /data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol:
+	- pragma solidity^0.4.19 (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#7-9): it allows old versions
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-version-of-solidity[0m
+INFO:Detectors:[92m
+Low level call in MONEY_BOX.Collect (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#58-76):
+	-msg.sender.call.value(_am)() /data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#65-74
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Contract 'MONEY_BOX' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#9-86) is not in CapWords
+Function 'MONEY_BOX.SetMinSum' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#25-32) is not in mixedCase
+Parameter '_val' of MONEY_BOX.SetMinSum (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#27-28) is not in mixedCase
+Function 'MONEY_BOX.SetLogFile' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#32-40) is not in mixedCase
+Parameter '_log' of MONEY_BOX.SetLogFile (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#35) is not in mixedCase
+Function 'MONEY_BOX.Initialized' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#41-46) is not in mixedCase
+Function 'MONEY_BOX.Put' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#47-57) is not in mixedCase
+Parameter '_lockTime' of MONEY_BOX.Put (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#48-49) is not in mixedCase
+Function 'MONEY_BOX.Collect' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#58-76) is not in mixedCase
+Parameter '_am' of MONEY_BOX.Collect (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#59) is not in mixedCase
+Variable 'MONEY_BOX.Acc' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#17-19) is not in mixedCase
+Variable 'MONEY_BOX.MinSum' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#19-21) is not in mixedCase
+Variable 'MONEY_BOX.LogFile' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#23) is not in mixedCase
+Function 'Log.AddMessage' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#98-104) is not in mixedCase
+Parameter '_adr' of Log.AddMessage (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#99) is not in mixedCase
+Parameter '_val' of Log.AddMessage (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#99-100) is not in mixedCase
+Parameter '_data' of Log.AddMessage (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#100) is not in mixedCase
+Variable 'Log.History' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#95) is not in mixedCase
+Variable 'Log.LastMsg' (/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol#96-98) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol analyzed (2 contracts), 30 result(s) found

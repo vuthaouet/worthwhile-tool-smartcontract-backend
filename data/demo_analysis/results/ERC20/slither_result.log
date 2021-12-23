@@ -1,0 +1,19 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/ERC20.sol:
+/data/demo_analysis/source_code/ERC20.sol:86:3: Warning: No visibility specified. Defaulting to "public". 
+  constructor(uint totalSupply){
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+INFO:Detectors:[92m
+ERC20._totalSupply should be constant (/data/demo_analysis/source_code/ERC20.sol#84)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#state-variables-that-could-be-declared-constant[0m
+INFO:Detectors:[92m
+ERC20.balanceOf (/data/demo_analysis/source_code/ERC20.sol#90-92) should be declared external
+ERC20.allowance (/data/demo_analysis/source_code/ERC20.sol#95-98) should be declared external
+ERC20.transfer (/data/demo_analysis/source_code/ERC20.sol#100-108) should be declared external
+ERC20.approve (/data/demo_analysis/source_code/ERC20.sol#110-116) should be declared external
+ERC20.transferFrom (/data/demo_analysis/source_code/ERC20.sol#118-128) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+ERC20._totalSupply (/data/demo_analysis/source_code/ERC20.sol#84) is never used in ERC20
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#unused-state-variables[0m
+INFO:Slither:/data/demo_analysis/source_code/ERC20.sol analyzed (2 contracts), 7 result(s) found

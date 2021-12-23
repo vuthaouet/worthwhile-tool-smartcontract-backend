@@ -1,0 +1,19 @@
+{
+  "contract": "governmental_survey",
+  "tool": "honeybadger",
+  "start": 1640174527.258765,
+  "end": 1640174533.551618,
+  "duration": 6.292853116989136,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/governmental_survey.sol",
+      "name": "Attacker"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/governmental_survey.sol",
+      "name": "Governmental"
+    }
+  ]
+}

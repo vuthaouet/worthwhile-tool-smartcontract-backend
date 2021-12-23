@@ -1,0 +1,29 @@
+{
+  "contract": "crypto_roulette",
+  "tool": "oyente",
+  "start": 1640176346.4124405,
+  "end": 1640176349.1466486,
+  "duration": 2.734208106994629,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 25,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/crypto_roulette.sol",
+      "name": "CryptoRoulette",
+      "evm_code_coverage": "66.8%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

@@ -1,0 +1,397 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "PoCGame.payout (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#191-201) sends eth to arbitrary user\n\tDangerous calls:\n\t- winner.transfer(ethToTransfer) (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#200)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            },
+            {
+              "id": "Other_11",
+              "fullDescription": {
+                "text": "PoCGame.play (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#147-179) uses a dangerous strict equality:\n\t- winningNumber == difficulty / 2\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "incorrect-equality"
+              }
+            },
+            {
+              "id": "Reentrancy_9",
+              "fullDescription": {
+                "text": "Reentrancy in PoCGame.donateToWhale (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#202-213):\n\tExternal calls:\n\t- whale.call.value(amount)(bytes4(keccak256()(donate()))) (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#208-210)\n\tState variables written after the call(s):\n\t- totalDonated (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#212)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-benign"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in PoCGame.donateToWhale (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#202-213):\n\t-whale.call.value(amount)(bytes4(keccak256()(donate()))) /data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#208-210\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "payout"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 201,
+                  "startLine": 191
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 200,
+                  "snippet": {
+                    "text": "winner.transfer(ethToTransfer)"
+                  },
+                  "startLine": 200
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        },
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "loseWager"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 232,
+                  "startLine": 215
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 227,
+                  "snippet": {
+                    "text": "whale.call.value(amount)(bytes4(keccak256()(donate())))"
+                  },
+                  "startLine": 222
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 179,
+                  "startLine": 147
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 174,
+                  "snippet": {
+                    "text": "winningNumber == difficulty / 2"
+                  },
+                  "startLine": 161
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "donateToWhale"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 213,
+                  "startLine": 202
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 210,
+                  "snippet": {
+                    "text": "whale.call.value(amount)(bytes4(keccak256()(donate())))"
+                  },
+                  "startLine": 208
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "totalDonated"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 212,
+                  "snippet": {
+                    "text": "totalDonated += amount"
+                  },
+                  "startLine": 212
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "loseWager"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 232,
+                  "startLine": 215
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 227,
+                  "snippet": {
+                    "text": "whale.call.value(amount)(bytes4(keccak256()(donate())))"
+                  },
+                  "startLine": 222
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "totalDonated"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 227,
+                  "snippet": {
+                    "text": "totalDonated += amount"
+                  },
+                  "startLine": 227
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "donateToWhale"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 213,
+                  "startLine": 202
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 210,
+                  "snippet": {
+                    "text": "whale.call.value(amount)(bytes4(keccak256()(donate())))"
+                  },
+                  "startLine": 208
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "loseWager"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 232,
+                  "startLine": 215
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "endLine": 227,
+                  "snippet": {
+                    "text": "whale.call.value(amount)(bytes4(keccak256()(donate())))"
+                  },
+                  "startLine": 222
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

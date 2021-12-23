@@ -1,0 +1,67 @@
+{
+  "contract": "0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839",
+  "tool": "oyente",
+  "start": 1640196294.2350845,
+  "end": 1640196302.2209601,
+  "duration": 7.985875606536865,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol",
+      "name": "Ownable",
+      "evm_code_coverage": "99.5%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol",
+      "name": "Token",
+      "evm_code_coverage": "99.7%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [
+        {
+          "line": 96,
+          "column": 17,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 72,
+          "column": 13,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 94,
+          "column": 16,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol",
+      "name": "TokenBank",
+      "evm_code_coverage": "99.9%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    }
+  ]
+}

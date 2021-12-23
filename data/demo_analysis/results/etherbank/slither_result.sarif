@@ -1,0 +1,152 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in EtherBank.withdrawBalance (/data/demo_analysis/source_code/etherbank.sol#18-23):\n\tExternal calls:\n\t- ! (msg.sender.call.value(amountToWithdraw)()) (/data/demo_analysis/source_code/etherbank.sol#21)\n\tState variables written after the call(s):\n\t- userBalances (/data/demo_analysis/source_code/etherbank.sol#22)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in EtherBank.withdrawBalance (/data/demo_analysis/source_code/etherbank.sol#18-23):\n\t-! (msg.sender.call.value(amountToWithdraw)()) /data/demo_analysis/source_code/etherbank.sol#21\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/etherbank.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 23,
+                  "startLine": 18
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 21,
+                  "snippet": {
+                    "text": "! (msg.sender.call.value(amountToWithdraw)())"
+                  },
+                  "startLine": 21
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "userBalances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 22,
+                  "snippet": {
+                    "text": "userBalances[msg.sender] = 0"
+                  },
+                  "startLine": 22
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 23,
+                  "startLine": 18
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/etherbank.sol"
+                },
+                "region": {
+                  "endLine": 21,
+                  "snippet": {
+                    "text": "! (msg.sender.call.value(amountToWithdraw)())"
+                  },
+                  "startLine": 21
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

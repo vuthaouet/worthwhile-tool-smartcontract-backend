@@ -1,0 +1,14 @@
+{
+  "contract": "integer_overflow_mul",
+  "tool": "honeybadger",
+  "start": 1640195144.0867183,
+  "end": 1640195147.5885005,
+  "duration": 3.501782178878784,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/thaovttest1/source_code/integer_overflow_mul.sol",
+      "name": "IntegerOverflowMul"
+    }
+  ]
+}

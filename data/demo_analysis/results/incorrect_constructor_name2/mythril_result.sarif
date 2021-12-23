@@ -1,0 +1,112 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "AccessControl_13",
+              "fullDescription": {
+                "text": "In the function `withdraw()` a non-zero amount of Ether is sent to an address taken from storage slot 0.\nThere is a check on storage index 0. This storage slot can be written to by calling the function `missing()`.\n\nThere is a check on storage index 0. This storage slot can be written to by calling the function `missing()`."
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "Ether send"
+              }
+            },
+            {
+              "id": "FrontRunning_1",
+              "fullDescription": {
+                "text": "A possible transaction order independence vulnerability exists in function withdraw(). The value or direction of the call statement is determined from a tainted storage location"
+              },
+              "name": "FrontRunningVulnerability",
+              "shortDescription": {
+                "text": "Transaction order dependence"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/incorrect_constructor_name2.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "withdraw()"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Ether send"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/incorrect_constructor_name2.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "owner.transfer(this.balance)"
+                  },
+                  "startLine": 30
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_13"
+        },
+        {
+          "message": {
+            "text": "Transaction order dependence"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/incorrect_constructor_name2.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "owner.transfer(this.balance)"
+                  },
+                  "startLine": 30
+                }
+              }
+            }
+          ],
+          "ruleId": "FrontRunning_1"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

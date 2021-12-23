@@ -1,0 +1,546 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Reentrancy_3",
+              "fullDescription": {
+                "text": "This contract executes a message call to to another contract. Make sure that the called contract is trusted and does not execute user-supplied code."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Message call to external contract"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            },
+            {
+              "id": "Other_9",
+              "fullDescription": {
+                "text": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. "
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Exception state"
+              }
+            },
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `becomePlayer()`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            },
+            {
+              "id": "FrontRunning_1",
+              "fullDescription": {
+                "text": "A possible transaction order independence vulnerability exists in function claimPrize(). The value or direction of the call statement is determined from a tainted storage location"
+              },
+              "name": "FrontRunningVulnerability",
+              "shortDescription": {
+                "text": "Transaction order dependence"
+              }
+            },
+            {
+              "id": "AccessControl_13",
+              "fullDescription": {
+                "text": "In the function `winPrize()` a non-zero amount of Ether is sent to an address taken from storage slot 1.\nThere is a check on storage index 1. This storage slot can be written to by calling the function `DranMe()`.\n\nThere is a check on storage index 1. This storage slot can be written to by calling the function `DranMe()`."
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "Ether send"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "_function_0x066d4701"
+        },
+        {
+          "kind": "function",
+          "name": "_function_0x1d263b53"
+        },
+        {
+          "kind": "function",
+          "name": "_function_0x1d7915ad"
+        },
+        {
+          "kind": "function",
+          "name": "_function_0x47bb89f0"
+        },
+        {
+          "kind": "function",
+          "name": "becomePlayer()"
+        },
+        {
+          "kind": "function",
+          "name": "claimPrize()"
+        },
+        {
+          "kind": "function",
+          "name": "_function_0x95564837"
+        },
+        {
+          "kind": "function",
+          "name": "winPrize()"
+        },
+        {
+          "kind": "function",
+          "name": "_function_0xbced9cfd"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0x066d4701"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "require (msg.value >= 0.005 ether);"
+                  },
+                  "startLine": 104
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0x066d4701"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "require (msg.value >= 0.005 ether);"
+                  },
+                  "startLine": 104
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0x1d263b53"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": " onlyPlayers {\n\tseed[_index] = _valu"
+                  },
+                  "startLine": 109
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0x1d263b53"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": " onlyPlayers {\n\tseed[_index] = _valu"
+                  },
+                  "startLine": 109
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0x1d7915ad"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "}\n\nfunction "
+                  },
+                  "startLine": 115
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0x47bb89f0"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "//constructor\n\nfunction "
+                  },
+                  "startLine": 30
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "becomePlayer()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "n.io \n * @author: "
+                  },
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Transaction order dependence"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "claimPrize()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startLine": 144
+                }
+              }
+            }
+          ],
+          "ruleId": "FrontRunning_1"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0x95564837"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "51828771,158769871220];\nuint256[] public balance"
+                  },
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Ether send"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "winPrize()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ck function\n\nfunction() p"
+                  },
+                  "startLine": 140
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_13"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "winPrize()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ck function\n\nfunction() p"
+                  },
+                  "startLine": 140
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Transaction order dependence"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "winPrize()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ck function\n\nfunction() p"
+                  },
+                  "startLine": 140
+                }
+              }
+            }
+          ],
+          "ruleId": "FrontRunning_1"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "winPrize()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ck function\n\nfunction() p"
+                  },
+                  "startLine": 140
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0xbced9cfd"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "e onlyP"
+                  },
+                  "startLine": 124
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0xbced9cfd"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": " () public payable onlyPl"
+                  },
+                  "startLine": 124
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

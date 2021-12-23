@@ -1,0 +1,41 @@
+{
+  "contract": "etherstore",
+  "tool": "oyente",
+  "start": 1640163001.3628669,
+  "end": 1640163008.1415436,
+  "duration": 6.778676748275757,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 17,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 25,
+          "column": 9,
+          "level": "Warning",
+          "message": "Timestamp Dependency."
+        },
+        {
+          "line": 27,
+          "column": 17,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/access_control/source_code/etherstore.sol",
+      "name": "EtherStore",
+      "evm_code_coverage": "99.1%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": true,
+      "re-entrancy_vulnerability": true
+    }
+  ]
+}

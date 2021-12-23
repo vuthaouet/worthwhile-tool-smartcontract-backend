@@ -1,0 +1,57 @@
+{
+  "contract": "reentrancy_cross_function",
+  "tool": "mythril",
+  "start": 1640172460.7801404,
+  "end": 1640172465.1244097,
+  "duration": 4.344269275665283,
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 295,
+        "code": "msg.sender.call.value(amountToWithdraw)(\"\")",
+        "debug": "SOLVER OUTPUT:\ncalldata_Reentrancy_cross_function_0: 0x5fd8c71000000000000000000000000000000000000000000000000000000000\ncalldatasize_Reentrancy_cross_function: 0x4\ncallvalue: 0x0\n",
+        "description": "In the function `withdrawBalance()` a non-zero amount of Ether is sent to msg.sender.\nIt seems that this function can be called without restrictions.",
+        "filename": "/data/demo_analysis/source_code/reentrancy_cross_function.sol",
+        "function": "withdrawBalance()",
+        "lineno": 24,
+        "title": "Ether send",
+        "type": "Warning"
+      },
+      {
+        "address": 295,
+        "code": "msg.sender.call.value(amountToWithdraw)(\"\")",
+        "debug": "",
+        "description": "This contract executes a message call to the address of the transaction sender. Generally, it is not recommended to call user-supplied addresses using Solidity's call() construct. Note that attackers might leverage reentrancy attacks to exploit race conditions or manipulate this contract's state.",
+        "filename": "/data/demo_analysis/source_code/reentrancy_cross_function.sol",
+        "function": "withdrawBalance()",
+        "lineno": 24,
+        "title": "Message call to external contract",
+        "type": "Warning"
+      },
+      {
+        "address": 380,
+        "code": "userBalances[msg.sender] = 0",
+        "debug": "",
+        "description": "The contract account state is changed after an external call. Consider that the called contract could re-enter the function before this state change takes place. This can lead to business logic vulnerabilities.",
+        "filename": "/data/demo_analysis/source_code/reentrancy_cross_function.sol",
+        "function": "withdrawBalance()",
+        "lineno": 26,
+        "title": "State change after external call",
+        "type": "Warning"
+      },
+      {
+        "address": 525,
+        "code": "userBalances[to] += amount",
+        "debug": "calldata_Reentrancy_cross_function_32 + 4: 0xc290137095b13347e55005a6dc184559e0489f1233480050d0fb4bba17d34179\nstorage_keccac_1461501637330902918203684832716283019655932542975_&\n1461501637330902918203684832716283019655932542975_&\n1461501637330902918203684832716283019655932542975_&\ncalldata_Reentrancy_cross_function_4: 0x9c9efb7ae5acd378025256a3945f5859076e809243093d9ecae2636c9fd28979\nstorage_keccac_1461501637330902918203684832716283019655932542975_&\n1461501637330902918203684832716283019655932542975_&\ncaller: 0xc290137095b13347e55005a6dc184559e0489f1233480050d0fb4bba17d34179\ncalldata_Reentrancy_cross_function_0: 0xa9059cbb00000000000000000000000000000000000000000000000000000000\ncalldatasize_Reentrancy_cross_function: 0x4\ncallvalue: 0x0\n",
+        "description": "A possible integer overflow exists in the function `transfer(address,uint256)`.\nThe addition or multiplication may result in a value higher than the maximum representable integer.",
+        "filename": "/data/demo_analysis/source_code/reentrancy_cross_function.sol",
+        "function": "transfer(address,uint256)",
+        "lineno": 16,
+        "title": "Integer Overflow ",
+        "type": "Warning"
+      }
+    ],
+    "success": true
+  }
+}

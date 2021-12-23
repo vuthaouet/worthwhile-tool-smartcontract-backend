@@ -1,0 +1,14 @@
+{
+  "contract": "guess_the_random_number",
+  "tool": "honeybadger",
+  "start": 1640176679.522325,
+  "end": 1640176682.4362864,
+  "duration": 2.913961410522461,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/guess_the_random_number.sol",
+      "name": "GuessTheRandomNumberChallenge"
+    }
+  ]
+}

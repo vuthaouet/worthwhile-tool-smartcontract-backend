@@ -1,0 +1,14 @@
+{
+  "contract": "0x52d2e0f9b01101a59b38a3d05c80b7618aeed984",
+  "tool": "honeybadger",
+  "start": 1640178468.2058074,
+  "end": 1640178474.3133695,
+  "duration": 6.107562065124512,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x52d2e0f9b01101a59b38a3d05c80b7618aeed984.sol",
+      "name": "EtherGet"
+    }
+  ]
+}

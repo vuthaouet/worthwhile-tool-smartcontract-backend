@@ -1,0 +1,40 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol:
+/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol:150:9: Warning: Return value of low-level calls not used.
+        whale.call.value(donate_amount)(bytes4(keccak256("donate()")));
+        ^------------------------------------------------------------^
+
+INFO:Detectors:[91m
+FiftyFlip.sendFunds (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#332-340) sends eth to arbitrary user
+	Dangerous calls:
+	- success = paidUser.send(amount) (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#333-334)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#functions-that-send-ether-to-arbitrary-destinations[0m
+INFO:Detectors:[91m
+Reentrancy in FiftyFlip.wager (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#130-166):
+	External calls:
+	- whale.call.value(donate_amount)(bytes4(keccak256()(donate()))) (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#154-156)
+	State variables written after the call(s):
+	- bets (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#158)
+	- bets (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#158-161)
+	- bets (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#161)
+	- bets (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#161-162)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities[0m
+INFO:Detectors:[92m
+Reentrancy in FiftyFlip.wager (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#130-166):
+	External calls:
+	- whale.call.value(donate_amount)(bytes4(keccak256()(donate()))) (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#154-156)
+	State variables written after the call(s):
+	- totalAmountToWhale (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#156-158)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities-2[0m
+INFO:Detectors:[92m
+FiftyFlip.fallback (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#115-117) should be declared external
+FiftyFlip.transferAnyERC20Token (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#376-377) should be declared external
+ERC20Interface.transfer (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Low level call in FiftyFlip.wager (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#130-166):
+	-whale.call.value(donate_amount)(bytes4(keccak256()(donate()))) /data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#154-156
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Parameter '_secretSigner' of FiftyFlip.setSecretSigner (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#127-128) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol analyzed (2 contracts), 8 result(s) found

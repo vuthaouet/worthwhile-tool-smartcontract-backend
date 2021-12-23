@@ -1,0 +1,25 @@
+{
+  "contract": "0x93c32845fae42c83a70e5f06214c8433665c2ab5",
+  "tool": "honeybadger",
+  "start": 1640177877.3116782,
+  "end": 1640178140.1284378,
+  "duration": 262.81675958633423,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol",
+      "name": "Log"
+    },
+    {
+      "errors": [
+        {
+          "line": 32,
+          "column": 17,
+          "message": "straw_man_contract"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol",
+      "name": "X_WALLET"
+    }
+  ]
+}

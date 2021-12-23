@@ -1,0 +1,19 @@
+{
+  "contract": "ERC20",
+  "tool": "honeybadger",
+  "start": 1640178625.625892,
+  "end": 1640178635.1819665,
+  "duration": 9.556074619293213,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/ERC20.sol",
+      "name": "ERC20"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/ERC20.sol",
+      "name": "SafeMath"
+    }
+  ]
+}

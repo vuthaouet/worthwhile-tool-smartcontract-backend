@@ -1,0 +1,25 @@
+{
+  "contract": "0x561eac93c92360949ab1f1403323e6db345cbf31",
+  "tool": "honeybadger",
+  "start": 1640179683.6609402,
+  "end": 1640179948.166053,
+  "duration": 264.50511288642883,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 57,
+          "column": 17,
+          "message": "straw_man_contract"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x561eac93c92360949ab1f1403323e6db345cbf31.sol",
+      "name": "BANK_SAFE"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x561eac93c92360949ab1f1403323e6db345cbf31.sol",
+      "name": "LogFile"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "contract": "reentrancy_cross_function",
+  "tool": "oyente",
+  "start": 1640172467.1942785,
+  "end": 1640172471.5569131,
+  "duration": 4.362634658813477,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 16,
+          "column": 13,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 24,
+          "column": 28,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 24,
+          "column": 28,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/reentrancy_cross_function.sol",
+      "name": "Reentrancy_cross_function",
+      "evm_code_coverage": "98.5%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    }
+  ]
+}

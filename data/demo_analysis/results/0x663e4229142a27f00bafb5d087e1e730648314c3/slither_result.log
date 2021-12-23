@@ -1,0 +1,600 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:35:3: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+  function Ownable() {
+  ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:770:9: Warning: Use of the "var" keyword is deprecated.
+        var outputString = new string(_stringLength);
+        ^--------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1474:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function ClockAuction(address _nftAddress, uint256 _cut) public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1627:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function SiringClockAuction(address _nftAddr, uint256 _cut) public
+    ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1706:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function SaleClockAuction(address _nftAddr, uint256 _cut) public
+    ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1858:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function SaleClockAuctionERC20(address _nftAddr, uint256 _cut) public
+    ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:2360:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function PandaCore() public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:404:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Transfer(_from, _to, _tokenId);
+        ^----------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:491:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Birth(
+        ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:662:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Approval(msg.sender, _to, _tokenId);
+        ^---------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1025:9: Warning: Invoking events without "emit" prefix is deprecated.
+        Pregnant(pandaIndexToOwner[_matronId], _matronId, _sireId, matron.cooldownEndBlock);
+        ^---------------------------------------------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1131:21: Warning: This function only accepts a single "bytes" argument. Please use "abi.encodePacked(...)" or a similar function to encode the data.
+        if (uint256(keccak256(block.blockhash(block.number - 2), now)) % 100 < probability) {
+                    ^-----------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1136:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Abortion(pandaIndexToOwner[_matronId], _matronId, sireId);
+            ^-------------------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1152:9: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+        msg.sender.send(autoBirthFee);
+        ^---------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1237:9: Warning: Invoking events without "emit" prefix is deprecated.
+        AuctionCreated(
+        ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1249:9: Warning: Invoking events without "emit" prefix is deprecated.
+        AuctionCancelled(_tokenId);
+        ^------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1310:9: Warning: Invoking events without "emit" prefix is deprecated.
+        AuctionSuccessful(_tokenId, price, msg.sender);
+        ^--------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1444:5: Warning: Invoking events without "emit" prefix is deprecated.
+    Pause();
+    ^-----^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1453:5: Warning: Invoking events without "emit" prefix is deprecated.
+    Unpause();
+    ^-------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1496:36: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+        bool res = nftAddress.send(this.balance);
+                                   ^----------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1808:25: Warning: This function only accepts a single "bytes" argument. Please use "abi.encodePacked(...)" or a similar function to encode the data.
+        bytes32 bHash = keccak256(block.blockhash(block.number),block.blockhash(block.number-1));
+                        ^----------------------------------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1918:9: Warning: Invoking events without "emit" prefix is deprecated.
+        AuctionERC20Created(
+        ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:2013:9: Warning: Invoking events without "emit" prefix is deprecated.
+        AuctionSuccessful(_tokenId, price, msg.sender);
+        ^--------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:2398:9: Warning: Invoking events without "emit" prefix is deprecated.
+        ContractUpgrade(_v2Address);
+        ^-------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:2461:27: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+        uint256 balance = this.balance;
+                          ^----------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:2467:13: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+            cfoAddress.send(balance - subtractFees);
+            ^-------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:11:5: Warning: No visibility specified. Defaulting to "public". 
+    function totalSupply() constant returns (uint supply);
+    ^----------------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:12:5: Warning: No visibility specified. Defaulting to "public". 
+    function balanceOf( address who ) constant returns (uint value);
+    ^--------------------------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:13:5: Warning: No visibility specified. Defaulting to "public". 
+    function allowance( address owner, address spender ) constant returns (uint _allowance);
+    ^--------------------------------------------------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:15:5: Warning: No visibility specified. Defaulting to "public". 
+    function transfer( address to, uint value) returns (bool ok);
+    ^-----------------------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:16:5: Warning: No visibility specified. Defaulting to "public". 
+    function transferFrom( address from, address to, uint value) returns (bool ok);
+    ^-----------------------------------------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:17:5: Warning: No visibility specified. Defaulting to "public". 
+    function approve( address spender, uint value ) returns (bool ok);
+    ^----------------------------------------------------------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:35:3: Warning: No visibility specified. Defaulting to "public". 
+  function Ownable() {
+  ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:53:3: Warning: No visibility specified. Defaulting to "public". 
+  function transferOwnership(address newOwner) onlyOwner {
+  ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1131:31: Warning: "block.blockhash()" has been deprecated in favor of "blockhash()"
+        if (uint256(keccak256(block.blockhash(block.number - 2), now)) % 100 < probability) {
+                              ^-------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1442:3: Warning: No visibility specified. Defaulting to "public". 
+  function pause() onlyOwner whenNotPaused returns (bool) {
+  ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1451:3: Warning: No visibility specified. Defaulting to "public". 
+  function unpause() onlyOwner whenPaused returns (bool) {
+  ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1496:9: Warning: Unused local variable.
+        bool res = nftAddress.send(this.balance);
+        ^------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1808:35: Warning: "block.blockhash()" has been deprecated in favor of "blockhash()"
+        bytes32 bHash = keccak256(block.blockhash(block.number),block.blockhash(block.number-1));
+                                  ^-------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1808:65: Warning: "block.blockhash()" has been deprecated in favor of "blockhash()"
+        bytes32 bHash = keccak256(block.blockhash(block.number),block.blockhash(block.number-1));
+                                                                ^-------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1927:18: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function bid(uint256 _tokenId)
+                 ^--------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1939:9: Warning: Unused local variable.
+        address seller = tokenIdToAuction[_tokenId].seller;
+        ^------------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1942:9: Warning: Unused local variable.
+        uint256 price = _bidERC20(_erc20address,msg.sender,_tokenId, _amount);
+        ^-----------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:1958:88: Warning: Unused function parameter. Remove or comment out the variable name to silence this warning.
+    function withdrawERC20Balance(address _erc20Address, address _to) external returns(bool res)  {
+                                                                                       ^------^
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:516:5: Warning: Function state mutability can be restricted to pure
+    function getMetadata(uint256 _tokenId, string) public view returns (bytes32[4] buffer, uint256 count) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:747:5: Warning: Function state mutability can be restricted to pure
+    function _memcpy(uint _dest, uint _src, uint _len) private view {
+    ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:990:5: Warning: Function state mutability can be restricted to view
+    function _exchangeMatronSireId(uint256 _matronId, uint256 _sireId) internal returns(uint256, uint256) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+INFO:Detectors:[91m
+Reentrancy in PandaAuction.bidOnSiringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2228-2251):
+	External calls:
+	- require(bool)(_canBreedWithViaAuction(_matronId,_sireId)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2237-2238)
+	- currentPrice = siringAuction.getCurrentPrice(_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2240-2241)
+	- siringAuction.bid.value(msg.value - autoBirthFee)(_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247)
+	- _breedWith(uint32(_matronId),uint32(_sireId),msg.sender) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247-2250)
+	External calls sending eth:
+	- siringAuction.bid.value(msg.value - autoBirthFee)(_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247)
+	State variables written after the call(s):
+	- pandas (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247-2250)
+Reentrancy in PandaBreeding.giveBirth (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1117-1197):
+	External calls:
+	- probability = (geneScience.getPureFromGene(matron.genes) + geneScience.getPureFromGene(sire.genes)) / 2 + _factors[0] (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1143-1147)
+	- kittenId = _createPanda(_matronId,matron.siringWithId,parentGen + 1,childGenes,owner) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1167-1170)
+	External calls sending eth:
+	- msg.sender.send(autoBirthFee) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1194)
+	State variables written after the call(s):
+	- childOwner (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1195)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities[0m
+INFO:Detectors:[93m
+PandaOwnership._memcpy (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#768-789) is declared view but contains assembly code
+PandaOwnership._toString (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#796-802) is declared view but contains assembly code
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#constant-functions-changing-the-state[0m
+INFO:Detectors:[93m
+ERC721 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#65-87) has incorrect ERC20 function interface(s):
+	-approve (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#69-70)
+	-transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#70)
+	-transferFrom (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#70-73)
+PandaOwnership (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#557-802) has incorrect ERC20 function interface(s):
+	-approve (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#668-680)
+	-transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#630-657)
+	-transferFrom (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#690-714)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-erc20-interface[0m
+INFO:Detectors:[93m
+SaleClockAuction.bid (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1840-1849) uses a dangerous strict equality:
+	- isGen0 == 1
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#dangerous-strict-equalities[0m
+INFO:Detectors:[93m
+Reentrancy in PandaBreeding._breedWith (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1025-1046):
+	External calls:
+	- (_matronId,_sireId) = _exchangeMatronSireId(_matronId,_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1028-1029)
+	State variables written after the call(s):
+	- pandas (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1031)
+Reentrancy in PandaBase._createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#428-515):
+	External calls:
+	- pureDegree = uint16(geneScience.getPureFromGene(_genes)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#450-453)
+	- _tp = geneScience.getWizzType(_genes) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#465-467)
+	- _genes = geneScience.clearWizzType(_genes) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#469)
+	State variables written after the call(s):
+	- pandas (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#499-500)
+	- wizzPandaCount (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#479-480)
+Reentrancy in SaleClockAuctionERC20.bidERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1983-1995):
+	External calls:
+	- price = _bidERC20(_erc20address,msg.sender,_tokenId,_amount) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1991-1992)
+	- _transfer(msg.sender,_tokenId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1993-1995)
+	State variables written after the call(s):
+	- tokenIdToErc20Address (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1995)
+Reentrancy in PandaBreeding.breedWithAuto (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1054-1103):
+	External calls:
+	- require(bool)(_isValidMatingPair(matron,_matronId,sire,_sireId)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1096-1100)
+	- _breedWith(_matronId,_sireId,msg.sender) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1102-1103)
+	State variables written after the call(s):
+	- pandas (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1102-1103)
+	- sireAllowedToAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1102-1103)
+Reentrancy in PandaBreeding.giveBirth (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1117-1197):
+	External calls:
+	- probability = (geneScience.getPureFromGene(matron.genes) + geneScience.getPureFromGene(sire.genes)) / 2 + _factors[0] (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1143-1147)
+	- kittenId = _createPanda(_matronId,matron.siringWithId,parentGen + 1,childGenes,owner) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1167-1170)
+	State variables written after the call(s):
+	- pandas (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1167-1170)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities-1[0m
+INFO:Detectors:[93m
+SaleClockAuctionERC20.withdrawERC20Balance (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2003-2007) does not use the value returned by external calls:
+	-ERC20(_erc20Address).transfer(_to,balances[_erc20Address]) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2007)
+PandaAuction.withdrawERC20Balance (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2260-2264) does not use the value returned by external calls:
+	-saleAuctionERC20.withdrawERC20Balance(_erc20Address,_to) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2263-2264)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#unused-return[0m
+INFO:Detectors:[92m
+Reentrancy in ClockAuction.ClockAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1507-1518):
+	External calls:
+	- require(bool)(candidateContract.supportsInterface(InterfaceSignature_ERC721)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1516-1517)
+	State variables written after the call(s):
+	- nonFungibleContract (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1517-1518)
+Reentrancy in SaleClockAuctionERC20._bidERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2012-2057):
+	External calls:
+	- require(bool)(ERC20(_erc20Address).transferFrom(_buyerAddress,seller,sellerProceeds)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2049-2052)
+	- require(bool)(ERC20(_erc20Address).transferFrom(_buyerAddress,address(this),auctioneerCut)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2054-2055)
+	State variables written after the call(s):
+	- balances (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2055)
+Reentrancy in PandaBreeding._breedWith (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1025-1046):
+	External calls:
+	- (_matronId,_sireId) = _exchangeMatronSireId(_matronId,_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1028-1029)
+	- _triggerCooldown(sire) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1032)
+	- _triggerCooldown(matron) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1032-1033)
+	State variables written after the call(s):
+	- childOwner (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1044)
+	- pregnantPandas (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1043)
+	- sireAllowedToAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1038-1040)
+	- sireAllowedToAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1040-1041)
+Reentrancy in PandaBase._createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#428-515):
+	External calls:
+	- pureDegree = uint16(geneScience.getPureFromGene(_genes)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#450-453)
+	- _tp = geneScience.getWizzType(_genes) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#465-467)
+	- _genes = geneScience.clearWizzType(_genes) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#469)
+	State variables written after the call(s):
+	- gen0CreatedCount (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#486)
+	- ownershipTokenCount (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#515)
+	- pandaIndexToApproved (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#515)
+	- pandaIndexToOwner (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#515)
+	- sireAllowedToAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#515)
+Reentrancy in SaleClockAuction.bid (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1840-1849):
+	External calls:
+	- _transfer(msg.sender,_tokenId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1845)
+	External calls sending eth:
+	- price = _bid(_tokenId,msg.value) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1842-1845)
+	State variables written after the call(s):
+	- gen0SaleCount (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1848-1849)
+	- lastGen0SalePrices (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1847-1848)
+Reentrancy in PandaAuction.bidOnSiringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2228-2251):
+	External calls:
+	- require(bool)(_canBreedWithViaAuction(_matronId,_sireId)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2237-2238)
+	- currentPrice = siringAuction.getCurrentPrice(_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2240-2241)
+	- siringAuction.bid.value(msg.value - autoBirthFee)(_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247)
+	- _breedWith(uint32(_matronId),uint32(_sireId),msg.sender) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247-2250)
+	External calls sending eth:
+	- siringAuction.bid.value(msg.value - autoBirthFee)(_sireId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247)
+	State variables written after the call(s):
+	- childOwner (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2247-2250)
+Reentrancy in PandaBreeding.breedWithAuto (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1054-1103):
+	External calls:
+	- require(bool)(_isValidMatingPair(matron,_matronId,sire,_sireId)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1096-1100)
+	- _breedWith(_matronId,_sireId,msg.sender) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1102-1103)
+	State variables written after the call(s):
+	- childOwner (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1102-1103)
+Reentrancy in SaleClockAuctionERC20.cancelAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1996-2003):
+	External calls:
+	- _cancelAuction(_tokenId,seller) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2001)
+	State variables written after the call(s):
+	- tokenIdToErc20Address (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2001-2003)
+Reentrancy in ClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1551-1577):
+	External calls:
+	- require(bool)(_owns(msg.sender,_tokenId)) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1566)
+	- _escrow(msg.sender,_tokenId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1566-1567)
+	State variables written after the call(s):
+	- tokenIdToAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1574-1577)
+Reentrancy in SiringClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1688-1714):
+	External calls:
+	- _escrow(_seller,_tokenId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1706)
+	State variables written after the call(s):
+	- tokenIdToAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1713)
+Reentrancy in SaleClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1771-1801):
+	External calls:
+	- _escrow(_seller,_tokenId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1789-1790)
+	State variables written after the call(s):
+	- tokenIdToAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1800)
+Reentrancy in SaleClockAuctionERC20.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1929-1958):
+	External calls:
+	- _escrow(_seller,_tokenId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1949-1950)
+	State variables written after the call(s):
+	- tokenIdToAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1955-1958)
+	- tokenIdToErc20Address (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1958)
+Reentrancy in SaleClockAuction.createGen0Auction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1801-1829):
+	External calls:
+	- _escrow(_seller,_tokenId) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1823)
+	State variables written after the call(s):
+	- tokenIdToAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1828-1829)
+Reentrancy in PandaBreeding.giveBirth (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1117-1197):
+	External calls:
+	- probability = (geneScience.getPureFromGene(matron.genes) + geneScience.getPureFromGene(sire.genes)) / 2 + _factors[0] (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1143-1147)
+	- kittenId = _createPanda(_matronId,matron.siringWithId,parentGen + 1,childGenes,owner) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1167-1170)
+	State variables written after the call(s):
+	- pandaIndexToOwner (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1167-1170)
+	- pregnantPandas (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1190)
+Reentrancy in PandaBreeding.setGeneScienceAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#829-838):
+	External calls:
+	- require(bool)(candidateContract.isGeneScience()) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#836)
+	State variables written after the call(s):
+	- geneScience (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#837)
+Reentrancy in PandaAuction.setSaleAuctionAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2077-2086):
+	External calls:
+	- require(bool)(candidateContract.isSaleClockAuction()) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2084)
+	State variables written after the call(s):
+	- saleAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2085-2086)
+Reentrancy in PandaAuction.setSaleAuctionERC20Address (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2086-2107):
+	External calls:
+	- require(bool)(candidateContract.isSaleClockAuctionERC20()) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2100-2101)
+	State variables written after the call(s):
+	- saleAuctionERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2104-2107)
+Reentrancy in PandaAuction.setSiringAuctionAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2109-2117):
+	External calls:
+	- require(bool)(candidateContract.isSiringClockAuction()) (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2115-2116)
+	State variables written after the call(s):
+	- siringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2117)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities-2[0m
+INFO:Detectors:[92m
+PandaOwnership._memcpy uses assembly (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#768-789)
+	- /data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#769-771
+	- /data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#776-789
+PandaOwnership._toString uses assembly (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#796-802)
+	- /data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#799-800
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#assembly-usage[0m
+INFO:Detectors:[92m
+SaleClockAuction.isSaleClockAuction should be constant (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1739-1740)
+SaleClockAuctionERC20.isSaleClockAuctionERC20 should be constant (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1898-1899)
+SiringClockAuction.isSiringClockAuction should be constant (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1666-1667)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#state-variables-that-could-be-declared-constant[0m
+INFO:Detectors:[92m
+Deprecated standard detected @ /data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1157-1174:
+	- Usage of "block.blockhash()" should be replaced with "blockhash()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1861-1862:
+	- Usage of "block.blockhash()" should be replaced with "blockhash()"
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#deprecated-standards[0m
+INFO:Detectors:[92m
+ERC20.totalSupply (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#11-12) should be declared external
+ERC20.balanceOf (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#12-13) should be declared external
+ERC20.allowance (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#13-15) should be declared external
+ERC20.transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#15-16) should be declared external
+ERC20.transferFrom (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#16-17) should be declared external
+ERC20.approve (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#17-19) should be declared external
+Ownable.transferOwnership (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#53-61) should be declared external
+GeneScienceInterface.isGeneScience (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#90) should be declared external
+GeneScienceInterface.mixGenes (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#94-98) should be declared external
+GeneScienceInterface.getPureFromGene (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#98-99) should be declared external
+GeneScienceInterface.getSex (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#101-102) should be declared external
+GeneScienceInterface.getWizzType (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#104-107) should be declared external
+GeneScienceInterface.clearWizzType (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#107-108) should be declared external
+ERC721Metadata.getMetadata (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#526-548) should be declared external
+Pausable.pause (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1483-1485) should be declared external
+Pausable.unpause (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1486-1488) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Detected issues with version pragma in /data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol:
+	- pragma solidity^0.4.11 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#7-10): it allows old versions
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-version-of-solidity[0m
+INFO:Detectors:[92m
+Function 'Ownable.Ownable' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#36-41) is not in mixedCase
+Parameter '_newCEO' of PandaAccessControl.setCEO (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#174) is not in mixedCase
+Parameter '_newCFO' of PandaAccessControl.setCFO (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#182) is not in mixedCase
+Parameter '_newCOO' of PandaAccessControl.setCOO (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#192) is not in mixedCase
+Parameter '_tp' of PandaBase.getWizzPandaQuotaOf (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#380) is not in mixedCase
+Parameter '_tp' of PandaBase.getWizzPandaCountOf (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#384-385) is not in mixedCase
+Parameter '_tp' of PandaBase.setTotalWizzPandaOf (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#389) is not in mixedCase
+Parameter '_total' of PandaBase.setTotalWizzPandaOf (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#389) is not in mixedCase
+Parameter '_id' of PandaBase.getWizzTypeOf (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#392) is not in mixedCase
+Function 'PandaBase._transfer' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#397-412) is not in mixedCase
+Parameter '_from' of PandaBase._transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#397) is not in mixedCase
+Parameter '_to' of PandaBase._transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#397-398) is not in mixedCase
+Parameter '_tokenId' of PandaBase._transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#398) is not in mixedCase
+Function 'PandaBase._createPanda' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#428-515) is not in mixedCase
+Parameter '_matronId' of PandaBase._createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#428) is not in mixedCase
+Parameter '_sireId' of PandaBase._createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#429) is not in mixedCase
+Parameter '_generation' of PandaBase._createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#429) is not in mixedCase
+Parameter '_genes' of PandaBase._createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#430) is not in mixedCase
+Parameter '_owner' of PandaBase._createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#430) is not in mixedCase
+Parameter '_tokenId' of ERC721Metadata.getMetadata (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#527) is not in mixedCase
+Parameter '' of ERC721Metadata.getMetadata (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#527) is not in mixedCase
+Parameter '_owner' of PandaOwnership.balanceOf (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#620-621) is not in mixedCase
+Parameter '_tokenId' of PandaOwnership.ownerOf (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#718-719) is not in mixedCase
+Parameter '_to' of PandaOwnership.approve (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#668) is not in mixedCase
+Parameter '_tokenId' of PandaOwnership.approve (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#668) is not in mixedCase
+Parameter '_to' of PandaOwnership.transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#631) is not in mixedCase
+Parameter '_tokenId' of PandaOwnership.transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#631) is not in mixedCase
+Parameter '_from' of PandaOwnership.transferFrom (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#690) is not in mixedCase
+Parameter '_to' of PandaOwnership.transferFrom (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#690) is not in mixedCase
+Parameter '_tokenId' of PandaOwnership.transferFrom (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#691) is not in mixedCase
+Parameter '_interfaceID' of PandaOwnership.supportsInterface (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#580-581) is not in mixedCase
+Function 'PandaOwnership._owns' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#594-596) is not in mixedCase
+Parameter '_claimant' of PandaOwnership._owns (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#594) is not in mixedCase
+Parameter '_tokenId' of PandaOwnership._owns (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#594-595) is not in mixedCase
+Function 'PandaOwnership._approvedFor' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#598-603) is not in mixedCase
+Parameter '_claimant' of PandaOwnership._approvedFor (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#599) is not in mixedCase
+Parameter '_tokenId' of PandaOwnership._approvedFor (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#599) is not in mixedCase
+Function 'PandaOwnership._approve' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#612-613) is not in mixedCase
+Parameter '_tokenId' of PandaOwnership._approve (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#612) is not in mixedCase
+Parameter '_approved' of PandaOwnership._approve (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#612) is not in mixedCase
+Parameter '_owner' of PandaOwnership.tokensOfOwner (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#735-736) is not in mixedCase
+Function 'PandaOwnership._memcpy' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#768-789) is not in mixedCase
+Parameter '_dest' of PandaOwnership._memcpy (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#768) is not in mixedCase
+Parameter '_src' of PandaOwnership._memcpy (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#768) is not in mixedCase
+Parameter '_len' of PandaOwnership._memcpy (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#768) is not in mixedCase
+Function 'PandaOwnership._toString' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#796-802) is not in mixedCase
+Parameter '_stringLength' of PandaOwnership._toString (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#796) is not in mixedCase
+Constant 'PandaOwnership.InterfaceSignature_ERC165' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#561-563) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant 'PandaOwnership.InterfaceSignature_ERC721' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#563-573) is not in UPPER_CASE_WITH_UNDERSCORES
+Parameter '_address' of PandaBreeding.setGeneScienceAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#830) is not in mixedCase
+Function 'PandaBreeding._isReadyToBreed' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#840-848) is not in mixedCase
+Parameter '_kit' of PandaBreeding._isReadyToBreed (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#842) is not in mixedCase
+Function 'PandaBreeding._isSiringPermitted' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#851-858) is not in mixedCase
+Parameter '_sireId' of PandaBreeding._isSiringPermitted (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#852) is not in mixedCase
+Parameter '_matronId' of PandaBreeding._isSiringPermitted (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#852) is not in mixedCase
+Function 'PandaBreeding._triggerCooldown' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#865-881) is not in mixedCase
+Parameter '_kitten' of PandaBreeding._triggerCooldown (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#865-866) is not in mixedCase
+Parameter '_addr' of PandaBreeding.approveSiring (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#888) is not in mixedCase
+Parameter '_sireId' of PandaBreeding.approveSiring (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#888) is not in mixedCase
+Function 'PandaBreeding._isReadyToGiveBirth' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#906-910) is not in mixedCase
+Parameter '_matron' of PandaBreeding._isReadyToGiveBirth (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#906) is not in mixedCase
+Parameter '_pandaId' of PandaBreeding.isReadyToBreed (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#914) is not in mixedCase
+Parameter '_pandaId' of PandaBreeding.isPregnant (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#927-930) is not in mixedCase
+Function 'PandaBreeding._isValidMatingPair' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#945-979) is not in mixedCase
+Parameter '_matron' of PandaBreeding._isValidMatingPair (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#946-948) is not in mixedCase
+Parameter '_matronId' of PandaBreeding._isValidMatingPair (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#948) is not in mixedCase
+Parameter '_sire' of PandaBreeding._isValidMatingPair (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#948) is not in mixedCase
+Parameter '_sireId' of PandaBreeding._isValidMatingPair (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#948-949) is not in mixedCase
+Function 'PandaBreeding._canBreedWithViaAuction' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#985-991) is not in mixedCase
+Parameter '_matronId' of PandaBreeding._canBreedWithViaAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#986) is not in mixedCase
+Parameter '_sireId' of PandaBreeding._canBreedWithViaAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#986) is not in mixedCase
+Parameter '_matronId' of PandaBreeding.canBreedWith (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1002-1003) is not in mixedCase
+Parameter '_sireId' of PandaBreeding.canBreedWith (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1003) is not in mixedCase
+Function 'PandaBreeding._exchangeMatronSireId' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1012-1019) is not in mixedCase
+Parameter '_matronId' of PandaBreeding._exchangeMatronSireId (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1014) is not in mixedCase
+Parameter '_sireId' of PandaBreeding._exchangeMatronSireId (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1014) is not in mixedCase
+Function 'PandaBreeding._breedWith' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1025-1046) is not in mixedCase
+Parameter '_matronId' of PandaBreeding._breedWith (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1025) is not in mixedCase
+Parameter '_sireId' of PandaBreeding._breedWith (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1025) is not in mixedCase
+Parameter '_owner' of PandaBreeding._breedWith (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1025) is not in mixedCase
+Parameter '_matronId' of PandaBreeding.breedWithAuto (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1055) is not in mixedCase
+Parameter '_sireId' of PandaBreeding.breedWithAuto (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1055) is not in mixedCase
+Parameter '_matronId' of PandaBreeding.giveBirth (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1119-1121) is not in mixedCase
+Parameter '_childGenes' of PandaBreeding.giveBirth (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1121-1122) is not in mixedCase
+Parameter '_factors' of PandaBreeding.giveBirth (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1122) is not in mixedCase
+Function 'ClockAuctionBase._owns' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1230-1232) is not in mixedCase
+Parameter '_claimant' of ClockAuctionBase._owns (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1230) is not in mixedCase
+Parameter '_tokenId' of ClockAuctionBase._owns (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1230) is not in mixedCase
+Function 'ClockAuctionBase._escrow' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1240-1246) is not in mixedCase
+Parameter '_owner' of ClockAuctionBase._escrow (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1240-1241) is not in mixedCase
+Parameter '_tokenId' of ClockAuctionBase._escrow (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1241) is not in mixedCase
+Function 'ClockAuctionBase._transfer' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1253-1259) is not in mixedCase
+Parameter '_receiver' of ClockAuctionBase._transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1254) is not in mixedCase
+Parameter '_tokenId' of ClockAuctionBase._transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1254) is not in mixedCase
+Function 'ClockAuctionBase._addAuction' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1263-1276) is not in mixedCase
+Parameter '_tokenId' of ClockAuctionBase._addAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1263-1264) is not in mixedCase
+Parameter '_auction' of ClockAuctionBase._addAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1264) is not in mixedCase
+Function 'ClockAuctionBase._cancelAuction' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1277-1282) is not in mixedCase
+Parameter '_tokenId' of ClockAuctionBase._cancelAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1277-1279) is not in mixedCase
+Parameter '_seller' of ClockAuctionBase._cancelAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1279) is not in mixedCase
+Function 'ClockAuctionBase._bid' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1284-1350) is not in mixedCase
+Parameter '_tokenId' of ClockAuctionBase._bid (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1284) is not in mixedCase
+Parameter '_bidAmount' of ClockAuctionBase._bid (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1284-1285) is not in mixedCase
+Function 'ClockAuctionBase._removeAuction' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1356-1357) is not in mixedCase
+Parameter '_tokenId' of ClockAuctionBase._removeAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1356) is not in mixedCase
+Function 'ClockAuctionBase._isOnAuction' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1360-1365) is not in mixedCase
+Parameter '_auction' of ClockAuctionBase._isOnAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1360-1361) is not in mixedCase
+Function 'ClockAuctionBase._currentPrice' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1372-1384) is not in mixedCase
+Parameter '_auction' of ClockAuctionBase._currentPrice (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1372) is not in mixedCase
+Function 'ClockAuctionBase._computeCurrentPrice' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1388-1451) is not in mixedCase
+Parameter '_startingPrice' of ClockAuctionBase._computeCurrentPrice (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1389) is not in mixedCase
+Parameter '_endingPrice' of ClockAuctionBase._computeCurrentPrice (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1389) is not in mixedCase
+Parameter '_duration' of ClockAuctionBase._computeCurrentPrice (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1389-1390) is not in mixedCase
+Parameter '_secondsPassed' of ClockAuctionBase._computeCurrentPrice (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1390) is not in mixedCase
+Function 'ClockAuctionBase._computeCut' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1459-1469) is not in mixedCase
+Parameter '_price' of ClockAuctionBase._computeCut (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1459-1460) is not in mixedCase
+Function 'ClockAuction.ClockAuction' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1507-1518) is not in mixedCase
+Parameter '_nftAddress' of ClockAuction.ClockAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1508-1509) is not in mixedCase
+Parameter '_cut' of ClockAuction.ClockAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1509) is not in mixedCase
+Parameter '_tokenId' of ClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1552) is not in mixedCase
+Parameter '_startingPrice' of ClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1552-1553) is not in mixedCase
+Parameter '_endingPrice' of ClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1553-1554) is not in mixedCase
+Parameter '_duration' of ClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1554-1556) is not in mixedCase
+Parameter '_seller' of ClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1556) is not in mixedCase
+Parameter '_tokenId' of ClockAuction.bid (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1585) is not in mixedCase
+Parameter '_tokenId' of ClockAuction.cancelAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1603) is not in mixedCase
+Parameter '_tokenId' of ClockAuction.cancelAuctionWhenPaused (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1623-1624) is not in mixedCase
+Parameter '_tokenId' of ClockAuction.getAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1632-1633) is not in mixedCase
+Parameter '_tokenId' of ClockAuction.getCurrentPrice (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1649) is not in mixedCase
+Constant 'ClockAuction.InterfaceSignature_ERC721' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1500-1501) is not in UPPER_CASE_WITH_UNDERSCORES
+Parameter '_tokenId' of SiringClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1688-1689) is not in mixedCase
+Parameter '_startingPrice' of SiringClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1689-1690) is not in mixedCase
+Parameter '_endingPrice' of SiringClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1691) is not in mixedCase
+Parameter '_duration' of SiringClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1691) is not in mixedCase
+Parameter '_seller' of SiringClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1691-1692) is not in mixedCase
+Parameter '_tokenId' of SiringClockAuction.bid (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1717) is not in mixedCase
+Function 'SiringClockAuction.SiringClockAuction' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1668-1672) is not in mixedCase
+Parameter '_tokenId' of SaleClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1772-1774) is not in mixedCase
+Parameter '_startingPrice' of SaleClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1774) is not in mixedCase
+Parameter '_endingPrice' of SaleClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1774-1775) is not in mixedCase
+Parameter '_duration' of SaleClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1775) is not in mixedCase
+Parameter '_seller' of SaleClockAuction.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1775-1776) is not in mixedCase
+Parameter '_tokenId' of SaleClockAuction.bid (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1840) is not in mixedCase
+Function 'SaleClockAuction.SaleClockAuction' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1755-1758) is not in mixedCase
+Parameter '_tokenId' of SaleClockAuction.createGen0Auction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1805) is not in mixedCase
+Parameter '_startingPrice' of SaleClockAuction.createGen0Auction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1806-1808) is not in mixedCase
+Parameter '_endingPrice' of SaleClockAuction.createGen0Auction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1808) is not in mixedCase
+Parameter '_duration' of SaleClockAuction.createGen0Auction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1808) is not in mixedCase
+Parameter '_seller' of SaleClockAuction.createGen0Auction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1808) is not in mixedCase
+Parameter '_tokenId' of SaleClockAuction.createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1851) is not in mixedCase
+Parameter '_type' of SaleClockAuction.createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1851) is not in mixedCase
+Constant 'SaleClockAuction.SurpriseValue' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1747-1749) is not in UPPER_CASE_WITH_UNDERSCORES
+Variable 'SaleClockAuction.CommonPanda' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1749-1750) is not in mixedCase
+Variable 'SaleClockAuction.RarePanda' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1750-1751) is not in mixedCase
+Variable 'SaleClockAuction.CommonPandaIndex' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1751-1753) is not in mixedCase
+Variable 'SaleClockAuction.RarePandaIndex' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1755) is not in mixedCase
+Parameter '_tokenId' of SaleClockAuctionERC20.cancelAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1997) is not in mixedCase
+Function 'SaleClockAuctionERC20.SaleClockAuctionERC20' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1907-1909) is not in mixedCase
+Parameter '_erc20address' of SaleClockAuctionERC20.erc20ContractSwitch (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1910-1911) is not in mixedCase
+Parameter '_onoff' of SaleClockAuctionERC20.erc20ContractSwitch (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1911) is not in mixedCase
+Parameter '_tokenId' of SaleClockAuctionERC20.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1930-1933) is not in mixedCase
+Parameter '_erc20Address' of SaleClockAuctionERC20.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1933) is not in mixedCase
+Parameter '_startingPrice' of SaleClockAuctionERC20.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1933-1934) is not in mixedCase
+Parameter '_endingPrice' of SaleClockAuctionERC20.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1934) is not in mixedCase
+Parameter '_duration' of SaleClockAuctionERC20.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1934-1935) is not in mixedCase
+Parameter '_seller' of SaleClockAuctionERC20.createAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1935) is not in mixedCase
+Function 'SaleClockAuctionERC20._addAuctionERC20' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1964-1976) is not in mixedCase
+Parameter '_tokenId' of SaleClockAuctionERC20._addAuctionERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1965) is not in mixedCase
+Parameter '_auction' of SaleClockAuctionERC20._addAuctionERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1965) is not in mixedCase
+Parameter '_erc20address' of SaleClockAuctionERC20._addAuctionERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1965-1966) is not in mixedCase
+Parameter '_tokenId' of SaleClockAuctionERC20.bidERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1983-1984) is not in mixedCase
+Parameter '_amount' of SaleClockAuctionERC20.bidERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#1984) is not in mixedCase
+Parameter '_erc20Address' of SaleClockAuctionERC20.withdrawERC20Balance (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2004) is not in mixedCase
+Parameter '_to' of SaleClockAuctionERC20.withdrawERC20Balance (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2004-2005) is not in mixedCase
+Function 'SaleClockAuctionERC20._bidERC20' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2012-2057) is not in mixedCase
+Parameter '_erc20Address' of SaleClockAuctionERC20._bidERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2013) is not in mixedCase
+Parameter '_buyerAddress' of SaleClockAuctionERC20._bidERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2013) is not in mixedCase
+Parameter '_tokenId' of SaleClockAuctionERC20._bidERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2015) is not in mixedCase
+Parameter '_bidAmount' of SaleClockAuctionERC20._bidERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2015-2020) is not in mixedCase
+Parameter '_address' of PandaAuction.setSaleAuctionAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2078) is not in mixedCase
+Parameter '_address' of PandaAuction.setSaleAuctionERC20Address (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2088) is not in mixedCase
+Parameter '_address' of PandaAuction.setSiringAuctionAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2109-2110) is not in mixedCase
+Parameter '_pandaId' of PandaAuction.createSaleAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2123) is not in mixedCase
+Parameter '_startingPrice' of PandaAuction.createSaleAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2124-2125) is not in mixedCase
+Parameter '_endingPrice' of PandaAuction.createSaleAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2128) is not in mixedCase
+Parameter '_duration' of PandaAuction.createSaleAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2128) is not in mixedCase
+Parameter '_pandaId' of PandaAuction.createSaleAuctionERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2157) is not in mixedCase
+Parameter '_erc20address' of PandaAuction.createSaleAuctionERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2158-2159) is not in mixedCase
+Parameter '_startingPrice' of PandaAuction.createSaleAuctionERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2161-2162) is not in mixedCase
+Parameter '_endingPrice' of PandaAuction.createSaleAuctionERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2162-2163) is not in mixedCase
+Parameter '_duration' of PandaAuction.createSaleAuctionERC20 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2163) is not in mixedCase
+Parameter '_erc20address' of PandaAuction.switchSaleAuctionERC20For (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2188-2189) is not in mixedCase
+Parameter '_onoff' of PandaAuction.switchSaleAuctionERC20For (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2189) is not in mixedCase
+Parameter '_pandaId' of PandaAuction.createSiringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2197) is not in mixedCase
+Parameter '_startingPrice' of PandaAuction.createSiringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2197-2198) is not in mixedCase
+Parameter '_endingPrice' of PandaAuction.createSiringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2198) is not in mixedCase
+Parameter '_duration' of PandaAuction.createSiringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2199) is not in mixedCase
+Parameter '_sireId' of PandaAuction.bidOnSiringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2228) is not in mixedCase
+Parameter '_matronId' of PandaAuction.bidOnSiringAuction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2228) is not in mixedCase
+Parameter '_erc20Address' of PandaAuction.withdrawERC20Balance (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2260) is not in mixedCase
+Parameter '_to' of PandaAuction.withdrawERC20Balance (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2260-2261) is not in mixedCase
+Parameter '_genes' of PandaMinting.createWizzPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2297) is not in mixedCase
+Parameter '_generation' of PandaMinting.createWizzPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2297) is not in mixedCase
+Parameter '_owner' of PandaMinting.createWizzPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2297-2298) is not in mixedCase
+Parameter '_genes' of PandaMinting.createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2313) is not in mixedCase
+Parameter '_generation' of PandaMinting.createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2313) is not in mixedCase
+Parameter '_type' of PandaMinting.createPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2313-2314) is not in mixedCase
+Parameter '_pandaId' of PandaMinting.createGen0Auction (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2328) is not in mixedCase
+Function 'PandaMinting._computeNextGen0Price' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2336-2342) is not in mixedCase
+Function 'PandaCore.PandaCore' (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2426-2439) is not in mixedCase
+Parameter '_v2Address' of PandaCore.setNewAddress (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#2461) is not in mixedCase
+Parameter '_id' of PandaCore.getPanda (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Detectors:[92m
+ERC721 (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#65-87) does not mark important ERC20 parameters as 'indexed':
+	-Transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#74-76) does not index parameter 'from'
+	-Transfer (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#74-76) does not index parameter 'to'
+	-Approval (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#76-77) does not index parameter 'owner'
+	-Approval (/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol#76-77) does not index parameter 'approved'
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#unindexed-erc20-event-parameters[0m
+INFO:Slither:/data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol analyzed (18 contracts), 267 result(s) found

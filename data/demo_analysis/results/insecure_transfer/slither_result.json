@@ -1,0 +1,171 @@
+{
+  "contract": "insecure_transfer",
+  "tool": "slither",
+  "start": 1640185628.49408,
+  "end": 1640185630.7292006,
+  "duration": 2.2351205348968506,
+  "analysis": [
+    {
+      "check": "erc20-interface",
+      "impact": "Medium",
+      "confidence": "High",
+      "description": "IntegerOverflowAdd (/data/demo_analysis/source_code/insecure_transfer.sol#9-21) has incorrect ERC20 function interface(s):\n\t-transfer (/data/demo_analysis/source_code/insecure_transfer.sol#13-19)\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "transfer",
+          "source_mapping": {
+            "start": 320,
+            "length": 260,
+            "filename": "/data/demo_analysis/source_code/insecure_transfer.sol",
+            "lines": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "IntegerOverflowAdd",
+            "source_mapping": {
+              "start": 218,
+              "length": 365,
+              "filename": "/data/demo_analysis/source_code/insecure_transfer.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "IntegerOverflowAdd.transfer (/data/demo_analysis/source_code/insecure_transfer.sol#13-19) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "transfer",
+          "source_mapping": {
+            "start": 320,
+            "length": 260,
+            "filename": "/data/demo_analysis/source_code/insecure_transfer.sol",
+            "lines": [
+              13,
+              14,
+              15,
+              16,
+              17,
+              18,
+              19
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "IntegerOverflowAdd",
+            "source_mapping": {
+              "start": 218,
+              "length": 365,
+              "filename": "/data/demo_analysis/source_code/insecure_transfer.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Detected issues with version pragma in /data/demo_analysis/source_code/insecure_transfer.sol:\n\t- pragma solidity^0.4.0 (/data/demo_analysis/source_code/insecure_transfer.sol#7): it allows old versions\n",
+      "elements": [
+        {
+          "type": "expression",
+          "expression": "^0.4.0",
+          "source_mapping": {
+            "start": 193,
+            "length": 23,
+            "filename": "/data/demo_analysis/source_code/insecure_transfer.sol",
+            "lines": [
+              7
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Parameter '_to' of IntegerOverflowAdd.transfer (/data/demo_analysis/source_code/insecure_transfer.sol#13) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "parameter",
+          "convention": "mixedCase",
+          "name": "_to",
+          "source_mapping": {
+            "start": 338,
+            "length": 11,
+            "filename": "/data/demo_analysis/source_code/insecure_transfer.sol",
+            "lines": [
+              13
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Parameter '_value' of IntegerOverflowAdd.transfer (/data/demo_analysis/source_code/insecure_transfer.sol#13) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "parameter",
+          "convention": "mixedCase",
+          "name": "_value",
+          "source_mapping": {
+            "start": 351,
+            "length": 14,
+            "filename": "/data/demo_analysis/source_code/insecure_transfer.sol",
+            "lines": [
+              13
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

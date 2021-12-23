@@ -1,0 +1,74 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "AccessControl_14",
+              "fullDescription": {
+                "text": "The function `sudicideAnyone()` executes the SUICIDE instruction. The remaining Ether is sent to the caller's address.\n\nIt seems that this function can be called without restrictions."
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "Unchecked SUICIDE"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/simple_suicide.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "sudicideAnyone()"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Unchecked SUICIDE"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "sudicideAnyone()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/simple_suicide.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "selfdestruct(msg.sender)"
+                  },
+                  "startLine": 13
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_14"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

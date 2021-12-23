@@ -1,0 +1,177 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:51:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function TownCrier() public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:95:17: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+                throw;
+                ^---^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:102:13: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            throw;
+            ^---^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:108:17: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+                throw;
+                ^---^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:119:17: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+                throw;
+                ^---^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:198:13: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            throw;
+            ^---^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:212:17: Warning: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+                throw;
+                ^---^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:67:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Upgrade(newAddr);
+            ^--------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:76:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Reset(GAS_PRICE, MIN_FEE, CANCELLATION_FEE);
+            ^-----------------------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:94:51: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+            if (!requests[0].requester.call.value(this.balance)()) {
+                                                  ^----------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:129:34: Warning: "sha3" has been deprecated in favour of "keccak256"
+            bytes32 paramsHash = sha3(requestType, requestData);
+                                 ^----------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:129:34: Warning: This function only accepts a single "bytes" argument. Please use "abi.encodePacked(...)" or a similar function to encode the data.
+            bytes32 paramsHash = sha3(requestType, requestData);
+                                 ^----------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:137:13: Warning: Invoking events without "emit" prefix is deprecated.
+            RequestInfo(requestId, requestType, msg.sender, msg.value, callbackAddr, paramsHash, timestamp, requestData);
+            ^----------------------------------------------------------------------------------------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:162:13: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+            SGX_ADDRESS.send(CANCELLATION_FEE);
+            ^--------------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:175:13: Warning: Failure condition of 'send' ignored. Consider using 'transfer' instead.
+            SGX_ADDRESS.send(fee);         
+            ^-------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:180:13: Warning: Return value of low-level calls not used.
+            requests[requestId].requester.call.gas(2300).value(fee)();
+            ^-------------------------------------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:185:9: Warning: Invoking events without "emit" prefix is deprecated.
+        DeliverInfo(requestId, fee, tx.gasprice, msg.gas, callbackGas, paramsHash, error, respData); // log the response information
+        ^-----------------------------------------------------------------------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:192:9: Warning: Return value of low-level calls not used.
+ ... requests[requestId].callbackAddr.call.gas(callbackGas)(requests[requestId].callbackFID, requestId, error, respData) ... 
+     ^-----------------------------------------------------------------------------------------------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:215:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Cancel(requestId, msg.sender, requests[requestId].requester, requests[requestId].fee, 1);
+            ^--------------------------------------------------------------------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:218:13: Warning: Invoking events without "emit" prefix is deprecated.
+            Cancel(requestId, msg.sender, requests[requestId].requester, fee, -1);
+            ^-------------------------------------------------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:41:5: Warning: Variable covers a large part of storage and thus makes collisions likely. Either use mappings or dynamic arrays and allow their size to be increased only in small quantities per transaction.
+    Request[2**64] public requests;
+    ^----------------------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:49:5: Warning: No visibility specified. Defaulting to "public". 
+    function () {}
+    ^------------^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:63:5: Warning: No visibility specified. Defaulting to "public". 
+    function upgrade(address newAddr) {
+    ^ (Relevant source part starts here and spans across multiple lines).
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:185:50: Warning: "msg.gas" has been deprecated in favor of "gasleft()"
+        DeliverInfo(requestId, fee, tx.gasprice, msg.gas, callbackGas, paramsHash, error, respData); // log the response information
+                                                 ^-----^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:186:27: Warning: "msg.gas" has been deprecated in favor of "gasleft()"
+        if (callbackGas > msg.gas - 5000) {
+                          ^-----^
+/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:187:27: Warning: "msg.gas" has been deprecated in favor of "gasleft()"
+            callbackGas = msg.gas - 5000;
+                          ^-----^
+
+INFO:Detectors:[91m
+Reentrancy in TownCrier.cancel (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#205-222):
+	External calls:
+	- ! msg.sender.call.value(fee - CANCELLATION_FEE)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#215-218)
+	State variables written after the call(s):
+	- externalCallFlag (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#218)
+Reentrancy in TownCrier.request (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#100-143):
+	External calls:
+	- ! msg.sender.call.value(msg.value)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#110-114)
+	State variables written after the call(s):
+	- externalCallFlag (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#115)
+Reentrancy in TownCrier.request (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#100-143):
+	External calls:
+	- ! msg.sender.call.value(msg.value)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#121-124)
+	State variables written after the call(s):
+	- externalCallFlag (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#125)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities[0m
+INFO:Detectors:[92m
+Reentrancy in TownCrier.deliver (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#144-205):
+	External calls:
+	- requests[requestId].requester.call.gas(2300).value(fee)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#184-185)
+	State variables written after the call(s):
+	- externalCallFlag (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#185)
+Reentrancy in TownCrier.deliver (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#144-205):
+	External calls:
+	- requests[requestId].requester.call.gas(2300).value(fee)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#184-185)
+	External calls sending eth:
+	- SGX_ADDRESS.send(fee) (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#179-180)
+	- requests[requestId].requester.call.gas(2300).value(fee)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#184-185)
+	State variables written after the call(s):
+	- externalCallFlag (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#192)
+Reentrancy in TownCrier.deliver (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#144-205):
+	External calls:
+	- requests[requestId].requester.call.gas(2300).value(fee)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#184-185)
+	- requests[requestId].callbackAddr.call.gas(callbackGas)(requests[requestId].callbackFID,requestId,error,respData) (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#193-197)
+	External calls sending eth:
+	- SGX_ADDRESS.send(fee) (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#179-180)
+	- requests[requestId].requester.call.gas(2300).value(fee)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#184-185)
+	State variables written after the call(s):
+	- externalCallFlag (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#202-205)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities-2[0m
+INFO:Detectors:[92m
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#100:
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#107:
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#114:
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#124:
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#131-132:
+	- Usage of "sha3()" should be replaced with "keccak256()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#187-191:
+	- Usage of "msg.gas" should be replaced with "gasleft()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#192:
+	- Usage of "msg.gas" should be replaced with "gasleft()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#192:
+	- Usage of "msg.gas" should be replaced with "gasleft()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#206:
+	- Usage of "throw" should be replaced with "revert()"
+Deprecated standard detected @ /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#218:
+	- Usage of "throw" should be replaced with "revert()"
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#deprecated-standards[0m
+INFO:Detectors:[92m
+TownCrier.fallback (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#51-52) should be declared external
+TownCrier.upgrade (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#64-71) should be declared external
+TownCrier.reset (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#71-81) should be declared external
+TownCrier.suspend (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#82-87) should be declared external
+TownCrier.restart (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#87-93) should be declared external
+TownCrier.withdraw (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#93-100) should be declared external
+TownCrier.request (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#100-143) should be declared external
+TownCrier.deliver (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#144-205) should be declared external
+TownCrier.cancel (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#205-222) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Detected issues with version pragma in /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol:
+	- pragma solidity^0.4.9 (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#7-9): it allows old versions
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-version-of-solidity[0m
+INFO:Detectors:[92m
+Low level call in TownCrier.withdraw (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#93-100):
+	-! requests[0].requester.call.value(this.balance)() /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#96-100
+Low level call in TownCrier.request (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#100-143):
+	-! msg.sender.call.value(msg.value)() /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#110-114
+	-! msg.sender.call.value(msg.value)() /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#121-124
+Low level call in TownCrier.deliver (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#144-205):
+	-requests[requestId].requester.call.gas(2300).value(fee)() /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#184-185
+	-requests[requestId].callbackAddr.call.gas(callbackGas)(requests[requestId].callbackFID,requestId,error,respData) /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#193-197
+Low level call in TownCrier.cancel (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#205-222):
+	-! msg.sender.call.value(fee - CANCELLATION_FEE)() /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#215-218
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Function 'TownCrier.TownCrier' (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#52-64) is not in mixedCase
+Variable 'TownCrier.GAS_PRICE' (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#26-27) is not in mixedCase
+Variable 'TownCrier.MIN_FEE' (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#27) is not in mixedCase
+Variable 'TownCrier.CANCELLATION_FEE' (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#28) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol analyzed (1 contracts), 34 result(s) found

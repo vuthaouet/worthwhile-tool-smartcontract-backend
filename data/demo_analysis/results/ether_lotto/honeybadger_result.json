@@ -1,0 +1,14 @@
+{
+  "contract": "ether_lotto",
+  "tool": "honeybadger",
+  "start": 1640184045.603239,
+  "end": 1640184051.2501109,
+  "duration": 5.64687180519104,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/ether_lotto.sol",
+      "name": "EtherLotto"
+    }
+  ]
+}

@@ -1,0 +1,1095 @@
+{
+  "contract": "0x7a8721a9d64c74da899424c1b52acbf58ddc9782",
+  "tool": "slither",
+  "start": 1640177285.6947165,
+  "end": 1640177287.8815362,
+  "duration": 2.1868197917938232,
+  "analysis": [
+    {
+      "check": "reentrancy-eth",
+      "impact": "High",
+      "confidence": "Medium",
+      "description": "Reentrancy in PrivateDeposit.CashOut (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#49-64):\n\tExternal calls:\n\t- msg.sender.call.value(_am)() (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#54-60)\n\tState variables written after the call(s):\n\t- balances (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#55)\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "CashOut",
+          "source_mapping": {
+            "start": 867,
+            "length": 342,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "PrivateDeposit",
+            "source_mapping": {
+              "start": 110,
+              "length": 1151,
+              "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69
+              ]
+            }
+          }
+        },
+        {
+          "type": "external_calls",
+          "expression": "msg.sender.call.value(_am)()",
+          "source_mapping": {
+            "start": 1018,
+            "length": 173,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ]
+          }
+        },
+        {
+          "type": "variables_written",
+          "name": "balances",
+          "expression": "balances[msg.sender] -= _am",
+          "source_mapping": {
+            "start": 1083,
+            "length": 25,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              55
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "constable-states",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "PrivateDeposit.MinDeposit should be constant (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#13-14)\n",
+      "elements": [
+        {
+          "type": "variable",
+          "name": "MinDeposit",
+          "source_mapping": {
+            "start": 200,
+            "length": 32,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              13,
+              14
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "PrivateDeposit.setLog (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#31-37) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "setLog",
+          "source_mapping": {
+            "start": 521,
+            "length": 87,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "PrivateDeposit",
+            "source_mapping": {
+              "start": 110,
+              "length": 1151,
+              "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "PrivateDeposit.Deposit (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#38-49) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "Deposit",
+          "source_mapping": {
+            "start": 624,
+            "length": 231,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "PrivateDeposit",
+            "source_mapping": {
+              "start": 110,
+              "length": 1151,
+              "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "PrivateDeposit.CashOut (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#49-64) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "CashOut",
+          "source_mapping": {
+            "start": 867,
+            "length": 342,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "PrivateDeposit",
+            "source_mapping": {
+              "start": 110,
+              "length": 1151,
+              "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "PrivateDeposit.fallback (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#66-69) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "fallback",
+          "source_mapping": {
+            "start": 1221,
+            "length": 27,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              66,
+              67,
+              68,
+              69
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "PrivateDeposit",
+            "source_mapping": {
+              "start": 110,
+              "length": 1151,
+              "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Log.AddMessage (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#82-88) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "AddMessage",
+          "source_mapping": {
+            "start": 1485,
+            "length": 235,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Log",
+            "source_mapping": {
+              "start": 1265,
+              "length": 458,
+              "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+              "lines": [
+                69,
+                70,
+                71,
+                72,
+                73,
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Detected issues with version pragma in /data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol:\n\t- pragma solidity^0.4.19 (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#7-9): it allows old versions\n",
+      "elements": [
+        {
+          "type": "expression",
+          "expression": "^0.4.19",
+          "source_mapping": {
+            "start": 82,
+            "length": 24,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              7,
+              8,
+              9
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Low level call in PrivateDeposit.CashOut (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#49-64):\n\t-msg.sender.call.value(_am)() /data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#54-60\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "CashOut",
+          "source_mapping": {
+            "start": 867,
+            "length": 342,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "PrivateDeposit",
+            "source_mapping": {
+              "start": 110,
+              "length": 1151,
+              "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "msg.sender.call.value(_am)()",
+          "source_mapping": {
+            "start": 1018,
+            "length": 173,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Function 'PrivateDeposit.PrivateDeposit' (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#23-31) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "function",
+          "convention": "mixedCase",
+          "name": "PrivateDeposit",
+          "source_mapping": {
+            "start": 395,
+            "length": 102,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Parameter '_lib' of PrivateDeposit.setLog (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#33) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "parameter",
+          "convention": "mixedCase",
+          "name": "_lib",
+          "source_mapping": {
+            "start": 537,
+            "length": 12,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              33
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Function 'PrivateDeposit.Deposit' (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#38-49) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "function",
+          "convention": "mixedCase",
+          "name": "Deposit",
+          "source_mapping": {
+            "start": 624,
+            "length": 231,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46,
+              47,
+              48,
+              49
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Function 'PrivateDeposit.CashOut' (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#49-64) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "function",
+          "convention": "mixedCase",
+          "name": "CashOut",
+          "source_mapping": {
+            "start": 867,
+            "length": 342,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              49,
+              50,
+              51,
+              52,
+              53,
+              54,
+              55,
+              56,
+              57,
+              58,
+              59,
+              60,
+              61,
+              62,
+              63,
+              64
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Parameter '_am' of PrivateDeposit.CashOut (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#49-50) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "parameter",
+          "convention": "mixedCase",
+          "name": "_am",
+          "source_mapping": {
+            "start": 884,
+            "length": 8,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              49,
+              50
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Variable 'PrivateDeposit.MinDeposit' (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#13-14) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "variable",
+          "convention": "mixedCase",
+          "name": "MinDeposit",
+          "source_mapping": {
+            "start": 200,
+            "length": 32,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              13,
+              14
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Variable 'PrivateDeposit.TransferLog' (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#16-18) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "variable",
+          "convention": "mixedCase",
+          "name": "TransferLog",
+          "source_mapping": {
+            "start": 272,
+            "length": 15,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              16,
+              17,
+              18
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Function 'Log.AddMessage' (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#82-88) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "function",
+          "convention": "mixedCase",
+          "name": "AddMessage",
+          "source_mapping": {
+            "start": 1485,
+            "length": 235,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              82,
+              83,
+              84,
+              85,
+              86,
+              87,
+              88
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Parameter '_adr' of Log.AddMessage (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#82-83) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "parameter",
+          "convention": "mixedCase",
+          "name": "_adr",
+          "source_mapping": {
+            "start": 1505,
+            "length": 12,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              82,
+              83
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Parameter '_val' of Log.AddMessage (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#83) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "parameter",
+          "convention": "mixedCase",
+          "name": "_val",
+          "source_mapping": {
+            "start": 1518,
+            "length": 9,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              83
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Parameter '_data' of Log.AddMessage (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#83-84) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "parameter",
+          "convention": "mixedCase",
+          "name": "_data",
+          "source_mapping": {
+            "start": 1528,
+            "length": 12,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              83,
+              84
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Variable 'Log.History' (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#79) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "variable",
+          "convention": "mixedCase",
+          "name": "History",
+          "source_mapping": {
+            "start": 1420,
+            "length": 24,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              79
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Variable 'Log.LastMsg' (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#79-80) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "variable",
+          "convention": "mixedCase",
+          "name": "LastMsg",
+          "source_mapping": {
+            "start": 1457,
+            "length": 15,
+            "filename": "/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol",
+            "lines": [
+              79,
+              80
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "contract": "mapping_write",
+  "tool": "slither",
+  "start": 1640172359.0467253,
+  "end": 1640172360.91246,
+  "duration": 1.8657348155975342,
+  "analysis": [
+    {
+      "check": "uninitialized-state",
+      "impact": "High",
+      "confidence": "High",
+      "description": "Map.owner (/data/demo_analysis/source_code/mapping_write.sol#12) is never initialized. It is used in:\n\t- withdraw (/data/demo_analysis/source_code/mapping_write.sol#26-29)\n",
+      "elements": [
+        {
+          "type": "variable",
+          "name": "owner",
+          "source_mapping": {
+            "start": 311,
+            "length": 20,
+            "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+            "lines": [
+              12
+            ]
+          }
+        },
+        {
+          "type": "function",
+          "name": "withdraw",
+          "source_mapping": {
+            "start": 666,
+            "length": 122,
+            "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+            "lines": [
+              26,
+              27,
+              28,
+              29
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Map",
+            "source_mapping": {
+              "start": 291,
+              "length": 500,
+              "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+              "lines": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "constable-states",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Map.owner should be constant (/data/demo_analysis/source_code/mapping_write.sol#12)\n",
+      "elements": [
+        {
+          "type": "variable",
+          "name": "owner",
+          "source_mapping": {
+            "start": 311,
+            "length": 20,
+            "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+            "lines": [
+              12
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Map.set (/data/demo_analysis/source_code/mapping_write.sol#15-21) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "set",
+          "source_mapping": {
+            "start": 359,
+            "length": 204,
+            "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+            "lines": [
+              15,
+              16,
+              17,
+              18,
+              19,
+              20,
+              21
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Map",
+            "source_mapping": {
+              "start": 291,
+              "length": 500,
+              "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+              "lines": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Map.get (/data/demo_analysis/source_code/mapping_write.sol#23-25) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "get",
+          "source_mapping": {
+            "start": 570,
+            "length": 90,
+            "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+            "lines": [
+              23,
+              24,
+              25
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Map",
+            "source_mapping": {
+              "start": 291,
+              "length": 500,
+              "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+              "lines": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Map.withdraw (/data/demo_analysis/source_code/mapping_write.sol#26-29) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "withdraw",
+          "source_mapping": {
+            "start": 666,
+            "length": 122,
+            "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+            "lines": [
+              26,
+              27,
+              28,
+              29
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Map",
+            "source_mapping": {
+              "start": 291,
+              "length": 500,
+              "filename": "/data/demo_analysis/source_code/mapping_write.sol",
+              "lines": [
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

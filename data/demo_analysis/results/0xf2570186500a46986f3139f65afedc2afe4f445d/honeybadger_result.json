@@ -1,0 +1,14 @@
+{
+  "contract": "0xf2570186500a46986f3139f65afedc2afe4f445d",
+  "tool": "honeybadger",
+  "start": 1640183916.610685,
+  "end": 1640183923.494236,
+  "duration": 6.8835508823394775,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+      "name": "RealOldFuckMaker"
+    }
+  ]
+}

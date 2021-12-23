@@ -1,0 +1,211 @@
+{
+  "contract": "unchecked_return_value",
+  "tool": "slither",
+  "start": 1640178488.5157382,
+  "end": 1640178490.2128532,
+  "duration": 1.6971149444580078,
+  "analysis": [
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "ReturnValue.callchecked (/data/demo_analysis/source_code/unchecked_return_value.sol#11-13) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "callchecked",
+          "source_mapping": {
+            "start": 205,
+            "length": 77,
+            "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+            "lines": [
+              11,
+              12,
+              13
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "ReturnValue",
+            "source_mapping": {
+              "start": 179,
+              "length": 222,
+              "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "ReturnValue.callnotchecked (/data/demo_analysis/source_code/unchecked_return_value.sol#15-18) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "callnotchecked",
+          "source_mapping": {
+            "start": 286,
+            "length": 113,
+            "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+            "lines": [
+              15,
+              16,
+              17,
+              18
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "ReturnValue",
+            "source_mapping": {
+              "start": 179,
+              "length": 222,
+              "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Low level call in ReturnValue.callchecked (/data/demo_analysis/source_code/unchecked_return_value.sol#11-13):\n\t-require(bool)(callee.call()) /data/demo_analysis/source_code/unchecked_return_value.sol#12\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "callchecked",
+          "source_mapping": {
+            "start": 205,
+            "length": 77,
+            "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+            "lines": [
+              11,
+              12,
+              13
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "ReturnValue",
+            "source_mapping": {
+              "start": 179,
+              "length": 222,
+              "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "require(bool)(callee.call())",
+          "source_mapping": {
+            "start": 255,
+            "length": 22,
+            "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+            "lines": [
+              12
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Low level call in ReturnValue.callnotchecked (/data/demo_analysis/source_code/unchecked_return_value.sol#15-18):\n\t-callee.call() /data/demo_analysis/source_code/unchecked_return_value.sol#17\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "callnotchecked",
+          "source_mapping": {
+            "start": 286,
+            "length": 113,
+            "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+            "lines": [
+              15,
+              16,
+              17,
+              18
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "ReturnValue",
+            "source_mapping": {
+              "start": 179,
+              "length": 222,
+              "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "callee.call()",
+          "source_mapping": {
+            "start": 381,
+            "length": 13,
+            "filename": "/data/demo_analysis/source_code/unchecked_return_value.sol",
+            "lines": [
+              17
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

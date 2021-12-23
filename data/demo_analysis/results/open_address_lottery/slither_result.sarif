@@ -1,0 +1,83 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Other_15",
+              "fullDescription": {
+                "text": "s in OpenAddressLottery.forceReseed (/data/demo_analysis/source_code/open_address_lottery.sol#91) is a storage variable never initialiazed\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "uninitialized-storage"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/open_address_lottery.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "uninitialized-storage"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variable",
+                  "name": "s"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/open_address_lottery.sol"
+                },
+                "region": {
+                  "endLine": 91,
+                  "startLine": 91
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "forceReseed"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/open_address_lottery.sol"
+                },
+                "region": {
+                  "endLine": 98,
+                  "startLine": 88
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_15"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

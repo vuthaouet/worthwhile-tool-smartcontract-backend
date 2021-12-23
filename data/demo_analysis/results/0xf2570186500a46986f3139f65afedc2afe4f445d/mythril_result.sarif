@@ -1,0 +1,150 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Reentrancy_3",
+              "fullDescription": {
+                "text": "This contract executes a message call to to another contract. Make sure that the called contract is trusted and does not execute user-supplied code."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Message call to external contract"
+              }
+            },
+            {
+              "id": "Other_10",
+              "fullDescription": {
+                "text": "Multiple sends exist in one transaction, try to isolate each external call into its own transaction. As external calls can fail accidentally or deliberately.\nConsecutive calls: \nCall at address: 349\nCall at address: 349\nCall at address: 349\nCall at address: 349\nCall at address: 349\nCall at address: 349\nCall at address: 349\nCall at address: 349\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Multiple Calls"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "makeOldFucks(uint32)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "makeOldFucks(uint32)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "sha3(\"giveBlockReward()\")));\n        }\n    }"
+                  },
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Multiple Calls"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "makeOldFucks(uint32)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "sha3(\"giveBlockReward()\")));\n        }\n    }"
+                  },
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_10"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "makeOldFucks(uint32)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "sha3(\"giveBlockReward()\")));\n        }\n    }"
+                  },
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

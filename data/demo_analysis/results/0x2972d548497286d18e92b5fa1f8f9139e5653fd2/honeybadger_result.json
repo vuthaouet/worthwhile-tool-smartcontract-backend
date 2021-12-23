@@ -1,0 +1,14 @@
+{
+  "contract": "0x2972d548497286d18e92b5fa1f8f9139e5653fd2",
+  "tool": "honeybadger",
+  "start": 1640172317.7591941,
+  "end": 1640172325.4002573,
+  "duration": 7.641063213348389,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x2972d548497286d18e92b5fa1f8f9139e5653fd2.sol",
+      "name": "demo"
+    }
+  ]
+}

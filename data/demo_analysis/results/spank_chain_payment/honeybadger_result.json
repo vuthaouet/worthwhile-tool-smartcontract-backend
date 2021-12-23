@@ -1,0 +1,29 @@
+{
+  "contract": "spank_chain_payment",
+  "tool": "honeybadger",
+  "start": 1640175824.2219746,
+  "end": 1640176275.881786,
+  "duration": 451.6598114967346,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/spank_chain_payment.sol",
+      "name": "ECTools"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/spank_chain_payment.sol",
+      "name": "HumanStandardToken"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/spank_chain_payment.sol",
+      "name": "LedgerChannel"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/spank_chain_payment.sol",
+      "name": "StandardToken"
+    }
+  ]
+}

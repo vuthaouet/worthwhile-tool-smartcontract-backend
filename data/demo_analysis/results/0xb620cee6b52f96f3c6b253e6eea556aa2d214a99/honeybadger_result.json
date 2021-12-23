@@ -1,0 +1,20 @@
+{
+  "contract": "0xb620cee6b52f96f3c6b253e6eea556aa2d214a99",
+  "tool": "honeybadger",
+  "start": 1640187034.7052104,
+  "end": 1640187092.419284,
+  "duration": 57.7140736579895,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 33,
+          "column": 2,
+          "message": "hidden_state_update"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+      "name": "DrainMe"
+    }
+  ]
+}

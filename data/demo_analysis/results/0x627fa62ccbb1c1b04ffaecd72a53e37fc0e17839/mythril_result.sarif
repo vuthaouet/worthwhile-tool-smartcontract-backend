@@ -1,0 +1,222 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `fallback`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            },
+            {
+              "id": "Reentrancy_3",
+              "fullDescription": {
+                "text": "This contract executes a message call to an address provided as a function argument. Generally, it is not recommended to call user-supplied addresses using Solidity's call() construct. Note that attackers might leverage reentrancy attacks to exploit race conditions or manipulate this contract's state."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Message call to external contract"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            },
+            {
+              "id": "Arithmetic_5",
+              "fullDescription": {
+                "text": "A possible integer underflow exists in the function `WithdrawToHolder(address,uint256)`.\nThe subtraction may result in a value < 0."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Underflow"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "fallback"
+        },
+        {
+          "kind": "function",
+          "name": "WithdrawToken(address,uint256,address)"
+        },
+        {
+          "kind": "function",
+          "name": "WithdrawToHolder(address,uint256)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "awTokenToHolder(address _to,ad"
+                  },
+                  "startLine": 76
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "WithdrawToken(address,uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "nt256)\")),to,amount); \n    }\n}\n\ncontract TokenBank is Token\n{\n "
+                  },
+                  "startLine": 44
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "WithdrawToken(address,uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "nt256)\")),to,amount); \n    }\n}\n\ncontract TokenBank is Token\n{\n "
+                  },
+                  "startLine": 44
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "WithdrawToHolder(address,uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "       }\n    }\n}"
+                  },
+                  "startLine": 98
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "WithdrawToHolder(address,uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startLine": 100
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

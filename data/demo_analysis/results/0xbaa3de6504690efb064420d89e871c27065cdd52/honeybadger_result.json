@@ -1,0 +1,19 @@
+{
+  "contract": "0xbaa3de6504690efb064420d89e871c27065cdd52",
+  "tool": "honeybadger",
+  "start": 1640181512.0417902,
+  "end": 1640181600.1612892,
+  "duration": 88.11949896812439,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
+      "name": "Proxy"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0xbaa3de6504690efb064420d89e871c27065cdd52.sol",
+      "name": "VaultProxy"
+    }
+  ]
+}

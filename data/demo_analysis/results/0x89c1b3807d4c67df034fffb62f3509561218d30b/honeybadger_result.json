@@ -1,0 +1,14 @@
+{
+  "contract": "0x89c1b3807d4c67df034fffb62f3509561218d30b",
+  "tool": "honeybadger",
+  "start": 1640181272.8666112,
+  "end": 1640181459.6062279,
+  "duration": 186.73961663246155,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol",
+      "name": "TownCrier"
+    }
+  ]
+}

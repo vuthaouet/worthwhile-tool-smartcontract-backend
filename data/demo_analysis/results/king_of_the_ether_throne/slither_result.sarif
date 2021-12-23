@@ -1,0 +1,81 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "TimeManipulation_4",
+              "fullDescription": {
+                "text": "KingOfTheEtherThrone.claimThrone (/data/demo_analysis/source_code/king_of_the_ether_throne.sol#103-169) uses timestamp for comparisons\n\tDangerous comparisons:\n\t- currentMonarch.etherAddress != wizardAddress (/data/demo_analysis/source_code/king_of_the_ether_throne.sol#130-135)\n"
+              },
+              "name": "TimeManipulationVulnerability",
+              "shortDescription": {
+                "text": "timestamp"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/king_of_the_ether_throne.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "timestamp"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "claimThrone"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/king_of_the_ether_throne.sol"
+                },
+                "region": {
+                  "endLine": 169,
+                  "startLine": 103
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/king_of_the_ether_throne.sol"
+                },
+                "region": {
+                  "endLine": 135,
+                  "snippet": {
+                    "text": "currentMonarch.etherAddress != wizardAddress"
+                  },
+                  "startLine": 130
+                }
+              }
+            }
+          ],
+          "ruleId": "TimeManipulation_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

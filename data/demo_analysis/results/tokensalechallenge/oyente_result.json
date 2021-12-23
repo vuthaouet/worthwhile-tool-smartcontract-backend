@@ -1,0 +1,29 @@
+{
+  "contract": "tokensalechallenge",
+  "tool": "oyente",
+  "start": 1640169483.9796553,
+  "end": 1640169488.5842545,
+  "duration": 4.604599237442017,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 25,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/tokensalechallenge.sol",
+      "name": "TokenSaleChallenge",
+      "evm_code_coverage": "93.7%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

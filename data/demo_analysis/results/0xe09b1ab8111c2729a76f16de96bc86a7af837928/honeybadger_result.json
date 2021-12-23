@@ -1,0 +1,14 @@
+{
+  "contract": "0xe09b1ab8111c2729a76f16de96bc86a7af837928",
+  "tool": "honeybadger",
+  "start": 1640180733.94206,
+  "end": 1640180891.959525,
+  "duration": 158.0174651145935,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
+      "name": "FiftyFlip"
+    }
+  ]
+}

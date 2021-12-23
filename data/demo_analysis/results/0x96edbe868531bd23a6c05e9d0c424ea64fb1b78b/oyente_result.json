@@ -1,0 +1,79 @@
+{
+  "contract": "0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b",
+  "tool": "oyente",
+  "start": 1640176872.4239457,
+  "end": 1640176880.851362,
+  "duration": 8.427416324615479,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 91,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 95,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 91,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol",
+      "name": "LogFile",
+      "evm_code_coverage": "21.3%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [
+        {
+          "line": 17,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 60,
+          "column": 9,
+          "level": "Warning",
+          "message": "Timestamp Dependency."
+        },
+        {
+          "line": 66,
+          "column": 17,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        },
+        {
+          "line": 63,
+          "column": 16,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol",
+      "name": "PENNY_BY_PENNY",
+      "evm_code_coverage": "98.1%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": true,
+      "re-entrancy_vulnerability": true
+    }
+  ]
+}

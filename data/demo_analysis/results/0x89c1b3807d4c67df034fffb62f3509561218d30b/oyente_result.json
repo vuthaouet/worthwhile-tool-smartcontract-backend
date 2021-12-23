@@ -1,0 +1,95 @@
+{
+  "contract": "0x89c1b3807d4c67df034fffb62f3509561218d30b",
+  "tool": "oyente",
+  "start": 1640181264.08238,
+  "end": 1640181272.715264,
+  "duration": 8.63288402557373,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 184,
+          "column": 29,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 169,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 65,
+          "column": 26,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 164,
+          "column": 13,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 186,
+          "column": 27,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 100,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 162,
+          "column": 13,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 180,
+          "column": 13,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 192,
+          "column": 9,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 94,
+          "column": 18,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        },
+        {
+          "line": 180,
+          "column": 13,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        },
+        {
+          "line": 94,
+          "column": 18,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol",
+      "name": "TownCrier",
+      "evm_code_coverage": "53.5%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": true,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    }
+  ]
+}

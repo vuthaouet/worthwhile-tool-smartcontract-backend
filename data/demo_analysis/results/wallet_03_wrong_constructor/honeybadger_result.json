@@ -1,0 +1,14 @@
+{
+  "contract": "wallet_03_wrong_constructor",
+  "tool": "honeybadger",
+  "start": 1640185686.0303824,
+  "end": 1640185695.2273037,
+  "duration": 9.196921348571777,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/wallet_03_wrong_constructor.sol",
+      "name": "Wallet"
+    }
+  ]
+}

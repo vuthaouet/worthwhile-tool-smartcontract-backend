@@ -1,0 +1,131 @@
+{
+  "contract": "0xe09b1ab8111c2729a76f16de96bc86a7af837928",
+  "tool": "oyente",
+  "start": 1640180715.7302213,
+  "end": 1640180733.7620454,
+  "duration": 18.031824111938477,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 171,
+          "column": 57,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 287,
+          "column": 20,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 287,
+          "column": 20,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 287,
+          "column": 20,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 270,
+          "column": 46,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 270,
+          "column": 59,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 168,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 142,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 270,
+          "column": 29,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 354,
+          "column": 48,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 344,
+          "column": 31,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 213,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 340,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 169,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 324,
+          "column": 24,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 150,
+          "column": 9,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 313,
+          "column": 9,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        },
+        {
+          "line": 295,
+          "column": 9,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
+      "name": "FiftyFlip",
+      "evm_code_coverage": "77.2%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": true,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

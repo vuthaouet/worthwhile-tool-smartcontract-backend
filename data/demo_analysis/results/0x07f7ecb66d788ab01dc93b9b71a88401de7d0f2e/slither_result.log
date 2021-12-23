@@ -1,0 +1,70 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol:
+/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol:201:9: Warning: Return value of low-level calls not used.
+        whale.call.value(amount)(bytes4(keccak256("donate()")));
+        ^-----------------------------------------------------^
+/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol:213:9: Warning: Return value of low-level calls not used.
+        whale.call.value(amount)(bytes4(keccak256("donate()")));
+        ^-----------------------------------------------------^
+
+INFO:Detectors:[91m
+PoCGame.payout (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#191-201) sends eth to arbitrary user
+	Dangerous calls:
+	- winner.transfer(ethToTransfer) (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#200)
+PoCGame.loseWager (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#215-232) sends eth to arbitrary user
+	Dangerous calls:
+	- whale.call.value(amount)(bytes4(keccak256()(donate()))) (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#222-227)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#functions-that-send-ether-to-arbitrary-destinations[0m
+INFO:Detectors:[93m
+PoCGame.play (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#147-179) uses a dangerous strict equality:
+	- winningNumber == difficulty / 2
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#dangerous-strict-equalities[0m
+INFO:Detectors:[92m
+Reentrancy in PoCGame.donateToWhale (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#202-213):
+	External calls:
+	- whale.call.value(amount)(bytes4(keccak256()(donate()))) (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#208-210)
+	State variables written after the call(s):
+	- totalDonated (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#212)
+Reentrancy in PoCGame.loseWager (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#215-232):
+	External calls:
+	- whale.call.value(amount)(bytes4(keccak256()(donate()))) (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#222-227)
+	State variables written after the call(s):
+	- totalDonated (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#227)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities-2[0m
+INFO:Detectors:[92m
+PoCGame.randomSeed should be constant (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#59)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#state-variables-that-could-be-declared-constant[0m
+INFO:Detectors:[92m
+PoCGame.OpenToThePublic (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#87-93) should be declared external
+PoCGame.AdjustBetAmounts (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#97-106) should be declared external
+PoCGame.AdjustDifficulty (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#109-121) should be declared external
+PoCGame.fallback (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#122-123) should be declared external
+PoCGame.wager (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#126-144) should be declared external
+PoCGame.play (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#147-179) should be declared external
+PoCGame.donate (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#185-190) should be declared external
+PoCGame.ethBalance (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#235-244) should be declared external
+PoCGame.currentDifficulty (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#249-255) should be declared external
+PoCGame.currentBetLimit (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#260-270) should be declared external
+PoCGame.hasPlayerWagered (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#271-282) should be declared external
+PoCGame.winnersPot (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#284-287) should be declared external
+PoCGame.transferAnyERC20Token (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#293-297) should be declared external
+ERC20Interface.transfer (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Detected issues with version pragma in /data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol:
+	- pragma solidity^0.4.21 (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#7-9): it allows old versions
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-version-of-solidity[0m
+INFO:Detectors:[92m
+Low level call in PoCGame.donateToWhale (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#202-213):
+	-whale.call.value(amount)(bytes4(keccak256()(donate()))) /data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#208-210
+Low level call in PoCGame.loseWager (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#215-232):
+	-whale.call.value(amount)(bytes4(keccak256()(donate()))) /data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#222-227
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Function 'PoCGame.OpenToThePublic' (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#87-93) is not in mixedCase
+Function 'PoCGame.AdjustBetAmounts' (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#97-106) is not in mixedCase
+Function 'PoCGame.AdjustDifficulty' (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#109-121) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Detectors:[92m
+PoCGame.randomSeed (/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol#59) is never used in PoCGame
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#unused-state-variables[0m
+INFO:Slither:/data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol analyzed (2 contracts), 27 result(s) found

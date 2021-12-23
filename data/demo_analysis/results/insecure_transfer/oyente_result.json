@@ -1,0 +1,22 @@
+{
+  "contract": "insecure_transfer",
+  "tool": "oyente",
+  "start": 1640185630.954107,
+  "end": 1640185635.8399215,
+  "duration": 4.885814428329468,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/insecure_transfer.sol",
+      "name": "IntegerOverflowAdd",
+      "evm_code_coverage": "94.7%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

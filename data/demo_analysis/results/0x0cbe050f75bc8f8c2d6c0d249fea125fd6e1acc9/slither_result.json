@@ -1,0 +1,126 @@
+{
+  "contract": "0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9",
+  "tool": "slither",
+  "start": 1640171669.0708094,
+  "end": 1640171670.8716133,
+  "duration": 1.8008038997650146,
+  "analysis": [
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Caller.callAddress (/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#10-14) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "callAddress",
+          "source_mapping": {
+            "start": 133,
+            "length": 105,
+            "filename": "/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+            "lines": [
+              10,
+              11,
+              12,
+              13,
+              14
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Caller",
+            "source_mapping": {
+              "start": 110,
+              "length": 131,
+              "filename": "/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Detected issues with version pragma in /data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol:\n\t- pragma solidity^0.4.10 (/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#7-9): it allows old versions\n",
+      "elements": [
+        {
+          "type": "expression",
+          "expression": "^0.4.10",
+          "source_mapping": {
+            "start": 82,
+            "length": 24,
+            "filename": "/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+            "lines": [
+              7,
+              8,
+              9
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Low level call in Caller.callAddress (/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#10-14):\n\t-a.call() /data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#13-14\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "callAddress",
+          "source_mapping": {
+            "start": 133,
+            "length": 105,
+            "filename": "/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+            "lines": [
+              10,
+              11,
+              12,
+              13,
+              14
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Caller",
+            "source_mapping": {
+              "start": 110,
+              "length": 131,
+              "filename": "/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "a.call()",
+          "source_mapping": {
+            "start": 222,
+            "length": 8,
+            "filename": "/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+            "lines": [
+              13,
+              14
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

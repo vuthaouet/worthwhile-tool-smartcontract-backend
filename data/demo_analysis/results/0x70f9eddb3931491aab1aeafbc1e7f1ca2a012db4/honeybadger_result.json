@@ -1,0 +1,20 @@
+{
+  "contract": "0x70f9eddb3931491aab1aeafbc1e7f1ca2a012db4",
+  "tool": "honeybadger",
+  "start": 1640184097.1530814,
+  "end": 1640184162.7572691,
+  "duration": 65.60418772697449,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 16,
+          "column": 3470,
+          "message": "hidden_transfer"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x70f9eddb3931491aab1aeafbc1e7f1ca2a012db4.sol",
+      "name": "HomeyJar"
+    }
+  ]
+}

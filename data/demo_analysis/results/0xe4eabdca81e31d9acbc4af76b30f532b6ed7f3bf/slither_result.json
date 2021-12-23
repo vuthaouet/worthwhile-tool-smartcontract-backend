@@ -1,0 +1,600 @@
+{
+  "contract": "0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf",
+  "tool": "slither",
+  "start": 1640177222.9779644,
+  "end": 1640177225.037621,
+  "duration": 2.0596566200256348,
+  "analysis": [
+    {
+      "check": "arbitrary-send",
+      "impact": "High",
+      "confidence": "Medium",
+      "description": "Honey.GetFreebie (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#20-30) sends eth to arbitrary user\n\tDangerous calls:\n\t- msg.sender.transfer(this.balance) (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#26-27)\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "GetFreebie",
+          "source_mapping": {
+            "start": 248,
+            "length": 5665,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Honey",
+            "source_mapping": {
+              "start": 110,
+              "length": 9283,
+              "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "msg.sender.transfer(this.balance)",
+          "source_mapping": {
+            "start": 5749,
+            "length": 33,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              26,
+              27
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Honey.fallback (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#14-20) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "fallback",
+          "source_mapping": {
+            "start": 178,
+            "length": 59,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Honey",
+            "source_mapping": {
+              "start": 110,
+              "length": 9283,
+              "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Honey.GetFreebie (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#20-30) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "GetFreebie",
+          "source_mapping": {
+            "start": 248,
+            "length": 5665,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Honey",
+            "source_mapping": {
+              "start": 110,
+              "length": 9283,
+              "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Honey.withdraw (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#31-38) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "withdraw",
+          "source_mapping": {
+            "start": 5925,
+            "length": 3247,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              31,
+              32,
+              33,
+              34,
+              35,
+              36,
+              37,
+              38
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Honey",
+            "source_mapping": {
+              "start": 110,
+              "length": 9283,
+              "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Honey.Command (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#38-46) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "Command",
+          "source_mapping": {
+            "start": 9184,
+            "length": 206,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Honey",
+            "source_mapping": {
+              "start": 110,
+              "length": 9283,
+              "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Detected issues with version pragma in /data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol:\n\t- pragma solidity^0.4.19 (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#7-9): it allows old versions\n",
+      "elements": [
+        {
+          "type": "expression",
+          "expression": "^0.4.19",
+          "source_mapping": {
+            "start": 82,
+            "length": 24,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              7,
+              8,
+              9
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Low level call in Honey.Command (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#38-46):\n\t-adr.call.value(msg.value)(data) /data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "Command",
+          "source_mapping": {
+            "start": 9184,
+            "length": 206,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Honey",
+            "source_mapping": {
+              "start": 110,
+              "length": 9283,
+              "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23,
+                24,
+                25,
+                26,
+                27,
+                28,
+                29,
+                30,
+                31,
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39,
+                40,
+                41,
+                42,
+                43,
+                44,
+                45,
+                46
+              ]
+            }
+          }
+        },
+        {
+          "type": "expression",
+          "expression": "adr.call.value(msg.value)(data)",
+          "source_mapping": {
+            "start": 9351,
+            "length": 31,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [44]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Function 'Honey.GetFreebie' (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#20-30) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "function",
+          "convention": "mixedCase",
+          "name": "GetFreebie",
+          "source_mapping": {
+            "start": 248,
+            "length": 5665,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              20,
+              21,
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Function 'Honey.Command' (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#38-46) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "function",
+          "convention": "mixedCase",
+          "name": "Command",
+          "source_mapping": {
+            "start": 9184,
+            "length": 206,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              38,
+              39,
+              40,
+              41,
+              42,
+              43,
+              44,
+              45,
+              46
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Variable 'Honey.Owner' (/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol#11-13) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "variable",
+          "convention": "mixedCase",
+          "name": "Owner",
+          "source_mapping": {
+            "start": 133,
+            "length": 33,
+            "filename": "/data/demo_analysis/source_code/0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+            "lines": [
+              11,
+              12,
+              13
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Other_7",
+              "fullDescription": {
+                "text": "In the function `resetInvestment()` the following predictable state variables are used to determine Ether recipient:\n- block.timestamp\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Dependence on predictable environment variable"
+              }
+            },
+            {
+              "id": "AccessControl_13",
+              "fullDescription": {
+                "text": "In the function `resetInvestment()` a non-zero amount of Ether is sent to an address taken from storage slot 1.\nThere is a check on storage index 1. This storage slot can be written to by calling the function `resetInvestment()`.\n\nThere is a check on storage index 3. This storage slot can be written to by calling the function `resetInvestment()`."
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "Ether send"
+              }
+            },
+            {
+              "id": "Other_10",
+              "fullDescription": {
+                "text": "Multiple sends exist in one transaction, try to isolate each external call into its own transaction. As external calls can fail accidentally or deliberately.\nConsecutive calls: \nCall at address: 708\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Multiple Calls"
+              }
+            },
+            {
+              "id": "FrontRunning_1",
+              "fullDescription": {
+                "text": "A possible transaction order independence vulnerability exists in function resetInvestment(). The value or direction of the call statement is determined from a tainted storage location"
+              },
+              "name": "FrontRunningVulnerability",
+              "shortDescription": {
+                "text": "Transaction order dependence"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "resetInvestment()"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Dependence on predictable environment variable"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "resetInvestment()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "lastInvestor.send(jackpot)"
+                  },
+                  "startLine": 34
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_7"
+        },
+        {
+          "message": {
+            "text": "Ether send"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "resetInvestment()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "lastInvestor.send(jackpot)"
+                  },
+                  "startLine": 34
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_13"
+        },
+        {
+          "message": {
+            "text": "Multiple Calls"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "resetInvestment()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "lastInvestor.send(jackpot)"
+                  },
+                  "startLine": 34
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_10"
+        },
+        {
+          "message": {
+            "text": "Transaction order dependence"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "resetInvestment()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "lastInvestor.send(jackpot)"
+                  },
+                  "startLine": 34
+                }
+              }
+            }
+          ],
+          "ruleId": "FrontRunning_1"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "resetInvestment()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "lastInvestor.send(jackpot)"
+                  },
+                  "startLine": 34
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Dependence on predictable environment variable"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "resetInvestment()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "owner.send(this.balance-1 ether)"
+                  },
+                  "startLine": 35
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_7"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "resetInvestment()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/governmental_survey.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "owner.send(this.balance-1 ether)"
+                  },
+                  "startLine": 35
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

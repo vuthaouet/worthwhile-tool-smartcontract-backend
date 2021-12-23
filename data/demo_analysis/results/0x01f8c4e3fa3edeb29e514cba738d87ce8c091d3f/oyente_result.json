@@ -1,0 +1,67 @@
+{
+  "contract": "0x01f8c4e3fa3edeb29e514cba738d87ce8c091d3f",
+  "tool": "oyente",
+  "start": 1640186176.478796,
+  "end": 1640186185.9012108,
+  "duration": 9.422414779663086,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 83,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 87,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 83,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x01f8c4e3fa3edeb29e514cba738d87ce8c091d3f.sol",
+      "name": "LogFile",
+      "evm_code_coverage": "21.3%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [
+        {
+          "line": 57,
+          "column": 17,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        },
+        {
+          "line": 54,
+          "column": 16,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x01f8c4e3fa3edeb29e514cba738d87ce8c091d3f.sol",
+      "name": "PERSONAL_BANK",
+      "evm_code_coverage": "98.0%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    }
+  ]
+}

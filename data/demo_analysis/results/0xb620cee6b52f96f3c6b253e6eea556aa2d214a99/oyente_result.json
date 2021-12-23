@@ -1,0 +1,53 @@
+{
+  "contract": "0xb620cee6b52f96f3c6b253e6eea556aa2d214a99",
+  "tool": "oyente",
+  "start": 1640187024.6063719,
+  "end": 1640187034.5952232,
+  "duration": 9.988851308822632,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 86,
+          "column": 40,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 14,
+          "column": 1,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 100,
+          "column": 2,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        },
+        {
+          "line": 106,
+          "column": 2,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        },
+        {
+          "line": 133,
+          "column": 2,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+      "name": "DrainMe",
+      "evm_code_coverage": "83.5%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": true,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    }
+  ]
+}

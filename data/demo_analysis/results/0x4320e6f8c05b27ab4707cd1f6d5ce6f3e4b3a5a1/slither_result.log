@@ -1,0 +1,43 @@
+INFO:Detectors:[91m
+Reentrancy in ACCURAL_DEPOSIT.Collect (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#50-67):
+	External calls:
+	- msg.sender.call.value(_am)() (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#57-65)
+	State variables written after the call(s):
+	- balances (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#58)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities[0m
+INFO:Detectors:[92m
+ACCURAL_DEPOSIT.SetMinSum (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#20-27) should be declared external
+ACCURAL_DEPOSIT.SetLogFile (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#27-34) should be declared external
+ACCURAL_DEPOSIT.Initialized (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#35-41) should be declared external
+ACCURAL_DEPOSIT.Collect (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#50-67) should be declared external
+ACCURAL_DEPOSIT.fallback (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#68-78) should be declared external
+LogFile.AddMessage (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#91-97) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Detected issues with version pragma in /data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol:
+	- pragma solidity^0.4.19 (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#8-10): it allows old versions
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-version-of-solidity[0m
+INFO:Detectors:[92m
+Low level call in ACCURAL_DEPOSIT.Collect (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#50-67):
+	-msg.sender.call.value(_am)() /data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#57-65
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Contract 'ACCURAL_DEPOSIT' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#10-78) is not in CapWords
+Function 'ACCURAL_DEPOSIT.SetMinSum' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#20-27) is not in mixedCase
+Parameter '_val' of ACCURAL_DEPOSIT.SetMinSum (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#21-23) is not in mixedCase
+Function 'ACCURAL_DEPOSIT.SetLogFile' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#27-34) is not in mixedCase
+Parameter '_log' of ACCURAL_DEPOSIT.SetLogFile (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#29-30) is not in mixedCase
+Function 'ACCURAL_DEPOSIT.Initialized' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#35-41) is not in mixedCase
+Function 'ACCURAL_DEPOSIT.Deposit' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#42-49) is not in mixedCase
+Function 'ACCURAL_DEPOSIT.Collect' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#50-67) is not in mixedCase
+Parameter '_am' of ACCURAL_DEPOSIT.Collect (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#52) is not in mixedCase
+Variable 'ACCURAL_DEPOSIT.MinSum' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#14-16) is not in mixedCase
+Variable 'ACCURAL_DEPOSIT.Log' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#16-18) is not in mixedCase
+Function 'LogFile.AddMessage' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#91-97) is not in mixedCase
+Parameter '_adr' of LogFile.AddMessage (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#92) is not in mixedCase
+Parameter '_val' of LogFile.AddMessage (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#92) is not in mixedCase
+Parameter '_data' of LogFile.AddMessage (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#92-93) is not in mixedCase
+Variable 'LogFile.History' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#88) is not in mixedCase
+Variable 'LogFile.LastMsg' (/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol#89-91) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol analyzed (2 contracts), 26 result(s) found

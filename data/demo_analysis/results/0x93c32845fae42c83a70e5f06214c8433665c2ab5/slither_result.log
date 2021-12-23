@@ -1,0 +1,48 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol:
+/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol:15:9: Warning: Use of the "var" keyword is deprecated.
+        var acc = Acc[msg.sender];
+        ^-----^
+/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol:25:9: Warning: Use of the "var" keyword is deprecated.
+        var acc = Acc[msg.sender];
+        ^-----^
+/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol:56:5: Warning: Defining constructors as functions with the same name as the contract is deprecated. Use "constructor(...) { ... }" instead.
+    function X_WALLET(address log) public{
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+INFO:Detectors:[91m
+Reentrancy in X_WALLET.Collect (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#21-39):
+	External calls:
+	- msg.sender.call.value(_am)() (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#29-37)
+	State variables written after the call(s):
+	- Acc (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#32)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#reentrancy-vulnerabilities[0m
+INFO:Detectors:[92m
+X_WALLET.MinSum should be constant (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#56-57)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#state-variables-that-could-be-declared-constant[0m
+INFO:Detectors:[92m
+X_WALLET.Collect (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#21-39) should be declared external
+X_WALLET.fallback (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#40-46) should be declared external
+Log.AddMessage (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#79-85) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Low level call in X_WALLET.Collect (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#21-39):
+	-msg.sender.call.value(_am)() /data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#29-37
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Contract 'X_WALLET' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#9-66) is not in CapWords
+Function 'X_WALLET.Put' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#11-21) is not in mixedCase
+Parameter '_unlockTime' of X_WALLET.Put (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#11-12) is not in mixedCase
+Function 'X_WALLET.Collect' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#21-39) is not in mixedCase
+Parameter '_am' of X_WALLET.Collect (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#22-23) is not in mixedCase
+Function 'X_WALLET.X_WALLET' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#57-66) is not in mixedCase
+Variable 'X_WALLET.Acc' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#52-54) is not in mixedCase
+Variable 'X_WALLET.LogFile' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#54-56) is not in mixedCase
+Variable 'X_WALLET.MinSum' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#56-57) is not in mixedCase
+Function 'Log.AddMessage' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#79-85) is not in mixedCase
+Parameter '_adr' of Log.AddMessage (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#79-80) is not in mixedCase
+Parameter '_val' of Log.AddMessage (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#80) is not in mixedCase
+Parameter '_data' of Log.AddMessage (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#80) is not in mixedCase
+Variable 'Log.History' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#76) is not in mixedCase
+Variable 'Log.LastMsg' (/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol#76-77) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0x93c32845fae42c83a70e5f06214c8433665c2ab5.sol analyzed (2 contracts), 21 result(s) found

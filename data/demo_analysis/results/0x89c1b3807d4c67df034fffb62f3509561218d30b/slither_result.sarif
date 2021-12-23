@@ -1,0 +1,695 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in TownCrier.cancel (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#205-222):\n\tExternal calls:\n\t- ! msg.sender.call.value(fee - CANCELLATION_FEE)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#215-218)\n\tState variables written after the call(s):\n\t- externalCallFlag (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#218)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "Reentrancy_9",
+              "fullDescription": {
+                "text": "Reentrancy in TownCrier.deliver (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#144-205):\n\tExternal calls:\n\t- requests[requestId].requester.call.gas(2300).value(fee)() (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#184-185)\n\tState variables written after the call(s):\n\t- externalCallFlag (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#185)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-benign"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in TownCrier.withdraw (/data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#93-100):\n\t-! requests[0].requester.call.value(this.balance)() /data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol#96-100\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "cancel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 222,
+                  "startLine": 205
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 218,
+                  "snippet": {
+                    "text": "! msg.sender.call.value(fee - CANCELLATION_FEE)()"
+                  },
+                  "startLine": 215
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "externalCallFlag"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 218,
+                  "snippet": {
+                    "text": "externalCallFlag = false"
+                  },
+                  "startLine": 218
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "request"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 143,
+                  "startLine": 100
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 114,
+                  "snippet": {
+                    "text": "! msg.sender.call.value(msg.value)()"
+                  },
+                  "startLine": 110
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "externalCallFlag"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 115,
+                  "snippet": {
+                    "text": "externalCallFlag = false"
+                  },
+                  "startLine": 115
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "request"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 143,
+                  "startLine": 100
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 124,
+                  "snippet": {
+                    "text": "! msg.sender.call.value(msg.value)()"
+                  },
+                  "startLine": 121
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "externalCallFlag"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 125,
+                  "snippet": {
+                    "text": "externalCallFlag = false"
+                  },
+                  "startLine": 125
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "deliver"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 205,
+                  "startLine": 144
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 185,
+                  "snippet": {
+                    "text": "requests[requestId].requester.call.gas(2300).value(fee)()"
+                  },
+                  "startLine": 184
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "externalCallFlag"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 185,
+                  "snippet": {
+                    "text": "externalCallFlag = false"
+                  },
+                  "startLine": 185
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "deliver"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 205,
+                  "startLine": 144
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 185,
+                  "snippet": {
+                    "text": "requests[requestId].requester.call.gas(2300).value(fee)()"
+                  },
+                  "startLine": 184
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 180,
+                  "snippet": {
+                    "text": "SGX_ADDRESS.send(fee)"
+                  },
+                  "startLine": 179
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 185,
+                  "snippet": {
+                    "text": "requests[requestId].requester.call.gas(2300).value(fee)()"
+                  },
+                  "startLine": 184
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "externalCallFlag"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 192,
+                  "snippet": {
+                    "text": "externalCallFlag = true"
+                  },
+                  "startLine": 192
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "deliver"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 205,
+                  "startLine": 144
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 185,
+                  "snippet": {
+                    "text": "requests[requestId].requester.call.gas(2300).value(fee)()"
+                  },
+                  "startLine": 184
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 197,
+                  "snippet": {
+                    "text": "requests[requestId].callbackAddr.call.gas(callbackGas)(requests[requestId].callbackFID,requestId,error,respData)"
+                  },
+                  "startLine": 193
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 180,
+                  "snippet": {
+                    "text": "SGX_ADDRESS.send(fee)"
+                  },
+                  "startLine": 179
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 185,
+                  "snippet": {
+                    "text": "requests[requestId].requester.call.gas(2300).value(fee)()"
+                  },
+                  "startLine": 184
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "externalCallFlag"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 205,
+                  "snippet": {
+                    "text": "externalCallFlag = false"
+                  },
+                  "startLine": 202
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 100,
+                  "startLine": 93
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 100,
+                  "snippet": {
+                    "text": "! requests[0].requester.call.value(this.balance)()"
+                  },
+                  "startLine": 96
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "request"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 143,
+                  "startLine": 100
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 114,
+                  "snippet": {
+                    "text": "! msg.sender.call.value(msg.value)()"
+                  },
+                  "startLine": 110
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 124,
+                  "snippet": {
+                    "text": "! msg.sender.call.value(msg.value)()"
+                  },
+                  "startLine": 121
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "deliver"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 205,
+                  "startLine": 144
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 185,
+                  "snippet": {
+                    "text": "requests[requestId].requester.call.gas(2300).value(fee)()"
+                  },
+                  "startLine": 184
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 197,
+                  "snippet": {
+                    "text": "requests[requestId].callbackAddr.call.gas(callbackGas)(requests[requestId].callbackFID,requestId,error,respData)"
+                  },
+                  "startLine": 193
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "cancel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 222,
+                  "startLine": 205
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x89c1b3807d4c67df034fffb62f3509561218d30b.sol"
+                },
+                "region": {
+                  "endLine": 218,
+                  "snippet": {
+                    "text": "! msg.sender.call.value(fee - CANCELLATION_FEE)()"
+                  },
+                  "startLine": 215
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

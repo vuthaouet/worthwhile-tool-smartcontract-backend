@@ -1,0 +1,28 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol:
+/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol:14:9: Warning: Return value of low-level calls not used.
+        target.call.value(msg.value)(data);
+        ^--------------------------------^
+
+INFO:Detectors:[91m
+DepositProxy.Owner (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#19-20) shadows:
+	- Proxy.Owner (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#10-11)
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#state-variable-shadowing[0m
+INFO:Detectors:[92m
+Proxy.transferOwner (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#11-12) should be declared external
+Proxy.proxy (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#12-18) should be declared external
+DepositProxy.fallback (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#22-24) should be declared external
+DepositProxy.Vault (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#24-31) should be declared external
+DepositProxy.withdraw (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#37-42) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Low level call in Proxy.proxy (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#12-18):
+	-target.call.value(msg.value)(data) /data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#14-18
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Parameter '_owner' of Proxy.transferOwner (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#11) is not in mixedCase
+Variable 'Proxy.Owner' (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#10-11) is not in mixedCase
+Function 'DepositProxy.Vault' (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#24-31) is not in mixedCase
+Variable 'DepositProxy.Owner' (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#19-20) is not in mixedCase
+Variable 'DepositProxy.Deposits' (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#20-22) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol analyzed (2 contracts), 12 result(s) found

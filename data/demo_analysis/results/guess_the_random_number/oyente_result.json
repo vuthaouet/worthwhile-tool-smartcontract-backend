@@ -1,0 +1,22 @@
+{
+  "contract": "guess_the_random_number",
+  "tool": "oyente",
+  "start": 1640176677.2928674,
+  "end": 1640176679.493853,
+  "duration": 2.2009856700897217,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/guess_the_random_number.sol",
+      "name": "GuessTheRandomNumberChallenge",
+      "evm_code_coverage": "95.7%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "contract": "lottopollo",
+  "tool": "honeybadger",
+  "start": 1640185593.0667791,
+  "end": 1640185597.0717587,
+  "duration": 4.004979610443115,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/lottopollo.sol",
+      "name": "lottopollo"
+    }
+  ]
+}

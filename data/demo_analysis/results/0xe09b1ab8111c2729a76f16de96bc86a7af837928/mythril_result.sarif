@@ -1,0 +1,302 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            },
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `wager(bool,uint256,uint256,uint8,bytes32,bytes32)`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            },
+            {
+              "id": "Other_7",
+              "fullDescription": {
+                "text": "In the function `refund(uint256)` the following predictable state variables are used to determine Ether recipient:\n- block.number\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Dependence on predictable environment variable"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "wager(bool,uint256,uint256,uint8,bytes32,bytes32)"
+        },
+        {
+          "kind": "function",
+          "name": "getCollateralBalance()"
+        },
+        {
+          "kind": "function",
+          "name": "donateForContractHealth()"
+        },
+        {
+          "kind": "function",
+          "name": "refund(uint256)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "wager(bool,uint256,uint256,uint8,bytes32,bytes32)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ze += amount * DEV_FEE / 1000;\n  "
+                  },
+                  "startLine": 145
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "wager(bool,uint256,uint256,uint8,bytes32,bytes32)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "    uint donate_amount = amount * DONATING"
+                  },
+                  "startLine": 148
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "wager(bool,uint256,uint256,uint8,bytes32,bytes32)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "        // <yes> <report> UNCHECKED_L"
+                  },
+                  "startLine": 149
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getCollateralBalance()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ontract owner.\n    functio"
+                  },
+                  "startLine": 292
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getCollateralBalance()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "ontract owner.\n    function kill() exte"
+                  },
+                  "startLine": 292
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "donateForContractHealth()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "e going to withdraw more than you don"
+                  },
+                  "startLine": 220
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Dependence on predictable environment variable"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "refund(uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "amount) private returns (bool){\n "
+                  },
+                  "startLine": 323
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_7"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "refund(uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "d(amount);\n       "
+                  },
+                  "startLine": 324
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

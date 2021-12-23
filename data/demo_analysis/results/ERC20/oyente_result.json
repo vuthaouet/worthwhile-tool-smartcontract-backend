@@ -1,0 +1,35 @@
+{
+  "contract": "ERC20",
+  "tool": "oyente",
+  "start": 1640178609.1170723,
+  "end": 1640178625.6037245,
+  "duration": 16.486652135849,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/ERC20.sol",
+      "name": "ERC20",
+      "evm_code_coverage": "99.6%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/ERC20.sol",
+      "name": "SafeMath",
+      "evm_code_coverage": "100.0%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "contract": "0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9",
+  "tool": "honeybadger",
+  "start": 1640171672.999128,
+  "end": 1640171674.7904174,
+  "duration": 1.7912893295288086,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+      "name": "Caller"
+    }
+  ]
+}

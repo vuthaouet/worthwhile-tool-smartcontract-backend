@@ -1,0 +1,19 @@
+{
+  "contract": "smart_billions",
+  "tool": "honeybadger",
+  "start": 1640189075.269464,
+  "end": 1640189380.420924,
+  "duration": 305.15145993232727,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/smart_billions.sol",
+      "name": "SafeMath"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/smart_billions.sol",
+      "name": "SmartBillions"
+    }
+  ]
+}

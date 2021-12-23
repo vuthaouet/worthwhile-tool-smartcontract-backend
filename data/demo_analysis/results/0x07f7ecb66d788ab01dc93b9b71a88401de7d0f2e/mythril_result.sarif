@@ -1,0 +1,414 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "AccessControl_15",
+              "fullDescription": {
+                "text": "Function wager() retrieves the transaction origin (tx.origin) using the ORIGIN opcode. Use msg.sender instead.\nSee also: https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "Use of tx.origin"
+              }
+            },
+            {
+              "id": "Other_9",
+              "fullDescription": {
+                "text": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. "
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Exception state"
+              }
+            },
+            {
+              "id": "Reentrancy_3",
+              "fullDescription": {
+                "text": "This contract executes a message call to an address provided as a function argument. Generally, it is not recommended to call user-supplied addresses using Solidity's call() construct. Note that attackers might leverage reentrancy attacks to exploit race conditions or manipulate this contract's state."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Message call to external contract"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            },
+            {
+              "id": "Reentrancy_4",
+              "fullDescription": {
+                "text": "The contract account state is changed after an external call. Consider that the called contract could re-enter the function before this state change takes place. This can lead to business logic vulnerabilities."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "State change after external call"
+              }
+            },
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `donate()`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "wager()"
+        },
+        {
+          "kind": "function",
+          "name": "play()"
+        },
+        {
+          "kind": "function",
+          "name": "transferAnyERC20Token(address,address,uint256)"
+        },
+        {
+          "kind": "function",
+          "name": "donate()"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Use of tx.origin"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "wager()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "\n    modi"
+                  },
+                  "startLine": 33
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_15"
+        },
+        {
+          "message": {
+            "text": "Use of tx.origin"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "\n    modi"
+                  },
+                  "startLine": 33
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_15"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "  {\n                payout(msg.sender);\n            }\n            else \n            "
+                  },
+                  "startLine": 156
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "transferAnyERC20Token(address,address,uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startLine": 297
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": " \n    public \n    view \n    returns (uint256)\n    {\n   "
+                  },
+                  "startLine": 222
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": " \n    public \n    view \n    returns (uint256)\n    {\n   "
+                  },
+                  "startLine": 222
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "State change after external call"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": " address(this).balance"
+                  },
+                  "startLine": 227
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_4"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "donate()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "  */\n    function loseWager(uint256 amount) \n    intern"
+                  },
+                  "startLine": 208
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "donate()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "  */\n    function loseWager(uint256 amount) \n    intern"
+                  },
+                  "startLine": 208
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "donate()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "       // <yes> <repor"
+                  },
+                  "startLine": 212
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "State change after external call"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "donate()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "       // <yes> <repor"
+                  },
+                  "startLine": 212
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

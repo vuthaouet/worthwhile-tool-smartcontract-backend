@@ -1,0 +1,79 @@
+{
+  "contract": "overflow_simple_add",
+  "tool": "slither",
+  "start": 1640189386.082274,
+  "end": 1640189388.3963525,
+  "duration": 2.3140785694122314,
+  "analysis": [
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Overflow_Add.add (/data/demo_analysis/source_code/overflow_simple_add.sol#12-15) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "add",
+          "source_mapping": {
+            "start": 234,
+            "length": 109,
+            "filename": "/data/demo_analysis/source_code/overflow_simple_add.sol",
+            "lines": [
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Overflow_Add",
+            "source_mapping": {
+              "start": 176,
+              "length": 169,
+              "filename": "/data/demo_analysis/source_code/overflow_simple_add.sol",
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Contract 'Overflow_Add' (/data/demo_analysis/source_code/overflow_simple_add.sol#9-16) is not in CapWords\n",
+      "elements": [
+        {
+          "target": "contract",
+          "convention": "CapWords",
+          "name": "Overflow_Add",
+          "source_mapping": {
+            "start": 176,
+            "length": 169,
+            "filename": "/data/demo_analysis/source_code/overflow_simple_add.sol",
+            "lines": [
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

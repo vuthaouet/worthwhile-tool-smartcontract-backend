@@ -1,0 +1,47 @@
+{
+  "contract": "reentrancy_dao",
+  "tool": "oyente",
+  "start": 1640195724.9102015,
+  "end": 1640195728.8005028,
+  "duration": 3.89030122756958,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 25,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 26,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 18,
+          "column": 31,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 18,
+          "column": 31,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/reentrancy_dao.sol",
+      "name": "ReentrancyDAO",
+      "evm_code_coverage": "98.0%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    }
+  ]
+}

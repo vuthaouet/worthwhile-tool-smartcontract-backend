@@ -1,0 +1,8 @@
+{
+  "contract": "parity_wallet_bug_1",
+  "tool": "slither",
+  "start": 1640180275.6304793,
+  "end": 1640180278.9116347,
+  "duration": 3.2811553478240967,
+  "analysis": []
+}

@@ -1,0 +1,8 @@
+{
+  "contract": "smart_billions",
+  "tool": "mythril",
+  "start": 1640187168.6091049,
+  "end": 1640188971.54762,
+  "duration": 1802.9385151863098,
+  "analysis": null
+}

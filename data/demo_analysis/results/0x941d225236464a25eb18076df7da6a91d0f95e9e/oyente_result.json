@@ -1,0 +1,67 @@
+{
+  "contract": "0x941d225236464a25eb18076df7da6a91d0f95e9e",
+  "tool": "oyente",
+  "start": 1640185295.8475766,
+  "end": 1640185303.1665843,
+  "duration": 7.319007635116577,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 44,
+          "column": 16,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        },
+        {
+          "line": 47,
+          "column": 17,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol",
+      "name": "ETH_FUND",
+      "evm_code_coverage": "97.2%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    },
+    {
+      "errors": [
+        {
+          "line": 67,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 67,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 71,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol",
+      "name": "Log",
+      "evm_code_coverage": "21.3%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

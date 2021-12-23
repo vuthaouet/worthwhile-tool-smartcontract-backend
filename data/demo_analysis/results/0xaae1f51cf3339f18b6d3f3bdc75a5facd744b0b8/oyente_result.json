@@ -1,0 +1,67 @@
+{
+  "contract": "0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8",
+  "tool": "oyente",
+  "start": 1640183333.314587,
+  "end": 1640183342.7536619,
+  "duration": 9.439074754714966,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 57,
+          "column": 17,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        },
+        {
+          "line": 54,
+          "column": 16,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8.sol",
+      "name": "DEP_BANK",
+      "evm_code_coverage": "98.0%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    },
+    {
+      "errors": [
+        {
+          "line": 82,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 86,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 82,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8.sol",
+      "name": "LogFile",
+      "evm_code_coverage": "21.3%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

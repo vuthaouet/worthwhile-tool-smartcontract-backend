@@ -1,0 +1,41 @@
+{
+  "contract": "0x9d06cbafa865037a01d322d3f4222fa3e04e5488",
+  "tool": "oyente",
+  "start": 1640189561.010121,
+  "end": 1640189566.57233,
+  "duration": 5.562208890914917,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 54,
+          "column": 9,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 65,
+          "column": 11,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        },
+        {
+          "line": 65,
+          "column": 11,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x9d06cbafa865037a01d322d3f4222fa3e04e5488.sol",
+      "name": "Delta",
+      "evm_code_coverage": "76.7%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": true,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

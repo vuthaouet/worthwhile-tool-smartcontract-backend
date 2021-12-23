@@ -1,0 +1,152 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in PrivateDeposit.CashOut (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#49-64):\n\tExternal calls:\n\t- msg.sender.call.value(_am)() (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#54-60)\n\tState variables written after the call(s):\n\t- balances (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#55)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in PrivateDeposit.CashOut (/data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#49-64):\n\t-msg.sender.call.value(_am)() /data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol#54-60\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "CashOut"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol"
+                },
+                "region": {
+                  "endLine": 64,
+                  "startLine": 49
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol"
+                },
+                "region": {
+                  "endLine": 60,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_am)()"
+                  },
+                  "startLine": 54
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "balances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol"
+                },
+                "region": {
+                  "endLine": 55,
+                  "snippet": {
+                    "text": "balances[msg.sender] -= _am"
+                  },
+                  "startLine": 55
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "CashOut"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol"
+                },
+                "region": {
+                  "endLine": 64,
+                  "startLine": 49
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x7a8721a9d64c74da899424c1b52acbf58ddc9782.sol"
+                },
+                "region": {
+                  "endLine": 60,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_am)()"
+                  },
+                  "startLine": 54
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

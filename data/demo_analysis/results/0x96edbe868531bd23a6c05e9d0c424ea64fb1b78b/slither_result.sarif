@@ -1,0 +1,152 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in PENNY_BY_PENNY.Collect (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#58-76):\n\tExternal calls:\n\t- msg.sender.call.value(_am)() (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#65-74)\n\tState variables written after the call(s):\n\t- Acc (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#66-67)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in PENNY_BY_PENNY.Collect (/data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#58-76):\n\t-msg.sender.call.value(_am)() /data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol#65-74\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "Collect"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "endLine": 76,
+                  "startLine": 58
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "endLine": 74,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_am)()"
+                  },
+                  "startLine": 65
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Acc"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "endLine": 67,
+                  "snippet": {
+                    "text": "acc.balance -= _am"
+                  },
+                  "startLine": 66
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "Collect"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "endLine": 76,
+                  "startLine": 58
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol"
+                },
+                "region": {
+                  "endLine": 74,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_am)()"
+                  },
+                  "startLine": 65
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

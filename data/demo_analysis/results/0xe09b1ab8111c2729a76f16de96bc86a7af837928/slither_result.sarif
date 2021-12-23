@@ -1,0 +1,334 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "FiftyFlip.sendFunds (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#332-340) sends eth to arbitrary user\n\tDangerous calls:\n\t- success = paidUser.send(amount) (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#333-334)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            },
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in FiftyFlip.wager (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#130-166):\n\tExternal calls:\n\t- whale.call.value(donate_amount)(bytes4(keccak256()(donate()))) (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#154-156)\n\tState variables written after the call(s):\n\t- bets (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#158)\n\t- bets (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#158-161)\n\t- bets (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#161)\n\t- bets (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#161-162)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "Reentrancy_9",
+              "fullDescription": {
+                "text": "Reentrancy in FiftyFlip.wager (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#130-166):\n\tExternal calls:\n\t- whale.call.value(donate_amount)(bytes4(keccak256()(donate()))) (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#154-156)\n\tState variables written after the call(s):\n\t- totalAmountToWhale (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#156-158)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-benign"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in FiftyFlip.wager (/data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#130-166):\n\t-whale.call.value(donate_amount)(bytes4(keccak256()(donate()))) /data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol#154-156\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "sendFunds"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 340,
+                  "startLine": 332
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 334,
+                  "snippet": {
+                    "text": "success = paidUser.send(amount)"
+                  },
+                  "startLine": 333
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        },
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "wager"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 166,
+                  "startLine": 130
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 156,
+                  "snippet": {
+                    "text": "whale.call.value(donate_amount)(bytes4(keccak256()(donate())))"
+                  },
+                  "startLine": 154
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "bets"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 162,
+                  "snippet": {
+                    "text": "bet.player = player"
+                  },
+                  "startLine": 161
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "bets"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 161,
+                  "snippet": {
+                    "text": "bet.blockNumber = block.number"
+                  },
+                  "startLine": 158
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "bets"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 161,
+                  "snippet": {
+                    "text": "bet.betMask = bMask"
+                  },
+                  "startLine": 161
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "bets"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 158,
+                  "snippet": {
+                    "text": "bet.amount = amount"
+                  },
+                  "startLine": 158
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "wager"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 166,
+                  "startLine": 130
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 156,
+                  "snippet": {
+                    "text": "whale.call.value(donate_amount)(bytes4(keccak256()(donate())))"
+                  },
+                  "startLine": 154
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "totalAmountToWhale"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 158,
+                  "snippet": {
+                    "text": "totalAmountToWhale += donate_amount"
+                  },
+                  "startLine": 156
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "wager"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 166,
+                  "startLine": 130
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol"
+                },
+                "region": {
+                  "endLine": 156,
+                  "snippet": {
+                    "text": "whale.call.value(donate_amount)(bytes4(keccak256()(donate())))"
+                  },
+                  "startLine": 154
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

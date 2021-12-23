@@ -1,0 +1,340 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in EtherStore.withdrawFunds (/data/access_control/source_code/etherstore.sol#20-30):\n\tExternal calls:\n\t- require(bool)(msg.sender.call.value(_weiToWithdraw)()) (/data/access_control/source_code/etherstore.sol#27)\n\tState variables written after the call(s):\n\t- balances (/data/access_control/source_code/etherstore.sol#28)\n\t- lastWithdrawTime (/data/access_control/source_code/etherstore.sol#29)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "Ignore_6",
+              "fullDescription": {
+                "text": "EtherStore.withdrawalLimit should be constant (/data/access_control/source_code/etherstore.sol#12)\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "constable-states"
+              }
+            },
+            {
+              "id": "Ignore_11",
+              "fullDescription": {
+                "text": "EtherStore.depositFunds (/data/access_control/source_code/etherstore.sol#16-18) should be declared external\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "external-function"
+              }
+            },
+            {
+              "id": "Ignore_17",
+              "fullDescription": {
+                "text": "Detected issues with version pragma in /data/access_control/source_code/etherstore.sol:\n\t- pragma solidity^0.4.0 (/data/access_control/source_code/etherstore.sol#8): it allows old versions\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "solc-version"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in EtherStore.withdrawFunds (/data/access_control/source_code/etherstore.sol#20-30):\n\t-require(bool)(msg.sender.call.value(_weiToWithdraw)()) /data/access_control/source_code/etherstore.sol#27\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            },
+            {
+              "id": "Ignore_12",
+              "fullDescription": {
+                "text": "Parameter '_weiToWithdraw' of EtherStore.withdrawFunds (/data/access_control/source_code/etherstore.sol#20) is not in mixedCase\n"
+              },
+              "name": "IgnoreVulnerability",
+              "shortDescription": {
+                "text": "naming-convention"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/access_control/source_code/etherstore.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawFunds"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 30,
+                  "startLine": 20
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "snippet": {
+                    "text": "require(bool)(msg.sender.call.value(_weiToWithdraw)())"
+                  },
+                  "startLine": 27
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "balances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 28,
+                  "snippet": {
+                    "text": "balances[msg.sender] -= _weiToWithdraw"
+                  },
+                  "startLine": 28
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "lastWithdrawTime"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 29,
+                  "snippet": {
+                    "text": "lastWithdrawTime[msg.sender] = now"
+                  },
+                  "startLine": 29
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "constable-states"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variable",
+                  "name": "withdrawalLimit"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 12,
+                  "startLine": 12
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_6"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "depositFunds"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 18,
+                  "startLine": 16
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "external-function"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawFunds"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 30,
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_11"
+        },
+        {
+          "message": {
+            "text": "solc-version"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 8,
+                  "snippet": {
+                    "text": "^0.4.0"
+                  },
+                  "startLine": 8
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_17"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawFunds"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 30,
+                  "startLine": 20
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "snippet": {
+                    "text": "require(bool)(msg.sender.call.value(_weiToWithdraw)())"
+                  },
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "naming-convention"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "parameter",
+                  "name": "_weiToWithdraw"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/access_control/source_code/etherstore.sol"
+                },
+                "region": {
+                  "endLine": 20,
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "ruleId": "Ignore_12"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

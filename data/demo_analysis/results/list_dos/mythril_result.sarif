@@ -1,0 +1,914 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `getCreditorAmounts()`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            },
+            {
+              "id": "Other_10",
+              "fullDescription": {
+                "text": "Multiple sends exist in one transaction, try to isolate each external call into its own transaction. As external calls can fail accidentally or deliberately.\nConsecutive calls: \nCall at address: 1357\nCall at address: 1468\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Multiple Calls"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            },
+            {
+              "id": "Other_9",
+              "fullDescription": {
+                "text": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. "
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Exception state"
+              }
+            },
+            {
+              "id": "Other_7",
+              "fullDescription": {
+                "text": "In the function `fallback` the following predictable state variables are used to determine Ether recipient:\n- block.timestamp\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Dependence on predictable environment variable"
+              }
+            },
+            {
+              "id": "AccessControl_13",
+              "fullDescription": {
+                "text": "In the function `fallback` a non-zero amount of Ether is sent to an address taken from storage slot 87903029871075914254377627908054574944891091886930582284385770809450030037083.\nThere is a check on storage index 87903029871075914254377627908054574944891091886930582284385770809450030037083. This storage slot can be written to by calling the function `fallback`.\n\nThere is a check on storage index 1. This storage slot can be written to by calling the function `fallback`.\nThere is a check on storage index 3. This storage slot can be written to by calling the function `fallback`."
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "Ether send"
+              }
+            },
+            {
+              "id": "FrontRunning_1",
+              "fullDescription": {
+                "text": "A possible transaction order independence vulnerability exists in function fallback. The value or direction of the call statement is determined from a tainted storage location"
+              },
+              "name": "FrontRunningVulnerability",
+              "shortDescription": {
+                "text": "Transaction order dependence"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/list_dos.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "getCreditorAmounts()"
+        },
+        {
+          "kind": "function",
+          "name": "getCreditorAddresses()"
+        },
+        {
+          "kind": "function",
+          "name": "fallback"
+        },
+        {
+          "kind": "function",
+          "name": "lendGovernmentMoney(address)"
+        },
+        {
+          "kind": "function",
+          "name": "totalPayedOut()"
+        },
+        {
+          "kind": "function",
+          "name": "_function_0xce43b0c0"
+        },
+        {
+          "kind": "function",
+          "name": "_function_0xf42d1d30"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getCreditorAmounts()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "function getCreditorAmounts() returns (uint[]) {\n         return creditorAmounts;\n     }"
+                  },
+                  "startLine": 121
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getCreditorAddresses()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "function getCreditorAddresses() returns (address[]) {\n         return creditorAddresses;\n     }"
+                  },
+                  "startLine": 117
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "lastTimeOfNewCredit + TWELVE_HOURS"
+                  },
+                  "startLine": 35
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Multiple Calls"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "msg.sender.send(amount)"
+                  },
+                  "startLine": 37
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_10"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "msg.sender.send(amount)"
+                  },
+                  "startLine": 37
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "creditorAddresses[creditorAddresses.length - 1]"
+                  },
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Dependence on predictable environment variable"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash)"
+                  },
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_7"
+        },
+        {
+          "message": {
+            "text": "Ether send"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash)"
+                  },
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_13"
+        },
+        {
+          "message": {
+            "text": "Multiple Calls"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash)"
+                  },
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_10"
+        },
+        {
+          "message": {
+            "text": "Transaction order dependence"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash)"
+                  },
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "ruleId": "FrontRunning_1"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash)"
+                  },
+                  "startLine": 39
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Dependence on predictable environment variable"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "corruptElite.send(this.balance)"
+                  },
+                  "startLine": 40
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_7"
+        },
+        {
+          "message": {
+            "text": "Transaction order dependence"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "corruptElite.send(this.balance)"
+                  },
+                  "startLine": 40
+                }
+              }
+            }
+          ],
+          "ruleId": "FrontRunning_1"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "corruptElite.send(this.balance)"
+                  },
+                  "startLine": 40
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Multiple Calls"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "lendGovernmentMoney(address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "corruptElite.send(amount * 5/100)"
+                  },
+                  "startLine": 62
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_10"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "corruptElite.send(amount * 5/100)"
+                  },
+                  "startLine": 62
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "lendGovernmentMoney(address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "buddy.send(amount * 5/100)"
+                  },
+                  "startLine": 70
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "creditorAddresses[lastCreditorPayedOut].send(creditorAmounts[lastCreditorPayedOut])"
+                  },
+                  "startLine": 75
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "msg.sender.send(amount)"
+                  },
+                  "startLine": 82
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "totalPayedOut()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "creditorAmounts[i]"
+                  },
+                  "startLine": 101
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getCreditorAmounts()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "return creditorAmounts"
+                  },
+                  "startLine": 122
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getCreditorAmounts()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "return creditorAmounts"
+                  },
+                  "startLine": 122
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0xce43b0c0"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "address[] public creditorAddresses"
+                  },
+                  "startLine": 16
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getCreditorAddresses()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "return creditorAddresses"
+                  },
+                  "startLine": 118
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getCreditorAddresses()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "return creditorAddresses"
+                  },
+                  "startLine": 118
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_function_0xf42d1d30"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "uint[] public creditorAmounts"
+                  },
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "lendGovernmentMoney(address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "contract Government {\n\n     // Global Variables\n     uint32 public lastCreditorPayedOut;\n     uint public lastTimeOfNewCredit;\n     uint public profitFromCrash;\n     address[] public creditorAddresses;\n     uint[] public creditorAmounts;\n     address public corruptElite;\n     mapping (address => uint) buddies;\n     uint constant TWELVE_HOURS = 43200;\n     uint8 public round;\n\n     function Government() {\n         // The corrupt elite establishes a new government\n         // this is the commitment of the corrupt Elite - everything that can not be saved from a crash\n         profitFromCrash = msg.value;\n         corruptElite = msg.sender;\n         lastTimeOfNewCredit = block.timestamp;\n     }\n\n     function lendGovernmentMoney(address buddy) returns (bool) {\n         uint amount = msg.value;\n         // check if the system already broke down. If for 12h no new creditor gives new credit to the system it will brake down.\n         // 12h are on average = 60*60*12/12.5 = 3456\n         if (lastTimeOfNewCredit + TWELVE_HOURS < block.timestamp) {\n             // Return money to sender\n             msg.sender.send(amount);\n             // Sends all contract money to the last creditor\n             creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash);\n             corruptElite.send(this.balance);\n             // Reset contract state\n             lastCreditorPayedOut = 0;\n             lastTimeOfNewCredit = block.timestamp;\n             profitFromCrash = 0;\n            // <yes> <report> DENIAL_OF_SERVICE\n             creditorAddresses = new address[](0);\n            // <yes> <report> DENIAL_OF_SERVICE\n             creditorAmounts = new uint[](0);\n             round += 1;\n             return false;\n         }\n         else {\n             // the system needs to collect at least 1% of the profit from a crash to stay alive\n             if (amount >= 10 ** 18) {\n                 // the System has received fresh money, it will survive at leat 12h more\n                 lastTimeOfNewCredit = block.timestamp;\n                 // register the new creditor and his amount with 10% interest rate\n                 creditorAddresses.push(msg.sender);\n                 creditorAmounts.push(amount * 110 / 100);\n                 // now the money is distributed\n                 // first the corrupt elite grabs 5% - thieves!\n                 corruptElite.send(amount * 5/100);\n                 // 5% are going into the economy (they will increase the value for the person seeing the crash comming)\n                 if (profitFromCrash < 10000 * 10**18) {\n                     profitFromCrash += amount * 5/100;\n                 }\n                 // if you have a buddy in the government (and he is in the creditor list) he can get 5% of your credits.\n                 // Make a deal with him.\n                 if(buddies[buddy] >= amount) {\n                     buddy.send(amount * 5/100);\n                 }\n                 buddies[msg.sender] += amount * 110 / 100;\n                 // 90% of the money will be used to pay out old creditors\n                 if (creditorAmounts[lastCreditorPayedOut] <= address(this).balance - profitFromCrash) {\n                     creditorAddresses[lastCreditorPayedOut].send(creditorAmounts[lastCreditorPayedOut]);\n                     buddies[creditorAddresses[lastCreditorPayedOut]] -= creditorAmounts[lastCreditorPayedOut];\n                     lastCreditorPayedOut += 1;\n                 }\n                 return true;\n             }\n             else {\n                 msg.sender.send(amount);\n                 return false;\n             }\n         }\n     }\n\n     // fallback function\n     function() {\n         lendGovernmentMoney(0);\n     }\n\n     function totalDebt() returns (uint debt) {\n         for(uint i=lastCreditorPayedOut; i<creditorAmounts.length; i++){\n             debt += creditorAmounts[i];\n         }\n     }\n\n     function totalPayedOut() returns (uint payout) {\n         for(uint i=0; i<lastCreditorPayedOut; i++){\n             payout += creditorAmounts[i];\n         }\n     }\n\n     // better don't do it (unless you are the corrupt elite and you want to establish trust in the system)\n     function investInTheSystem() {\n         profitFromCrash += msg.value;\n     }\n\n     // From time to time the corrupt elite inherits it's power to the next generation\n     function inheritToNextGeneration(address nextGeneration) {\n         if (msg.sender == corruptElite) {\n             corruptElite = nextGeneration;\n         }\n     }\n\n     function getCreditorAddresses() returns (address[]) {\n         return creditorAddresses;\n     }\n\n     function getCreditorAmounts() returns (uint[]) {\n         return creditorAmounts;\n     }\n }"
+                  },
+                  "startLine": 10
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/list_dos.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "contract Government {\n\n     // Global Variables\n     uint32 public lastCreditorPayedOut;\n     uint public lastTimeOfNewCredit;\n     uint public profitFromCrash;\n     address[] public creditorAddresses;\n     uint[] public creditorAmounts;\n     address public corruptElite;\n     mapping (address => uint) buddies;\n     uint constant TWELVE_HOURS = 43200;\n     uint8 public round;\n\n     function Government() {\n         // The corrupt elite establishes a new government\n         // this is the commitment of the corrupt Elite - everything that can not be saved from a crash\n         profitFromCrash = msg.value;\n         corruptElite = msg.sender;\n         lastTimeOfNewCredit = block.timestamp;\n     }\n\n     function lendGovernmentMoney(address buddy) returns (bool) {\n         uint amount = msg.value;\n         // check if the system already broke down. If for 12h no new creditor gives new credit to the system it will brake down.\n         // 12h are on average = 60*60*12/12.5 = 3456\n         if (lastTimeOfNewCredit + TWELVE_HOURS < block.timestamp) {\n             // Return money to sender\n             msg.sender.send(amount);\n             // Sends all contract money to the last creditor\n             creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash);\n             corruptElite.send(this.balance);\n             // Reset contract state\n             lastCreditorPayedOut = 0;\n             lastTimeOfNewCredit = block.timestamp;\n             profitFromCrash = 0;\n            // <yes> <report> DENIAL_OF_SERVICE\n             creditorAddresses = new address[](0);\n            // <yes> <report> DENIAL_OF_SERVICE\n             creditorAmounts = new uint[](0);\n             round += 1;\n             return false;\n         }\n         else {\n             // the system needs to collect at least 1% of the profit from a crash to stay alive\n             if (amount >= 10 ** 18) {\n                 // the System has received fresh money, it will survive at leat 12h more\n                 lastTimeOfNewCredit = block.timestamp;\n                 // register the new creditor and his amount with 10% interest rate\n                 creditorAddresses.push(msg.sender);\n                 creditorAmounts.push(amount * 110 / 100);\n                 // now the money is distributed\n                 // first the corrupt elite grabs 5% - thieves!\n                 corruptElite.send(amount * 5/100);\n                 // 5% are going into the economy (they will increase the value for the person seeing the crash comming)\n                 if (profitFromCrash < 10000 * 10**18) {\n                     profitFromCrash += amount * 5/100;\n                 }\n                 // if you have a buddy in the government (and he is in the creditor list) he can get 5% of your credits.\n                 // Make a deal with him.\n                 if(buddies[buddy] >= amount) {\n                     buddy.send(amount * 5/100);\n                 }\n                 buddies[msg.sender] += amount * 110 / 100;\n                 // 90% of the money will be used to pay out old creditors\n                 if (creditorAmounts[lastCreditorPayedOut] <= address(this).balance - profitFromCrash) {\n                     creditorAddresses[lastCreditorPayedOut].send(creditorAmounts[lastCreditorPayedOut]);\n                     buddies[creditorAddresses[lastCreditorPayedOut]] -= creditorAmounts[lastCreditorPayedOut];\n                     lastCreditorPayedOut += 1;\n                 }\n                 return true;\n             }\n             else {\n                 msg.sender.send(amount);\n                 return false;\n             }\n         }\n     }\n\n     // fallback function\n     function() {\n         lendGovernmentMoney(0);\n     }\n\n     function totalDebt() returns (uint debt) {\n         for(uint i=lastCreditorPayedOut; i<creditorAmounts.length; i++){\n             debt += creditorAmounts[i];\n         }\n     }\n\n     function totalPayedOut() returns (uint payout) {\n         for(uint i=0; i<lastCreditorPayedOut; i++){\n             payout += creditorAmounts[i];\n         }\n     }\n\n     // better don't do it (unless you are the corrupt elite and you want to establish trust in the system)\n     function investInTheSystem() {\n         profitFromCrash += msg.value;\n     }\n\n     // From time to time the corrupt elite inherits it's power to the next generation\n     function inheritToNextGeneration(address nextGeneration) {\n         if (msg.sender == corruptElite) {\n             corruptElite = nextGeneration;\n         }\n     }\n\n     function getCreditorAddresses() returns (address[]) {\n         return creditorAddresses;\n     }\n\n     function getCreditorAmounts() returns (uint[]) {\n         return creditorAmounts;\n     }\n }"
+                  },
+                  "startLine": 10
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

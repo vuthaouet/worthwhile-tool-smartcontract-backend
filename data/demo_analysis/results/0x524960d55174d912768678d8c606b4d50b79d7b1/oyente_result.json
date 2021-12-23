@@ -1,0 +1,22 @@
+{
+  "contract": "0x524960d55174d912768678d8c606b4d50b79d7b1",
+  "tool": "oyente",
+  "start": 1640181466.4486241,
+  "end": 1640181469.0425346,
+  "duration": 2.5939104557037354,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x524960d55174d912768678d8c606b4d50b79d7b1.sol",
+      "name": "Centra4",
+      "evm_code_coverage": "97.1%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

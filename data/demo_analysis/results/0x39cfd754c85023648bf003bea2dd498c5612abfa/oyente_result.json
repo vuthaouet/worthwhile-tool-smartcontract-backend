@@ -1,0 +1,55 @@
+{
+  "contract": "0x39cfd754c85023648bf003bea2dd498c5612abfa",
+  "tool": "oyente",
+  "start": 1640180583.0737002,
+  "end": 1640180592.5344732,
+  "duration": 9.46077299118042,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol",
+      "name": "Ownable",
+      "evm_code_coverage": "99.5%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol",
+      "name": "Token",
+      "evm_code_coverage": "99.7%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [
+        {
+          "line": 72,
+          "column": 13,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol",
+      "name": "TokenBank",
+      "evm_code_coverage": "99.9%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

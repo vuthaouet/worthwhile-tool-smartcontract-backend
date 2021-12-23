@@ -1,0 +1,14 @@
+{
+  "contract": "etherbank",
+  "tool": "honeybadger",
+  "start": 1640172249.4692268,
+  "end": 1640172252.1284359,
+  "duration": 2.6592090129852295,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/etherbank.sol",
+      "name": "EtherBank"
+    }
+  ]
+}

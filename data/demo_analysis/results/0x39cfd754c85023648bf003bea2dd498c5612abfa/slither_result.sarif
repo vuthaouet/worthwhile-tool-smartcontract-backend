@@ -1,0 +1,168 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Other_12",
+              "fullDescription": {
+                "text": "Contract locking ether found in /data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol:\n\tContract TokenBank has payable functions:\n\t - fallback (/data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol#67-70)\n\t - Deposit (/data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol#70-76)\n\t - WithdrawToHolder (/data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol#90-104)\n\tBut does not have a function to withdraw the ether\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "locked-ether"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in Token.WithdrawToken (/data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol#39-50):\n\t-token.call(bytes4(sha3()(transfer(address,uint256))),to,amount) /data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol#44-50\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "locked-ether"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "Deposit"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol"
+                },
+                "region": {
+                  "endLine": 76,
+                  "startLine": 70
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "WithdrawToHolder"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol"
+                },
+                "region": {
+                  "endLine": 104,
+                  "startLine": 90
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol"
+                },
+                "region": {
+                  "endLine": 70,
+                  "startLine": 67
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "contract",
+                  "name": "TokenBank"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol"
+                },
+                "region": {
+                  "endLine": 104,
+                  "startLine": 50
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_12"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "WithdrawToken"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol"
+                },
+                "region": {
+                  "endLine": 50,
+                  "startLine": 39
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x39cfd754c85023648bf003bea2dd498c5612abfa.sol"
+                },
+                "region": {
+                  "endLine": 50,
+                  "snippet": {
+                    "text": "token.call(bytes4(sha3()(transfer(address,uint256))),to,amount)"
+                  },
+                  "startLine": 44
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

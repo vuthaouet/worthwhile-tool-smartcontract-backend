@@ -1,0 +1,35 @@
+{
+  "contract": "0x2972d548497286d18e92b5fa1f8f9139e5653fd2",
+  "tool": "oyente",
+  "start": 1640172315.4650607,
+  "end": 1640172317.7000742,
+  "duration": 2.235013484954834,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 9,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 14,
+          "column": 13,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x2972d548497286d18e92b5fa1f8f9139e5653fd2.sol",
+      "name": "demo",
+      "evm_code_coverage": "21.9%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

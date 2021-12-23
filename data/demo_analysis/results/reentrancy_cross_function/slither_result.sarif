@@ -1,0 +1,152 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in Reentrancy_cross_function.withdrawBalance (/data/demo_analysis/source_code/reentrancy_cross_function.sol#21-27):\n\tExternal calls:\n\t- (success) = msg.sender.call.value(amountToWithdraw)() (/data/demo_analysis/source_code/reentrancy_cross_function.sol#24)\n\tState variables written after the call(s):\n\t- userBalances (/data/demo_analysis/source_code/reentrancy_cross_function.sol#26)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in Reentrancy_cross_function.withdrawBalance (/data/demo_analysis/source_code/reentrancy_cross_function.sol#21-27):\n\t-(success) = msg.sender.call.value(amountToWithdraw)() /data/demo_analysis/source_code/reentrancy_cross_function.sol#24\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/reentrancy_cross_function.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/reentrancy_cross_function.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "startLine": 21
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/reentrancy_cross_function.sol"
+                },
+                "region": {
+                  "endLine": 24,
+                  "snippet": {
+                    "text": "(success) = msg.sender.call.value(amountToWithdraw)()"
+                  },
+                  "startLine": 24
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "userBalances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/reentrancy_cross_function.sol"
+                },
+                "region": {
+                  "endLine": 26,
+                  "snippet": {
+                    "text": "userBalances[msg.sender] = 0"
+                  },
+                  "startLine": 26
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/reentrancy_cross_function.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "startLine": 21
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/reentrancy_cross_function.sol"
+                },
+                "region": {
+                  "endLine": 24,
+                  "snippet": {
+                    "text": "(success) = msg.sender.call.value(amountToWithdraw)()"
+                  },
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

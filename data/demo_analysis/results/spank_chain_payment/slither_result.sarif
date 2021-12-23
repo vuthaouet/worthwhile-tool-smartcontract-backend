@@ -1,0 +1,1554 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "LedgerChannel.consensusCloseChannel (/data/demo_analysis/source_code/spank_chain_payment.sol#495-546) sends eth to arbitrary user\n\tDangerous calls:\n\t- Channels[_lcID].partyAddresses[0].transfer(_balances[0]) (/data/demo_analysis/source_code/spank_chain_payment.sol#534)\n\t- Channels[_lcID].partyAddresses[1].transfer(_balances[1]) (/data/demo_analysis/source_code/spank_chain_payment.sol#535)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            },
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in LedgerChannel.LCOpenTimeout (/data/demo_analysis/source_code/spank_chain_payment.sol#420-437):\n\tExternal calls:\n\t- require(bool,string)(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0],Channels[_lcID].erc20Balances[0]),CreateChannel: token transfer failure) (/data/demo_analysis/source_code/spank_chain_payment.sol#430)\n\tExternal calls sending eth:\n\t- Channels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0]) (/data/demo_analysis/source_code/spank_chain_payment.sol#426)\n\tState variables written after the call(s):\n\t- Channels (/data/demo_analysis/source_code/spank_chain_payment.sol#436)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "Other_11",
+              "fullDescription": {
+                "text": "LedgerChannel.LCOpenTimeout (/data/demo_analysis/source_code/spank_chain_payment.sol#420-437) uses a dangerous strict equality:\n\t- require(bool)(msg.sender == Channels[_lcID].partyAddresses[0] && Channels[_lcID].isOpen == false)\n\t- require(bool)(msg.sender == Channels[_lcID].partyAddresses[0] && Channels[_lcID].isOpen == false)\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "incorrect-equality"
+              }
+            },
+            {
+              "id": "Reentrancy_11",
+              "fullDescription": {
+                "text": "Reentrancy in LedgerChannel.createChannel (/data/demo_analysis/source_code/spank_chain_payment.sol#380-418):\n\tExternal calls:\n\t- require(bool,string)(Channels[_lcID].token.transferFrom(msg.sender,this,_balances[1]),CreateChannel: token transfer failure) (/data/demo_analysis/source_code/spank_chain_payment.sol#406)\n\tState variables written after the call(s):\n\t- Channels (/data/demo_analysis/source_code/spank_chain_payment.sol#407)\n\t- Channels (/data/demo_analysis/source_code/spank_chain_payment.sol#410)\n\t- Channels (/data/demo_analysis/source_code/spank_chain_payment.sol#411)\n\t- Channels (/data/demo_analysis/source_code/spank_chain_payment.sol#414)\n\t- Channels (/data/demo_analysis/source_code/spank_chain_payment.sol#415)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-no-eth"
+              }
+            },
+            {
+              "id": "Reentrancy_9",
+              "fullDescription": {
+                "text": "Reentrancy in LedgerChannel.byzantineCloseChannel (/data/demo_analysis/source_code/spank_chain_payment.sol#756-817):\n\tExternal calls:\n\t- require(bool,string)(channel.token.transfer(channel.partyAddresses[0],tokenbalanceA),byzantineCloseChannel: token transfer failure) (/data/demo_analysis/source_code/spank_chain_payment.sol#803-806)\n\t- require(bool,string)(channel.token.transfer(channel.partyAddresses[1],tokenbalanceI),byzantineCloseChannel: token transfer failure) (/data/demo_analysis/source_code/spank_chain_payment.sol#807-810)\n\tExternal calls sending eth:\n\t- channel.partyAddresses[0].transfer(ethbalanceA) (/data/demo_analysis/source_code/spank_chain_payment.sol#798)\n\t- channel.partyAddresses[1].transfer(ethbalanceI) (/data/demo_analysis/source_code/spank_chain_payment.sol#799)\n\tState variables written after the call(s):\n\t- numChannels (/data/demo_analysis/source_code/spank_chain_payment.sol#814)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-benign"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in HumanStandardToken.approveAndCall (/data/demo_analysis/source_code/spank_chain_payment.sol#252-261):\n\t-require(bool)(_spender.call(bytes4(bytes32(keccak256()(receiveApproval(address,uint256,address,bytes)))),msg.sender,_value,this,_extraData)) /data/demo_analysis/source_code/spank_chain_payment.sol#259\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "consensusCloseChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 546,
+                  "startLine": 495
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 534,
+                  "snippet": {
+                    "text": "Channels[_lcID].partyAddresses[0].transfer(_balances[0])"
+                  },
+                  "startLine": 534
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 535,
+                  "snippet": {
+                    "text": "Channels[_lcID].partyAddresses[1].transfer(_balances[1])"
+                  },
+                  "startLine": 535
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        },
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "LCOpenTimeout"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 437,
+                  "startLine": 420
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 430,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0],Channels[_lcID].erc20Balances[0]),CreateChannel: token transfer failure)"
+                  },
+                  "startLine": 430
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 426,
+                  "snippet": {
+                    "text": "Channels[_lcID].partyAddresses[0].transfer(Channels[_lcID].ethBalances[0])"
+                  },
+                  "startLine": 426
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 436,
+                  "snippet": {
+                    "text": "delete Channels[_lcID]"
+                  },
+                  "startLine": 436
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "byzantineCloseChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 817,
+                  "startLine": 756
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 806,
+                  "snippet": {
+                    "text": "require(bool,string)(channel.token.transfer(channel.partyAddresses[0],tokenbalanceA),byzantineCloseChannel: token transfer failure)"
+                  },
+                  "startLine": 803
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 810,
+                  "snippet": {
+                    "text": "require(bool,string)(channel.token.transfer(channel.partyAddresses[1],tokenbalanceI),byzantineCloseChannel: token transfer failure)"
+                  },
+                  "startLine": 807
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 798,
+                  "snippet": {
+                    "text": "channel.partyAddresses[0].transfer(ethbalanceA)"
+                  },
+                  "startLine": 798
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 799,
+                  "snippet": {
+                    "text": "channel.partyAddresses[1].transfer(ethbalanceI)"
+                  },
+                  "startLine": 799
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 813,
+                  "snippet": {
+                    "text": "channel.isOpen = false"
+                  },
+                  "startLine": 813
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "LCOpenTimeout"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 437,
+                  "startLine": 420
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 421,
+                  "snippet": {
+                    "text": "require(bool)(msg.sender == Channels[_lcID].partyAddresses[0] && Channels[_lcID].isOpen == false)"
+                  },
+                  "startLine": 421
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 421,
+                  "snippet": {
+                    "text": "require(bool)(msg.sender == Channels[_lcID].partyAddresses[0] && Channels[_lcID].isOpen == false)"
+                  },
+                  "startLine": 421
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "_isContained"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 834,
+                  "startLine": 819
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 833,
+                  "snippet": {
+                    "text": "cursor == _root"
+                  },
+                  "startLine": 833
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "closeVirtualChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 752,
+                  "startLine": 725
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 749,
+                  "snippet": {
+                    "text": "virtualChannels[_vcID].partyA == Channels[_lcID].partyAddresses[0]"
+                  },
+                  "startLine": 737
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 749,
+                  "snippet": {
+                    "text": "virtualChannels[_vcID].partyB == Channels[_lcID].partyAddresses[0]"
+                  },
+                  "startLine": 743
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "consensusCloseChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 546,
+                  "startLine": 495
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 506,
+                  "snippet": {
+                    "text": "require(bool)(Channels[_lcID].isOpen == true)"
+                  },
+                  "startLine": 506
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 509,
+                  "snippet": {
+                    "text": "require(bool)(totalEthDeposit == _balances[0] + _balances[1])"
+                  },
+                  "startLine": 509
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 510,
+                  "snippet": {
+                    "text": "require(bool)(totalTokenDeposit == _balances[2] + _balances[3])"
+                  },
+                  "startLine": 510
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 528,
+                  "snippet": {
+                    "text": "require(bool)(Channels[_lcID].partyAddresses[0] == ECTools.recoverSigner(_state,_sigA))"
+                  },
+                  "startLine": 528
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 529,
+                  "snippet": {
+                    "text": "require(bool)(Channels[_lcID].partyAddresses[1] == ECTools.recoverSigner(_state,_sigI))"
+                  },
+                  "startLine": 529
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 418,
+                  "startLine": 380
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 390,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].partyAddresses[0] == address(0),Channel has already been created.)"
+                  },
+                  "startLine": 390
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "deposit"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 492,
+                  "startLine": 465
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 466,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].isOpen == true,Tried adding funds to a closed channel)"
+                  },
+                  "startLine": 466
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 467,
+                  "snippet": {
+                    "text": "require(bool)(recipient == Channels[_lcID].partyAddresses[0] || recipient == Channels[_lcID].partyAddresses[1])"
+                  },
+                  "startLine": 467
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 467,
+                  "snippet": {
+                    "text": "require(bool)(recipient == Channels[_lcID].partyAddresses[0] || recipient == Channels[_lcID].partyAddresses[1])"
+                  },
+                  "startLine": 467
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 479,
+                  "snippet": {
+                    "text": "Channels[_lcID].partyAddresses[0] == recipient"
+                  },
+                  "startLine": 471
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 489,
+                  "snippet": {
+                    "text": "Channels[_lcID].partyAddresses[1] == recipient"
+                  },
+                  "startLine": 481
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "initVCstate"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 657,
+                  "startLine": 615
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 643,
+                  "snippet": {
+                    "text": "require(bool)(_isContained(_initState,_proof,Channels[_lcID].VCrootHash) == true)"
+                  },
+                  "startLine": 643
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "joinChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 460,
+                  "startLine": 439
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 441,
+                  "snippet": {
+                    "text": "require(bool)(Channels[_lcID].isOpen == false)"
+                  },
+                  "startLine": 441
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 442,
+                  "snippet": {
+                    "text": "require(bool)(msg.sender == Channels[_lcID].partyAddresses[1])"
+                  },
+                  "startLine": 442
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-no-eth"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 418,
+                  "startLine": 380
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 406,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].token.transferFrom(msg.sender,this,_balances[1]),CreateChannel: token transfer failure)"
+                  },
+                  "startLine": 406
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 407,
+                  "snippet": {
+                    "text": "Channels[_lcID].erc20Balances[0] = _balances[1]"
+                  },
+                  "startLine": 407
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 410,
+                  "snippet": {
+                    "text": "Channels[_lcID].sequence = 0"
+                  },
+                  "startLine": 410
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 414,
+                  "snippet": {
+                    "text": "Channels[_lcID].LCopenTimeout = now + _confirmTime"
+                  },
+                  "startLine": 414
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 411,
+                  "snippet": {
+                    "text": "Channels[_lcID].confirmTime = _confirmTime"
+                  },
+                  "startLine": 411
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 415,
+                  "snippet": {
+                    "text": "Channels[_lcID].initialDeposit = _balances"
+                  },
+                  "startLine": 415
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-no-eth"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "deposit"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 492,
+                  "startLine": 465
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 473,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].token.transferFrom(msg.sender,this,_balance),deposit: token transfer failure)"
+                  },
+                  "startLine": 473
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 487,
+                  "snippet": {
+                    "text": "Channels[_lcID].ethBalances[3] += msg.value"
+                  },
+                  "startLine": 487
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 474,
+                  "snippet": {
+                    "text": "Channels[_lcID].erc20Balances[2] += _balance"
+                  },
+                  "startLine": 474
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-no-eth"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "deposit"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 492,
+                  "startLine": 465
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 473,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].token.transferFrom(msg.sender,this,_balance),deposit: token transfer failure)"
+                  },
+                  "startLine": 473
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 483,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].token.transferFrom(msg.sender,this,_balance),deposit: token transfer failure)"
+                  },
+                  "startLine": 483
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 484,
+                  "snippet": {
+                    "text": "Channels[_lcID].erc20Balances[3] += _balance"
+                  },
+                  "startLine": 484
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-no-eth"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "joinChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 460,
+                  "startLine": 439
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 449,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].token.transferFrom(msg.sender,this,_balances[1]),joinChannel: token transfer failure)"
+                  },
+                  "startLine": 449
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 456,
+                  "snippet": {
+                    "text": "Channels[_lcID].isOpen = true"
+                  },
+                  "startLine": 456
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 454,
+                  "snippet": {
+                    "text": "Channels[_lcID].initialDeposit[1] += _balances[1]"
+                  },
+                  "startLine": 454
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 450,
+                  "snippet": {
+                    "text": "Channels[_lcID].erc20Balances[1] = _balances[1]"
+                  },
+                  "startLine": 450
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "Channels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 453,
+                  "snippet": {
+                    "text": "Channels[_lcID].initialDeposit[0] += _balances[0]"
+                  },
+                  "startLine": 453
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_11"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "byzantineCloseChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 817,
+                  "startLine": 756
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 806,
+                  "snippet": {
+                    "text": "require(bool,string)(channel.token.transfer(channel.partyAddresses[0],tokenbalanceA),byzantineCloseChannel: token transfer failure)"
+                  },
+                  "startLine": 803
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 810,
+                  "snippet": {
+                    "text": "require(bool,string)(channel.token.transfer(channel.partyAddresses[1],tokenbalanceI),byzantineCloseChannel: token transfer failure)"
+                  },
+                  "startLine": 807
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 798,
+                  "snippet": {
+                    "text": "channel.partyAddresses[0].transfer(ethbalanceA)"
+                  },
+                  "startLine": 798
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 799,
+                  "snippet": {
+                    "text": "channel.partyAddresses[1].transfer(ethbalanceI)"
+                  },
+                  "startLine": 799
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "numChannels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 814,
+                  "snippet": {
+                    "text": "numChannels --"
+                  },
+                  "startLine": 814
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "consensusCloseChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 546,
+                  "startLine": 495
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 539,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[0],_balances[2]),happyCloseChannel: token transfer failure)"
+                  },
+                  "startLine": 539
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 540,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].token.transfer(Channels[_lcID].partyAddresses[1],_balances[3]),happyCloseChannel: token transfer failure)"
+                  },
+                  "startLine": 540
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 534,
+                  "snippet": {
+                    "text": "Channels[_lcID].partyAddresses[0].transfer(_balances[0])"
+                  },
+                  "startLine": 534
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 535,
+                  "snippet": {
+                    "text": "Channels[_lcID].partyAddresses[1].transfer(_balances[1])"
+                  },
+                  "startLine": 535
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "numChannels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 543,
+                  "snippet": {
+                    "text": "numChannels --"
+                  },
+                  "startLine": 543
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "joinChannel"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 460,
+                  "startLine": 439
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 449,
+                  "snippet": {
+                    "text": "require(bool,string)(Channels[_lcID].token.transferFrom(msg.sender,this,_balances[1]),joinChannel: token transfer failure)"
+                  },
+                  "startLine": 449
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "numChannels"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 457,
+                  "snippet": {
+                    "text": "numChannels ++"
+                  },
+                  "startLine": 457
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "approveAndCall"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 261,
+                  "startLine": 252
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/spank_chain_payment.sol"
+                },
+                "region": {
+                  "endLine": 259,
+                  "snippet": {
+                    "text": "require(bool)(_spender.call(bytes4(bytes32(keccak256()(receiveApproval(address,uint256,address,bytes)))),msg.sender,_value,this,_extraData))"
+                  },
+                  "startLine": 259
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

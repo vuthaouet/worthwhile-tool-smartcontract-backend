@@ -1,0 +1,46 @@
+{
+  "contract": "etherbank",
+  "tool": "mythril",
+  "start": 1640172238.9841986,
+  "end": 1640172243.5556812,
+  "duration": 4.5714826583862305,
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 332,
+        "code": "msg.sender.call.value(amountToWithdraw)()",
+        "debug": "SOLVER OUTPUT:\ncalldata_EtherBank_0: 0x5fd8c71000000000000000000000000000000000000000000000000000000000\ncalldatasize_EtherBank: 0x4\ncallvalue: 0x0\n",
+        "description": "In the function `withdrawBalance()` a non-zero amount of Ether is sent to msg.sender.\nIt seems that this function can be called without restrictions.",
+        "filename": "/data/demo_analysis/source_code/etherbank.sol",
+        "function": "withdrawBalance()",
+        "lineno": 21,
+        "title": "Ether send",
+        "type": "Warning"
+      },
+      {
+        "address": 332,
+        "code": "msg.sender.call.value(amountToWithdraw)()",
+        "debug": "",
+        "description": "This contract executes a message call to the address of the transaction sender. Generally, it is not recommended to call user-supplied addresses using Solidity's call() construct. Note that attackers might leverage reentrancy attacks to exploit race conditions or manipulate this contract's state.",
+        "filename": "/data/demo_analysis/source_code/etherbank.sol",
+        "function": "withdrawBalance()",
+        "lineno": 21,
+        "title": "Message call to external contract",
+        "type": "Warning"
+      },
+      {
+        "address": 414,
+        "code": "userBalances[msg.sender] = 0",
+        "debug": "",
+        "description": "The contract account state is changed after an external call. Consider that the called contract could re-enter the function before this state change takes place. This can lead to business logic vulnerabilities.",
+        "filename": "/data/demo_analysis/source_code/etherbank.sol",
+        "function": "withdrawBalance()",
+        "lineno": 22,
+        "title": "State change after external call",
+        "type": "Warning"
+      }
+    ],
+    "success": true
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Arithmetic_5",
+              "fullDescription": {
+                "text": "A possible integer underflow exists in the function `PopBonusCode()`.\nThe subtraction may result in a value < 0."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Underflow"
+              }
+            },
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `PushBonusCode(uint256)`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/arbitrary_location_write_simple.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "PopBonusCode()"
+        },
+        {
+          "kind": "function",
+          "name": "PushBonusCode(uint256)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Underflow"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "PopBonusCode()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/arbitrary_location_write_simple.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "bonusCodes.length--"
+                  },
+                  "startLine": 28
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_5"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "PushBonusCode(uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/arbitrary_location_write_simple.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "smartcontractsecur"
+                  },
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "PopBonusCode()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/arbitrary_location_write_simple.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "contract Wallet {\n     uint[] private bonusCodes;\n     address private owner;\n\n     constructor() public {\n         bonusCodes = new uint[](0);\n         owner = msg.sender;\n     }\n\n     function () public payable {\n     }\n\n     function PushBonusCode(uint c) public {\n         bonusCodes.push(c);\n     }\n\n     function PopBonusCode() public {\n         // <yes> <report> ACCESS_CONTROL\n         require(0 <= bonusCodes.length); // this condition is always true since array lengths are unsigned\n         bonusCodes.length--; // an underflow can be caused here\n     }\n\n     function UpdateBonusCodeAt(uint idx, uint c) public {\n         require(idx < bonusCodes.length);\n         bonusCodes[idx] = c; // write to any index less than bonusCodes.length\n     }\n\n     function Destroy() public {\n         require(msg.sender == owner);\n         selfdestruct(msg.sender);\n     }\n }"
+                  },
+                  "startLine": 9
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "PopBonusCode()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/arbitrary_location_write_simple.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "contract Wallet {\n     uint[] private bonusCodes;\n     address private owner;\n\n     constructor() public {\n         bonusCodes = new uint[](0);\n         owner = msg.sender;\n     }\n\n     function () public payable {\n     }\n\n     function PushBonusCode(uint c) public {\n         bonusCodes.push(c);\n     }\n\n     function PopBonusCode() public {\n         // <yes> <report> ACCESS_CONTROL\n         require(0 <= bonusCodes.length); // this condition is always true since array lengths are unsigned\n         bonusCodes.length--; // an underflow can be caused here\n     }\n\n     function UpdateBonusCodeAt(uint idx, uint c) public {\n         require(idx < bonusCodes.length);\n         bonusCodes[idx] = c; // write to any index less than bonusCodes.length\n     }\n\n     function Destroy() public {\n         require(msg.sender == owner);\n         selfdestruct(msg.sender);\n     }\n }"
+                  },
+                  "startLine": 9
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

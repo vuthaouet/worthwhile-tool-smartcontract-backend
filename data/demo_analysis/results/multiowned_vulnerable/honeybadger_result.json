@@ -1,0 +1,19 @@
+{
+  "contract": "multiowned_vulnerable",
+  "tool": "honeybadger",
+  "start": 1640177165.9229643,
+  "end": 1640177172.4856417,
+  "duration": 6.562677383422852,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/multiowned_vulnerable.sol",
+      "name": "MultiOwnable"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/multiowned_vulnerable.sol",
+      "name": "TestContract"
+    }
+  ]
+}

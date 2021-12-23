@@ -1,0 +1,8 @@
+{
+  "contract": "random_number_generator",
+  "tool": "slither",
+  "start": 1640185701.6365116,
+  "end": 1640185703.9177175,
+  "duration": 2.281205892562866,
+  "analysis": []
+}

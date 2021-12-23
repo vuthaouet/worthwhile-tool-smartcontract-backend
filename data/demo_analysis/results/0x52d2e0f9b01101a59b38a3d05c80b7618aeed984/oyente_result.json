@@ -1,0 +1,22 @@
+{
+  "contract": "0x52d2e0f9b01101a59b38a3d05c80b7618aeed984",
+  "tool": "oyente",
+  "start": 1640178465.2539756,
+  "end": 1640178468.1743057,
+  "duration": 2.920330047607422,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x52d2e0f9b01101a59b38a3d05c80b7618aeed984.sol",
+      "name": "EtherGet",
+      "evm_code_coverage": "90.3%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "contract": "0x4a66ad0bca2d700f11e1f2fc2c106f7d3264504c",
+  "tool": "oyente",
+  "start": 1640172144.498351,
+  "end": 1640172146.5802376,
+  "duration": 2.0818865299224854,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 13,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 19,
+          "column": 13,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x4a66ad0bca2d700f11e1f2fc2c106f7d3264504c.sol",
+      "name": "EBU",
+      "evm_code_coverage": "34.0%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

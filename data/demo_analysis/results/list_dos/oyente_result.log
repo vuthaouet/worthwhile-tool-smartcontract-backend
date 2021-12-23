@@ -1,0 +1,29 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.25, The latest supported version is 0.4.19
+INFO:root:contract /data/demo_analysis/source_code/list_dos.sol:Government:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 35.9%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  True
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:/data/demo_analysis/source_code/list_dos.sol:17:6: Warning: Integer Overflow.
+     uint[] public creditorAmounts
+INFO:symExec:/data/demo_analysis/source_code/list_dos.sol:39:14: Warning: Callstack Depth Attack Vulnerability.
+             creditorAddresses[creditorAddresses.length - 1].send(profitFromCrash)
+/data/demo_analysis/source_code/list_dos.sol:37:14: Warning: Callstack Depth Attack Vulnerability.
+             msg.sender.send(amount)
+/data/demo_analysis/source_code/list_dos.sol:40:14: Warning: Callstack Depth Attack Vulnerability.
+             corruptElite.send(this.balance)
+/data/demo_analysis/source_code/list_dos.sol:70:22: Warning: Callstack Depth Attack Vulnerability.
+                     buddy.send(amount * 5/100)
+/data/demo_analysis/source_code/list_dos.sol:82:18: Warning: Callstack Depth Attack Vulnerability.
+                 msg.sender.send(amount)
+/data/demo_analysis/source_code/list_dos.sol:62:18: Warning: Callstack Depth Attack Vulnerability.
+                 corruptElite.send(amount * 5/100)
+/data/demo_analysis/source_code/list_dos.sol:75:22: Warning: Callstack Depth Attack Vulnerability.
+                     creditorAddresses[lastCreditorPayedOut].send(creditorAmounts[lastCreditorPayedOut])
+INFO:symExec:	====== Analysis Completed ======

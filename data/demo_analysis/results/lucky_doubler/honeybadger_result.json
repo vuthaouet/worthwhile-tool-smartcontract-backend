@@ -1,0 +1,14 @@
+{
+  "contract": "lucky_doubler",
+  "tool": "honeybadger",
+  "start": 1640180470.625966,
+  "end": 1640180569.1536872,
+  "duration": 98.52772116661072,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/lucky_doubler.sol",
+      "name": "LuckyDoubler"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "contract": "guess_the_random_number",
+  "tool": "mythril",
+  "start": 1640176670.954123,
+  "end": 1640176675.1893845,
+  "duration": 4.2352614402771,
+  "analysis": {
+    "error": null,
+    "issues": [],
+    "success": true
+  }
+}

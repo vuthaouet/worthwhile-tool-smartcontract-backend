@@ -1,0 +1,21 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol:
+/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol:33:9: Warning: Return value of low-level calls not used.
+        _target.call.value(_value)(_data);
+        ^-------------------------------^
+
+INFO:Detectors:[92m
+SimpleWallet.fallback (/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol#19-23) should be declared external
+SimpleWallet.withdrawAll (/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol#23-27) should be declared external
+SimpleWallet.sendMoney (/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol#31-35) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Low level call in SimpleWallet.sendMoney (/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol#31-35):
+	-_target.call.value(_value)(_data) /data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol#33-35
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#low-level-calls[0m
+INFO:Detectors:[92m
+Parameter '_value' of SimpleWallet.withdraw (/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol#27-28) is not in mixedCase
+Parameter '_target' of SimpleWallet.sendMoney (/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol#31) is not in mixedCase
+Parameter '_value' of SimpleWallet.sendMoney (/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol#31) is not in mixedCase
+Parameter '_data' of SimpleWallet.sendMoney (/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol#31-32) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol analyzed (1 contracts), 8 result(s) found

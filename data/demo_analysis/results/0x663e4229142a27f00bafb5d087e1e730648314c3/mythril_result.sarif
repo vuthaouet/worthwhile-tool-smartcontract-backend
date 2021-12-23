@@ -1,0 +1,294 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            },
+            {
+              "id": "Reentrancy_3",
+              "fullDescription": {
+                "text": "This contract executes a message call to to another contract. Make sure that the called contract is trusted and does not execute user-supplied code."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "Message call to external contract"
+              }
+            },
+            {
+              "id": "Reentrancy_4",
+              "fullDescription": {
+                "text": "The contract account state is changed after an external call. Consider that the called contract could re-enter the function before this state change takes place. This can lead to business logic vulnerabilities."
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "State change after external call"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "withdrawBalance()"
+        },
+        {
+          "kind": "function",
+          "name": "createAuction(uint256,uint256,uint256,uint256,address)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "pplied.\n    /// @param _token"
+                  },
+                  "startLine": 1536
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Message call to external contract"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction(uint256,uint256,uint256,uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "onditionally.\n    function _cancelAuction(uint256 _token"
+                  },
+                  "startLine": 1245
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_3"
+        },
+        {
+          "message": {
+            "text": "State change after external call"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction(uint256,uint256,uint256,uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "equire(_bidAmount >= price);\n\n       "
+                  },
+                  "startLine": 1269
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_4"
+        },
+        {
+          "message": {
+            "text": "State change after external call"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction(uint256,uint256,uint256,uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "equire(_bidAmount >= price);\n\n       "
+                  },
+                  "startLine": 1269
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_4"
+        },
+        {
+          "message": {
+            "text": "State change after external call"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction(uint256,uint256,uint256,uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "equire(_bidAmount >= price);\n\n       "
+                  },
+                  "startLine": 1269
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_4"
+        },
+        {
+          "message": {
+            "text": "State change after external call"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction(uint256,uint256,uint256,uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "equire(_bidAmount >= price);\n\n       "
+                  },
+                  "startLine": 1269
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_4"
+        },
+        {
+          "message": {
+            "text": "State change after external call"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction(uint256,uint256,uint256,uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "equire(_bidAmount >= price);\n\n       "
+                  },
+                  "startLine": 1269
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_4"
+        },
+        {
+          "message": {
+            "text": "State change after external call"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "createAuction(uint256,uint256,uint256,uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "equire(_bidAmount >= price);\n\n       "
+                  },
+                  "startLine": 1269
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

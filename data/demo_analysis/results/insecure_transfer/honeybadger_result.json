@@ -1,0 +1,14 @@
+{
+  "contract": "insecure_transfer",
+  "tool": "honeybadger",
+  "start": 1640185635.8870165,
+  "end": 1640185639.8914325,
+  "duration": 4.004415988922119,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/insecure_transfer.sol",
+      "name": "IntegerOverflowAdd"
+    }
+  ]
+}

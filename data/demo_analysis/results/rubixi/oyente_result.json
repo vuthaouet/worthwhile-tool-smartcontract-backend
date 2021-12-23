@@ -1,0 +1,101 @@
+{
+  "contract": "rubixi",
+  "tool": "oyente",
+  "start": 1640171846.6474595,
+  "end": 1640171853.114241,
+  "duration": 6.466781377792358,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 135,
+          "column": 10,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 130,
+          "column": 10,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 153,
+          "column": 26,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 125,
+          "column": 10,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 141,
+          "column": 34,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 141,
+          "column": 34,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 159,
+          "column": 35,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 158,
+          "column": 36,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 159,
+          "column": 35,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 85,
+          "column": 18,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 74,
+          "column": 26,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 95,
+          "column": 18,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 103,
+          "column": 18,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/rubixi.sol",
+      "name": "Rubixi",
+      "evm_code_coverage": "74.1%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

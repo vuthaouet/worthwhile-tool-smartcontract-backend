@@ -1,0 +1,14 @@
+{
+  "contract": "wallet_04_confused_sign",
+  "tool": "honeybadger",
+  "start": 1640186938.793816,
+  "end": 1640186944.385399,
+  "duration": 5.591583013534546,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/wallet_04_confused_sign.sol",
+      "name": "Wallet"
+    }
+  ]
+}

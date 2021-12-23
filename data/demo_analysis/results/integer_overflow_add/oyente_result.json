@@ -1,0 +1,29 @@
+{
+  "contract": "integer_overflow_add",
+  "tool": "oyente",
+  "start": 1640185830.0260818,
+  "end": 1640185832.6841125,
+  "duration": 2.6580307483673096,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 17,
+          "column": 9,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/integer_overflow_add.sol",
+      "name": "IntegerOverflowAdd",
+      "evm_code_coverage": "99.2%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

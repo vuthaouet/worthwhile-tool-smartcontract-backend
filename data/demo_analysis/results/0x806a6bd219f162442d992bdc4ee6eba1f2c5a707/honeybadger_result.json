@@ -1,0 +1,20 @@
+{
+  "contract": "0x806a6bd219f162442d992bdc4ee6eba1f2c5a707",
+  "tool": "honeybadger",
+  "start": 1640185754.0214999,
+  "end": 1640185821.7063487,
+  "duration": 67.68484878540039,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 25,
+          "column": 1441,
+          "message": "hidden_transfer"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0x806a6bd219f162442d992bdc4ee6eba1f2c5a707.sol",
+      "name": "Pie"
+    }
+  ]
+}

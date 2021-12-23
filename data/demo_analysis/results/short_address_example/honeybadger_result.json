@@ -1,0 +1,14 @@
+{
+  "contract": "short_address_example",
+  "tool": "honeybadger",
+  "start": 1640177192.5596771,
+  "end": 1640177195.571288,
+  "duration": 3.011610984802246,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/short_address_example.sol",
+      "name": "MyToken"
+    }
+  ]
+}

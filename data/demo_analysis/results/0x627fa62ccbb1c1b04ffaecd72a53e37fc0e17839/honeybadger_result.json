@@ -1,0 +1,24 @@
+{
+  "contract": "0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839",
+  "tool": "honeybadger",
+  "start": 1640196302.3005707,
+  "end": 1640196311.0298245,
+  "duration": 8.729253768920898,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol",
+      "name": "Ownable"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol",
+      "name": "Token"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol",
+      "name": "TokenBank"
+    }
+  ]
+}

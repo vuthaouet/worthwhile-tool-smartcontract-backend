@@ -1,0 +1,223 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in ETH_FUND.CashOut (/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol#38-55):\n\tExternal calls:\n\t- msg.sender.call.value(_am)() (/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol#45-52)\n\tState variables written after the call(s):\n\t- balances (/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol#47)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "Reentrancy_9",
+              "fullDescription": {
+                "text": "Reentrancy in ETH_FUND.Deposit (/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol#26-37):\n\tExternal calls:\n\t- TransferLog.AddMessage(msg.sender,msg.value,Deposit) (/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol#32-33)\n\tState variables written after the call(s):\n\t- lastBlock (/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol#34-37)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-benign"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in ETH_FUND.CashOut (/data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol#38-55):\n\t-msg.sender.call.value(_am)() /data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol#45-52\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "CashOut"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol"
+                },
+                "region": {
+                  "endLine": 55,
+                  "startLine": 38
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol"
+                },
+                "region": {
+                  "endLine": 52,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_am)()"
+                  },
+                  "startLine": 45
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "balances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol"
+                },
+                "region": {
+                  "endLine": 47,
+                  "snippet": {
+                    "text": "balances[msg.sender] -= _am"
+                  },
+                  "startLine": 47
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "reentrancy-benign"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "Deposit"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol"
+                },
+                "region": {
+                  "endLine": 37,
+                  "startLine": 26
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol"
+                },
+                "region": {
+                  "endLine": 33,
+                  "snippet": {
+                    "text": "TransferLog.AddMessage(msg.sender,msg.value,Deposit)"
+                  },
+                  "startLine": 32
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "lastBlock"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol"
+                },
+                "region": {
+                  "endLine": 37,
+                  "snippet": {
+                    "text": "lastBlock = block.number"
+                  },
+                  "startLine": 34
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_9"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "CashOut"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol"
+                },
+                "region": {
+                  "endLine": 55,
+                  "startLine": 38
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x941d225236464a25eb18076df7da6a91d0f95e9e.sol"
+                },
+                "region": {
+                  "endLine": 52,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_am)()"
+                  },
+                  "startLine": 45
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

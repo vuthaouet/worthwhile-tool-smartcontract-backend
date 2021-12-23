@@ -1,0 +1,14 @@
+INFO:Slither:Compilation warnings/errors on /data/demo_analysis/source_code/incorrect_constructor_name2.sol:
+/data/demo_analysis/source_code/incorrect_constructor_name2.sol:30:23: Warning: Using contract member "balance" inherited from the address type is deprecated. Convert the contract to "address" type to access the member, for example use "address(contract).balance" instead.
+       owner.transfer(this.balance);
+                      ^----------^
+/data/demo_analysis/source_code/incorrect_constructor_name2.sol:24:5: Warning: No visibility specified. Defaulting to "public". 
+    function () payable {}
+    ^--------------------^
+
+INFO:Detectors:[92m
+Missing.missing (/data/demo_analysis/source_code/incorrect_constructor_name2.sol#18-22) should be declared external
+Missing.fallback (/data/demo_analysis/source_code/incorrect_constructor_name2.sol#24) should be declared external
+Missing.withdraw (/data/demo_analysis/source_code/incorrect_constructor_name2.sol#26-31) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Slither:/data/demo_analysis/source_code/incorrect_constructor_name2.sol analyzed (1 contracts), 3 result(s) found

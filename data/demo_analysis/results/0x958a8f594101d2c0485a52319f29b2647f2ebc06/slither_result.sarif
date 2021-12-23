@@ -1,0 +1,132 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "Marriage.sendMessage (/data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol#138-147) sends eth to arbitrary user\n\tDangerous calls:\n\t- owner.transfer(this.balance) (/data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol#141-142)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in Owned.execute (/data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol#53-62):\n\t-_dst.call.value(_value)(_data) /data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol#60-62\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "sendMessage"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol"
+                },
+                "region": {
+                  "endLine": 147,
+                  "startLine": 138
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol"
+                },
+                "region": {
+                  "endLine": 142,
+                  "snippet": {
+                    "text": "owner.transfer(this.balance)"
+                  },
+                  "startLine": 141
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "execute"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol"
+                },
+                "region": {
+                  "endLine": 62,
+                  "startLine": 53
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol"
+                },
+                "region": {
+                  "endLine": 62,
+                  "snippet": {
+                    "text": "_dst.call.value(_value)(_data)"
+                  },
+                  "startLine": 60
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

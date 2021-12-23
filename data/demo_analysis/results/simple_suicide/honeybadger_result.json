@@ -1,0 +1,14 @@
+{
+  "contract": "simple_suicide",
+  "tool": "honeybadger",
+  "start": 1640180298.1588917,
+  "end": 1640180300.4240048,
+  "duration": 2.265113115310669,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/simple_suicide.sol",
+      "name": "SimpleSuicide"
+    }
+  ]
+}

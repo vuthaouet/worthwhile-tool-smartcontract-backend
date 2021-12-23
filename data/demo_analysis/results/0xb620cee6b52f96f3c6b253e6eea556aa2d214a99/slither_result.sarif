@@ -1,0 +1,214 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Other_11",
+              "fullDescription": {
+                "text": "DrainMe.unlockSecret (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#86-98) uses a dangerous strict equality:\n\t- secret % 5 == 0\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "incorrect-equality"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in DrainMe.callFirstTarget (/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#99-105):\n\t-firstTarget.call.value(msg.value)() /data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol#104\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "unlockSecret"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "endLine": 98,
+                  "startLine": 86
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "endLine": 98,
+                  "snippet": {
+                    "text": "secret % 5 == 0"
+                  },
+                  "startLine": 92
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "callFirstTarget"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "endLine": 105,
+                  "startLine": 99
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "endLine": 104,
+                  "snippet": {
+                    "text": "firstTarget.call.value(msg.value)()"
+                  },
+                  "startLine": 104
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "callSecondTarget"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "endLine": 111,
+                  "startLine": 105
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "endLine": 110,
+                  "snippet": {
+                    "text": "secondTarget.call.value(msg.value)()"
+                  },
+                  "startLine": 109
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "winPrize"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "endLine": 142,
+                  "startLine": 136
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol"
+                },
+                "region": {
+                  "endLine": 142,
+                  "snippet": {
+                    "text": "owner.call.value(1)()"
+                  },
+                  "startLine": 140
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

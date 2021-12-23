@@ -1,0 +1,14 @@
+{
+  "contract": "0x4a66ad0bca2d700f11e1f2fc2c106f7d3264504c",
+  "tool": "honeybadger",
+  "start": 1640172146.6228359,
+  "end": 1640172156.1063843,
+  "duration": 9.483548402786255,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x4a66ad0bca2d700f11e1f2fc2c106f7d3264504c.sol",
+      "name": "EBU"
+    }
+  ]
+}

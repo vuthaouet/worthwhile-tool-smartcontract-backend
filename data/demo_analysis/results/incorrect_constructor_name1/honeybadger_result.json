@@ -1,0 +1,14 @@
+{
+  "contract": "incorrect_constructor_name1",
+  "tool": "honeybadger",
+  "start": 1640185844.0016491,
+  "end": 1640185847.360189,
+  "duration": 3.3585398197174072,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/incorrect_constructor_name1.sol",
+      "name": "Missing"
+    }
+  ]
+}

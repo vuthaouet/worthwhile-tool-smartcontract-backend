@@ -1,0 +1,81 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in Proxy.proxy (/data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#12-18):\n\t-target.call.value(msg.value)(data) /data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol#14-18\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "proxy"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol"
+                },
+                "region": {
+                  "endLine": 18,
+                  "startLine": 12
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xb11b2fed6c9354f7aa2f658d3b4d7b31d8a13b77.sol"
+                },
+                "region": {
+                  "endLine": 18,
+                  "snippet": {
+                    "text": "target.call.value(msg.value)(data)"
+                  },
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

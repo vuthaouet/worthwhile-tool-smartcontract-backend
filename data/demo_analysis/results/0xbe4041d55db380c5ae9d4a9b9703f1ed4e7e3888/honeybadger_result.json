@@ -1,0 +1,25 @@
+{
+  "contract": "0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888",
+  "tool": "honeybadger",
+  "start": 1640186657.756876,
+  "end": 1640186924.5929644,
+  "duration": 266.83608841896057,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol",
+      "name": "Log"
+    },
+    {
+      "errors": [
+        {
+          "line": 66,
+          "column": 17,
+          "message": "straw_man_contract"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0xbe4041d55db380c5ae9d4a9b9703f1ed4e7e3888.sol",
+      "name": "MONEY_BOX"
+    }
+  ]
+}

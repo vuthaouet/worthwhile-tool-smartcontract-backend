@@ -1,0 +1,20 @@
+{
+  "contract": "0xdb1c55f6926e7d847ddf8678905ad871a68199d2",
+  "tool": "honeybadger",
+  "start": 1640183968.2229056,
+  "end": 1640184031.671325,
+  "duration": 63.44841933250427,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 20,
+          "column": 809,
+          "message": "hidden_transfer"
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/0xdb1c55f6926e7d847ddf8678905ad871a68199d2.sol",
+      "name": "FreeEth"
+    }
+  ]
+}

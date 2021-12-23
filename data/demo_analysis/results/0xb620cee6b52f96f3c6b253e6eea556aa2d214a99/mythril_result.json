@@ -1,0 +1,177 @@
+{
+  "contract": "0xb620cee6b52f96f3c6b253e6eea556aa2d214a99",
+  "tool": "mythril",
+  "start": 1640186994.8796258,
+  "end": 1640187021.9731824,
+  "duration": 27.09355664253235,
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 1514,
+        "code": "require (msg.value >= 0.005 ether);",
+        "debug": "",
+        "description": "This contract executes a message call to to another contract. Make sure that the called contract is trusted and does not execute user-supplied code.",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "_function_0x066d4701",
+        "lineno": 104,
+        "title": "Message call to external contract",
+        "type": "Informational"
+      },
+      {
+        "address": 1514,
+        "code": "require (msg.value >= 0.005 ether);",
+        "debug": "",
+        "description": "The return value of an external call is not checked. Note that execution continue even if the called contract throws.",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "_function_0x066d4701",
+        "lineno": 104,
+        "title": "Unchecked CALL return value",
+        "type": "Informational"
+      },
+      {
+        "address": 1705,
+        "code": " onlyPlayers {\n\tseed[_index] = _valu",
+        "debug": "",
+        "description": "This contract executes a message call to to another contract. Make sure that the called contract is trusted and does not execute user-supplied code.",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "_function_0x1d263b53",
+        "lineno": 109,
+        "title": "Message call to external contract",
+        "type": "Informational"
+      },
+      {
+        "address": 1705,
+        "code": " onlyPlayers {\n\tseed[_index] = _valu",
+        "debug": "",
+        "description": "The return value of an external call is not checked. Note that execution continue even if the called contract throws.",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "_function_0x1d263b53",
+        "lineno": 109,
+        "title": "Unchecked CALL return value",
+        "type": "Informational"
+      },
+      {
+        "address": 1815,
+        "code": "}\n\nfunction ",
+        "debug": "The exception is triggered under the following conditions:\n\ncalldata_DrainMe_4: 0x0\nstorage_7: 0x0\nstorage_keccac_1461501637330902918203684832716283019655932542975_&\n1461501637330902918203684832716283019655932542975_&\ncaller: 0xff00\ncalldata_DrainMe_0: 0x1d7915ad00000000000000000000000000000000000000000000000000000000\ncalldatasize_DrainMe: 0x4\n",
+        "description": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. ",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "_function_0x1d7915ad",
+        "lineno": 115,
+        "title": "Exception state",
+        "type": "Informational"
+      },
+      {
+        "address": 2152,
+        "code": "//constructor\n\nfunction ",
+        "debug": "The exception is triggered under the following conditions:\n\ncalldata_DrainMe_4: 0x0\nstorage_8: 0x0\ncalldata_DrainMe_0: 0x47bb89f000000000000000000000000000000000000000000000000000000000\ncalldatasize_DrainMe: 0x4\ncallvalue: 0x0\n",
+        "description": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. ",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "_function_0x47bb89f0",
+        "lineno": 30,
+        "title": "Exception state",
+        "type": "Informational"
+      },
+      {
+        "address": 2205,
+        "code": "n.io \n * @author: ",
+        "debug": "storage_4: 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\ncallvalue: 0x470de4df820000\ncalldata_DrainMe_0: 0x56075a9800000000000000000000000000000000000000000000000000000000\ncalldatasize_DrainMe: 0x4\n",
+        "description": "A possible integer overflow exists in the function `becomePlayer()`.\nThe addition or multiplication may result in a value higher than the maximum representable integer.",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "becomePlayer()",
+        "lineno": 2,
+        "title": "Integer Overflow ",
+        "type": "Warning"
+      },
+      {
+        "address": 2875,
+        "debug": "",
+        "description": "A possible transaction order independence vulnerability exists in function claimPrize(). The value or direction of the call statement is determined from a tainted storage location",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "claimPrize()",
+        "lineno": 144,
+        "title": "Transaction order dependence",
+        "type": "Warning"
+      },
+      {
+        "address": 2952,
+        "code": "51828771,158769871220];\nuint256[] public balance",
+        "debug": "The exception is triggered under the following conditions:\n\ncalldata_DrainMe_4: 0x0\nstorage_7: 0x0\ncalldata_DrainMe_0: 0x9556483700000000000000000000000000000000000000000000000000000000\ncalldatasize_DrainMe: 0x4\ncallvalue: 0x0\n",
+        "description": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. ",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "_function_0x95564837",
+        "lineno": 27,
+        "title": "Exception state",
+        "type": "Informational"
+      },
+      {
+        "address": 3178,
+        "code": "ck function\n\nfunction() p",
+        "debug": "SOLVER OUTPUT:\nstorage_1: 0x0\ncaller: 0x0\ncalldata_DrainMe_0: 0xb11cc09900000000000000000000000000000000000000000000000000000000\ncalldatasize_DrainMe: 0x4\n",
+        "description": "In the function `winPrize()` a non-zero amount of Ether is sent to an address taken from storage slot 1.\nThere is a check on storage index 1. This storage slot can be written to by calling the function `DranMe()`.\n\nThere is a check on storage index 1. This storage slot can be written to by calling the function `DranMe()`.",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "winPrize()",
+        "lineno": 140,
+        "title": "Ether send",
+        "type": "Warning"
+      },
+      {
+        "address": 3178,
+        "code": "ck function\n\nfunction() p",
+        "debug": "",
+        "description": "This contract executes a message call to an address found at storage slot 1. This storage slot can be written to by calling the function `DranMe()`. Generally, it is not recommended to call user-supplied addresses using Solidity's call() construct. Note that attackers might leverage reentrancy attacks to exploit race conditions or manipulate this contract's state.",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "winPrize()",
+        "lineno": 140,
+        "title": "Message call to external contract",
+        "type": "Warning"
+      },
+      {
+        "address": 3178,
+        "code": "ck function\n\nfunction() p",
+        "debug": "",
+        "description": "A possible transaction order independence vulnerability exists in function winPrize(). The value or direction of the call statement is determined from a tainted storage location",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "winPrize()",
+        "lineno": 140,
+        "title": "Transaction order dependence",
+        "type": "Warning"
+      },
+      {
+        "address": 3178,
+        "code": "ck function\n\nfunction() p",
+        "debug": "",
+        "description": "The return value of an external call is not checked. Note that execution continue even if the called contract throws.",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "winPrize()",
+        "lineno": 140,
+        "title": "Unchecked CALL return value",
+        "type": "Informational"
+      },
+      {
+        "address": 3290,
+        "code": "e onlyP",
+        "debug": "The exception is triggered under the following conditions:\n\nstorage_7: 0x0\nstorage_keccac_1461501637330902918203684832716283019655932542975_&\n1461501637330902918203684832716283019655932542975_&\ncaller: 0xff00\ncalldata_DrainMe_0: 0xbced9cfd00000000000000000000000000000000000000000000000000000000\ncalldatasize_DrainMe: 0x4\n",
+        "description": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. ",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "_function_0xbced9cfd",
+        "lineno": 124,
+        "title": "Exception state",
+        "type": "Informational"
+      },
+      {
+        "address": 3339,
+        "code": " () public payable onlyPl",
+        "debug": "The exception is triggered under the following conditions:\n\nstorage_7: 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\nstorage_75276140696391174450305814049576319106646922510300487059720162673006384432777: 0x1\nstorage_75276140696391174450305814049576319106646922510300487059720162673006384432776: 0x0\nstorage_keccac_1461501637330902918203684832716283019655932542975_&\n1461501637330902918203684832716283019655932542975_&\ncaller: 0xff00\ncalldata_DrainMe_0: 0xbced9cfd00000000000000000000000000000000000000000000000000000000\ncalldatasize_DrainMe: 0x4\n",
+        "description": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. ",
+        "filename": "/data/demo_analysis/source_code/0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+        "function": "_function_0xbced9cfd",
+        "lineno": 124,
+        "title": "Exception state",
+        "type": "Informational"
+      }
+    ],
+    "success": true
+  }
+}

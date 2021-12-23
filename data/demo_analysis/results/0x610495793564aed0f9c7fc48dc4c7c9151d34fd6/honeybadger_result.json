@@ -1,0 +1,14 @@
+{
+  "contract": "0x610495793564aed0f9c7fc48dc4c7c9151d34fd6",
+  "tool": "honeybadger",
+  "start": 1640176313.7438457,
+  "end": 1640176331.4363291,
+  "duration": 17.69248342514038,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol",
+      "name": "SimpleWallet"
+    }
+  ]
+}

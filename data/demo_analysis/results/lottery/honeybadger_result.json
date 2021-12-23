@@ -1,0 +1,14 @@
+{
+  "contract": "lottery",
+  "tool": "honeybadger",
+  "start": 1640172493.0327172,
+  "end": 1640172501.166983,
+  "duration": 8.134265661239624,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/lottery.sol",
+      "name": "Lottery"
+    }
+  ]
+}

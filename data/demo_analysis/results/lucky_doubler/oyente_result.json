@@ -1,0 +1,95 @@
+{
+  "contract": "lucky_doubler",
+  "tool": "oyente",
+  "start": 1640180456.1259966,
+  "end": 1640180470.4222817,
+  "duration": 14.296285152435303,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 170,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 180,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 183,
+          "column": 20,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 184,
+          "column": 22,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 185,
+          "column": 20,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 175,
+          "column": 23,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 185,
+          "column": 20,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 174,
+          "column": 24,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 184,
+          "column": 22,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 119,
+          "column": 17,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 102,
+          "column": 13,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 74,
+          "column": 10,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/lucky_doubler.sol",
+      "name": "LuckyDoubler",
+      "evm_code_coverage": "61.0%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

@@ -1,0 +1,2822 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Oyente",
+          "fullDescription": {
+            "text": "Oyente runs on symbolic execution, determines which inputs cause which program branches to execute, to find potential security vulnerabilities. Oyente works directly with EVM bytecode without access high level representation and does not provide soundness nor completeness."
+          },
+          "informationUri": "https://oyente.tech/",
+          "rules": [
+            {
+              "id": "Arithmetic_12",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Underflow."
+              }
+            },
+            {
+              "id": "Arithmetic_11",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow."
+              }
+            },
+            {
+              "id": "DenialService_2",
+              "name": "DenialServiceVulnerability",
+              "shortDescription": {
+                "text": "Callstack Depth Attack Vulnerability."
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "contract",
+          "name": "ClockAuction"
+        },
+        {
+          "kind": "contract",
+          "name": "ClockAuctionBase"
+        },
+        {
+          "kind": "contract",
+          "name": "ERC721Metadata"
+        },
+        {
+          "kind": "contract",
+          "name": "Ownable"
+        },
+        {
+          "kind": "contract",
+          "name": "PandaAccessControl"
+        },
+        {
+          "kind": "contract",
+          "name": "PandaAuction"
+        },
+        {
+          "kind": "contract",
+          "name": "PandaBase"
+        },
+        {
+          "kind": "contract",
+          "name": "PandaBreeding"
+        },
+        {
+          "kind": "contract",
+          "name": "PandaCore"
+        },
+        {
+          "kind": "contract",
+          "name": "PandaMinting"
+        },
+        {
+          "kind": "contract",
+          "name": "PandaOwnership"
+        },
+        {
+          "kind": "contract",
+          "name": "Pausable"
+        },
+        {
+          "kind": "contract",
+          "name": "SaleClockAuction"
+        },
+        {
+          "kind": "contract",
+          "name": "SaleClockAuctionERC20"
+        },
+        {
+          "kind": "contract",
+          "name": "SiringClockAuction"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 39,
+                  "startLine": 1381
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 17,
+                  "startLine": 1326
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1349
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 19,
+                  "startLine": 1343
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1350
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1348
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 20,
+                  "startLine": 1496
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 516
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 697
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 397
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 31,
+                  "startLine": 945
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 945
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 69,
+                  "startLine": 945
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 392
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 36,
+                  "startLine": 940
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 27,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 29,
+                  "startLine": 948
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 44,
+                  "startLine": 931
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 931
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 934
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 65,
+                  "startLine": 948
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 30,
+                  "startLine": 985
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 948
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 49,
+                  "startLine": 948
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 44,
+                  "startLine": 934
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 896
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 940
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 51,
+                  "startLine": 945
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 29,
+                  "startLine": 895
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 32,
+                  "startLine": 984
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 1152
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 27,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 697
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 397
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 31,
+                  "startLine": 945
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 945
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 69,
+                  "startLine": 945
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 32,
+                  "startLine": 984
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 36,
+                  "startLine": 940
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 27,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 907
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 29,
+                  "startLine": 948
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 934
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 29,
+                  "startLine": 895
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 931
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 44,
+                  "startLine": 931
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 30,
+                  "startLine": 985
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 948
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 44,
+                  "startLine": 934
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 896
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 940
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 51,
+                  "startLine": 945
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 907
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 392
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 1152
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 697
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 397
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 27,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 392
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 29,
+                  "startLine": 2429
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 2441
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 44,
+                  "startLine": 931
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 26,
+                  "startLine": 2439
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 32,
+                  "startLine": 984
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 30,
+                  "startLine": 2440
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 24,
+                  "startLine": 2432
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 896
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 32,
+                  "startLine": 2436
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 20,
+                  "startLine": 2433
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 29,
+                  "startLine": 2437
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 28,
+                  "startLine": 2438
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 931
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 934
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 30,
+                  "startLine": 985
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 44,
+                  "startLine": 934
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 33,
+                  "startLine": 2434
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 32,
+                  "startLine": 2435
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 29,
+                  "startLine": 895
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 2467
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 1152
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 697
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 397
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 27,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 392
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 896
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 44,
+                  "startLine": 931
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 931
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 934
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 30,
+                  "startLine": 985
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 29,
+                  "startLine": 895
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 32,
+                  "startLine": 984
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 1152
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 16,
+                  "startLine": 697
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 397
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 27,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 392
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 385
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 39,
+                  "startLine": 1381
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 81,
+                  "startLine": 1808
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 25,
+                  "startLine": 1781
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1349
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 17,
+                  "startLine": 1326
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1350
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1348
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 1235
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 19,
+                  "startLine": 1343
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 20,
+                  "startLine": 1496
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 39,
+                  "startLine": 1381
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1350
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1594
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1595
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1596
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1349
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1597
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1348
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 19,
+                  "startLine": 1343
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 39,
+                  "startLine": 1381
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1350
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1349
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 17,
+                  "startLine": 1326
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 13,
+                  "startLine": 1348
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 1235
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 19,
+                  "startLine": 1343
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0x663e4229142a27f00bafb5d087e1e730648314c3.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 20,
+                  "startLine": 1496
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

@@ -1,0 +1,72 @@
+{
+  "contract": "smart_billions",
+  "tool": "oyente",
+  "start": 1640188983.0301783,
+  "end": 1640189075.1488795,
+  "duration": 92.11870121955872,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis/source_code/smart_billions.sol",
+      "name": "SafeMath",
+      "evm_code_coverage": "100.0%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [
+        {
+          "line": 344,
+          "column": 26,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 345,
+          "column": 29,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 364,
+          "column": 13,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 723,
+          "column": 23,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 382,
+          "column": 13,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        },
+        {
+          "line": 372,
+          "column": 13,
+          "level": "Warning",
+          "message": "Transaction-Ordering Dependency."
+        }
+      ],
+      "file": "/data/demo_analysis/source_code/smart_billions.sol",
+      "name": "SmartBillions",
+      "evm_code_coverage": "22.2%",
+      "integer_underflow": true,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": true,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

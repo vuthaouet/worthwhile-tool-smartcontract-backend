@@ -1,0 +1,132 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "DenialService_3",
+              "fullDescription": {
+                "text": "RealOldFuckMaker.makeOldFucks has external calls inside a loop:\n\t- fuck.call(bytes4(sha3()(giveBlockReward()))) (/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#18-20)\n"
+              },
+              "name": "DenialServiceVulnerability",
+              "shortDescription": {
+                "text": "calls-loop"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in RealOldFuckMaker.makeOldFucks (/data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#14-21):\n\t-fuck.call(bytes4(sha3()(giveBlockReward()))) /data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol#18-20\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "calls-loop"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "makeOldFucks"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol"
+                },
+                "region": {
+                  "endLine": 21,
+                  "startLine": 14
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol"
+                },
+                "region": {
+                  "endLine": 20,
+                  "snippet": {
+                    "text": "fuck.call(bytes4(sha3()(giveBlockReward())))"
+                  },
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_3"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "makeOldFucks"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol"
+                },
+                "region": {
+                  "endLine": 21,
+                  "startLine": 14
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis/source_code/0xf2570186500a46986f3139f65afedc2afe4f445d.sol"
+                },
+                "region": {
+                  "endLine": 20,
+                  "snippet": {
+                    "text": "fuck.call(bytes4(sha3()(giveBlockReward())))"
+                  },
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}
