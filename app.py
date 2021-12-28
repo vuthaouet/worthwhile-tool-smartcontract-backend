@@ -76,6 +76,8 @@ def upload_file():
     file_info["list_name"] = []
     output["list_tool"] = []
     list_tool = request.form['list_tool'].split(",")
+    print(list_tool)
+    print("thaovt list_tool test")
     for tool in list_tool:
         output["list_tool"].append(tool)
     # output["list_tool"] = request.form['list_tool']
@@ -116,7 +118,7 @@ def upload_file():
             print("thaovt repo")
             url_repo = request.form.get('url')
             url_split = url_repo.split('/')
-            project_name =url_split[ len(url_split) -1]
+            project_name =request.form.get('project_name')
             file_info["project_name"] = project_name
             folder = os.path.join(app.config['UPLOAD_FOLDER'], project_name, 'source_code')
             if os.path.exists(folder):
@@ -203,7 +205,7 @@ def combine_results_api():
 def sendFile():
     # data_req = request.get_data()
     # project_name = json.loads(data_req.decode("utf-8"))["data"]
-    project_name = "thaovttest1"
+    project_name = request.args.get("project_name")
     folder_results = os.path.join(app.config['UPLOAD_FOLDER'], project_name)
     final_results_path = folder_results + '/synthesis_results.json'
     # with open(final_results_path, 'r') as final_results_file:
