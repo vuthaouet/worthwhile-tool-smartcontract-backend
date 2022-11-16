@@ -1,0 +1,8 @@
+INFO:Slither:Compilation warnings/errors on /data/FlightSurety/source_code/FlightSuretyData.sol:
+[91m/data/FlightSurety/source_code/FlightSuretyData.sol:3:1: Error: Source "/data/FlightSurety/node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol" not found: File not found.[0m
+import "../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol";
+^-------------------------------------------------------------------------^
+
+INFO:SlitherSolcParsing:No contract were found in /data/FlightSurety/source_code/FlightSuretyData.sol, check the correct compilation
+WARNING:Slither:[91mNo contract was analyzed[0m
+INFO:Slither:/data/FlightSurety/source_code/FlightSuretyData.sol analyzed (0 contracts), 0 result(s) found

@@ -1,0 +1,7 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.25, The latest supported version is 0.4.19
+CRITICAL:root:/data/honeyswap-farm/source_code/CombToken.sol:4:1: Error: Source "@openzeppelin/contracts/token/ERC20/ERC20.sol" not found: File outside of allowed directories.
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+^-----------------------------------------------------^
+
+CRITICAL:root:Solidity compilation failed.

@@ -1,0 +1,22 @@
+{
+  "contract": "dos_address",
+  "tool": "oyente",
+  "start": 1640676628.6836371,
+  "end": 1640676631.513404,
+  "duration": 2.8297667503356934,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/blockchain-concepts/source_code/dos_address.sol",
+      "name": "DosGas",
+      "evm_code_coverage": "52.8%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

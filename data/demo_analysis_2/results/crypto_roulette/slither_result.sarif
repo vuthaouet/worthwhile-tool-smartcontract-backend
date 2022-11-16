@@ -1,0 +1,185 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "CryptoRoulette.play (/data/demo_analysis_2/source_code/crypto_roulette.sol#37-52) sends eth to arbitrary user\n\tDangerous calls:\n\t- msg.sender.transfer(this.balance) (/data/demo_analysis_2/source_code/crypto_roulette.sol#47)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            },
+            {
+              "id": "Other_15",
+              "fullDescription": {
+                "text": "game in CryptoRoulette.play (/data/demo_analysis_2/source_code/crypto_roulette.sol#40) is a storage variable never initialiazed\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "uninitialized-storage"
+              }
+            },
+            {
+              "id": "Other_11",
+              "fullDescription": {
+                "text": "CryptoRoulette.play (/data/demo_analysis_2/source_code/crypto_roulette.sol#37-52) uses a dangerous strict equality:\n\t- number == secretNumber\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "incorrect-equality"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis_2/source_code/crypto_roulette.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/crypto_roulette.sol"
+                },
+                "region": {
+                  "endLine": 52,
+                  "startLine": 37
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/crypto_roulette.sol"
+                },
+                "region": {
+                  "endLine": 47,
+                  "snippet": {
+                    "text": "msg.sender.transfer(this.balance)"
+                  },
+                  "startLine": 47
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        },
+        {
+          "message": {
+            "text": "uninitialized-storage"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variable",
+                  "name": "game"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/crypto_roulette.sol"
+                },
+                "region": {
+                  "endLine": 40,
+                  "startLine": 40
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/crypto_roulette.sol"
+                },
+                "region": {
+                  "endLine": 52,
+                  "startLine": 37
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_15"
+        },
+        {
+          "message": {
+            "text": "incorrect-equality"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "play"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/crypto_roulette.sol"
+                },
+                "region": {
+                  "endLine": 52,
+                  "startLine": 37
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/crypto_roulette.sol"
+                },
+                "region": {
+                  "endLine": 48,
+                  "snippet": {
+                    "text": "number == secretNumber"
+                  },
+                  "startLine": 45
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_11"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

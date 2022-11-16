@@ -1,0 +1,8 @@
+{
+  "contract": "CakeToken",
+  "tool": "honeybadger",
+  "start": 1640450819.792012,
+  "end": 1640450822.034628,
+  "duration": 2.2426159381866455,
+  "analysis": []
+}

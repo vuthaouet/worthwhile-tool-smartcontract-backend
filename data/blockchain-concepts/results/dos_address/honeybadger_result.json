@@ -1,0 +1,14 @@
+{
+  "contract": "dos_address",
+  "tool": "honeybadger",
+  "start": 1640676631.5617037,
+  "end": 1640676651.3296568,
+  "duration": 19.767953157424927,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/blockchain-concepts/source_code/dos_address.sol",
+      "name": "DosGas"
+    }
+  ]
+}

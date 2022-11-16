@@ -1,0 +1,1 @@
+{"list_file_wortwhile": {"list_file": ["reentrance.sol", "integer_overflow_add.sol", "dos_address.sol"], "data": {"reentrance.sol": ["mythril", "slither", "oyente", "honeybadger"], "integer_overflow_add.sol": ["mythril", "slither", "oyente", "honeybadger"], "dos_address.sol": ["mythril", "slither", "oyente", "honeybadger"]}}}

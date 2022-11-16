@@ -1,0 +1,298 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            },
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `getBuyers(uint256,address)`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            },
+            {
+              "id": "Other_9",
+              "fullDescription": {
+                "text": "A reachable exception (opcode 0xfe) has been detected. This can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. This is acceptable in most situations. Note however that `assert()` should only be used to check invariants. Use `require()` for regular input checking. "
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "Exception state"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis_2/source_code/etherpot_lotto.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "fallback"
+        },
+        {
+          "kind": "function",
+          "name": "getBuyers(uint256,address)"
+        },
+        {
+          "kind": "function",
+          "name": "calculateWinner(uint256,uint256)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/etherpot_lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "msg.sender.send(msg.value-value)"
+                  },
+                  "startLine": 141
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getBuyers(uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/etherpot_lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "function getBuyers(uint roundIndex,address buyer) constant returns (address[]){\n         return rounds[roundIndex].buyers;\n     }"
+                  },
+                  "startLine": 119
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getBuyers(uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/etherpot_lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "return rounds[roundIndex].buyers"
+                  },
+                  "startLine": 120
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "getBuyers(uint256,address)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/etherpot_lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "return rounds[roundIndex].buyers"
+                  },
+                  "startLine": 120
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Exception state"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "calculateWinner(uint256,uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/etherpot_lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "decisionBlockHash%rounds[roundIndex].ticketsCount"
+                  },
+                  "startLine": 57
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_9"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "calculateWinner(uint256,uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/etherpot_lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "roundIndex+1"
+                  },
+                  "startLine": 73
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "calculateWinner(uint256,uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/etherpot_lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "(roundIndex+1)*blocksPerRound"
+                  },
+                  "startLine": 73
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "calculateWinner(uint256,uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/etherpot_lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "((roundIndex+1)*blocksPerRound)+subpotIndex"
+                  },
+                  "startLine": 73
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

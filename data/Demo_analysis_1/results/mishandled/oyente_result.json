@@ -1,0 +1,22 @@
+{
+  "contract": "mishandled",
+  "tool": "oyente",
+  "start": 1641369593.3115287,
+  "end": 1641369596.4806173,
+  "duration": 3.16908860206604,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/Demo_analysis_1/source_code/mishandled.sol",
+      "name": "SendBack",
+      "evm_code_coverage": "99.2%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

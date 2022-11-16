@@ -1,0 +1,11 @@
+INFO:Detectors:[92m
+Migrations.setCompleted (/data/honeyswap-farm-3/source_code/Migrations.sol#16-18) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Detected issues with version pragma in /data/honeyswap-farm-3/source_code/Migrations.sol:
+	- pragma solidity>=0.4.22<0.8.0 (/data/honeyswap-farm-3/source_code/Migrations.sol#2): is has a complex pragma
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#incorrect-version-of-solidity[0m
+INFO:Detectors:[92m
+Variable 'Migrations.last_completed_migration' (/data/honeyswap-farm-3/source_code/Migrations.sol#6) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/honeyswap-farm-3/source_code/Migrations.sol analyzed (1 contracts), 3 result(s) found

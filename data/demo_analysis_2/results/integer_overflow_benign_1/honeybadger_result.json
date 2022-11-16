@@ -1,0 +1,14 @@
+{
+  "contract": "integer_overflow_benign_1",
+  "tool": "honeybadger",
+  "start": 1641370139.2025115,
+  "end": 1641370141.838286,
+  "duration": 2.6357743740081787,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/integer_overflow_benign_1.sol",
+      "name": "IntegerOverflowBenign1"
+    }
+  ]
+}

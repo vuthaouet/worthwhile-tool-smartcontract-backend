@@ -1,0 +1,71 @@
+{
+  "contract": "integer_overflow_add",
+  "tool": "slither",
+  "start": 1640676588.0111592,
+  "end": 1640676590.1944456,
+  "duration": 2.183286428451538,
+  "analysis": [
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "IntegerOverflowAdd.run (/data/blockchain-concepts/source_code/integer_overflow_add.sol#15-18) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "run",
+          "source_mapping": {
+            "start": 360,
+            "length": 103,
+            "filename": "/data/blockchain-concepts/source_code/integer_overflow_add.sol",
+            "lines": [
+              15,
+              16,
+              17,
+              18
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "IntegerOverflowAdd",
+            "source_mapping": {
+              "start": 298,
+              "length": 167,
+              "filename": "/data/blockchain-concepts/source_code/integer_overflow_add.sol",
+              "lines": [
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Detected issues with version pragma in /data/blockchain-concepts/source_code/integer_overflow_add.sol:\n\t- pragma solidity^0.4.19 (/data/blockchain-concepts/source_code/integer_overflow_add.sol#10): it allows old versions\n",
+      "elements": [
+        {
+          "type": "expression",
+          "expression": "^0.4.19",
+          "source_mapping": {
+            "start": 272,
+            "length": 24,
+            "filename": "/data/blockchain-concepts/source_code/integer_overflow_add.sol",
+            "lines": [
+              10
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

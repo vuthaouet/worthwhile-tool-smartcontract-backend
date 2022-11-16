@@ -1,0 +1,19 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.25, The latest supported version is 0.4.19
+CRITICAL:root:/data/dune-contracts/source_code/DuneSpices.sol:4:1: Error: Source "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol" not found: File outside of allowed directories.
+import "@openzeppelin/contracts-upgradeable/token/ERC20/ERC20Upgradeable.sol";
+^----------------------------------------------------------------------------^
+/data/dune-contracts/source_code/DuneSpices.sol:5:1: Error: Source "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol" not found: File outside of allowed directories.
+import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/ERC20BurnableUpgradeable.sol";
+^-----------------------------------------------------------------------------------------------^
+/data/dune-contracts/source_code/DuneSpices.sol:6:1: Error: Source "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol" not found: File outside of allowed directories.
+import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
+^-------------------------------------------------------------------------^
+/data/dune-contracts/source_code/DuneSpices.sol:7:1: Error: Source "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol" not found: File outside of allowed directories.
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+^-------------------------------------------------------------------------^
+/data/dune-contracts/source_code/DuneSpices.sol:8:1: Error: Source "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol" not found: File outside of allowed directories.
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
+^---------------------------------------------------------------------------^
+
+CRITICAL:root:Solidity compilation failed.

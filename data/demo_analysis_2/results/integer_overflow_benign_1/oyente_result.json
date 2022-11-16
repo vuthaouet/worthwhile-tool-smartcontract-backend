@@ -1,0 +1,29 @@
+{
+  "contract": "integer_overflow_benign_1",
+  "tool": "oyente",
+  "start": 1641370136.599545,
+  "end": 1641370139.1184702,
+  "duration": 2.518925189971924,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 17,
+          "column": 20,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        }
+      ],
+      "file": "/data/demo_analysis_2/source_code/integer_overflow_benign_1.sol",
+      "name": "IntegerOverflowBenign1",
+      "evm_code_coverage": "99.1%",
+      "integer_underflow": true,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

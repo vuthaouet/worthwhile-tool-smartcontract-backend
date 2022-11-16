@@ -1,0 +1,7 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.25, The latest supported version is 0.4.19
+CRITICAL:root:/data/demo/source_code/CakeToken.sol:3:1: Error: Source "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol" not found: File outside of allowed directories.
+import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
+^---------------------------------------------------------------------^
+
+CRITICAL:root:Solidity compilation failed.

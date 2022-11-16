@@ -1,0 +1,160 @@
+{
+  "contract": "Migrations",
+  "tool": "slither",
+  "start": 1640453589.045626,
+  "end": 1640453590.6448848,
+  "duration": 1.5992588996887207,
+  "analysis": [
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Migrations.setCompleted (/data/FlightSurety/source_code/Migrations.sol#15-17) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "setCompleted",
+          "source_mapping": {
+            "start": 232,
+            "length": 103,
+            "filename": "/data/FlightSurety/source_code/Migrations.sol",
+            "lines": [
+              15,
+              16,
+              17
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Migrations",
+            "source_mapping": {
+              "start": 26,
+              "length": 480,
+              "filename": "/data/FlightSurety/source_code/Migrations.sol",
+              "lines": [
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Migrations.upgrade (/data/FlightSurety/source_code/Migrations.sol#19-22) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "upgrade",
+          "source_mapping": {
+            "start": 339,
+            "length": 165,
+            "filename": "/data/FlightSurety/source_code/Migrations.sol",
+            "lines": [
+              19,
+              20,
+              21,
+              22
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Migrations",
+            "source_mapping": {
+              "start": 26,
+              "length": 480,
+              "filename": "/data/FlightSurety/source_code/Migrations.sol",
+              "lines": [
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21,
+                22,
+                23
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Parameter 'new_address' of Migrations.upgrade (/data/FlightSurety/source_code/Migrations.sol#19) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "parameter",
+          "convention": "mixedCase",
+          "name": "new_address",
+          "source_mapping": {
+            "start": 356,
+            "length": 19,
+            "filename": "/data/FlightSurety/source_code/Migrations.sol",
+            "lines": [
+              19
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Variable 'Migrations.last_completed_migration' (/data/FlightSurety/source_code/Migrations.sol#5) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "variable",
+          "convention": "mixedCase",
+          "name": "last_completed_migration",
+          "source_mapping": {
+            "start": 74,
+            "length": 36,
+            "filename": "/data/FlightSurety/source_code/Migrations.sol",
+            "lines": [
+              5
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

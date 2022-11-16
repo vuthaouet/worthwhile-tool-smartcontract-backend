@@ -1,0 +1,8 @@
+{
+  "contract": "IRewardManager",
+  "tool": "slither",
+  "start": 1640452876.5399613,
+  "end": 1640452878.925825,
+  "duration": 2.385863780975342,
+  "analysis": []
+}

@@ -1,0 +1,179 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Oyente",
+          "fullDescription": {
+            "text": "Oyente runs on symbolic execution, determines which inputs cause which program branches to execute, to find potential security vulnerabilities. Oyente works directly with EVM bytecode without access high level representation and does not provide soundness nor completeness."
+          },
+          "informationUri": "https://oyente.tech/",
+          "rules": [
+            {
+              "id": "Arithmetic_12",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Underflow."
+              }
+            },
+            {
+              "id": "Arithmetic_11",
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow."
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis_2/source_code/BECToken.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "contract",
+          "name": "BasicToken"
+        },
+        {
+          "kind": "contract",
+          "name": "BecToken"
+        },
+        {
+          "kind": "contract",
+          "name": "Ownable"
+        },
+        {
+          "kind": "contract",
+          "name": "Pausable"
+        },
+        {
+          "kind": "contract",
+          "name": "PausableToken"
+        },
+        {
+          "kind": "contract",
+          "name": "SafeMath"
+        },
+        {
+          "kind": "contract",
+          "name": "StandardToken"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/BECToken.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 291
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/BECToken.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 289
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Underflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/BECToken.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 5,
+                  "startLine": 290
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_12"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/BECToken.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 3,
+                  "startLine": 261
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/BECToken.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 3,
+                  "startLine": 261
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_11"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

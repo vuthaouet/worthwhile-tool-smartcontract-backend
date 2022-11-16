@@ -1,0 +1,8 @@
+{
+  "contract": "ownable",
+  "tool": "honeybadger",
+  "start": 1640672429.9122796,
+  "end": 1640672431.5847354,
+  "duration": 1.6724557876586914,
+  "analysis": []
+}

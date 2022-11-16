@@ -1,0 +1,12 @@
+{
+  "contract": "Migrations",
+  "tool": "mythril",
+  "start": 1640452921.790845,
+  "end": 1640452925.3373227,
+  "duration": 3.546477794647217,
+  "analysis": {
+    "error": null,
+    "issues": [],
+    "success": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "contract": "AdminPoll",
+  "tool": "slither",
+  "start": 1640672468.1553688,
+  "end": 1640672469.8655984,
+  "duration": 1.7102296352386475,
+  "analysis": []
+}

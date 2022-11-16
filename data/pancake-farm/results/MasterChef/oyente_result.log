@@ -1,0 +1,22 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.25, The latest supported version is 0.4.19
+CRITICAL:root:/data/pancake-farm/source_code/MasterChef.sol:3:1: Error: Source "@pancakeswap/pancake-swap-lib/contracts/math/SafeMath.sol" not found: File outside of allowed directories.
+import '@pancakeswap/pancake-swap-lib/contracts/math/SafeMath.sol';
+^-----------------------------------------------------------------^
+/data/pancake-farm/source_code/MasterChef.sol:4:1: Error: Source "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/IBEP20.sol" not found: File outside of allowed directories.
+import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/IBEP20.sol';
+^----------------------------------------------------------------------^
+/data/pancake-farm/source_code/MasterChef.sol:5:1: Error: Source "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol" not found: File outside of allowed directories.
+import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol';
+^-------------------------------------------------------------------------^
+/data/pancake-farm/source_code/MasterChef.sol:6:1: Error: Source "@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol" not found: File outside of allowed directories.
+import '@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol';
+^------------------------------------------------------------------^
+/data/pancake-farm/source_code/CakeToken.sol:3:1: Error: Source "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol" not found: File outside of allowed directories.
+import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
+^---------------------------------------------------------------------^
+/data/pancake-farm/source_code/SyrupBar.sol:3:1: Error: Source "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol" not found: File outside of allowed directories.
+import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
+^---------------------------------------------------------------------^
+
+CRITICAL:root:Solidity compilation failed.

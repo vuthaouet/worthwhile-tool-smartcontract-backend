@@ -1,0 +1,106 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `addCreditors()`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/blockchain-concepts/source_code/dos_address.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "addCreditors()"
+        },
+        {
+          "kind": "function",
+          "name": "emptyCreditors()"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "addCreditors()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/blockchain-concepts/source_code/dos_address.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "github.com/SmartCo"
+                  },
+                  "startLine": 2
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        },
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "emptyCreditors()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/blockchain-concepts/source_code/dos_address.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "contract DosGas {\n\n    address[] creditorAddresses;\n    bool win = false;\n\n    function emptyCreditors() public {\n        // <yes> <report> DENIAL_OF_SERVICE\n        if(creditorAddresses.length>1500) {\n            creditorAddresses = new address[](0);\n            win = true;\n        }\n    }\n\n    function addCreditors() public returns (bool) {\n        for(uint i=0;i<350;i++) {\n          creditorAddresses.push(msg.sender);\n        }\n        return true;\n    }\n\n    function iWin() public view returns (bool) {\n        return win;\n    }\n\n    function numberCreditors() public view returns (uint) {\n        return creditorAddresses.length;\n    }\n}"
+                  },
+                  "startLine": 9
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

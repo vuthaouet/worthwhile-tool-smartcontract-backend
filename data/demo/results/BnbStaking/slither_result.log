@@ -1,0 +1,8 @@
+INFO:Slither:Compilation warnings/errors on /data/demo/source_code/BnbStaking.sol:
+[91m/data/demo/source_code/BnbStaking.sol:43:30: Error: Expected ';' but got identifier[0m
+    address public immutable WBNB;
+                             ^--^
+
+INFO:SlitherSolcParsing:No contract were found in /data/demo/source_code/BnbStaking.sol, check the correct compilation
+WARNING:Slither:[91mNo contract was analyzed[0m
+INFO:Slither:/data/demo/source_code/BnbStaking.sol analyzed (0 contracts), 0 result(s) found

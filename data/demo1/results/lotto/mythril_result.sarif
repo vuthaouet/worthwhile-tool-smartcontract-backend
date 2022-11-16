@@ -1,0 +1,210 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "AccessControl_13",
+              "fullDescription": {
+                "text": "In the function `withdrawLeftOver()` a non-zero amount of Ether is sent to msg.sender.\n\nThere is a check on storage index 0. This storage slot can be written to by calling the function `sendToWinner()`."
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "Ether send"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            },
+            {
+              "id": "FrontRunning_1",
+              "fullDescription": {
+                "text": "A possible transaction order independence vulnerability exists in function sendToWinner(). The value or direction of the call statement is determined from a tainted storage location"
+              },
+              "name": "FrontRunningVulnerability",
+              "shortDescription": {
+                "text": "Transaction order dependence"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo1/source_code/lotto.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "withdrawLeftOver()"
+        },
+        {
+          "kind": "function",
+          "name": "sendToWinner()"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Ether send"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawLeftOver()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo1/source_code/lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "msg.sender.send(this.balance)"
+                  },
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_13"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawLeftOver()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo1/source_code/lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "msg.sender.send(this.balance)"
+                  },
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        },
+        {
+          "message": {
+            "text": "Ether send"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "sendToWinner()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo1/source_code/lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "winner.send(winAmount)"
+                  },
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_13"
+        },
+        {
+          "message": {
+            "text": "Transaction order dependence"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "sendToWinner()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo1/source_code/lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "winner.send(winAmount)"
+                  },
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "ruleId": "FrontRunning_1"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "sendToWinner()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo1/source_code/lotto.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "winner.send(winAmount)"
+                  },
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

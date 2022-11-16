@@ -1,0 +1,14 @@
+{
+  "contract": "Migrations",
+  "tool": "honeybadger",
+  "start": 1640453583.8665056,
+  "end": 1640453587.149447,
+  "duration": 3.2829413414001465,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/FlightSurety/source_code/Migrations.sol",
+      "name": "Migrations"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "contract": "integer_overflow_1",
+  "tool": "honeybadger",
+  "start": 1641371422.824771,
+  "end": 1641371426.3807688,
+  "duration": 3.555997848510742,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/integer_overflow_1.sol",
+      "name": "Overflow"
+    }
+  ]
+}

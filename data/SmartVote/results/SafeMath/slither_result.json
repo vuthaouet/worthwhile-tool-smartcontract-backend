@@ -1,0 +1,8 @@
+{
+  "contract": "SafeMath",
+  "tool": "slither",
+  "start": 1640672476.9691856,
+  "end": 1640672478.540917,
+  "duration": 1.5717313289642334,
+  "analysis": []
+}

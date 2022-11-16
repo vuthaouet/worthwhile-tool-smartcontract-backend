@@ -1,0 +1,74 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "Arithmetic_4",
+              "fullDescription": {
+                "text": "A possible integer overflow exists in the function `add(uint256)`.\nThe addition or multiplication may result in a value higher than the maximum representable integer."
+              },
+              "name": "ArithmeticVulnerability",
+              "shortDescription": {
+                "text": "Integer Overflow"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/Demo_analysis_1/source_code/integer_overflow_1.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "add(uint256)"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Integer Overflow "
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "add(uint256)"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/Demo_analysis_1/source_code/integer_overflow_1.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "sellerBalance += value"
+                  },
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "ruleId": "Arithmetic_4"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

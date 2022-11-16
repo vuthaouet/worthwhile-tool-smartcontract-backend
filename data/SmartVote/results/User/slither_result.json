@@ -1,0 +1,8 @@
+{
+  "contract": "User",
+  "tool": "slither",
+  "start": 1640672435.229027,
+  "end": 1640672437.2703326,
+  "duration": 2.0413055419921875,
+  "analysis": []
+}

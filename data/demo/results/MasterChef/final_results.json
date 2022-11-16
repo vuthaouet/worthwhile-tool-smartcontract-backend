@@ -1,0 +1,1 @@
+{"contract": "MasterChef", "sourceLanguage": "Solidity", "count_risk_of_false_positives": 0, "list_vulnerabilities": [], "rules": [], "listLine": [], "analysis": {}, "count_vulnerabilities": {}, "count_leve_vulnerabilities": {"warning": 0, "error": 0, "note": 0, "none": 0}, "false_positives": 0}

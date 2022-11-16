@@ -1,0 +1,14 @@
+{
+  "contract": "auction",
+  "tool": "honeybadger",
+  "start": 1640449831.0691292,
+  "end": 1640449837.0428238,
+  "duration": 5.973694562911987,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/Demo_analysis/source_code/auction.sol",
+      "name": "DosAuction"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "contract": "Migrations",
+  "tool": "oyente",
+  "start": 1640453587.1873567,
+  "end": 1640453589.0190263,
+  "duration": 1.831669569015503,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/FlightSurety/source_code/Migrations.sol",
+      "name": "Migrations",
+      "evm_code_coverage": "97.6%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"contract": "integer_overflow_benign_1", "sourceLanguage": "Solidity", "analysis": {"17": [{"level": "warning", "tool": ["oyente"], "snippet": {}, "name": "ArithmeticVulnerability"}]}, "listLine": [17], "rules": [{"id": "Arithmetic_12", "name": "ArithmeticVulnerability", "shortDescription": {"text": "Integer Underflow."}}]}

@@ -1,0 +1,81 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "lottopollo.payOut (/data/demo_analysis_2/source_code/lottopollo.sol#11-24) sends eth to arbitrary user\n\tDangerous calls:\n\t- leader.send(this.balance) (/data/demo_analysis_2/source_code/lottopollo.sol#17)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis_2/source_code/lottopollo.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "payOut"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/lottopollo.sol"
+                },
+                "region": {
+                  "endLine": 24,
+                  "startLine": 11
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/lottopollo.sol"
+                },
+                "region": {
+                  "endLine": 17,
+                  "snippet": {
+                    "text": "leader.send(this.balance)"
+                  },
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

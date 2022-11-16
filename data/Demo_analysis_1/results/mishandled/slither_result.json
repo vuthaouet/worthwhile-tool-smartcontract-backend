@@ -1,0 +1,74 @@
+{
+  "contract": "mishandled",
+  "tool": "slither",
+  "start": 1641369590.9702203,
+  "end": 1641369593.1121116,
+  "duration": 2.1418912410736084,
+  "analysis": [
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "SendBack.withdrawBalance (/data/Demo_analysis_1/source_code/mishandled.sol#10-15) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "withdrawBalance",
+          "source_mapping": {
+            "start": 245,
+            "length": 199,
+            "filename": "/data/Demo_analysis_1/source_code/mishandled.sol",
+            "lines": [
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "SendBack",
+            "source_mapping": {
+              "start": 177,
+              "length": 269,
+              "filename": "/data/Demo_analysis_1/source_code/mishandled.sol",
+              "lines": [
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Detected issues with version pragma in /data/Demo_analysis_1/source_code/mishandled.sol:\n\t- pragma solidity^0.4.0 (/data/Demo_analysis_1/source_code/mishandled.sol#7): it allows old versions\n",
+      "elements": [
+        {
+          "type": "expression",
+          "expression": "^0.4.0",
+          "source_mapping": {
+            "start": 153,
+            "length": 23,
+            "filename": "/data/Demo_analysis_1/source_code/mishandled.sol",
+            "lines": [
+              7
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

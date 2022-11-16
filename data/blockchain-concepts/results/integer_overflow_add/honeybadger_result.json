@@ -1,0 +1,14 @@
+{
+  "contract": "integer_overflow_add",
+  "tool": "honeybadger",
+  "start": 1640676597.6392107,
+  "end": 1640676600.1265576,
+  "duration": 2.487346887588501,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/blockchain-concepts/source_code/integer_overflow_add.sol",
+      "name": "IntegerOverflowAdd"
+    }
+  ]
+}

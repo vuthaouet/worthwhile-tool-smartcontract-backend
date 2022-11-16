@@ -1,0 +1,318 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "AccessControl_19",
+              "fullDescription": {
+                "text": "FibonacciBalance.withdraw (/data/honeyswap-farm2/source_code/FibonacciBalance.sol#26-33) sends eth to arbitrary user\n\tDangerous calls:\n\t- msg.sender.transfer(calculatedFibNumber * 1000000000000000000) (/data/honeyswap-farm2/source_code/FibonacciBalance.sol#32)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "arbitrary-send"
+              }
+            },
+            {
+              "id": "AccessControl_20",
+              "fullDescription": {
+                "text": "FibonacciBalance.withdraw (/data/honeyswap-farm2/source_code/FibonacciBalance.sol#26-33) uses delegatecall to a input-controlled function id\n\trequire(bool)(fibonacciLibrary.delegatecall(fibSig,withdrawalCounter)) (/data/honeyswap-farm2/source_code/FibonacciBalance.sol#31)\n"
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "controlled-delegatecall"
+              }
+            },
+            {
+              "id": "Other_14",
+              "fullDescription": {
+                "text": "FibonacciBalance.calculatedFibNumber (/data/honeyswap-farm2/source_code/FibonacciBalance.sol#14) is never initialized. It is used in:\n\t- withdraw (/data/honeyswap-farm2/source_code/FibonacciBalance.sol#26-33)\n"
+              },
+              "name": "OtherVulnerability",
+              "shortDescription": {
+                "text": "uninitialized-state"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in FibonacciBalance.withdraw (/data/honeyswap-farm2/source_code/FibonacciBalance.sol#26-33):\n\t-require(bool)(fibonacciLibrary.delegatecall(fibSig,withdrawalCounter)) /data/honeyswap-farm2/source_code/FibonacciBalance.sol#31\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "arbitrary-send"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 33,
+                  "startLine": 26
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 32,
+                  "snippet": {
+                    "text": "msg.sender.transfer(calculatedFibNumber * 1000000000000000000)"
+                  },
+                  "startLine": 32
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_19"
+        },
+        {
+          "message": {
+            "text": "controlled-delegatecall"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 33,
+                  "startLine": 26
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 31,
+                  "snippet": {
+                    "text": "require(bool)(fibonacciLibrary.delegatecall(fibSig,withdrawalCounter))"
+                  },
+                  "startLine": 31
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_20"
+        },
+        {
+          "message": {
+            "text": "controlled-delegatecall"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 39,
+                  "startLine": 36
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 38,
+                  "snippet": {
+                    "text": "require(bool)(fibonacciLibrary.delegatecall(msg.data))"
+                  },
+                  "startLine": 38
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_20"
+        },
+        {
+          "message": {
+            "text": "uninitialized-state"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variable",
+                  "name": "calculatedFibNumber"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 14,
+                  "startLine": 14
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 33,
+                  "startLine": 26
+                }
+              }
+            }
+          ],
+          "ruleId": "Other_14"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 33,
+                  "startLine": 26
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 31,
+                  "snippet": {
+                    "text": "require(bool)(fibonacciLibrary.delegatecall(fibSig,withdrawalCounter))"
+                  },
+                  "startLine": 31
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "fallback"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 39,
+                  "startLine": 36
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/honeyswap-farm2/source_code/FibonacciBalance.sol"
+                },
+                "region": {
+                  "endLine": 38,
+                  "snippet": {
+                    "text": "require(bool)(fibonacciLibrary.delegatecall(msg.data))"
+                  },
+                  "startLine": 38
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

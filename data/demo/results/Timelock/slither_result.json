@@ -1,0 +1,8 @@
+{
+  "contract": "Timelock",
+  "tool": "slither",
+  "start": 1640450992.8677096,
+  "end": 1640450994.8959572,
+  "duration": 2.028247594833374,
+  "analysis": []
+}

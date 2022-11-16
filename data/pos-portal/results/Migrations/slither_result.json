@@ -1,0 +1,8 @@
+{
+  "contract": "Migrations",
+  "tool": "slither",
+  "start": 1640453896.2596848,
+  "end": 1640453898.4522514,
+  "duration": 2.1925666332244873,
+  "analysis": []
+}

@@ -1,0 +1,25 @@
+{
+  "contract": "crypto_roulette",
+  "tool": "honeybadger",
+  "start": 1641371034.4808552,
+  "end": 1641371042.514407,
+  "duration": 8.033551692962646,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 42,
+          "column": 9,
+          "message": "uninitialised_struct"
+        },
+        {
+          "line": 41,
+          "column": 9,
+          "message": "uninitialised_struct"
+        }
+      ],
+      "file": "/data/demo_analysis_2/source_code/crypto_roulette.sol",
+      "name": "CryptoRoulette"
+    }
+  ]
+}

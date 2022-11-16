@@ -1,0 +1,1 @@
+{"list_file_wortwhile": {"list_file": ["integer_overflow_add.sol", "lotto.sol"], "data": {"integer_overflow_add.sol": ["mythril", "slither", "oyente", "honeybadger"], "lotto.sol": ["mythril", "slither", "oyente", "honeybadger"]}}}

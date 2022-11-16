@@ -1,0 +1,8 @@
+{
+  "contract": "BnbStaking",
+  "tool": "slither",
+  "start": 1640450829.1333282,
+  "end": 1640450831.5488758,
+  "duration": 2.4155476093292236,
+  "analysis": []
+}

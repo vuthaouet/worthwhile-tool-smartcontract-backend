@@ -1,0 +1,8 @@
+{
+  "contract": "CombToken",
+  "tool": "slither",
+  "start": 1640452694.9381874,
+  "end": 1640452696.9836469,
+  "duration": 2.045459508895874,
+  "analysis": []
+}

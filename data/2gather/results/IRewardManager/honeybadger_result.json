@@ -1,0 +1,8 @@
+{
+  "contract": "IRewardManager",
+  "tool": "honeybadger",
+  "start": 1640452881.4845753,
+  "end": 1640452883.1868544,
+  "duration": 1.7022790908813477,
+  "analysis": []
+}

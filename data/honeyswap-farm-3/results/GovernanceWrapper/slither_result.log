@@ -1,0 +1,8 @@
+INFO:Slither:Compilation warnings/errors on /data/honeyswap-farm-3/source_code/GovernanceWrapper.sol:
+[91m/data/honeyswap-farm-3/source_code/GovernanceWrapper.sol:14:33: Error: Expected ';' but got identifier[0m
+    IHoneyFarm public immutable farm;
+                                ^--^
+
+INFO:SlitherSolcParsing:No contract were found in /data/honeyswap-farm-3/source_code/GovernanceWrapper.sol, check the correct compilation
+WARNING:Slither:[91mNo contract was analyzed[0m
+INFO:Slither:/data/honeyswap-farm-3/source_code/GovernanceWrapper.sol analyzed (0 contracts), 0 result(s) found

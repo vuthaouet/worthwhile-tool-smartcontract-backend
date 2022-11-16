@@ -1,0 +1,99 @@
+{
+  "contract": "Migrations",
+  "tool": "slither",
+  "start": 1640452706.0656307,
+  "end": 1640452707.865644,
+  "duration": 1.8000133037567139,
+  "analysis": [
+    {
+      "check": "external-function",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Migrations.setCompleted (/data/honeyswap-farm-3/source_code/Migrations.sol#16-18) should be declared external\n",
+      "elements": [
+        {
+          "type": "function",
+          "name": "setCompleted",
+          "source_mapping": {
+            "start": 313,
+            "length": 103,
+            "filename": "/data/honeyswap-farm-3/source_code/Migrations.sol",
+            "lines": [
+              16,
+              17,
+              18
+            ]
+          },
+          "contract": {
+            "type": "contract",
+            "name": "Migrations",
+            "source_mapping": {
+              "start": 66,
+              "length": 352,
+              "filename": "/data/honeyswap-farm-3/source_code/Migrations.sol",
+              "lines": [
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Detected issues with version pragma in /data/honeyswap-farm-3/source_code/Migrations.sol:\n\t- pragma solidity>=0.4.22<0.8.0 (/data/honeyswap-farm-3/source_code/Migrations.sol#2): is has a complex pragma\n",
+      "elements": [
+        {
+          "type": "expression",
+          "expression": ">=0.4.22<0.8.0",
+          "source_mapping": {
+            "start": 32,
+            "length": 32,
+            "filename": "/data/honeyswap-farm-3/source_code/Migrations.sol",
+            "lines": [
+              2
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High",
+      "description": "Variable 'Migrations.last_completed_migration' (/data/honeyswap-farm-3/source_code/Migrations.sol#6) is not in mixedCase\n",
+      "elements": [
+        {
+          "target": "variable",
+          "convention": "mixedCase",
+          "name": "last_completed_migration",
+          "source_mapping": {
+            "start": 127,
+            "length": 36,
+            "filename": "/data/honeyswap-farm-3/source_code/Migrations.sol",
+            "lines": [
+              6
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

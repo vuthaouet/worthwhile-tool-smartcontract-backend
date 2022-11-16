@@ -1,0 +1,9 @@
+INFO:Detectors:[92m
+Migrations.setCompleted (/data/FlightSurety/source_code/Migrations.sol#15-17) should be declared external
+Migrations.upgrade (/data/FlightSurety/source_code/Migrations.sol#19-22) should be declared external
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#public-function-that-could-be-declared-as-external[0m
+INFO:Detectors:[92m
+Parameter 'new_address' of Migrations.upgrade (/data/FlightSurety/source_code/Migrations.sol#19) is not in mixedCase
+Variable 'Migrations.last_completed_migration' (/data/FlightSurety/source_code/Migrations.sol#5) is not in mixedCase
+Reference: https://github.com/trailofbits/slither/wiki/Detectors-Documentation#conformance-to-solidity-naming-conventions[0m
+INFO:Slither:/data/FlightSurety/source_code/Migrations.sol analyzed (1 contracts), 4 result(s) found

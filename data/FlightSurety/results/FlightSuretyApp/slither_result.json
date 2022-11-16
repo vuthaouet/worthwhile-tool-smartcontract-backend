@@ -1,0 +1,8 @@
+{
+  "contract": "FlightSuretyApp",
+  "tool": "slither",
+  "start": 1640453598.8202462,
+  "end": 1640453601.1916184,
+  "duration": 2.3713722229003906,
+  "analysis": []
+}

@@ -1,0 +1,8 @@
+INFO:Slither:Compilation warnings/errors on /data/pancake-farm/source_code/CakeToken.sol:
+[91m/data/pancake-farm/source_code/CakeToken.sol:3:1: Error: Source "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol" not found: File not found.[0m
+import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
+^---------------------------------------------------------------------^
+
+INFO:SlitherSolcParsing:No contract were found in /data/pancake-farm/source_code/CakeToken.sol, check the correct compilation
+WARNING:Slither:[91mNo contract was analyzed[0m
+INFO:Slither:/data/pancake-farm/source_code/CakeToken.sol analyzed (0 contracts), 0 result(s) found

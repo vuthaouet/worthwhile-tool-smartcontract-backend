@@ -1,0 +1,20 @@
+INFO:Slither:Compilation warnings/errors on /data/SmartVote/source_code/AdminPoll.sol:
+[91m/data/SmartVote/source_code/ownable.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version[0m
+pragma solidity ^0.7.4;
+^---------------------^
+[91m/data/SmartVote/source_code/SmartVote.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version[0m
+pragma solidity ^0.7.4;
+^---------------------^
+[91m/data/SmartVote/source_code/SafeMath.sol:3:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version[0m
+pragma solidity >=0.6.0 <0.8.0;
+^-----------------------------^
+[91m/data/SmartVote/source_code/SubAdministrator.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version[0m
+pragma solidity ^0.7.4;
+^---------------------^
+[91m/data/SmartVote/source_code/AdminPoll.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version[0m
+pragma solidity ^0.7.4;
+^---------------------^
+
+INFO:SlitherSolcParsing:No contract were found in /data/SmartVote/source_code/AdminPoll.sol, check the correct compilation
+WARNING:Slither:[91mNo contract was analyzed[0m
+INFO:Slither:/data/SmartVote/source_code/AdminPoll.sol analyzed (0 contracts), 0 result(s) found

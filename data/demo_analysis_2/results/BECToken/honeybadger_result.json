@@ -1,0 +1,44 @@
+{
+  "contract": "BECToken",
+  "tool": "honeybadger",
+  "start": 1641370226.3383043,
+  "end": 1641370539.394066,
+  "duration": 313.05576181411743,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "BasicToken"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "BecToken"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "Ownable"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "Pausable"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "PausableToken"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "SafeMath"
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "StandardToken"
+    }
+  ]
+}

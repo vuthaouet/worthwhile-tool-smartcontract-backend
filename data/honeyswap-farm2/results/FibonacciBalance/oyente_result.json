@@ -1,0 +1,35 @@
+{
+  "contract": "FibonacciBalance",
+  "tool": "oyente",
+  "start": 1640452210.5013075,
+  "end": 1640452220.4561138,
+  "duration": 9.954806327819824,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/honeyswap-farm2/source_code/FibonacciBalance.sol",
+      "name": "FibonacciBalance",
+      "evm_code_coverage": "94.6%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [],
+      "file": "/data/honeyswap-farm2/source_code/FibonacciBalance.sol",
+      "name": "FibonacciLib",
+      "evm_code_coverage": "92.7%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Oyente",
+          "fullDescription": {
+            "text": "Oyente runs on symbolic execution, determines which inputs cause which program branches to execute, to find potential security vulnerabilities. Oyente works directly with EVM bytecode without access high level representation and does not provide soundness nor completeness."
+          },
+          "informationUri": "https://oyente.tech/",
+          "rules": [
+            {
+              "id": "DenialService_2",
+              "name": "DenialServiceVulnerability",
+              "shortDescription": {
+                "text": "Callstack Depth Attack Vulnerability."
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/demo_analysis_2/source_code/lottopollo.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "contract",
+          "name": "lottopollo"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/lottopollo.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 9,
+                  "startLine": 17
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        },
+        {
+          "message": {
+            "text": "Callstack Depth Attack Vulnerability."
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/demo_analysis_2/source_code/lottopollo.sol"
+                },
+                "region": {
+                  "snippet": {},
+                  "startColumn": 7,
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "ruleId": "DenialService_2"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

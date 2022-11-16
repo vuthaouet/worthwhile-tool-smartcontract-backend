@@ -1,0 +1,7 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.25, The latest supported version is 0.4.19
+CRITICAL:root:/data/pos-portal/source_code/Migrations.sol:1:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version
+pragma solidity 0.6.6;
+^--------------------^
+
+CRITICAL:root:Solidity compilation failed.

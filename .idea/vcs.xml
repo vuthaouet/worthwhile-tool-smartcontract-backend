@@ -3,7 +3,18 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/M-Pro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/2gather/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/FlightSurety/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/SmartVote/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/blockchain-concepts/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/contract/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/demo/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/dune-contracts/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/honeyswap-farm-3/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/honeyswap-farm/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/pancake-farm/folder_git" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/data/pancake-swap-core/folder_git" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/data/pos-portal/folder_git" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/fileupload-react-flask" vcs="Git" />
   </component>
 </project>

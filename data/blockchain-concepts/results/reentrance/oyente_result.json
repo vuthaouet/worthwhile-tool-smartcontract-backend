@@ -1,0 +1,41 @@
+{
+  "contract": "reentrance",
+  "tool": "oyente",
+  "start": 1640676578.6447797,
+  "end": 1640676584.136528,
+  "duration": 5.491748332977295,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 14,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 24,
+          "column": 10,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 24,
+          "column": 10,
+          "level": "Warning",
+          "message": "Re-Entrancy Vulnerability."
+        }
+      ],
+      "file": "/data/blockchain-concepts/source_code/reentrance.sol",
+      "name": "Reentrance",
+      "evm_code_coverage": "99.7%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": true
+    }
+  ]
+}

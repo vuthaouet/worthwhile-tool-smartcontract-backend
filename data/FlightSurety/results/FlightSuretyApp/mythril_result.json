@@ -1,0 +1,12 @@
+{
+  "contract": "FlightSuretyApp",
+  "tool": "mythril",
+  "start": 1640453590.8484182,
+  "end": 1640453594.5180888,
+  "duration": 3.669670581817627,
+  "analysis": {
+    "success": false,
+    "error": "Solc experienced a fatal error (code 1).\n\n/data/FlightSurety/source_code/FlightSuretyApp.sol:7:1: Error: Source \"/data/FlightSurety/node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol\" not found: File not found.\nimport \"../node_modules/openzeppelin-solidity/contracts/math/SafeMath.sol\";\n^-------------------------------------------------------------------------^\n",
+    "issues": []
+  }
+}

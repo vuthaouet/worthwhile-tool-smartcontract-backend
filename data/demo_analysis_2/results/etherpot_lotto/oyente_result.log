@@ -1,0 +1,27 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.25, The latest supported version is 0.4.19
+INFO:root:contract /data/demo_analysis_2/source_code/etherpot_lotto.sol:Lotto:
+INFO:symExec:	============ Results ===========
+INFO:symExec:	  EVM Code Coverage: 			 51.5%
+INFO:symExec:	  Integer Underflow: 			 False
+INFO:symExec:	  Integer Overflow: 			 True
+INFO:symExec:	  Parity Multisig Bug 2: 		 False
+INFO:symExec:	  Callstack Depth Attack Vulnerability:  True
+INFO:symExec:	  Transaction-Ordering Dependence (TOD): False
+INFO:symExec:	  Timestamp Dependency: 		 False
+INFO:symExec:	  Re-Entrancy Vulnerability: 		 False
+INFO:symExec:/data/demo_analysis_2/source_code/etherpot_lotto.sol:124:17: Warning: Integer Overflow.
+         return rounds[roundIndex].ticketsCountByBuyer
+/data/demo_analysis_2/source_code/etherpot_lotto.sol:77:29: Warning: Integer Overflow.
+         var subpotsCount = rounds[roundIndex].pot
+/data/demo_analysis_2/source_code/etherpot_lotto.sol:79:13: Warning: Integer Overflow.
+         if(rounds[roundIndex].pot
+/data/demo_analysis_2/source_code/etherpot_lotto.sol:43:17: Warning: Integer Overflow.
+         return rounds[roundIndex].isCashed
+/data/demo_analysis_2/source_code/etherpot_lotto.sol:128:17: Warning: Integer Overflow.
+         return rounds[roundIndex].pot
+INFO:symExec:/data/demo_analysis_2/source_code/etherpot_lotto.sol:141:14: Warning: Callstack Depth Attack Vulnerability.
+             msg.sender.send(msg.value-value)
+/data/demo_analysis_2/source_code/etherpot_lotto.sol:109:10: Warning: Callstack Depth Attack Vulnerability.
+         winner.send(subpot)
+INFO:symExec:	====== Analysis Completed ======

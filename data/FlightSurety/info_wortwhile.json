@@ -1,0 +1,1 @@
+{"list_file_wortwhile": {"list_file": ["FlightSuretyData.sol", "Migrations.sol", "FlightSuretyApp.sol"], "data": {"FlightSuretyData.sol": ["mythril", "honeybadger", "oyente", "slither"], "Migrations.sol": ["mythril", "honeybadger", "oyente", "slither"], "FlightSuretyApp.sol": ["mythril", "honeybadger", "oyente", "slither"]}}}

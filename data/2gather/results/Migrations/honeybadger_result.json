@@ -1,0 +1,14 @@
+{
+  "contract": "Migrations",
+  "tool": "honeybadger",
+  "start": 1640452930.1870215,
+  "end": 1640452932.9588094,
+  "duration": 2.7717878818511963,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/2gather/source_code/Migrations.sol",
+      "name": "Migrations"
+    }
+  ]
+}

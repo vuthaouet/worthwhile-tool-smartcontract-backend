@@ -1,0 +1,7 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.25, The latest supported version is 0.4.19
+CRITICAL:root:/data/contract/source_code/Eykar.sol:7:13: Error: Expected identifier but got 'payable'
+    address payable public owner;
+            ^-----^
+
+CRITICAL:root:Solidity compilation failed.

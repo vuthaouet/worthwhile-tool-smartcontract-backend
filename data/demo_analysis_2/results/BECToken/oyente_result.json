@@ -1,0 +1,132 @@
+{
+  "contract": "BECToken",
+  "tool": "oyente",
+  "start": 1641370164.0135288,
+  "end": 1641370226.1774464,
+  "duration": 62.163917541503906,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "BasicToken",
+      "evm_code_coverage": "99.1%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [
+        {
+          "line": 291,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 289,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 290,
+          "column": 5,
+          "level": "Warning",
+          "message": "Integer Underflow."
+        },
+        {
+          "line": 261,
+          "column": 3,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "BecToken",
+      "evm_code_coverage": "65.4%",
+      "integer_underflow": true,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "Ownable",
+      "evm_code_coverage": "99.5%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "Pausable",
+      "evm_code_coverage": "99.8%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [
+        {
+          "line": 261,
+          "column": 3,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        }
+      ],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "PausableToken",
+      "evm_code_coverage": "81.6%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "SafeMath",
+      "evm_code_coverage": "100.0%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    },
+    {
+      "errors": [],
+      "file": "/data/demo_analysis_2/source_code/BECToken.sol",
+      "name": "StandardToken",
+      "evm_code_coverage": "99.7%",
+      "integer_underflow": false,
+      "integer_overflow": false,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": false,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

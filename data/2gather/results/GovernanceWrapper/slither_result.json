@@ -1,0 +1,8 @@
+{
+  "contract": "GovernanceWrapper",
+  "tool": "slither",
+  "start": 1640452887.32017,
+  "end": 1640452889.631572,
+  "duration": 2.3114020824432373,
+  "analysis": []
+}

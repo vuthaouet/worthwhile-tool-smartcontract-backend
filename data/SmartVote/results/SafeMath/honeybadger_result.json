@@ -1,0 +1,8 @@
+{
+  "contract": "SafeMath",
+  "tool": "honeybadger",
+  "start": 1640672480.4567368,
+  "end": 1640672482.038708,
+  "duration": 1.5819711685180664,
+  "analysis": []
+}

@@ -1,0 +1,19 @@
+{
+  "contract": "FibonacciBalance",
+  "tool": "honeybadger",
+  "start": 1640452220.4810393,
+  "end": 1640452241.3264987,
+  "duration": 20.845459461212158,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/honeyswap-farm2/source_code/FibonacciBalance.sol",
+      "name": "FibonacciBalance"
+    },
+    {
+      "errors": [],
+      "file": "/data/honeyswap-farm2/source_code/FibonacciBalance.sol",
+      "name": "FibonacciLib"
+    }
+  ]
+}

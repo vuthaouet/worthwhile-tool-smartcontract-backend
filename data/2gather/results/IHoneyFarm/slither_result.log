@@ -1,0 +1,8 @@
+INFO:Slither:Compilation warnings/errors on /data/2gather/source_code/IHoneyFarm.sol:
+[91m/data/2gather/source_code/IHoneyFarm.sol:4:1: Error: Source "@openzeppelin/contracts/token/ERC20/IERC20.sol" not found: File not found.[0m
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+^------------------------------------------------------^
+
+INFO:SlitherSolcParsing:No contract were found in /data/2gather/source_code/IHoneyFarm.sol, check the correct compilation
+WARNING:Slither:[91mNo contract was analyzed[0m
+INFO:Slither:/data/2gather/source_code/IHoneyFarm.sol analyzed (0 contracts), 0 result(s) found

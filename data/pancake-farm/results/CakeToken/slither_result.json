@@ -1,0 +1,8 @@
+{
+  "contract": "CakeToken",
+  "tool": "slither",
+  "start": 1640450817.4095163,
+  "end": 1640450819.588663,
+  "duration": 2.1791467666625977,
+  "analysis": []
+}

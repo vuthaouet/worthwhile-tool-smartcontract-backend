@@ -1,0 +1,8 @@
+{
+  "contract": "IHoneyFarm",
+  "tool": "slither",
+  "start": 1640452700.7371805,
+  "end": 1640452702.8181431,
+  "duration": 2.080962657928467,
+  "analysis": []
+}

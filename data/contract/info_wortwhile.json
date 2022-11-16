@@ -1,0 +1,1 @@
+{"list_file_wortwhile": {"list_file": ["CoordinatesLib.sol", "Migrations.sol", "Eykar.sol"], "data": {"CoordinatesLib.sol": ["mythril", "slither", "oyente", "honeybadger"], "Migrations.sol": ["mythril", "slither", "oyente", "honeybadger"], "Eykar.sol": ["mythril", "slither", "oyente", "honeybadger"]}}}

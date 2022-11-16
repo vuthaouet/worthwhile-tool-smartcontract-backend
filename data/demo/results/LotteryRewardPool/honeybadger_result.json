@@ -1,0 +1,8 @@
+{
+  "contract": "LotteryRewardPool",
+  "tool": "honeybadger",
+  "start": 1640450987.411633,
+  "end": 1640450989.1428914,
+  "duration": 1.7312583923339844,
+  "analysis": []
+}

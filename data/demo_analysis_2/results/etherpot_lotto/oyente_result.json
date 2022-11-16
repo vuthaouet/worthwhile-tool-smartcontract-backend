@@ -1,0 +1,65 @@
+{
+  "contract": "etherpot_lotto",
+  "tool": "oyente",
+  "start": 1641370741.1377287,
+  "end": 1641370755.8908432,
+  "duration": 14.753114461898804,
+  "analysis": [
+    {
+      "errors": [
+        {
+          "line": 124,
+          "column": 17,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 77,
+          "column": 29,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 79,
+          "column": 13,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 43,
+          "column": 17,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 128,
+          "column": 17,
+          "level": "Warning",
+          "message": "Integer Overflow."
+        },
+        {
+          "line": 141,
+          "column": 14,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        },
+        {
+          "line": 109,
+          "column": 10,
+          "level": "Warning",
+          "message": "Callstack Depth Attack Vulnerability."
+        }
+      ],
+      "file": "/data/demo_analysis_2/source_code/etherpot_lotto.sol",
+      "name": "Lotto",
+      "evm_code_coverage": "51.5%",
+      "integer_underflow": false,
+      "integer_overflow": true,
+      "parity_multisig_bug_2": false,
+      "callstack_depth_attack_vulnerability": true,
+      "transaction-ordering_dependence_tod": false,
+      "timestamp_dependency": false,
+      "re-entrancy_vulnerability": false
+    }
+  ]
+}

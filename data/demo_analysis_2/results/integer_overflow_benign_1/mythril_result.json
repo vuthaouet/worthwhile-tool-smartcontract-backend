@@ -1,0 +1,12 @@
+{
+  "contract": "integer_overflow_benign_1",
+  "tool": "mythril",
+  "start": 1641370131.357396,
+  "end": 1641370136.5676672,
+  "duration": 5.21027135848999,
+  "analysis": {
+    "error": null,
+    "issues": [],
+    "success": true
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Slither",
+          "fullDescription": {
+            "text": "Slither is a Solidity static analysis framework written in Python 3. It runs a suite of vulnerability detectors and prints visual information about contract details. Slither enables developers to find vulnerabilities, enhance their code comphrehension, and quickly prototype custom analyses."
+          },
+          "informationUri": "https://github.com/crytic/slither",
+          "rules": [
+            {
+              "id": "Reentrancy_10",
+              "fullDescription": {
+                "text": "Reentrancy in Reentrance.withdraw (/data/blockchain-concepts/source_code/reentrance.sol#21-29):\n\tExternal calls:\n\t- msg.sender.call.value(_amount)() (/data/blockchain-concepts/source_code/reentrance.sol#24-26)\n\tState variables written after the call(s):\n\t- balances (/data/blockchain-concepts/source_code/reentrance.sol#27)\n"
+              },
+              "name": "ReentrancyVulnerability",
+              "shortDescription": {
+                "text": "reentrancy-eth"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_5",
+              "fullDescription": {
+                "text": "Low level call in Reentrance.withdraw (/data/blockchain-concepts/source_code/reentrance.sol#21-29):\n\t-msg.sender.call.value(_amount)() /data/blockchain-concepts/source_code/reentrance.sol#24-26\n"
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "low-level-calls"
+              }
+            }
+          ],
+          "version": "0.7.0"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/blockchain-concepts/source_code/reentrance.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "reentrancy-eth"
+          },
+          "level": "error",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/blockchain-concepts/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 29,
+                  "startLine": 21
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/blockchain-concepts/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 26,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_amount)()"
+                  },
+                  "startLine": 24
+                }
+              }
+            },
+            {
+              "logicalLocations": [
+                {
+                  "kind": "variables_written",
+                  "name": "balances"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/blockchain-concepts/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 27,
+                  "snippet": {
+                    "text": "balances[msg.sender] -= _amount"
+                  },
+                  "startLine": 27
+                }
+              }
+            }
+          ],
+          "ruleId": "Reentrancy_10"
+        },
+        {
+          "message": {
+            "text": "low-level-calls"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdraw"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/blockchain-concepts/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 29,
+                  "startLine": 21
+                }
+              }
+            },
+            {
+              "logicalLocations": [],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/blockchain-concepts/source_code/reentrance.sol"
+                },
+                "region": {
+                  "endLine": 26,
+                  "snippet": {
+                    "text": "msg.sender.call.value(_amount)()"
+                  },
+                  "startLine": 24
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_5"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

@@ -1,0 +1,112 @@
+{
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Mythril",
+          "fullDescription": {
+            "text": "Mythril analyses EVM bytecode using symbolic analysis, taint analysis and control flow checking to detect a variety of security vulnerabilities."
+          },
+          "informationUri": "https://mythx.io/",
+          "rules": [
+            {
+              "id": "AccessControl_13",
+              "fullDescription": {
+                "text": "In the function `withdrawBalance()` a non-zero amount of Ether is sent to msg.sender.\nIt seems that this function can be called without restrictions."
+              },
+              "name": "AccessControlVulnerability",
+              "shortDescription": {
+                "text": "Ether send"
+              }
+            },
+            {
+              "id": "UncheckedLowCalls_3",
+              "fullDescription": {
+                "text": "The return value of an external call is not checked. Note that execution continue even if the called contract throws."
+              },
+              "name": "UncheckedLowCallsVulnerability",
+              "shortDescription": {
+                "text": "Unchecked CALL return value"
+              }
+            }
+          ],
+          "version": "0.4.25"
+        }
+      },
+      "artifacts": [
+        {
+          "location": {
+            "uri": "data/Demo_analysis_1/source_code/mishandled.sol"
+          },
+          "sourceLanguage": "Solidity"
+        }
+      ],
+      "logicalLocations": [
+        {
+          "kind": "function",
+          "name": "withdrawBalance()"
+        }
+      ],
+      "results": [
+        {
+          "message": {
+            "text": "Ether send"
+          },
+          "level": "warning",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/Demo_analysis_1/source_code/mishandled.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "msg.sender.send(amountToWithdraw)"
+                  },
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "ruleId": "AccessControl_13"
+        },
+        {
+          "message": {
+            "text": "Unchecked CALL return value"
+          },
+          "level": "note",
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "kind": "function",
+                  "name": "withdrawBalance()"
+                }
+              ],
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "data/Demo_analysis_1/source_code/mishandled.sol"
+                },
+                "region": {
+                  "snippet": {
+                    "text": "msg.sender.send(amountToWithdraw)"
+                  },
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "ruleId": "UncheckedLowCalls_3"
+        }
+      ]
+    }
+  ],
+  "version": "2.1.0",
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json"
+}

@@ -1,0 +1,8 @@
+{
+  "contract": "IHoneyFarm",
+  "tool": "honeybadger",
+  "start": 1640452073.4994867,
+  "end": 1640452075.1058426,
+  "duration": 1.606355905532837,
+  "analysis": []
+}

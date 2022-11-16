@@ -1,0 +1,8 @@
+INFO:Slither:Compilation warnings/errors on /data/honeyswap-farm/source_code/HoneyFarm.sol:
+[91m/data/honeyswap-farm/source_code/HoneyFarm.sol:44:29: Error: Expected ';' but got identifier[0m
+    IERC20 public immutable hsf;
+                            ^-^
+
+INFO:SlitherSolcParsing:No contract were found in /data/honeyswap-farm/source_code/HoneyFarm.sol, check the correct compilation
+WARNING:Slither:[91mNo contract was analyzed[0m
+INFO:Slither:/data/honeyswap-farm/source_code/HoneyFarm.sol analyzed (0 contracts), 0 result(s) found

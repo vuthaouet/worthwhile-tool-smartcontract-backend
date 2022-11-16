@@ -1,0 +1,19 @@
+WARNING:root:You are using evm version 1.8.2. The supported version is 1.7.3
+WARNING:root:You are using solc version 0.4.25, The latest supported version is 0.4.19
+CRITICAL:root:/data/SmartVote/source_code/ownable.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.7.4;
+^---------------------^
+/data/SmartVote/source_code/SmartVote.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.7.4;
+^---------------------^
+/data/SmartVote/source_code/SafeMath.sol:3:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version
+pragma solidity >=0.6.0 <0.8.0;
+^-----------------------------^
+/data/SmartVote/source_code/SubAdministrator.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.7.4;
+^---------------------^
+/data/SmartVote/source_code/AdminPoll.sol:2:1: Error: Source file requires different compiler version (current compiler is 0.4.25+commit.59dbf8f1.Linux.g++ - note that nightly builds are considered to be strictly less than the released version
+pragma solidity ^0.7.4;
+^---------------------^
+
+CRITICAL:root:Solidity compilation failed.

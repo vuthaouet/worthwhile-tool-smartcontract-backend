@@ -1,0 +1,14 @@
+{
+  "contract": "mishandled",
+  "tool": "honeybadger",
+  "start": 1641369596.5182858,
+  "end": 1641369598.6697595,
+  "duration": 2.1514737606048584,
+  "analysis": [
+    {
+      "errors": [],
+      "file": "/data/Demo_analysis_1/source_code/mishandled.sol",
+      "name": "SendBack"
+    }
+  ]
+}
